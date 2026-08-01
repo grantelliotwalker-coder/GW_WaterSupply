@@ -1,2389 +1,3043 @@
 {
-  "generated_at": "2026-08-01T09:13:58.829058+00:00",
+  "generated_at": "2026-08-01T09:40:16.859043+00:00",
   "latest_reading": "2026-07-31T00:00:00.000+10:00",
-  "count": 397,
-  "total_ML": 90462133.754,
-  "total_GL": 90462.133754,
+  "count": 375,
+  "total_ML": 77423476.075,
+  "total_GL": 77423.476075,
+  "raw_count": 397,
+  "raw_total_ML": 90462133.754,
+  "raw_total_GL": 90462.133754,
+  "duplicate_groups": [
+    {
+      "matched_on": "nepean",
+      "kept": {
+        "name": "NEPEAN DAM",
+        "no": "212205",
+        "ts_id": "580042010",
+        "time": "2026-07-29T00:00:00.000+10:00",
+        "volume_ML": 56328.52
+      },
+      "excluded": [
+        {
+          "name": "Nepean",
+          "no": "212205.3",
+          "ts_id": "369456010",
+          "time": "2026-07-29T00:00:00.000+10:00",
+          "volume_ML": 55972.348
+        }
+      ]
+    },
+    {
+      "matched_on": "warragamba",
+      "kept": {
+        "name": "Warragamba",
+        "no": "212243.3",
+        "ts_id": "369684010",
+        "time": "2026-07-29T00:00:00.000+10:00",
+        "volume_ML": 1919056.075
+      },
+      "excluded": [
+        {
+          "name": "Warragamba",
+          "no": "212243.1",
+          "ts_id": "369665010",
+          "time": "2026-07-30T00:00:00.000+10:00",
+          "volume_ML": 1918523.788
+        }
+      ]
+    },
+    {
+      "matched_on": "fitzroyfalls",
+      "kept": {
+        "name": "FITZROY FALLS DAM",
+        "no": "215235",
+        "ts_id": "580307010",
+        "time": "2026-07-29T00:00:00.000+10:00",
+        "volume_ML": 21452.49
+      },
+      "excluded": [
+        {
+          "name": "Fitzroy Falls",
+          "no": "215235.3",
+          "ts_id": "370026010",
+          "time": "2026-07-29T00:00:00.000+10:00",
+          "volume_ML": 8443.571
+        }
+      ]
+    },
+    {
+      "matched_on": "greavescreek",
+      "kept": {
+        "name": "Greaves Creek",
+        "no": "212285.3",
+        "ts_id": "369874010",
+        "time": "2026-07-29T00:00:00.000+10:00",
+        "volume_ML": 325.93
+      },
+      "excluded": [
+        {
+          "name": "GREAVES CREEK DAM",
+          "no": "212285",
+          "ts_id": "580231010",
+          "time": "2026-07-29T00:00:00.000+10:00",
+          "volume_ML": 303.34
+        }
+      ]
+    },
+    {
+      "matched_on": "cataract",
+      "kept": {
+        "name": "CATARACT DAM",
+        "no": "212232",
+        "ts_id": "580117010",
+        "time": "2026-07-29T00:00:00.000+10:00",
+        "volume_ML": 77433.03
+      },
+      "excluded": [
+        {
+          "name": "Cataract",
+          "no": "212232.3",
+          "ts_id": "369646010",
+          "time": "2026-07-29T00:00:00.000+10:00",
+          "volume_ML": 77236.666
+        }
+      ]
+    },
+    {
+      "matched_on": "woronora",
+      "kept": {
+        "name": "WORONORA DAM",
+        "no": "213210",
+        "ts_id": "580250010",
+        "time": "2026-07-29T00:00:00.000+10:00",
+        "volume_ML": 67493.45
+      },
+      "excluded": [
+        {
+          "name": "Woronora",
+          "no": "213210.3",
+          "ts_id": "369912010",
+          "time": "2026-07-29T00:00:00.000+10:00",
+          "volume_ML": 66845.653
+        }
+      ]
+    },
+    {
+      "matched_on": "lakeargyle",
+      "kept": {
+        "name": "Lake Argyle Dam",
+        "no": "ODSS_22241_STAMN.1",
+        "ts_id": "361226010",
+        "time": "2026-07-25T02:00:00.000+10:00",
+        "volume_ML": 10841498.805
+      },
+      "excluded": [
+        {
+          "name": "Lake Argyle Dam",
+          "no": "ODSS_22241_GLEVN.1",
+          "ts_id": "370843010",
+          "time": "2026-07-25T02:00:00.000+10:00",
+          "volume_ML": 10517498.805
+        }
+      ]
+    },
+    {
+      "matched_on": "manjimup",
+      "kept": {
+        "name": "Manjimup Dam Wsl",
+        "no": "ODSS_18335_STAMN.1",
+        "ts_id": "361017010",
+        "time": "2026-07-29T02:00:00.000+10:00",
+        "volume_ML": 1124.37
+      },
+      "excluded": [
+        {
+          "name": "Manjimup Dam Wsl",
+          "no": "ODSS_18335_WSLAHD.1",
+          "ts_id": "370634010",
+          "time": "2026-07-29T02:00:00.000+10:00",
+          "volume_ML": 1088.36
+        }
+      ]
+    },
+    {
+      "matched_on": "waroona",
+      "kept": {
+        "name": "Waroona Dam Water Level",
+        "no": "ODSS_46394_STAMN.1",
+        "ts_id": "361435010",
+        "time": "2026-07-28T02:00:00.000+10:00",
+        "volume_ML": 3735.845
+      },
+      "excluded": [
+        {
+          "name": "Waroona Dam Water Level",
+          "no": "ODSS_46394_WSLAHD.1",
+          "ts_id": "370938010",
+          "time": "2026-07-28T02:00:00.000+10:00",
+          "volume_ML": 3735.845
+        }
+      ]
+    },
+    {
+      "matched_on": "quickup",
+      "kept": {
+        "name": "Quickup Dam Storage",
+        "no": "ODSS_18207_STAMN.1",
+        "ts_id": "360694010",
+        "time": "2026-07-21T02:00:00.000+10:00",
+        "volume_ML": 795.558
+      },
+      "excluded": [
+        {
+          "name": "Quickup Wsl",
+          "no": "ODSS_18327_WSLAHD.1",
+          "ts_id": "370580010",
+          "time": "2026-07-21T02:00:00.000+10:00",
+          "volume_ML": 684.628
+        }
+      ]
+    },
+    {
+      "matched_on": "harris",
+      "kept": {
+        "name": "Harris Dam",
+        "no": "ODSS_18106_STAMN.1",
+        "ts_id": "360675010",
+        "time": "2026-07-28T02:00:00.000+10:00",
+        "volume_ML": 11048.2
+      },
+      "excluded": [
+        {
+          "name": "Harris Wsl",
+          "no": "ODSS_18331_WSLAHD.1",
+          "ts_id": "370596010",
+          "time": "2026-07-28T02:00:00.000+10:00",
+          "volume_ML": 10007.472
+        }
+      ]
+    },
+    {
+      "matched_on": "harvey",
+      "kept": {
+        "name": "Harvey Dam Water Level",
+        "no": "ODSS_45321_STAMN.1",
+        "ts_id": "361321010",
+        "time": "2026-07-26T02:00:00.000+10:00",
+        "volume_ML": 28675.853
+      },
+      "excluded": [
+        {
+          "name": "Harvey Dam Water Level",
+          "no": "ODSS_45321_SLEVELM.1",
+          "ts_id": "370920010",
+          "time": "2026-07-26T02:00:00.000+10:00",
+          "volume_ML": 27901.333
+        }
+      ]
+    },
+    {
+      "matched_on": "glenmervyn",
+      "kept": {
+        "name": "Glen Mervyn Wsl",
+        "no": "ODSS_18332_STAMN.1",
+        "ts_id": "360979010",
+        "time": "2026-07-28T02:00:00.000+10:00",
+        "volume_ML": 1052.615
+      },
+      "excluded": [
+        {
+          "name": "Glen Mervyn Wsl",
+          "no": "ODSS_18332_WSLAHD.1",
+          "ts_id": "370615010",
+          "time": "2026-07-28T02:00:00.000+10:00",
+          "volume_ML": 1051.935
+        }
+      ]
+    },
+    {
+      "matched_on": "harding",
+      "kept": {
+        "name": "Harding Dam",
+        "no": "ODSS_22257_STAMN.1",
+        "ts_id": "361264010",
+        "time": "2026-07-29T02:00:00.000+10:00",
+        "volume_ML": 55480.618
+      },
+      "excluded": [
+        {
+          "name": "Harding Dam",
+          "no": "ODSS_22257_SLEVELM.1",
+          "ts_id": "370862010",
+          "time": "2026-07-29T02:00:00.000+10:00",
+          "volume_ML": 55105.005
+        }
+      ]
+    },
+    {
+      "matched_on": "samsonbk",
+      "kept": {
+        "name": "Samson Bk Wsl",
+        "no": "ODSS_18326_STAMN.1",
+        "ts_id": "360903010",
+        "time": "2026-07-28T02:00:00.000+10:00",
+        "volume_ML": 3931.875
+      },
+      "excluded": [
+        {
+          "name": "Samson Bk Wsl",
+          "no": "ODSS_18326_WSLAHD.1",
+          "ts_id": "369513010",
+          "time": "2026-07-28T02:00:00.000+10:00",
+          "volume_ML": 3840.795
+        }
+      ]
+    },
+    {
+      "matched_on": "stirling",
+      "kept": {
+        "name": "Stirling Wsl",
+        "no": "ODSS_18315_STAMN.1",
+        "ts_id": "363350010",
+        "time": "2026-07-26T02:00:00.000+10:00",
+        "volume_ML": 27942.12
+      },
+      "excluded": [
+        {
+          "name": "Stirling Wsl",
+          "no": "ODSS_18315_WSLAHD.1",
+          "ts_id": "370501010",
+          "time": "2026-07-26T02:00:00.000+10:00",
+          "volume_ML": 25651.26
+        }
+      ]
+    },
+    {
+      "matched_on": "drakesbk",
+      "kept": {
+        "name": "Drakes Bk Wsl",
+        "no": "ODSS_18319_STAMN.1",
+        "ts_id": "360789010",
+        "time": "2026-07-28T02:00:00.000+10:00",
+        "volume_ML": 1611.5
+      },
+      "excluded": [
+        {
+          "name": "Drakes Bk Wsl",
+          "no": "ODSS_18319_WSLAHD.1",
+          "ts_id": "370539010",
+          "time": "2026-07-28T02:00:00.000+10:00",
+          "volume_ML": 1591.5
+        }
+      ]
+    },
+    {
+      "matched_on": "tenmilebk",
+      "kept": {
+        "name": "Ten Mile Bk Wsl",
+        "no": "ODSS_18325_STAMN.1",
+        "ts_id": "360865010",
+        "time": "2026-07-28T02:00:00.000+10:00",
+        "volume_ML": 1196.529
+      },
+      "excluded": [
+        {
+          "name": "Ten Mile Bk Wsl",
+          "no": "ODSS_18325_WSLAHD.1",
+          "ts_id": "369494010",
+          "time": "2026-07-28T02:00:00.000+10:00",
+          "volume_ML": 1141.04
+        }
+      ]
+    },
+    {
+      "matched_on": "wellington",
+      "kept": {
+        "name": "Wellington Wsl",
+        "no": "ODSS_18320_STAMN.1",
+        "ts_id": "360827010",
+        "time": "2026-07-26T02:00:00.000+10:00",
+        "volume_ML": 72066.603
+      },
+      "excluded": [
+        {
+          "name": "Wellington Wsl",
+          "no": "ODSS_18320_WSLAHD.1",
+          "ts_id": "370558010",
+          "time": "2026-07-26T02:00:00.000+10:00",
+          "volume_ML": 71052.789
+        }
+      ]
+    },
+    {
+      "matched_on": "loguebrook",
+      "kept": {
+        "name": "Logue Brook Wsl",
+        "no": "ODSS_18317_STAMN.1",
+        "ts_id": "360751010",
+        "time": "2026-07-28T02:00:00.000+10:00",
+        "volume_ML": 11751.82
+      },
+      "excluded": [
+        {
+          "name": "Logue Brook Wsl",
+          "no": "ODSS_18317_WSLAHD.1",
+          "ts_id": "370520010",
+          "time": "2026-07-28T02:00:00.000+10:00",
+          "volume_ML": 11371.96
+        }
+      ]
+    },
+    {
+      "matched_on": "tallowa",
+      "kept": {
+        "name": "Tallowa",
+        "no": "215212.3",
+        "ts_id": "369988010",
+        "time": "2026-07-29T00:00:00.000+10:00",
+        "volume_ML": 90125.0
+      },
+      "excluded": [
+        {
+          "name": "Tallowa",
+          "no": "215212.1",
+          "ts_id": "369969010",
+          "time": "2026-07-30T00:00:00.000+10:00",
+          "volume_ML": 89842.016
+        },
+        {
+          "name": "TALLOWA DAM",
+          "no": "215212",
+          "ts_id": "580288010",
+          "time": "2026-07-29T00:00:00.000+10:00",
+          "volume_ML": 89767.57
+        }
+      ]
+    }
+  ],
   "stations": [
     {
       "name": "Lake Argyle Dam",
       "no": "ODSS_22241_STAMN.1",
+      "ts_id": "361226010",
       "time": "2026-07-25T02:00:00.000+10:00",
       "volume_ML": 10841498.805
     },
     {
       "name": "Argyle Vill Top Dam Wsl",
       "no": "ODSS_18337_WSLAHD.1",
-      "time": "2026-07-25T02:00:00.000+10:00",
-      "volume_ML": 10517498.805
-    },
-    {
-      "name": "Lake Argyle Dam",
-      "no": "ODSS_22241_GLEVN.1",
+      "ts_id": "370653010",
       "time": "2026-07-25T02:00:00.000+10:00",
       "volume_ML": 10517498.805
     },
     {
       "name": "Lake Argyle Water level Logged on SCADA",
       "no": "ODSS_58794_WSLAHD.1",
+      "ts_id": "370425010",
       "time": "2026-07-28T02:00:00.000+10:00",
       "volume_ML": 10468761.824
     },
     {
       "name": "GORDON LAKE - AT INTAKE",
       "no": "646.1",
+      "ts_id": "372195010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 6443031.0
     },
     {
       "name": "Dartmouth",
       "no": "sp-o10298",
+      "ts_id": "367084010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 2737977.01
     },
     {
       "name": "Hideaway Bay",
       "no": "212243",
+      "ts_id": "580136010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 1964242.72
     },
     {
       "name": "Warragamba",
       "no": "212243.3",
+      "ts_id": "369684010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 1919056.075
     },
     {
-      "name": "Warragamba",
-      "no": "212243.1",
-      "time": "2026-07-30T00:00:00.000+10:00",
-      "volume_ML": 1918523.788
-    },
-    {
       "name": "Lake Eucumbene RL",
       "no": "222538",
+      "ts_id": "324989010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 1781621.528
     },
     {
       "name": "Burdekin Falls Dam",
       "no": "120016A",
+      "ts_id": "298709010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 1767579.377
     },
     {
       "name": "Lake Eildon",
       "no": "sp-o10334",
+      "ts_id": "368065010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 1719946.061
     },
     {
       "name": "HUME DAM STORAGE",
       "no": "401027",
+      "ts_id": "145365010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 1669229.315
     },
     {
       "name": "Lake Alexandrina",
       "no": "LKALEX",
+      "ts_id": "271024010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 1613751.062
     },
     {
       "name": "Wivenhoe",
       "no": "143036A",
+      "ts_id": "368499010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 992411.205
     },
     {
       "name": "GREAT LAKE - AT POATINA INLET",
       "no": "139.2",
+      "ts_id": "287974010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 983319.4
     },
     {
       "name": "BLOWERING DAM",
       "no": "410102",
+      "ts_id": "184818010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 905462.166
     },
     {
       "name": "COPETON DAM",
       "no": "418035",
+      "ts_id": "160022010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 825978.501
     },
     {
       "name": "WYANGALA STORAGE",
       "no": "412010",
+      "ts_id": "185359010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 765829.091
     },
     {
       "name": "GLENBAWN DAM",
       "no": "210097",
+      "ts_id": "183043010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 710915.198
     },
     {
       "name": "THOMSON RESERVOIR HG",
       "no": "225256A",
+      "ts_id": "289300010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 697041.778
     },
     {
       "name": "Lake Victoria at Outlet Regulator",
       "no": "A4260553",
+      "ts_id": "743718010",
       "time": "2026-07-30T00:30:00.000+10:00",
       "volume_ML": 632420.83
     },
     {
       "name": "Lake Victoria at Lake Centre",
       "no": "A4261093",
+      "ts_id": "316845010",
       "time": "2026-07-28T00:30:00.000+10:00",
       "volume_ML": 628566.054
     },
     {
       "name": "MENINDEE TOTAL",
       "no": "425049",
+      "ts_id": "720973010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 558460.14
     },
     {
       "name": "Fred Haigh Dam",
       "no": "135009A",
+      "ts_id": "300575010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 539309.402
     },
     {
       "name": "BURRINJUCK DAM",
       "no": "410131",
+      "ts_id": "185036010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 529536.06
     },
     {
       "name": "Lake Jindabyne RL",
       "no": "222540",
+      "ts_id": "325065010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 511267.587
     },
     {
       "name": "Peter Faust Dam HW",
       "no": "122010A",
+      "ts_id": "298913010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 477383.995
     },
     {
       "name": "Lake Awoonga",
       "no": "63",
+      "ts_id": "233836010",
       "time": "2026-07-26T00:00:00.000+10:00",
       "volume_ML": 467391.809
     },
     {
       "name": "KING WILLIAM LAKE - AT DAM",
       "no": "128.1",
+      "ts_id": "369391010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 458859.8
     },
     {
       "name": "Tinaroo Falls Dam",
       "no": "110014A",
+      "ts_id": "298467010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 441841.127
     },
     {
       "name": "Fairbairn Dam",
       "no": "130216A",
+      "ts_id": "299454010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 411348.515
     },
     {
       "name": "Waranga Basin",
       "no": "sp-o11534",
+      "ts_id": "367341010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 400401.864
     },
     {
       "name": "BURRENDONG DAM",
       "no": "421078",
+      "ts_id": "187581010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 378754.414
     },
     {
       "name": "SPLIT ROCK DAM",
       "no": "419080",
+      "ts_id": "163419010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 366334.587
     },
     {
       "name": "BURBURY LAKE - AT CROTTY DAM",
       "no": "298.1",
+      "ts_id": "304014010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 354666.0
     },
     {
       "name": "Nerang R at Hinze Dam HW",
       "no": "146033A",
+      "ts_id": "369031010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 308380.601
     },
     {
       "name": "WINDAMERE DAM",
       "no": "421148",
+      "ts_id": "167107010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 305473.087
     },
     {
       "name": "Somerset",
       "no": "143305A",
+      "ts_id": "368803010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 302227.942
     },
     {
       "name": "Lake Albert",
       "no": "LKALBERT",
+      "ts_id": "270983010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 281882.755
     },
     {
       "name": "Darwin River Dam - Intake Tower",
       "no": "G8150011",
+      "ts_id": "62270010",
       "time": "2026-07-30T00:30:00.000+10:00",
       "volume_ML": 273835.424
     },
     {
       "name": "ARTHURS LAKE - AT PUMP STATION",
       "no": "418.1",
+      "ts_id": "288563010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 267683.419
     },
     {
       "name": "ECHO LAKE - AT DAM",
       "no": "176.1",
+      "ts_id": "288202010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 266954.5
     },
     {
       "name": "GLENNIES CREEK DAM",
       "no": "210117",
+      "ts_id": "183155010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 264588.17
     },
     {
       "name": "KEEPIT DAM",
       "no": "419041",
+      "ts_id": "162528010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 245855.136
     },
     {
       "name": "LAKE CAWNDILLA",
       "no": "425023",
+      "ts_id": "170422010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 209728.483
     },
     {
       "name": "L PAMARAROO   COPI H",
       "no": "425021",
+      "ts_id": "170346010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 200318.781
     },
     {
       "name": "AVON DAM",
       "no": "212211",
+      "ts_id": "580060010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 199185.47
     },
     {
       "name": "Boondooma Dam",
       "no": "136316A",
+      "ts_id": "301757010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 191362.205
     },
     {
       "name": "CARDINIA RES HG",
       "no": "228263A",
+      "ts_id": "290596010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 176134.556
     },
     {
       "name": "Paradise Dam (Alert)",
       "no": "136024B",
+      "ts_id": "379877010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 165661.891
     },
     {
       "name": "Paradise Dam",
       "no": "136024A",
+      "ts_id": "300979010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 165627.762
     },
     {
       "name": "TANJIL @ BLUE ROCK",
       "no": "226230A",
+      "ts_id": "356493010",
       "time": "2026-07-31T00:00:00.000+10:00",
       "volume_ML": 164423.027
     },
     {
       "name": "Wuruma Dam",
       "no": "136113A",
+      "ts_id": "301115010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 160210.34
     },
     {
       "name": "MACALISTER @ GLENMAG",
       "no": "225225A",
+      "ts_id": "354256010",
       "time": "2026-07-31T00:00:00.000+10:00",
       "volume_ML": 152694.535
     },
     {
       "name": "MACKINTOSH LAKE - AT DAM",
       "no": "656.1",
+      "ts_id": "372272010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 151767.1
     },
     {
       "name": "Teemburra Dam",
       "no": "125015A",
+      "ts_id": "299089010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 147444.697
     },
     {
       "name": "PEDDER LAKE - AT SERPENTINE",
       "no": "648.1",
+      "ts_id": "372233010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 132377.4
     },
     {
       "name": "PINDARI DAM",
       "no": "416030",
+      "ts_id": "158156010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 131592.591
     },
     {
       "name": "Bjelke-Petersen Dam",
       "no": "136210A",
+      "ts_id": "301438010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 131194.107
     },
     {
       "name": "YARRA RIV-UY RES HG",
       "no": "229102A",
+      "ts_id": "292196010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 123616.278
     },
     {
       "name": "Googong Res at Dam",
       "no": "410748",
+      "ts_id": "52977010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 119881.26
     },
     {
       "name": "PIKE CREEK AT GLENLYON DAM - STORAGE GAUGE",
       "no": "416315A",
+      "ts_id": "721367010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 119223.74
     },
     {
       "name": "PIEMAN LAKE - AT DAM",
       "no": "742.1",
+      "ts_id": "372365010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 112754.4
     },
     {
       "name": "Eungella Dam HW",
       "no": "120211A",
+      "ts_id": "298752010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 112107.521
     },
     {
       "name": "North Pine River at North Pine Dam HW",
       "no": "142801A",
+      "ts_id": "368461010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 110093.294
     },
     {
       "name": "Yarrawonga Weir",
       "no": "sp-o10814",
+      "ts_id": "367252010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 108883.014
     },
     {
       "name": "L WETHERELL TANDURE",
       "no": "425020",
+      "ts_id": "170308010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 105613.2
     },
     {
       "name": "Julius Dam",
       "no": "913015B",
+      "ts_id": "380214010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 101066.707
     },
     {
       "name": "Teviot Brook at Wyaralong Dam HW",
       "no": "145033A",
+      "ts_id": "368882010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 100575.819
     },
     {
       "name": "Rocklands",
       "no": "ROCKL-RES-HG",
+      "ts_id": "772094010",
       "time": "2026-07-31T00:00:00.000+10:00",
       "volume_ML": 100317.25
     },
     {
       "name": "CHAFFEY DAM",
       "no": "419069",
+      "ts_id": "163199010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 94308.911
     },
     {
       "name": "Tallowa",
       "no": "215212.3",
+      "ts_id": "369988010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 90125.0
     },
     {
-      "name": "Tallowa",
-      "no": "215212.1",
-      "time": "2026-07-30T00:00:00.000+10:00",
-      "volume_ML": 89842.016
-    },
-    {
-      "name": "TALLOWA DAM",
-      "no": "215212",
-      "time": "2026-07-29T00:00:00.000+10:00",
-      "volume_ML": 89767.57
-    },
-    {
       "name": "Cotter Res. at Dam",
       "no": "410704",
+      "ts_id": "52860010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 79374.296
     },
     {
       "name": "CATARACT DAM",
       "no": "212232",
+      "ts_id": "580117010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 77433.03
     },
     {
-      "name": "Cataract",
-      "no": "212232.3",
-      "time": "2026-07-29T00:00:00.000+10:00",
-      "volume_ML": 77236.666
-    },
-    {
       "name": "CORDEAUX DAM",
       "no": "212220",
+      "ts_id": "580098010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 76623.13
     },
     {
       "name": "ROWALLAN LAKE - AT DAM",
       "no": "562.1",
+      "ts_id": "371835010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 74450.14
     },
     {
       "name": "Wellington Wsl",
       "no": "ODSS_18320_STAMN.1",
+      "ts_id": "360827010",
       "time": "2026-07-26T02:00:00.000+10:00",
       "volume_ML": 72066.603
     },
     {
       "name": "Wellington Wsl Logger",
       "no": "ODSS_57614_WSLAHD.1",
+      "ts_id": "370406010",
       "time": "2026-07-29T02:00:00.000+10:00",
       "volume_ML": 71405.459
     },
     {
-      "name": "Wellington Wsl",
-      "no": "ODSS_18320_WSLAHD.1",
-      "time": "2026-07-26T02:00:00.000+10:00",
-      "volume_ML": 71052.789
-    },
-    {
       "name": "Rookwood Weir HW",
       "no": "130012A",
+      "ts_id": "769293010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 69616.76
     },
     {
       "name": "SUGARLOAF RES DAM",
       "no": "229607A",
+      "ts_id": "294912010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 69215.833
     },
     {
       "name": "Reynolds Ck at Moogerah Dam HW",
       "no": "143111A",
+      "ts_id": "368654010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 69096.942
     },
     {
       "name": "WORONORA DAM",
       "no": "213210",
+      "ts_id": "580250010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 67493.45
     },
     {
-      "name": "Woronora",
-      "no": "213210.3",
-      "time": "2026-07-29T00:00:00.000+10:00",
-      "volume_ML": 66845.653
-    },
-    {
       "name": "Beardmore Dam",
       "no": "422212B",
+      "ts_id": "302344010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 63568.617
     },
     {
       "name": "MURCHISON LAKE - AT DAM",
       "no": "657.1",
+      "ts_id": "288791010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 62764.51
     },
     {
       "name": "Kinchant Dam HW",
       "no": "126004A",
+      "ts_id": "299144010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 62423.599
     },
     {
       "name": "Leslie Dam",
       "no": "422315B",
+      "ts_id": "302462010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 61441.131
     },
     {
       "name": "Lake_Bellfield",
       "no": "LAKE-BELLFD-HG",
+      "ts_id": "771837010",
       "time": "2026-07-31T00:00:00.000+10:00",
       "volume_ML": 60670.24
     },
     {
       "name": "Obi Obi Ck at Baroon Pocket Dam HW",
       "no": "138121A",
+      "ts_id": "368195010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 60139.078
     },
     {
       "name": "Cressbrook Dam",
       "no": "70",
+      "ts_id": "284461010",
       "time": "2026-07-22T00:00:00.000+10:00",
       "volume_ML": 58254.85
     },
     {
       "name": "NEPEAN DAM",
       "no": "212205",
+      "ts_id": "580042010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 56328.52
     },
     {
-      "name": "Nepean",
-      "no": "212205.3",
-      "time": "2026-07-29T00:00:00.000+10:00",
-      "volume_ML": 55972.348
-    },
-    {
       "name": "Harding Dam",
       "no": "ODSS_22257_STAMN.1",
+      "ts_id": "361264010",
       "time": "2026-07-29T02:00:00.000+10:00",
       "volume_ML": 55480.618
     },
     {
       "name": "Canning Dam Storage Volume",
       "no": "ODSS_11933_STAMN.1",
+      "ts_id": "360621010",
       "time": "2026-07-28T02:00:00.000+10:00",
       "volume_ML": 55390.47
     },
     {
       "name": "Canning WSL - Logger Data",
       "no": "ODSS_45529_WSLAHD.1",
+      "ts_id": "370045010",
       "time": "2026-07-29T02:00:00.000+10:00",
       "volume_ML": 55331.831
     },
     {
       "name": "Harding Dam Water Levels - Site Readings",
       "no": "ODSS_46616_WSLAHD.1",
-      "time": "2026-07-29T02:00:00.000+10:00",
-      "volume_ML": 55105.005
-    },
-    {
-      "name": "Harding Dam",
-      "no": "ODSS_22257_SLEVELM.1",
+      "ts_id": "370957010",
       "time": "2026-07-29T02:00:00.000+10:00",
       "volume_ML": 55105.005
     },
     {
       "name": "Harding WSL - GIS logger at Damsite",
       "no": "ODSS_57389_WSLAHD.1",
+      "ts_id": "370330010",
       "time": "2026-07-29T02:00:00.000+10:00",
       "volume_ML": 55074.68
     },
     {
       "name": "Canning Wsl-Ranger",
       "no": "ODSS_21166_WSLAHD.1",
+      "ts_id": "370767010",
       "time": "2026-07-26T02:00:00.000+10:00",
       "volume_ML": 54811.009
     },
     {
       "name": "L TANDURE@STORAGE",
       "no": "425047",
+      "ts_id": "721049010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 54691.31
     },
     {
       "name": "L WETHERELL@STORAGE",
       "no": "425046",
+      "ts_id": "721030010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 50805.94
     },
     {
       "name": "ROSEBERY LAKE - AT DAM",
       "no": "658.1",
+      "ts_id": "372309010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 50397.92
     },
     {
       "name": "Corin Res. at Dam",
       "no": "410742",
+      "ts_id": "52936010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 47944.143
     },
     {
       "name": "Serpentine Main Dam Storage Volume",
       "no": "ODSS_11453_STAMN.1",
+      "ts_id": "360542010",
       "time": "2026-07-28T02:00:00.000+10:00",
       "volume_ML": 45819.95
     },
     {
       "name": "Yabba Ck at Borumba Dam HW",
       "no": "138112A",
+      "ts_id": "368157010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 45743.95
     },
     {
       "name": "Serpentine Main Dam WSL - Logger",
       "no": "ODSS_45534_WSLAHD.1",
+      "ts_id": "370124010",
       "time": "2026-07-29T02:00:00.000+10:00",
       "volume_ML": 44820.074
     },
     {
       "name": "PROSPECT RESERVOIR",
       "no": "213240",
+      "ts_id": "580270010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 44622.59
     },
     {
       "name": "Serpentine Main Dam WSL - Ranger",
       "no": "ODSS_21139_WSLAHD.1",
+      "ts_id": "370710010",
       "time": "2026-07-28T02:00:00.000+10:00",
       "volume_ML": 44616.057
     },
     {
       "name": "Burnett Ck at Maroon Dam HW",
       "no": "145021A",
+      "ts_id": "368841010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 44339.691
     },
     {
       "name": "LAKE MENINDEE",
       "no": "425022",
+      "ts_id": "170389010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 42684.487
     },
     {
       "name": "OBERON DAM",
       "no": "421189",
+      "ts_id": "187709010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 41541.486
     },
     {
       "name": "North Dandalup Dam Storage Volume",
       "no": "ODSS_11418_STAMN.1",
+      "ts_id": "360523010",
       "time": "2026-07-28T02:00:00.000+10:00",
       "volume_ML": 40819.34
     },
     {
       "name": "Nth Dandalup Water Level-Ranger",
       "no": "ODSS_21138_WSLAHD.1",
+      "ts_id": "370692010",
       "time": "2026-07-29T02:00:00.000+10:00",
       "volume_ML": 39824.276
     },
     {
       "name": "Nth Dandalup WSL - Logger Data",
       "no": "ODSS_45531_WSLAHD.1",
+      "ts_id": "370064010",
       "time": "2026-07-29T02:00:00.000+10:00",
       "volume_ML": 39618.157
     },
     {
       "name": "Coolmunda Dam",
       "no": "416409A",
+      "ts_id": "302070010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 39232.585
     },
     {
       "name": "Upper Coliban Reservoir",
       "no": "UPPERCOLIBAN",
+      "ts_id": "283257010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 37950.0
     },
     {
       "name": "River Murray at Lock 3 Upstream (AMTD 431.4km)",
       "no": "A4260516",
+      "ts_id": "363630010",
       "time": "2026-07-30T00:30:00.000+10:00",
       "volume_ML": 37590.678
     },
     {
       "name": "SILVAN RESERVOIR",
       "no": "229405A",
+      "ts_id": "294488010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 36091.444
     },
     {
       "name": "TARAGO R-TARAGO RES",
       "no": "228224A",
+      "ts_id": "290084010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 34624.722
     },
     {
       "name": "CARCOAR DAM",
       "no": "412106",
+      "ts_id": "185587010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 33015.736
     },
     {
       "name": "Tullaroop Reservoir",
       "no": "sp-o11454",
+      "ts_id": "367633010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 32944.564
     },
     {
       "name": "Mt Bold Reservoir (SA Water)",
       "no": "SAWMTBORS.1",
+      "ts_id": "429981010",
       "time": "2026-07-28T00:30:00.000+10:00",
       "volume_ML": 32424.71
     },
     {
       "name": "CARGELLIGO STORAGE",
       "no": "412107",
+      "ts_id": "185625010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 32069.326
     },
     {
       "name": "Callide Dam (Intake)",
       "no": "130314B",
+      "ts_id": "299812010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 30303.01
     },
     {
       "name": "Callide Dam Wall",
       "no": "130314C",
+      "ts_id": "380471010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 30261.452
     },
     {
       "name": "Wungong Dam Storage Volume",
       "no": "ODSS_11633_STAMN.1",
+      "ts_id": "360580010",
       "time": "2026-07-28T02:00:00.000+10:00",
       "volume_ML": 30130.79
     },
     {
       "name": "St.CLAIR LAKE - AT PUMP HOUSE POINT",
       "no": "131.1",
+      "ts_id": "287936010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 28846.588
     },
     {
       "name": "Harvey Dam Water Level",
       "no": "ODSS_45321_STAMN.1",
+      "ts_id": "361321010",
       "time": "2026-07-26T02:00:00.000+10:00",
       "volume_ML": 28675.853
     },
     {
       "name": "LAL LAL RES. H.G.",
       "no": "232222A",
+      "ts_id": "768793010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 28675.16
     },
     {
       "name": "River Murray at Lock 1 Upstream (AMTD 274.3km)",
       "no": "A4260902",
+      "ts_id": "363747010",
       "time": "2026-07-30T00:30:00.000+10:00",
       "volume_ML": 28406.514
     },
     {
       "name": "Ned Churchward Weir",
       "no": "136023A",
+      "ts_id": "300924010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 28218.337
     },
     {
       "name": "MEADOWBANK LAKE - AT DAM",
       "no": "565.1",
+      "ts_id": "371873010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 28074.036
     },
     {
       "name": "Harvey Dam Water Level-Logger",
       "no": "ODSS_47866_WSLAHD.1",
+      "ts_id": "370178010",
       "time": "2026-07-29T02:00:00.000+10:00",
       "volume_ML": 27999.035
     },
     {
       "name": "Stirling Wsl",
       "no": "ODSS_18315_STAMN.1",
+      "ts_id": "363350010",
       "time": "2026-07-26T02:00:00.000+10:00",
       "volume_ML": 27942.12
     },
     {
       "name": "Harvey Dam Water Level-Manual",
       "no": "ODSS_55912_WSLAHD.1",
-      "time": "2026-07-26T02:00:00.000+10:00",
-      "volume_ML": 27901.333
-    },
-    {
-      "name": "Harvey Dam Water Level",
-      "no": "ODSS_45321_SLEVELM.1",
+      "ts_id": "370995010",
       "time": "2026-07-26T02:00:00.000+10:00",
       "volume_ML": 27901.333
     },
     {
       "name": "River Murray at Lock 2 Upstream (AMTD 362.1km)",
       "no": "A4260518",
+      "ts_id": "363728010",
       "time": "2026-07-30T00:30:00.000+10:00",
       "volume_ML": 27433.58
     },
     {
       "name": "Wurdee Boluc Reservoir",
       "no": "RE704",
+      "ts_id": "435396010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 26864.07
     },
     {
       "name": "Wungong Water Level-Ranger",
       "no": "ODSS_21140_WSLAHD.1",
+      "ts_id": "370729010",
       "time": "2026-07-28T02:00:00.000+10:00",
       "volume_ML": 26772.373
     },
     {
       "name": "Wungong Water Level-Logger",
       "no": "ODSS_57570_WSLAHD.1",
+      "ts_id": "370387010",
       "time": "2026-07-29T02:00:00.000+10:00",
       "volume_ML": 26767.76
     },
     {
       "name": "Tantangara Dam RL",
       "no": "410543",
+      "ts_id": "325743010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 26752.281
     },
     {
       "name": "WOODS LAKE - AT DAM",
       "no": "462.1",
+      "ts_id": "371759010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 26731.527
     },
     {
       "name": "BARRINGTON LAKE - AT DAM",
       "no": "604.1",
+      "ts_id": "372081010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 26595.18
     },
     {
       "name": "Stirling WSL - Logger Data",
       "no": "ODSS_45532_WSLAHD.1",
+      "ts_id": "370083010",
       "time": "2026-07-29T02:00:00.000+10:00",
       "volume_ML": 25666.953
     },
     {
-      "name": "Stirling Wsl",
-      "no": "ODSS_18315_WSLAHD.1",
-      "time": "2026-07-26T02:00:00.000+10:00",
-      "volume_ML": 25651.26
-    },
-    {
       "name": "Mundaring Dam Storage Volume",
       "no": "ODSS_12030_STAMN.1",
+      "ts_id": "360656010",
       "time": "2026-07-28T02:00:00.000+10:00",
       "volume_ML": 25570.965
     },
     {
       "name": "GLENQUARRY CUT",
       "no": "212212",
+      "ts_id": "580079010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 25568.16
     },
     {
       "name": "Goulburn Weir",
       "no": "sp-o10438",
+      "ts_id": "367808010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 24892.42
     },
     {
       "name": "BREWSTER STORAGE",
       "no": "412108",
+      "ts_id": "185663010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 24570.119
     },
     {
       "name": "Cania Dam",
       "no": "136115A",
+      "ts_id": "301170010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 24313.213
     },
     {
       "name": "Lake Manchester",
       "no": "143049A",
+      "ts_id": "368613010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 23464.034
     },
     {
       "name": "GREENVALE RESERVOIR",
       "no": "229407A",
+      "ts_id": "294563010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 23381.944
     },
     {
       "name": "South Dandalup Dam Storage Volume",
       "no": "ODSS_11327_STAMN.1",
+      "ts_id": "360505010",
       "time": "2026-07-28T02:00:00.000+10:00",
       "volume_ML": 23328.27
     },
     {
       "name": "PYRITES @ MERRIMU",
       "no": "231223A",
+      "ts_id": "358082010",
       "time": "2026-07-31T00:00:00.000+10:00",
       "volume_ML": 23260.015
     },
     {
       "name": "South Para Reservoir (SA Water)",
       "no": "SAWSPARRS.1",
+      "ts_id": "430019010",
       "time": "2026-07-28T00:30:00.000+10:00",
       "volume_ML": 23098.31
     },
     {
       "name": "River Murray at Lock 5 Upstream (AMTD 562.4km)",
       "no": "A4260512",
+      "ts_id": "485204010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 23036.67
     },
     {
       "name": "Taylors",
       "no": "TAYLORS-LAKE-HG",
+      "ts_id": "772127010",
       "time": "2026-07-31T00:00:00.000+10:00",
       "volume_ML": 22464.7
     },
     {
       "name": "FITZROY FALLS DAM",
       "no": "215235",
+      "ts_id": "580307010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 21452.49
     },
     {
       "name": "SOUTH@LAKE BREWSTER",
       "no": "41200212",
+      "ts_id": "577033010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 21414.08
     },
     {
       "name": "Buaraba Ck at Atkinson Dam HW",
       "no": "143234A",
+      "ts_id": "368727010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 21314.653
     },
     {
       "name": "PLIMSOLL LAKE - AT INTAKE",
       "no": "294.1",
+      "ts_id": "288412010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 21105.17
     },
     {
       "name": "River Murray at Lock 4 Upstream (AMTD 516.2km)",
       "no": "A4260514",
+      "ts_id": "363611010",
       "time": "2026-07-30T00:30:00.000+10:00",
       "volume_ML": 20803.483
     },
     {
       "name": "YAN YEAN RES HG",
       "no": "229406A",
+      "ts_id": "294525010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 20747.0
     },
     {
       "name": "Wingecarribee",
       "no": "212212.3",
+      "ts_id": "369570010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 20297.15
     },
     {
       "name": "LOSTOCK DAM",
       "no": "210102",
+      "ts_id": "183087010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 20256.608
     },
     {
       "name": "TUNGATINAH LAGOONS - AT DAM",
       "no": "170.1",
+      "ts_id": "288126010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 19551.937
     },
     {
       "name": "MACKENZIE LAKE - AT DAM",
       "no": "629.1",
+      "ts_id": "288756010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 19199.7
     },
     {
       "name": "Lockyer Ck at Lake Clarendon Dam HW",
       "no": "143235A",
+      "ts_id": "368766010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 19127.763
     },
     {
       "name": "CETHANA LAKE - AT DAM",
       "no": "625.1",
+      "ts_id": "288715010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 18954.35
     },
     {
       "name": "Lauriston Reservoir",
       "no": "LAURISTON",
+      "ts_id": "283007010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 18740.0
     },
     {
       "name": "Myponga Reservoir (SA Water)",
       "no": "SAWMYPRS.1",
+      "ts_id": "430001010",
       "time": "2026-07-28T00:30:00.000+10:00",
       "volume_ML": 18432.65
     },
     {
       "name": "Bedford Weir",
       "no": "130104A",
+      "ts_id": "299227010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 18000.374
     },
     {
       "name": "Cooby Dam",
       "no": "69",
+      "ts_id": "284426010",
       "time": "2026-07-22T00:00:00.000+10:00",
       "volume_ML": 17359.53
     },
     {
       "name": "WATTS RIV-MAROONDAH",
       "no": "229130A",
+      "ts_id": "292665010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 17295.167
     },
     {
       "name": "Perseverance Dam",
       "no": "71",
+      "ts_id": "284499010",
       "time": "2026-07-22T00:00:00.000+10:00",
       "volume_ML": 17227.721
     },
     {
       "name": "Wartook",
       "no": "LAKE-WARTK-HG",
+      "ts_id": "771963010",
       "time": "2026-07-31T00:00:00.000+10:00",
       "volume_ML": 17177.11
     },
     {
       "name": "PYKES @ PYKES RESERV",
       "no": "231222A",
+      "ts_id": "357999010",
       "time": "2026-07-31T00:00:00.000+10:00",
       "volume_ML": 17019.374
     },
     {
       "name": "Ben Andersen HW",
       "no": "136020A",
+      "ts_id": "300886010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 16980.644
     },
     {
       "name": "Addlington Ck at Ewen Maddock Dam HW",
       "no": "141012A",
+      "ts_id": "368310010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 16113.806
     },
     {
       "name": "Lake_Lonsdale",
       "no": "LAKE-LONSD-HG",
+      "ts_id": "771921010",
       "time": "2026-07-31T00:00:00.000+10:00",
       "volume_ML": 15884.46
     },
     {
       "name": "Clare Weir HW",
       "no": "120012A",
+      "ts_id": "298671010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 15804.734
     },
     {
       "name": "Lake_Fyans",
       "no": "LAKE-FYANS-HG",
+      "ts_id": "771879010",
       "time": "2026-07-31T00:00:00.000+10:00",
       "volume_ML": 15693.39
     },
     {
       "name": "MARGARET LAKE - AT DAM",
       "no": "370.1",
+      "ts_id": "288528010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 15541.01
     },
     {
       "name": "West Barwon Reservoir",
       "no": "RE750",
+      "ts_id": "437048010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 15208.81
     },
     {
       "name": "Sideling Ck at Lake Kurwongbah Dam HW",
       "no": "142108A",
+      "ts_id": "368426010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 14196.776
     },
     {
       "name": "JACKSON @ ROSSLYNNE",
       "no": "230216A",
+      "ts_id": "357363010",
       "time": "2026-07-31T00:00:00.000+10:00",
       "volume_ML": 13977.23
     },
     {
       "name": "Lake William Hovell",
       "no": "sp-o11590",
+      "ts_id": "367899010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 13791.844
     },
     {
       "name": "Glebe Weir HW",
       "no": "130338A",
+      "ts_id": "299945010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 13771.436
     },
     {
       "name": "BRONTE LAGOON - AT DAM",
       "no": "167.1",
+      "ts_id": "288088010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 13313.315
     },
     {
       "name": "Gyranda Weir",
       "no": "130354A",
+      "ts_id": "300185010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 13157.944
     },
     {
       "name": "Mary River Barrage",
       "no": "138013B",
+      "ts_id": "301877010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 12603.982
     },
     {
       "name": "Tartrus Weir",
       "no": "130109A",
+      "ts_id": "299303010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 12047.863
     },
     {
       "name": "Logue Brook Wsl",
       "no": "ODSS_18317_STAMN.1",
+      "ts_id": "360751010",
       "time": "2026-07-28T02:00:00.000+10:00",
       "volume_ML": 11751.82
     },
     {
       "name": "Tingalpa Ck at Leslie Harrison Dam HW",
       "no": "145035A",
+      "ts_id": "368955010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 11585.249
     },
     {
       "name": "Logue Brook Wsl - Logger",
       "no": "ODSS_57330_WSLAHD.1",
+      "ts_id": "370311010",
       "time": "2026-07-29T02:00:00.000+10:00",
       "volume_ML": 11421.994
     },
     {
-      "name": "Logue Brook Wsl",
-      "no": "ODSS_18317_WSLAHD.1",
-      "time": "2026-07-28T02:00:00.000+10:00",
-      "volume_ML": 11371.96
-    },
-    {
       "name": "TOONUMBAR DAM",
       "no": "203042",
+      "ts_id": "132604010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 11169.255
     },
     {
       "name": "Toolondo",
       "no": "TOOLO-RES-HG",
+      "ts_id": "772169010",
       "time": "2026-07-31T00:00:00.000+10:00",
       "volume_ML": 11165.4
     },
     {
       "name": "Harris Dam",
       "no": "ODSS_18106_STAMN.1",
+      "ts_id": "360675010",
       "time": "2026-07-28T02:00:00.000+10:00",
       "volume_ML": 11048.2
     },
     {
       "name": "Bendora Res. at Dam",
       "no": "410717",
+      "ts_id": "52898010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 10839.114
     },
     {
       "name": "Sth Dandalup Wsl-Ranger",
       "no": "ODSS_21137_WSLAHD.1",
+      "ts_id": "370672010",
       "time": "2026-07-28T02:00:00.000+10:00",
       "volume_ML": 10465.053
     },
     {
       "name": "Sth Dandalup Wsl-Logger",
       "no": "ODSS_57569_WSLAHD.1",
+      "ts_id": "370368010",
       "time": "2026-07-29T02:00:00.000+10:00",
       "volume_ML": 10380.662
     },
     {
       "name": "Happy Valley Reservoir (SA Water)",
       "no": "SAWHAPVRS.1",
+      "ts_id": "429848010",
       "time": "2026-07-28T00:30:00.000+10:00",
       "volume_ML": 10338.59
     },
     {
       "name": "Little Para Reservoir (SA Water)",
       "no": "SAWLPRS.1",
+      "ts_id": "429905010",
       "time": "2026-07-28T00:30:00.000+10:00",
       "volume_ML": 10287.92
     },
     {
       "name": "Kangaroo Creek Reservoir (SA Water)",
       "no": "SAWKACKRS.1",
+      "ts_id": "429889010",
       "time": "2026-07-28T00:30:00.000+10:00",
       "volume_ML": 10266.67
     },
     {
       "name": "Neville Hewitt Weir",
       "no": "130304B",
+      "ts_id": "299736010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 10088.928
     },
     {
-      "name": "Harris Wsl",
-      "no": "ODSS_18331_WSLAHD.1",
-      "time": "2026-07-28T02:00:00.000+10:00",
-      "volume_ML": 10007.472
-    },
-    {
       "name": "Harris Wsl - Logger",
       "no": "ODSS_56221_WSLAHD.1",
+      "ts_id": "370273010",
       "time": "2026-07-29T02:00:00.000+10:00",
       "volume_ML": 10006.255
     },
     {
       "name": "Millbrook Reservoir (SA Water)",
       "no": "SAWMILBRS.1",
+      "ts_id": "429962010",
       "time": "2026-07-28T00:30:00.000+10:00",
       "volume_ML": 9933.03
     },
     {
       "name": "Malmsbury Reservoir",
       "no": "MALMSBURY",
+      "ts_id": "283085010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 9463.5
     },
     {
       "name": "HAY STORAGE",
       "no": "41010928",
+      "ts_id": "152032010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 9016.005
     },
     {
       "name": "BROGO DAM",
       "no": "219027",
+      "ts_id": "143490010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 9002.43
     },
     {
       "name": "Kirar Weir HW",
       "no": "136121A",
+      "ts_id": "363649010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 8927.424
     },
     {
-      "name": "Fitzroy Falls",
-      "no": "215235.3",
-      "time": "2026-07-29T00:00:00.000+10:00",
-      "volume_ML": 8443.571
-    },
-    {
       "name": "Bucca Weir",
       "no": "135008A",
+      "ts_id": "300520010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 8345.392
     },
     {
       "name": "TREVALLYN LAKE - AT DAM",
       "no": "158.1",
+      "ts_id": "288050010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 8104.578
     },
     {
       "name": "Claude Wharton HW",
       "no": "136003C",
+      "ts_id": "300713010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 8080.091
     },
     {
       "name": "Kununurra Dv. Wsl",
       "no": "ODSS_18313_WSLAHD.1",
+      "ts_id": "370482010",
       "time": "2026-07-28T02:00:00.000+10:00",
       "volume_ML": 7754.557
     },
     {
       "name": "Jack Taylor Weir",
       "no": "422214A",
+      "ts_id": "302379010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 7753.751
     },
     {
       "name": "Rocky Ck at Cooloolabin Dam HW",
       "no": "141011A",
+      "ts_id": "368271010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 7727.562
     },
     {
       "name": "GAIRDNER LAKE - AT DAM",
       "no": "613.1",
+      "ts_id": "372119010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 7708.341
     },
     {
       "name": "DEVILBEND RESERVOIR",
       "no": "228264A",
+      "ts_id": "290634010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 7541.278
     },
     {
       "name": "AUGUSTA LAKE - AT INTAKE",
       "no": "155.1",
+      "ts_id": "288012010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 7332.187
     },
     {
       "name": "LAUGHING JACK LAGOON - AT DAM",
       "no": "211.1",
+      "ts_id": "288278010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 7068.416
     },
     {
       "name": "Bingegang Weir HW",
       "no": "130106A",
+      "ts_id": "299265010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 6912.365
     },
     {
       "name": "WHITE SWAN RES. HG.",
       "no": "233232A",
+      "ts_id": "232352010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 6700.943
     },
     {
       "name": "Moura Weir",
       "no": "130350B",
+      "ts_id": "300088010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 6572.572
     },
     {
       "name": "Little Nerang",
       "no": "146034A",
+      "ts_id": "369069010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 6517.325
     },
     {
       "name": "Chinchilla Weir",
       "no": "422358B",
+      "ts_id": "302595010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 6436.412
     },
     {
       "name": "WAYATINAH LAGOON - AT INTAKE",
       "no": "190.1",
+      "ts_id": "369429010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 6100.765
     },
     {
       "name": "Laidley Ck at Bill Gunn Dam HW",
       "no": "143228A",
+      "ts_id": "368689010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 5520.186
     },
     {
       "name": "LA TROBE R NARRACAN",
       "no": "226236A",
+      "ts_id": "356556010",
       "time": "2026-07-31T00:00:00.000+10:00",
       "volume_ML": 5291.134
     },
     {
       "name": "Buckinbah Weir",
       "no": "4222008A",
+      "ts_id": "302278010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 5219.252
     },
     {
       "name": "Moora",
       "no": "MOORA-RES-HG",
+      "ts_id": "772005010",
       "time": "2026-07-31T00:00:00.000+10:00",
       "volume_ML": 5075.16
     },
     {
       "name": "WERRIBEE R MELTON RS",
       "no": "231221A",
+      "ts_id": "357916010",
       "time": "2026-07-31T00:00:00.000+10:00",
       "volume_ML": 4991.375
     },
     {
       "name": "Mundaring Wsl-Logger",
       "no": "ODSS_53437_WSLAHD.1",
+      "ts_id": "370216010",
       "time": "2026-07-29T02:00:00.000+10:00",
       "volume_ML": 4988.323
     },
     {
       "name": "Mundaring Wsl-Ranger",
       "no": "ODSS_21168_WSLAHD.1",
+      "ts_id": "370808010",
       "time": "2026-07-28T02:00:00.000+10:00",
       "volume_ML": 4979.824
     },
     {
       "name": "MAUDE STORAGE",
       "no": "41010941",
+      "ts_id": "152070010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 4961.888
     },
     {
       "name": "Tinana Barrage HW",
       "no": "138008A",
+      "ts_id": "301839010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 4882.873
     },
     {
       "name": "Isis OS",
       "no": "136026A",
+      "ts_id": "386256010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 4839.605
     },
     {
       "name": "Victoria Dam Storage Volume",
       "no": "ODSS_11962_STAMN.1",
+      "ts_id": "360637010",
       "time": "2026-07-28T02:00:00.000+10:00",
       "volume_ML": 4830.51
     },
     {
       "name": "New Victoria Water Level-Ranger",
       "no": "ODSS_21167_WSLAHD.1",
+      "ts_id": "370786010",
       "time": "2026-07-27T02:00:00.000+10:00",
       "volume_ML": 4783.96
     },
     {
       "name": "New Victoria WSL - Logger Data",
       "no": "ODSS_45533_WSLAHD.1",
+      "ts_id": "370102010",
       "time": "2026-07-29T02:00:00.000+10:00",
       "volume_ML": 4781.782
     },
     {
       "name": "Dawson at Theodore",
       "no": "130305A",
+      "ts_id": "299774010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 4773.897
     },
     {
       "name": "South Maroochy R at Wappa Dam HW",
       "no": "141014A",
+      "ts_id": "368385010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 4709.741
     },
     {
       "name": "Aroona Creek at Aroona Dam",
       "no": "A5100500",
+      "ts_id": "226253010",
       "time": "2026-07-28T00:30:00.000+10:00",
       "volume_ML": 4469.404
     },
     {
       "name": "GOGELDRIE STORAGE",
       "no": "41010922",
+      "ts_id": "151994010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 4419.389
     },
     {
       "name": "Enoggera Ck at Enoggera Dam HW",
       "no": "143047A",
+      "ts_id": "368538010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 4261.068
     },
     {
       "name": "REPULSE LAKE - AT DAM",
       "no": "580.1",
+      "ts_id": "371949010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 4129.619
     },
     {
       "name": "Barossa Reservoir (SA Water)",
       "no": "SAWBARS.1",
+      "ts_id": "429773010",
       "time": "2026-07-28T00:30:00.000+10:00",
       "volume_ML": 4077.69
     },
     {
       "name": "Marian Weir HW",
       "no": "125003A",
+      "ts_id": "298951010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 4055.457
     },
     {
       "name": "PALOONA LAKE - AT DAM",
       "no": "627.1",
+      "ts_id": "372160010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 4051.897
     },
     {
       "name": "Samson Bk Wsl",
       "no": "ODSS_18326_STAMN.1",
+      "ts_id": "360903010",
       "time": "2026-07-28T02:00:00.000+10:00",
       "volume_ML": 3931.875
     },
     {
       "name": "Samson Brook Dam Water levels Logger",
       "no": "ODSS_61742_WSLAHD.1",
+      "ts_id": "371036010",
       "time": "2026-07-29T02:00:00.000+10:00",
       "volume_ML": 3859.072
     },
     {
-      "name": "Samson Bk Wsl",
-      "no": "ODSS_18326_WSLAHD.1",
-      "time": "2026-07-28T02:00:00.000+10:00",
-      "volume_ML": 3840.795
-    },
-    {
       "name": "Waroona Dam Water Level Logger",
       "no": "ODSS_47359_WSLAHD.1",
+      "ts_id": "370140010",
       "time": "2026-07-29T02:00:00.000+10:00",
       "volume_ML": 3778.013
     },
     {
       "name": "Waroona Dam Water Level",
       "no": "ODSS_46394_STAMN.1",
-      "time": "2026-07-28T02:00:00.000+10:00",
-      "volume_ML": 3735.845
-    },
-    {
-      "name": "Waroona Dam Water Level",
-      "no": "ODSS_46394_WSLAHD.1",
+      "ts_id": "361435010",
       "time": "2026-07-28T02:00:00.000+10:00",
       "volume_ML": 3735.845
     },
     {
       "name": "SCADA Probes",
       "no": "RBD1.RBD1DS01",
+      "ts_id": "363516010",
       "time": "2026-07-26T00:00:00.000+10:00",
       "volume_ML": 3566.528
     },
     {
       "name": "MOORABOOL WB RES HG",
       "no": "232217A",
+      "ts_id": "232109010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 3557.774
     },
     {
       "name": "Kolan Barrage HW",
       "no": "135010B",
+      "ts_id": "300630010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 3481.167
     },
     {
       "name": "Warren Reservoir (SA Water)",
       "no": "SAWWARRRS.1",
+      "ts_id": "430057010",
       "time": "2026-07-28T00:30:00.000+10:00",
       "volume_ML": 3290.43
     },
     {
       "name": "OSHANNASSY RES HG",
       "no": "229111A",
+      "ts_id": "292457010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 3199.444
     },
     {
       "name": "Lake MacDonald",
       "no": "138122A",
+      "ts_id": "368233010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 3160.29
     },
     {
       "name": "PARANGANA LAKE - AT DAM",
       "no": "594.1",
+      "ts_id": "372025010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 3152.893
     },
     {
       "name": "LITTLE PINE LAGOON - AT DAM",
       "no": "236.1",
+      "ts_id": "288316010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 2881.673
     },
     {
       "name": "CLUNY LAGOON - AT DAM",
       "no": "573.1",
+      "ts_id": "371911010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 2877.026
     },
     {
       "name": "Mirani Weir HW",
       "no": "125008A",
+      "ts_id": "298989010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 2861.977
     },
     {
       "name": "Moura OSS",
       "no": "130351A",
+      "ts_id": "369114010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 2710.486
     },
     {
       "name": "Moolabah Weir",
       "no": "4222007A",
+      "ts_id": "302217010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 2675.1
     },
     {
       "name": "CATAGUNYA LAKE - AT DAM",
       "no": "592.1",
+      "ts_id": "371987010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 2584.343
     },
     {
       "name": "Hope Valley Reservoir (SA Water)",
       "no": "SAWHOPVRS.1",
+      "ts_id": "429867010",
       "time": "2026-07-28T00:30:00.000+10:00",
       "volume_ML": 2419.65
     },
     {
       "name": "COCHRANE DAM STORAGE",
       "no": "219033",
+      "ts_id": "143607010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 2222.96
     },
     {
       "name": "PINE TIER LAGOON - AT DAM",
       "no": "171.1",
+      "ts_id": "288164010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 2125.895
     },
     {
       "name": "NAMOI@MOLLEE WR STOR",
       "no": "419062",
+      "ts_id": "163026010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 2124.166
     },
     {
       "name": "Upper Stony Creek Reservoirs",
       "no": "RE604",
+      "ts_id": "435529010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 2070.34
     },
     {
       "name": "Serpentine PH Dam Storage Volume",
       "no": "ODSS_11463_STAMN.1",
+      "ts_id": "360561010",
       "time": "2026-07-28T02:00:00.000+10:00",
       "volume_ML": 1979.965
     },
     {
       "name": "Sandhurst Storage",
       "no": "SANDHURST",
+      "ts_id": "283181010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 1950.807
     },
     {
       "name": "Upper Stony Creek No.3",
       "no": "RE604B",
+      "ts_id": "435567010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 1923.61
     },
     {
       "name": "West Gellibrand Reservoir",
       "no": "RE851",
+      "ts_id": "435415010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 1860.0
     },
     {
       "name": "Upper Cascade",
       "no": "212283.3",
+      "ts_id": "369798010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 1712.706
     },
     {
       "name": "CASCADE CK DAM NO.3",
       "no": "212283",
+      "ts_id": "580193010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 1710.67
     },
     {
       "name": "Moochalabra WSL",
       "no": "ODSS_39563_WSLAHD.1",
+      "ts_id": "370881010",
       "time": "2026-07-22T02:00:00.000+10:00",
       "volume_ML": 1658.88
     },
     {
       "name": "Moochalabra WSL Logged DOW",
       "no": "ODSS_55089_WSLAHD.1",
+      "ts_id": "370254010",
       "time": "2026-07-29T02:00:00.000+10:00",
       "volume_ML": 1626.089
     },
     {
       "name": "Drakes Bk Wsl",
       "no": "ODSS_18319_STAMN.1",
+      "ts_id": "360789010",
       "time": "2026-07-28T02:00:00.000+10:00",
       "volume_ML": 1611.5
     },
     {
       "name": "Drakes Bk Water level Logger",
       "no": "ODSS_58804_WSLAHD.1",
+      "ts_id": "370444010",
       "time": "2026-07-29T02:00:00.000+10:00",
       "volume_ML": 1593.48
     },
     {
-      "name": "Drakes Bk Wsl",
-      "no": "ODSS_18319_WSLAHD.1",
-      "time": "2026-07-28T02:00:00.000+10:00",
-      "volume_ML": 1591.5
-    },
-    {
       "name": "Green",
       "no": "GREEN-LAKE-HORSH-HG",
+      "ts_id": "771452010",
       "time": "2026-07-31T00:00:00.000+10:00",
       "volume_ML": 1556.28
     },
     {
       "name": "Serp. P/Head Water Level - Logger",
       "no": "ODSS_57568_WSLAHD.1",
+      "ts_id": "370352010",
       "time": "2026-07-29T02:00:00.000+10:00",
       "volume_ML": 1521.969
     },
     {
       "name": "FELLMONGERS C @ RES",
       "no": "233272A",
+      "ts_id": "232370010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 1518.731
     },
     {
       "name": "Bostock Reservoir",
       "no": "RE670",
+      "ts_id": "435099010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 1504.39
     },
     {
       "name": "NAMOI@GUNIDGERA STOR",
       "no": "419060",
+      "ts_id": "162963010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 1480.681
     },
     {
       "name": "John Goleby Weir HW",
       "no": "136120A",
+      "ts_id": "301298010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 1455.419
     },
     {
       "name": "Barkers Creek Storage",
       "no": "BARKERSCREEK",
+      "ts_id": "280948010",
       "time": "2026-07-28T00:00:00.000+10:00",
       "volume_ML": 1410.0
     },
     {
       "name": "MCCALLUMS C EVAN RES",
       "no": "407333A",
+      "ts_id": "232761010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 1357.637
     },
     {
       "name": "Korweinguboora Reservoir",
       "no": "RE690",
+      "ts_id": "435378010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 1339.72
     },
     {
       "name": "Selma Weir",
       "no": "130205B",
+      "ts_id": "572973010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 1222.45
     },
     {
       "name": "Ten Mile Bk Wsl",
       "no": "ODSS_18325_STAMN.1",
+      "ts_id": "360865010",
       "time": "2026-07-28T02:00:00.000+10:00",
       "volume_ML": 1196.529
     },
     {
       "name": "McCay Storage",
       "no": "MCCAY",
+      "ts_id": "283145010",
       "time": "2026-07-28T00:00:00.000+10:00",
       "volume_ML": 1172.0
     },
     {
       "name": "Glen Mervyn Wsl - Logger",
       "no": "ODSS_47683_WSLAHD.1",
+      "ts_id": "370159010",
       "time": "2026-07-29T02:00:00.000+10:00",
       "volume_ML": 1162.393
     },
     {
-      "name": "Ten Mile Bk Wsl",
-      "no": "ODSS_18325_WSLAHD.1",
-      "time": "2026-07-28T02:00:00.000+10:00",
-      "volume_ML": 1141.04
-    },
-    {
       "name": "McCallsay Reservoir",
       "no": "RES_BENWMSR",
+      "ts_id": "288905010",
       "time": "2026-07-12T00:00:00.000+10:00",
       "volume_ML": 1136.0
     },
     {
       "name": "Manjimup Dam Wsl",
       "no": "ODSS_18335_STAMN.1",
+      "ts_id": "361017010",
       "time": "2026-07-29T02:00:00.000+10:00",
       "volume_ML": 1124.37
     },
     {
       "name": "Scabby Gully Dam Wsl Logger",
       "no": "ODSS_56581_WSLAHD.1",
+      "ts_id": "370292010",
       "time": "2026-07-29T02:00:00.000+10:00",
       "volume_ML": 1093.295
     },
     {
-      "name": "Manjimup Dam Wsl",
-      "no": "ODSS_18335_WSLAHD.1",
-      "time": "2026-07-29T02:00:00.000+10:00",
-      "volume_ML": 1088.36
-    },
-    {
       "name": "INNEASTERN@LAKE BREW",
       "no": "41200216",
+      "ts_id": "577147010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 1065.47
     },
     {
       "name": "Glen Mervyn Wsl",
       "no": "ODSS_18332_STAMN.1",
+      "ts_id": "360979010",
       "time": "2026-07-28T02:00:00.000+10:00",
       "volume_ML": 1052.615
     },
     {
-      "name": "Glen Mervyn Wsl",
-      "no": "ODSS_18332_WSLAHD.1",
-      "time": "2026-07-28T02:00:00.000+10:00",
-      "volume_ML": 1051.935
-    },
-    {
       "name": "TOMBULLEN STORAGE",
       "no": "41010971",
+      "ts_id": "152151010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 1043.716
     },
     {
       "name": "Bowen River Weir",
       "no": "120299A",
+      "ts_id": "298830010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 986.166
     },
     {
       "name": "SHANNON LAGOON - AT DAM",
       "no": "520.1",
+      "ts_id": "288640010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 961.064
     },
     {
       "name": "OUTWESTERN@LAKEBREWS",
       "no": "41200214",
+      "ts_id": "577071010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 943.5
     },
     {
       "name": "NEWTON LAKE - AT DAM",
       "no": "296.1",
+      "ts_id": "288487010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 921.055
     },
     {
       "name": "Churchmans Brook Dam Storage Volume",
       "no": "ODSS_11709_STAMN.1",
+      "ts_id": "360599010",
       "time": "2026-07-28T02:00:00.000+10:00",
       "volume_ML": 872.58
     },
     {
       "name": "SpringGully Storage",
       "no": "SPRINGGULLY",
+      "ts_id": "283219010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 867.0
     },
     {
       "name": "Churchman Bk Wsl-Ranger",
       "no": "ODSS_21165_WSLAHD.1",
+      "ts_id": "370748010",
       "time": "2026-07-28T02:00:00.000+10:00",
       "volume_ML": 837.163
     },
     {
       "name": "Churchman Bk Wsl-Logger",
       "no": "ODSS_53443_WSLAHD.1",
+      "ts_id": "370236010",
       "time": "2026-07-29T02:00:00.000+10:00",
       "volume_ML": 836.777
     },
     {
       "name": "Giru Weir",
       "no": "119007A",
+      "ts_id": "298505010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 823.59
     },
     {
       "name": "Upper Stony Creek No.2",
       "no": "RE604A",
+      "ts_id": "435548010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 816.95
     },
     {
       "name": "OUTEASTERN@LAKE BREW",
       "no": "41200215",
+      "ts_id": "577109010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 805.22
     },
     {
       "name": "Mt_Cole",
       "no": "MTCOLE-RES-HG",
+      "ts_id": "772043010",
       "time": "2026-07-31T00:00:00.000+10:00",
       "volume_ML": 801.54
     },
     {
       "name": "Quickup Dam Storage",
       "no": "ODSS_18207_STAMN.1",
+      "ts_id": "360694010",
       "time": "2026-07-21T02:00:00.000+10:00",
       "volume_ML": 795.558
     },
     {
       "name": "Woongarra OS",
       "no": "136025A",
+      "ts_id": "573265010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 769.8
     },
     {
       "name": "TAREELAROI STORAGE",
       "no": "418043B",
+      "ts_id": "773892010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 736.64
     },
     {
       "name": "Joe Sippel Weir HW",
       "no": "136215A",
+      "ts_id": "301630010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 719.429
     },
     {
       "name": "Deep Ck at Cedar Pocket Dam HW",
       "no": "138012A",
+      "ts_id": "368119010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 716.975
     },
     {
       "name": "PENSTOCK LAGOON - AT CANAL OUTLET",
       "no": "508.1",
+      "ts_id": "288601010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 709.634
     },
     {
-      "name": "Quickup Wsl",
-      "no": "ODSS_18327_WSLAHD.1",
-      "time": "2026-07-21T02:00:00.000+10:00",
-      "volume_ML": 684.628
-    },
-    {
       "name": "Quickup Wsl - Logger",
       "no": "ODSS_51192_WSLAHD.1",
+      "ts_id": "370197010",
       "time": "2026-07-29T02:00:00.000+10:00",
       "volume_ML": 682.37
     },
     {
       "name": "Talgai Weir HW",
       "no": "422340A",
+      "ts_id": "302500010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 678.973
     },
     {
       "name": "Gold Ck at Gold Creek Dam HW",
       "no": "143048A",
+      "ts_id": "368575010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 666.074
     },
     {
       "name": "BEREMBED STORAGE",
       "no": "41010904",
+      "ts_id": "151956010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 647.275
     },
     {
       "name": "Val Bird Weir",
       "no": "119008A",
+      "ts_id": "298543010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 624.216
     },
     {
       "name": "Loombah Reservoir",
       "no": "RES_BENWLOR",
+      "ts_id": "288868010",
       "time": "2026-07-12T00:00:00.000+10:00",
       "volume_ML": 611.0
     },
     {
       "name": "Kerferd Reservoir",
       "no": "RES_BEEWKFS",
+      "ts_id": "288829010",
       "time": "2026-07-09T00:00:00.000+10:00",
       "volume_ML": 600.0
     },
     {
       "name": "LAL LAL C WILSON RES",
       "no": "232220A",
+      "ts_id": "768831010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 579.9
     },
     {
       "name": "DEE LAGOON - AT TUNNEL INLET",
       "no": "179.1",
+      "ts_id": "288240010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 574.92
     },
     {
       "name": "Unnamed Ck at Poona Dam HW",
       "no": "141013A",
+      "ts_id": "368347010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 560.537
     },
     {
       "name": "WOMBAT CK @ RES H.G.",
       "no": "407313A",
+      "ts_id": "302833010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 544.99
     },
     {
       "name": "Painkalac Creek Dam",
       "no": "RE961",
+      "ts_id": "435453010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 532.6
     },
     {
       "name": "MacIntyre at W'stone",
       "no": "416401A",
+      "ts_id": "301915010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 518.777
     },
     {
       "name": "MacIntyre at Ben Dor",
       "no": "416406A",
+      "ts_id": "302015010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 497.458
     },
     {
       "name": "WHITE SPUR POND - AT DAM",
       "no": "295.1",
+      "ts_id": "288449010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 477.394
     },
     {
       "name": "LAL LAL C BEALES RES",
       "no": "232219A",
+      "ts_id": "288962010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 456.133
     },
     {
       "name": "Colac Service Basin No.5",
       "no": "SB855B",
+      "ts_id": "435472010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 441.12
     },
     {
       "name": "Silverleaf Weir HW",
       "no": "136205A",
+      "ts_id": "301355010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 429.931
     },
     {
       "name": "TARRALEAH No.2 POND - AT TARRALEAH No.2 POND",
       "no": "553.1",
+      "ts_id": "371797010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 420.776
     },
     {
       "name": "STONY C TABLOT RES.",
       "no": "407334A",
+      "ts_id": "302899010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 376.455
     },
     {
       "name": "LIAPOOTAH POND - AT DAM",
       "no": "579.1",
+      "ts_id": "288677010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 360.561
     },
     {
       "name": "Onkaparinga Summit Storage (SA Water)",
       "no": "SAWMBOSS.1",
+      "ts_id": "429943010",
       "time": "2026-07-28T00:30:00.000+10:00",
       "volume_ML": 351.56
     },
     {
       "name": "NORTHERN @ U/SOFREGU",
       "no": "41200213",
+      "ts_id": "577052010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 337.78
     },
     {
       "name": "MEDLOW DAM",
       "no": "212284",
+      "ts_id": "580212010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 331.02
     },
     {
       "name": "Lemon Tree Weir HW",
       "no": "422349A",
+      "ts_id": "302538010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 327.279
     },
     {
       "name": "Greaves Creek",
       "no": "212285.3",
+      "ts_id": "369874010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 325.93
     },
     {
-      "name": "GREAVES CREEK DAM",
-      "no": "212285",
-      "time": "2026-07-29T00:00:00.000+10:00",
-      "volume_ML": 303.34
-    },
-    {
       "name": "Lake Medlow",
       "no": "212284.3",
+      "ts_id": "369836010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 299.491
     },
     {
       "name": "SUGARLOAF RES. H.G.",
       "no": "408217A",
+      "ts_id": "302871010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 278.059
     },
     {
       "name": "CASCADE CK DAM NO.2",
       "no": "212282",
+      "ts_id": "580174010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 275.49
     },
     {
       "name": "Lower Cascade",
       "no": "212282.3",
+      "ts_id": "369760010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 275.391
     },
     {
       "name": "Apollo Bay Basin",
       "no": "SB898",
+      "ts_id": "437868010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 269.92
     },
     {
       "name": "TYABB MR WR144",
       "no": "228266A",
+      "ts_id": "290692010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 251.111
     },
     {
       "name": "Clarendon Weir (SA Water)",
       "no": "SAWCLRNDWR.1",
+      "ts_id": "429810010",
       "time": "2026-07-28T00:30:00.000+10:00",
       "volume_ML": 223.46
     },
     {
       "name": "BULLARTO RES. H.G.",
       "no": "407327A",
+      "ts_id": "232739010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 220.941
     },
     {
       "name": "Allen Reservoir",
       "no": "RE931",
+      "ts_id": "435434010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 215.23
     },
     {
       "name": "Albert R at Nindooinbah Dam HW",
       "no": "145108A",
+      "ts_id": "368994010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 203.843
     },
     {
       "name": "Colac Service Basin No.4",
       "no": "SB855",
+      "ts_id": "578669010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 174.69
     },
     {
       "name": "MITCHAM MR WR10",
       "no": "229409A",
+      "ts_id": "294639010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 173.722
     },
     {
       "name": "MOUNT WAVERLEY WR15",
       "no": "229410A",
+      "ts_id": "294677010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 161.333
     },
     {
       "name": "CASCADE CK DAM NO.1",
       "no": "212281",
+      "ts_id": "580158010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 161.18
     },
     {
       "name": "BEACONSFIELD RES",
       "no": "228268A",
+      "ts_id": "290748010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 155.444
     },
     {
       "name": "Middle Cascade",
       "no": "212281.3",
+      "ts_id": "369722010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 152.336
     },
     {
       "name": "BITTERN RES WH100",
       "no": "228265A",
+      "ts_id": "290672010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 138.0
     },
     {
       "name": "Kroombit Dam",
       "no": "130360A",
+      "ts_id": "300330010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 137.917
     },
     {
       "name": "Olangolah Reservoir level",
       "no": "RE852",
+      "ts_id": "437968010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 129.0
     },
     {
       "name": "Marengo Basin",
       "no": "SB903",
+      "ts_id": "437983010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 124.98
     },
     {
       "name": "LEXTON RES. H.G.",
       "no": "407326A",
+      "ts_id": "302852010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 121.205
     },
     {
       "name": "Mannum Summit Storage (SA Water)",
       "no": "SAWMASS.1",
+      "ts_id": "429924010",
       "time": "2026-07-28T00:30:00.000+10:00",
       "volume_ML": 118.43
     },
     {
       "name": "NOTTING HILL WR17",
       "no": "229411A",
+      "ts_id": "294716010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 114.278
     },
     {
       "name": "HENTY LAKE - AT DAM",
       "no": "286.1",
+      "ts_id": "288373010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 111.767
     },
     {
       "name": "CENTENARY RES HG",
       "no": "407335A",
+      "ts_id": "570917010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 111.1
     },
     {
       "name": "PRESTON MR WR21",
       "no": "229412A",
+      "ts_id": "294753010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 104.833
     },
     {
       "name": "Gumeracha Weir (SA Water)",
       "no": "SAWGUMWR.1",
+      "ts_id": "429829010",
       "time": "2026-07-28T00:30:00.000+10:00",
       "volume_ML": 98.0
     },
     {
       "name": "Barossa Diversion Weir (SA Water)",
       "no": "SAWBAWR.1",
+      "ts_id": "429791010",
       "time": "2026-07-28T00:30:00.000+10:00",
       "volume_ML": 79.75
     },
     {
       "name": "AMPHITHEATRE RES. HG",
       "no": "408216A",
+      "ts_id": "233309010",
       "time": "2026-07-30T00:00:00.000+10:00",
       "volume_ML": 70.433
     },
     {
       "name": "NORTH ESSENDON WR6",
       "no": "229408A",
+      "ts_id": "294604010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 69.778
     },
     {
       "name": "MORANG MR WR33",
       "no": "229413A",
+      "ts_id": "294832010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 57.833
     },
     {
       "name": "DADENONG MR WR4",
       "no": "228269A",
+      "ts_id": "290786010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 48.778
     },
     {
       "name": "FRANKSTON MR WH142",
       "no": "228267A",
+      "ts_id": "290710010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 44.944
     },
     {
       "name": "Gorge Weir (SA Water)",
       "no": "SAWTOGOWR.1",
+      "ts_id": "430038010",
       "time": "2026-07-28T00:30:00.000+10:00",
       "volume_ML": 15.54
     },
     {
       "name": "Nil Gully Reservoir",
       "no": "RES_MYRWNGR",
+      "ts_id": "288943010",
       "time": "2026-07-09T00:00:00.000+10:00",
       "volume_ML": 5.0
     },
     {
       "name": "INFLOW @ EASTERNSPIL",
       "no": "41200211",
+      "ts_id": "577014010",
       "time": "2026-07-29T00:00:00.000+10:00",
       "volume_ML": 4.07
     },
     {
       "name": "PRESTON MR WR22",
       "no": "229412B",
+      "ts_id": "294791010",
       "time": "2026-07-20T00:00:00.000+10:00",
       "volume_ML": 0.0
     }
