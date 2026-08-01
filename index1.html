@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>National Storage Volume — Water Data Online</title>
+<style>
+  :root{
+    --ink:#07242e;
+    --deep:#0b3a49;
+    --water:#2f9fb5;
+    --shallow:#7fd4d8;
+    --sand:#e8e2d4;
+    --paper:#f2efe6;
+    --alert:#c9542f;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    font-size:17px;
+    line-height:1.5;
+  }
+  .wrap{max-width:1040px;margin:0 auto;padding:32px 20px 80px}
+  header{border-bottom:2px solid var(--deep);padding-bottom:18px}
+  .eyebrow{
+    font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--deep);opacity:.75;margin:0 0 10px;
+  }
+  h1{font-size:clamp(30px,5vw,50px);line-height:1.02;margin:0;font-weight:600;letter-spacing:-.01em}
+  header p{margin:12px 0 0;max-width:60ch;color:#2b4d57}
+
+  /* ---- signature: the water column ---- */
+  .gauge{display:grid;grid-template-columns:120px 1fr;gap:26px;margin:36px 0 8px;align-items:stretch}
+  .column{
+    position:relative;border:2px solid var(--deep);border-radius:2px;
+    background:linear-gradient(var(--sand),#dcd6c6);overflow:hidden;min-height:230px;
+  }
+  .fill{
+    position:absolute;left:0;right:0;bottom:0;height:0%;
+    background:linear-gradient(180deg,var(--shallow),var(--water) 40%,var(--deep));
+    transition:height 1.6s cubic-bezier(.16,.84,.44,1);
+  }
+  .fill::after{
+    content:"";position:absolute;top:-6px;left:0;right:0;height:6px;
+    background:var(--shallow);opacity:.8;
+  }
+  .tick{position:absolute;left:0;right:0;border-top:1px dashed rgba(7,36,46,.35);font:10px ui-monospace,monospace}
+  .tick span{position:absolute;left:6px;top:2px;color:var(--deep)}
+  .readout .total{
+    font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    font-size:clamp(34px,7vw,64px);font-weight:600;letter-spacing:-.03em;line-height:1;
+    color:var(--deep);
+  }
+  .readout .unit{font-size:.4em;letter-spacing:.05em;opacity:.7}
+  .readout dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px 24px;margin:22px 0 0}
+  .readout dt{font:11px/1.4 ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;opacity:.65}
+  .readout dd{margin:2px 0 0;font-family:ui-monospace,monospace;font-size:18px}
+
+  .controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:28px 0 0}
+  button{
+    font:12px/1 ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;
+    padding:12px 18px;border:2px solid var(--deep);background:var(--deep);color:var(--paper);
+    border-radius:2px;cursor:pointer;
+  }
+  button.ghost{background:transparent;color:var(--deep)}
+  button:disabled{opacity:.45;cursor:not-allowed}
+  button:focus-visible{outline:3px solid var(--water);outline-offset:2px}
+  input[type=text]{
+    font:13px ui-monospace,monospace;padding:11px 12px;border:1px solid #b9b0a0;
+    border-radius:2px;background:#fff;min-width:270px;flex:1
+  }
+  label.inline{font:11px ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;opacity:.7;width:100%}
+
+  #status{
+    margin:18px 0 0;padding:12px 14px;border-left:3px solid var(--water);background:#e7ece9;
+    font:13px/1.5 ui-monospace,monospace;white-space:pre-wrap;
+  }
+  #status.error{border-color:var(--alert);background:#f6e5df}
+
+  table{width:100%;border-collapse:collapse;margin-top:34px;font-size:14px}
+  caption{text-align:left;font:11px ui-monospace,monospace;letter-spacing:.18em;text-transform:uppercase;padding-bottom:10px;opacity:.7}
+  th,td{padding:8px 10px;border-bottom:1px solid #d8d1c1;text-align:left}
+  th{font:11px ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;border-bottom:2px solid var(--deep)}
+  td.num{text-align:right;font-family:ui-monospace,monospace;font-variant-numeric:tabular-nums}
+  tbody tr:hover{background:#e9e4d6}
+  footer{margin-top:48px;font-size:13px;color:#4a6570;border-top:1px solid #d8d1c1;padding-top:16px}
+  a{color:var(--deep)}
+  @media (prefers-reduced-motion:reduce){.fill{transition:none}}
+  @media (max-width:620px){.gauge{grid-template-columns:70px 1fr;gap:16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Bureau of Meteorology · Water Data Online · KiWIS</p>
+  <h1>How much water is<br>in the country right now?</h1>
+  <p>This page asks Water Data Online for every monitoring point that reports a Storage Volume, takes the most recent daily reading from each, and adds them together.</p>
+</header>
+
+<section class="gauge">
+  <div class="column" id="column" aria-hidden="true">
+    <div class="fill" id="fill"></div>
+    <div class="tick" style="bottom:75%"><span>75%</span></div>
+    <div class="tick" style="bottom:50%"><span>50%</span></div>
+    <div class="tick" style="bottom:25%"><span>25%</span></div>
+  </div>
+  <div class="readout">
+    <div class="total" id="total">—<span class="unit"> GL</span></div>
+    <dl>
+      <div><dt>Megalitres</dt><dd id="totalML">—</dd></div>
+      <div><dt>Storages counted</dt><dd id="count">—</dd></div>
+      <div><dt>Latest reading</dt><dd id="asAt">—</dd></div>
+      <div><dt>Fill shown against</dt><dd id="refNote">first result</dd></div>
+    </dl>
+  </div>
+</section>
+
+<div class="controls">
+  <label class="inline" for="proxy">CORS proxy prefix (leave blank if you are serving this from a host the Bureau allows)</label>
+  <input type="text" id="proxy" placeholder="https://your-proxy.example/?url=" value="">
+  <button id="run">Load storage data</button>
+  <button id="csv" class="ghost" disabled>Download CSV</button>
+</div>
+
+<p id="status">Ready. Press “Load storage data”.</p>
+
+<table id="tbl" hidden>
+  <caption>Storages, largest first</caption>
+  <thead>
+    <tr><th>Station</th><th>Station no.</th><th>Reading date</th><th style="text-align:right">Volume (ML)</th></tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<footer>
+  Source: <a href="http://www.bom.gov.au/waterdata/" target="_blank" rel="noopener">Bureau of Meteorology, Water Data Online</a>.
+  Data is supplied to the Bureau by state and territory water agencies. Coverage is not complete — this total is the sum of
+  what those agencies publish through this service, not the volume of every dam in Australia.
+</footer>
+
+</div>
+
+<script>
+(() => {
+  "use strict";
+
+  const BASE = "https://www.bom.gov.au/waterdata/services";
+  const TS_NAME = "DMQaQc.Merged.DailyMean.24HR"; // quality-checked daily mean
+  const PARAM = "Storage Volume";
+  const CHUNK = 40;      // ts_ids per values request
+  const REF_GL = 80000;  // reference full-column volume, gigalitres
+
+  const $ = id => document.getElementById(id);
+  const statusEl = $("status");
+  let rows = [];
+
+  const say = (msg, isError) => {
+    statusEl.textContent = msg;
+    statusEl.classList.toggle("error", !!isError);
+  };
+
+  // Build a request URL, optionally routed through a user-supplied proxy.
+  function url(params) {
+    const qs = new URLSearchParams(Object.assign({
+      service: "kisters",
+      type: "queryServices",
+      datasource: "0",
+      format: "json"
+    }, params)).toString();
+    const target = BASE + "?" + qs;
+    const proxy = $("proxy").value.trim();
+    return proxy ? proxy + encodeURIComponent(target) : target;
+  }
+
+  async function getJSON(params) {
+    const res = await fetch(url(params), { headers: { "Accept": "application/json" } });
+    if (!res.ok) throw new Error("Water Data Online returned HTTP " + res.status);
+    const text = await res.text();
+    let data;
+    try { data = JSON.parse(text); }
+    catch { throw new Error("Response was not JSON. The first characters were: " + text.slice(0, 80)); }
+    if (data && data.type === "error") throw new Error(data.message || "Water Data Online rejected the request.");
+    return data;
+  }
+
+  // KiWIS returns [[header...],[row...],...] — turn that into objects.
+  const toObjects = table => {
+    if (!Array.isArray(table) || table.length < 2) return [];
+    const head = table[0];
+    return table.slice(1).map(r => Object.fromEntries(head.map((h, i) => [h, r[i]])));
+  };
+
+  async function listStorageSeries() {
+    const raw = await getJSON({
+      request: "getTimeseriesList",
+      parametertype_name: PARAM,
+      ts_name: TS_NAME,
+      returnfields: "station_no,station_name,ts_id,ts_unitname"
+    });
+    return toObjects(raw);
+  }
+
+  async function fetchValues(ids) {
+    const raw = await getJSON({
+      request: "getTimeseriesValues",
+      ts_id: ids.join(","),
+      period: "P30D",           // look back a month so quiet stations still report
+      returnfields: "Timestamp,Value",
+      metadata: "true",
+      md_returnfields: "ts_id"
+    });
+    const out = new Map();
+    (Array.isArray(raw) ? raw : []).forEach(series => {
+      const pts = (series.data || []).filter(p => p[1] !== null && p[1] !== undefined);
+      if (pts.length) out.set(String(series.ts_id), pts[pts.length - 1]);
+    });
+    return out;
+  }
+
+  const fmt = (n, dp = 0) => n.toLocaleString("en-AU", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+
+  function render(total, latest) {
+    $("total").innerHTML = fmt(total / 1000) + '<span class="unit"> GL</span>';
+    $("totalML").textContent = fmt(total) + " ML";
+    $("count").textContent = fmt(rows.length);
+    $("asAt").textContent = latest ? latest.slice(0, 10) : "—";
+    $("refNote").textContent = fmt(REF_GL) + " GL";
+    $("fill").style.height = Math.min(100, (total / 1000) / REF_GL * 100) + "%";
+
+    const body = document.querySelector("#tbl tbody");
+    body.innerHTML = "";
+    rows.slice().sort((a, b) => b.volume - a.volume).forEach(r => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `<td></td><td></td><td></td><td class="num">${fmt(r.volume, 1)}</td>`;
+      tr.children[0].textContent = r.name;
+      tr.children[1].textContent = r.no;
+      tr.children[2].textContent = r.time.slice(0, 10);
+      body.appendChild(tr);
+    });
+    $("tbl").hidden = false;
+    $("csv").disabled = false;
+  }
+
+  async function run() {
+    $("run").disabled = true;
+    $("csv").disabled = true;
+    $("tbl").hidden = true;
+    rows = [];
+    try {
+      say("Asking Water Data Online which stations report storage volume…");
+      const series = await listStorageSeries();
+      if (!series.length) throw new Error("No storage volume series came back. Check the parameter and timeseries names.");
+
+      const withUnits = series.filter(s => !s.ts_unitname || /ML|megal/i.test(s.ts_unitname));
+      say(`Found ${withUnits.length} storage series. Fetching readings…`);
+
+      let total = 0, latest = "";
+      for (let i = 0; i < withUnits.length; i += CHUNK) {
+        const batch = withUnits.slice(i, i + CHUNK);
+        const values = await fetchValues(batch.map(s => s.ts_id));
+        batch.forEach(s => {
+          const pt = values.get(String(s.ts_id));
+          if (!pt) return;
+          const v = Number(pt[1]);
+          if (!isFinite(v) || v < 0) return;
+          total += v;
+          if (pt[0] > latest) latest = pt[0];
+          rows.push({ name: s.station_name, no: s.station_no, time: pt[0], volume: v });
+        });
+        say(`Fetching readings… ${Math.min(i + CHUNK, withUnits.length)} of ${withUnits.length} series.`);
+      }
+
+      if (!rows.length) throw new Error("Stations were listed but none returned a recent value.");
+      render(total, latest);
+      say(`Added ${rows.length} storages. Total ${fmt(total / 1000, 1)} GL. Most recent reading ${latest.slice(0, 10)}.`);
+    } catch (err) {
+      say(
+        "Could not load the data: " + err.message +
+        "\n\nIf this says “Failed to fetch”, the browser blocked the request because Water Data Online does not send " +
+        "CORS headers. Serve this page through a proxy that adds them and put the proxy prefix in the box above, " +
+        "or run the same requests from a server.", true);
+    } finally {
+      $("run").disabled = false;
+    }
+  }
+
+  function downloadCSV() {
+    const esc = s => '"' + String(s).replace(/"/g, '""') + '"';
+    const lines = ["station_name,station_no,timestamp,volume_ML"]
+      .concat(rows.map(r => [esc(r.name), esc(r.no), esc(r.time), r.volume].join(",")));
+    const url = URL.createObjectURL(new Blob([lines.join("\n")], { type: "text/csv" }));
+    const a = document.createElement("a");
+    a.href = url; a.download = "bom-storage-volumes.csv"; a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  $("run").addEventListener("click", run);
+  $("csv").addEventListener("click", downloadCSV);
+})();
+</script>
+</body>
+</html>
