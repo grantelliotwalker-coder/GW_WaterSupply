@@ -87,6 +87,9 @@
   th{font:11px ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;border-bottom:2px solid var(--deep)}
   td.num{text-align:right;font-family:ui-monospace,monospace;font-variant-numeric:tabular-nums}
   tbody tr:hover{background:#e9e4d6}
+  tbody tr.has-map{cursor:pointer}
+  td.mapcell{white-space:nowrap;color:var(--water);font-family:ui-monospace,monospace;font-size:12px}
+  td.mapcell.disabled{color:#a39d8c}
   footer{margin-top:48px;font-size:13px;color:#4a6570;border-top:1px solid #d8d1c1;padding-top:16px}
   a{color:var(--deep)}
   @media (prefers-reduced-motion:reduce){.fill{transition:none}}
@@ -132,7 +135,7 @@
 <table id="tbl" hidden>
   <caption>Storages, largest first</caption>
   <thead>
-    <tr><th>Station</th><th>Station no.</th><th>Reading date</th><th style="text-align:right">Volume (ML)</th></tr>
+    <tr><th>Station</th><th>Station no.</th><th>Reading date</th><th style="text-align:right">Volume (ML)</th><th>Map</th></tr>
   </thead>
   <tbody></tbody>
 </table>
@@ -188,11 +191,23 @@
     const body = document.querySelector("#tbl tbody");
     body.innerHTML = "";
     rows.slice().sort((a, b) => b.volume_ML - a.volume_ML).forEach(r => {
+      const lat = parseFloat(r.lat), lon = parseFloat(r.lon);
+      const hasLoc = isFinite(lat) && isFinite(lon) && !(lat === 0 && lon === 0);
+
       const tr = document.createElement("tr");
-      tr.innerHTML = `<td></td><td></td><td></td><td class="num">${fmt(r.volume_ML, 1)}</td>`;
+      if (hasLoc) tr.classList.add("has-map");
+      tr.innerHTML = `<td></td><td></td><td></td><td class="num"></td><td class="mapcell${hasLoc ? "" : " disabled"}"></td>`;
       tr.children[0].textContent = r.name;
       tr.children[1].textContent = r.no;
       tr.children[2].textContent = (r.time || "").slice(0, 10);
+      tr.children[3].textContent = fmt(r.volume_ML, 1);
+      tr.children[4].textContent = hasLoc ? "Open ↗" : "no location";
+
+      if (hasLoc) {
+        const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${lat},${lon}`;
+        tr.addEventListener("click", () => window.open(mapsUrl, "_blank", "noopener"));
+        tr.title = `Open ${r.name} in Google Maps`;
+      }
       body.appendChild(tr);
     });
     $("tbl").hidden = false;
@@ -224,8 +239,8 @@
 
   function downloadCSV() {
     const esc = s => '"' + String(s).replace(/"/g, '""') + '"';
-    const lines = ["station_name,station_no,timestamp,volume_ML"]
-      .concat(rows.map(r => [esc(r.name), esc(r.no), esc(r.time), r.volume_ML].join(",")));
+    const lines = ["station_name,station_no,timestamp,volume_ML,lat,lon"]
+      .concat(rows.map(r => [esc(r.name), esc(r.no), esc(r.time), r.volume_ML, r.lat ?? "", r.lon ?? ""].join(",")));
     const url = URL.createObjectURL(new Blob([lines.join("\n")], { type: "text/csv" }));
     const a = document.createElement("a");
     a.href = url; a.download = "bom-storage-volumes.csv"; a.click();

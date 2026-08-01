@@ -6,6 +6,7 @@ takes the latest reading for each, and writes data.json for the website to read.
 Run this from GitHub Actions (or locally) — never from a browser.
 """
 import json
+import re
 import sys
 import time
 from datetime import datetime, timezone
@@ -52,7 +53,7 @@ def list_storage_series():
         "request": "getTimeseriesList",
         "parametertype_name": PARAM,
         "ts_name": TS_NAME,
-        "returnfields": "station_no,station_name,ts_id,ts_unitname",
+        "returnfields": "station_no,station_name,ts_id,ts_unitname,station_latitude,station_longitude",
     })
     return to_objects(raw)
 
@@ -74,15 +75,41 @@ def fetch_values(ids):
     return out
 
 
+def base_station_no(no):
+    """Strip trailing .N suffixes so 212243.3 and 212243 are recognised as the same site."""
+    if not no:
+        return ""
+    return re.sub(r"\.\d+$", "", str(no))
+
+
 def normalise_name(name):
     """Loose key for grouping likely-duplicate stations reporting the same storage."""
     if not name:
         return ""
     n = name.lower()
     for junk in ["dam", "storage", "reservoir", "weir", "wsl", "level", "logged",
-                 "water", "top", "full", "supply", "vill", "villiage", "village"]:
-        n = n.replace(junk, "")
+                 "water", "top", "full", "supply", "vill", "villiage", "village",
+                 "on", "scada", "wl", "at", "intake", "hw"]:
+        n = re.sub(rf"\b{junk}\b", "", n)
     return "".join(ch for ch in n if ch.isalnum())
+
+
+# Known same-storage groups that neither number-prefix matching nor loose name
+# matching can safely catch automatically (genuinely different station numbers,
+# genuinely different names, but the same physical reservoir). Verified by hand.
+KNOWN_DUPLICATE_GROUPS = [
+    ["lake argyle", "argyle vill", "argyle water level"],
+]
+
+
+def known_group_key(name):
+    if not name:
+        return None
+    low = name.lower()
+    for i, group in enumerate(KNOWN_DUPLICATE_GROUPS):
+        if any(phrase in low for phrase in group):
+            return f"known:{i}"
+    return None
 
 
 def main():
@@ -111,6 +138,8 @@ def main():
                 "ts_id": s.get("ts_id"),
                 "time": pt[0],
                 "volume_ML": v,
+                "lat": s.get("station_latitude"),
+                "lon": s.get("station_longitude"),
             })
         print(f"  {min(i + CHUNK, len(series))}/{len(series)} series processed", file=sys.stderr)
         time.sleep(0.3)  # be polite to BoM's server
@@ -120,27 +149,46 @@ def main():
 
     raw_total_ML = sum(r["volume_ML"] for r in rows)
 
-    # --- Dedup: group rows that are almost certainly the same physical storage ---
-    groups = {}
+    # --- Pass 1: group by base station number (handles the vast majority of dupes:
+    # 212243 vs 212243.3, 215212 vs 215212.1 vs 215212.3, etc.) ---
+    by_number = {}
     for r in rows:
-        key = normalise_name(r["name"])
-        groups.setdefault(key, []).append(r)
+        by_number.setdefault(base_station_no(r["no"]), []).append(r)
 
-    kept = []
+    pass1_kept = []
     duplicate_groups = []
-    for key, group in groups.items():
-        if len(group) == 1:
-            kept.append(group[0])
-            continue
-        # Keep the single largest reading as the storage's value; record the rest
-        # so a human can double-check the choice.
+    for key, group in by_number.items():
+        group_sorted = sorted(group, key=lambda r: -r["volume_ML"])
+        pass1_kept.append(group_sorted[0])
+        if len(group) > 1:
+            duplicate_groups.append({
+                "matched_on": f"station_no:{key}",
+                "kept": group_sorted[0],
+                "excluded": group_sorted[1:],
+            })
+
+    # --- Pass 2: catch remaining dupes that share a manually-verified name pattern
+    # but have genuinely different station numbers (e.g. Lake Argyle monitored from
+    # three separate gauge sites) ---
+    by_known = {}
+    unmatched = []
+    for r in pass1_kept:
+        k = known_group_key(r["name"])
+        if k:
+            by_known.setdefault(k, []).append(r)
+        else:
+            unmatched.append(r)
+
+    kept = list(unmatched)
+    for key, group in by_known.items():
         group_sorted = sorted(group, key=lambda r: -r["volume_ML"])
         kept.append(group_sorted[0])
-        duplicate_groups.append({
-            "matched_on": key,
-            "kept": group_sorted[0],
-            "excluded": group_sorted[1:],
-        })
+        if len(group) > 1:
+            duplicate_groups.append({
+                "matched_on": key,
+                "kept": group_sorted[0],
+                "excluded": group_sorted[1:],
+            })
 
     total_ML = sum(r["volume_ML"] for r in kept)
     latest = max(r["time"] for r in kept)
