@@ -99,7 +99,7 @@
 <header>
   <p class="eyebrow">Bureau of Meteorology · Water Data Online · KiWIS</p>
   <h1>How much water is<br>in the country right now?</h1>
-  <p>This page asks Water Data Online for every monitoring point that reports a Storage Volume, takes the most recent daily reading from each, and adds them together.</p>
+  <p>A scheduled job asks Water Data Online for every monitoring point that reports a Storage Volume, takes the most recent daily reading from each, and adds them together. This page just displays the result.</p>
 </header>
 
 <section class="gauge">
@@ -121,8 +121,6 @@
 </section>
 
 <div class="controls">
-  <label class="inline" for="proxy">CORS proxy prefix (leave blank if you are serving this from a host the Bureau allows)</label>
-  <input type="text" id="proxy" placeholder="https://your-proxy.example/?url=" value="">
   <button id="run">Load storage data</button>
   <button id="csv" class="ghost" disabled>Download CSV</button>
 </div>
@@ -149,12 +147,7 @@
 (() => {
   "use strict";
 
-  const BASE = "https://www.bom.gov.au/waterdata/services";
-  const TS_NAME = "DMQaQc.Merged.DailyMean.24HR"; // quality-checked daily mean
-  const PARAM = "Storage Volume";
-  const CHUNK = 40;      // ts_ids per values request
   const REF_GL = 80000;  // reference full-column volume, gigalitres
-
   const $ = id => document.getElementById(id);
   const statusEl = $("status");
   let rows = [];
@@ -164,82 +157,27 @@
     statusEl.classList.toggle("error", !!isError);
   };
 
-  // Build a request URL, optionally routed through a user-supplied proxy.
-  function url(params) {
-    const qs = new URLSearchParams(Object.assign({
-      service: "kisters",
-      type: "queryServices",
-      datasource: "0",
-      format: "json"
-    }, params)).toString();
-    const target = BASE + "?" + qs;
-    const proxy = $("proxy").value.trim();
-    return proxy ? proxy + encodeURIComponent(target) : target;
-  }
-
-  async function getJSON(params) {
-    const res = await fetch(url(params), { headers: { "Accept": "application/json" } });
-    if (!res.ok) throw new Error("Water Data Online returned HTTP " + res.status);
-    const text = await res.text();
-    let data;
-    try { data = JSON.parse(text); }
-    catch { throw new Error("Response was not JSON. The first characters were: " + text.slice(0, 80)); }
-    if (data && data.type === "error") throw new Error(data.message || "Water Data Online rejected the request.");
-    return data;
-  }
-
-  // KiWIS returns [[header...],[row...],...] — turn that into objects.
-  const toObjects = table => {
-    if (!Array.isArray(table) || table.length < 2) return [];
-    const head = table[0];
-    return table.slice(1).map(r => Object.fromEntries(head.map((h, i) => [h, r[i]])));
-  };
-
-  async function listStorageSeries() {
-    const raw = await getJSON({
-      request: "getTimeseriesList",
-      parametertype_name: PARAM,
-      ts_name: TS_NAME,
-      returnfields: "station_no,station_name,ts_id,ts_unitname"
-    });
-    return toObjects(raw);
-  }
-
-  async function fetchValues(ids) {
-    const raw = await getJSON({
-      request: "getTimeseriesValues",
-      ts_id: ids.join(","),
-      period: "P30D",           // look back a month so quiet stations still report
-      returnfields: "Timestamp,Value",
-      metadata: "true",
-      md_returnfields: "ts_id"
-    });
-    const out = new Map();
-    (Array.isArray(raw) ? raw : []).forEach(series => {
-      const pts = (series.data || []).filter(p => p[1] !== null && p[1] !== undefined);
-      if (pts.length) out.set(String(series.ts_id), pts[pts.length - 1]);
-    });
-    return out;
-  }
-
   const fmt = (n, dp = 0) => n.toLocaleString("en-AU", { minimumFractionDigits: dp, maximumFractionDigits: dp });
 
-  function render(total, latest) {
-    $("total").innerHTML = fmt(total / 1000) + '<span class="unit"> GL</span>';
+  function render(payload) {
+    rows = payload.stations || [];
+    const total = payload.total_ML || 0;
+
+    $("total").innerHTML = fmt(total / 1000, 1) + '<span class="unit"> GL</span>';
     $("totalML").textContent = fmt(total) + " ML";
     $("count").textContent = fmt(rows.length);
-    $("asAt").textContent = latest ? latest.slice(0, 10) : "—";
+    $("asAt").textContent = payload.latest_reading ? payload.latest_reading.slice(0, 10) : "—";
     $("refNote").textContent = fmt(REF_GL) + " GL";
     $("fill").style.height = Math.min(100, (total / 1000) / REF_GL * 100) + "%";
 
     const body = document.querySelector("#tbl tbody");
     body.innerHTML = "";
-    rows.slice().sort((a, b) => b.volume - a.volume).forEach(r => {
+    rows.slice().sort((a, b) => b.volume_ML - a.volume_ML).forEach(r => {
       const tr = document.createElement("tr");
-      tr.innerHTML = `<td></td><td></td><td></td><td class="num">${fmt(r.volume, 1)}</td>`;
+      tr.innerHTML = `<td></td><td></td><td></td><td class="num">${fmt(r.volume_ML, 1)}</td>`;
       tr.children[0].textContent = r.name;
       tr.children[1].textContent = r.no;
-      tr.children[2].textContent = r.time.slice(0, 10);
+      tr.children[2].textContent = (r.time || "").slice(0, 10);
       body.appendChild(tr);
     });
     $("tbl").hidden = false;
@@ -250,40 +188,19 @@
     $("run").disabled = true;
     $("csv").disabled = true;
     $("tbl").hidden = true;
-    rows = [];
     try {
-      say("Asking Water Data Online which stations report storage volume…");
-      const series = await listStorageSeries();
-      if (!series.length) throw new Error("No storage volume series came back. Check the parameter and timeseries names.");
-
-      const withUnits = series.filter(s => !s.ts_unitname || /ML|megal/i.test(s.ts_unitname));
-      say(`Found ${withUnits.length} storage series. Fetching readings…`);
-
-      let total = 0, latest = "";
-      for (let i = 0; i < withUnits.length; i += CHUNK) {
-        const batch = withUnits.slice(i, i + CHUNK);
-        const values = await fetchValues(batch.map(s => s.ts_id));
-        batch.forEach(s => {
-          const pt = values.get(String(s.ts_id));
-          if (!pt) return;
-          const v = Number(pt[1]);
-          if (!isFinite(v) || v < 0) return;
-          total += v;
-          if (pt[0] > latest) latest = pt[0];
-          rows.push({ name: s.station_name, no: s.station_no, time: pt[0], volume: v });
-        });
-        say(`Fetching readings… ${Math.min(i + CHUNK, withUnits.length)} of ${withUnits.length} series.`);
-      }
-
-      if (!rows.length) throw new Error("Stations were listed but none returned a recent value.");
-      render(total, latest);
-      say(`Added ${rows.length} storages. Total ${fmt(total / 1000, 1)} GL. Most recent reading ${latest.slice(0, 10)}.`);
+      say("Loading data.json…");
+      const res = await fetch("data.json?_=" + Date.now());
+      if (!res.ok) throw new Error("data.json returned HTTP " + res.status);
+      const payload = await res.json();
+      render(payload);
+      const generated = payload.generated_at ? new Date(payload.generated_at).toLocaleString("en-AU") : "unknown time";
+      say(`Loaded ${rows.length} storages, total ${fmt(payload.total_ML / 1000, 1)} GL. Data was last refreshed ${generated}.`);
     } catch (err) {
       say(
-        "Could not load the data: " + err.message +
-        "\n\nIf this says “Failed to fetch”, the browser blocked the request because Water Data Online does not send " +
-        "CORS headers. Serve this page through a proxy that adds them and put the proxy prefix in the box above, " +
-        "or run the same requests from a server.", true);
+        "Could not load data.json: " + err.message +
+        "\n\nThis file is written by the GitHub Action, not fetched live. Make sure fetch_storage.py has run at least " +
+        "once (check the Actions tab in your repo) and that data.json sits next to this HTML file.", true);
     } finally {
       $("run").disabled = false;
     }
@@ -292,7 +209,7 @@
   function downloadCSV() {
     const esc = s => '"' + String(s).replace(/"/g, '""') + '"';
     const lines = ["station_name,station_no,timestamp,volume_ML"]
-      .concat(rows.map(r => [esc(r.name), esc(r.no), esc(r.time), r.volume].join(",")));
+      .concat(rows.map(r => [esc(r.name), esc(r.no), esc(r.time), r.volume_ML].join(",")));
     const url = URL.createObjectURL(new Blob([lines.join("\n")], { type: "text/csv" }));
     const a = document.createElement("a");
     a.href = url; a.download = "bom-storage-volumes.csv"; a.click();
@@ -301,6 +218,9 @@
 
   $("run").addEventListener("click", run);
   $("csv").addEventListener("click", downloadCSV);
+
+  // Auto-load on page open since there's no live-fetch cost anymore.
+  run();
 })();
 </script>
 </body>
