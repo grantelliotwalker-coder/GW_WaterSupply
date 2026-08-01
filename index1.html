@@ -94,7 +94,29 @@
   a{color:var(--deep)}
   @media (prefers-reduced-motion:reduce){.fill{transition:none}}
   @media (max-width:620px){.gauge{grid-template-columns:70px 1fr;gap:16px}}
+
+  .modal-backdrop{
+    position:fixed;inset:0;background:rgba(7,36,46,.55);display:none;
+    align-items:flex-start;justify-content:center;padding:6vh 16px;z-index:50;overflow-y:auto;
+  }
+  .modal-backdrop.open{display:flex}
+  .modal{
+    background:var(--paper);border:2px solid var(--deep);border-radius:2px;
+    max-width:640px;width:100%;padding:24px;position:relative;
+  }
+  .modal h2{margin:0 0 4px;font-size:24px}
+  .modal .sub{font:12px ui-monospace,monospace;color:#4a6570;margin:0 0 18px}
+  .modal-close{
+    position:absolute;top:14px;right:14px;background:none;border:none;font-size:22px;
+    line-height:1;cursor:pointer;color:var(--deep);padding:4px 8px;
+  }
+  .param-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px 18px;margin:16px 0}
+  .param-grid dt{font:10px ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;opacity:.65}
+  .param-grid dd{margin:2px 0 0;font-family:ui-monospace,monospace;font-size:16px}
+  .modal-chart-wrap{position:relative;height:180px;margin-top:18px}
+  .modal-actions{margin-top:18px;display:flex;gap:10px}
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
 </head>
 <body>
 <div class="wrap">
@@ -123,6 +145,14 @@
   </div>
 </section>
 
+<section style="margin-top:34px">
+  <p class="eyebrow" style="margin-bottom:8px">Trend</p>
+  <div style="position:relative;height:220px">
+    <canvas id="trendChart"></canvas>
+  </div>
+  <p id="trendNote" style="font:12px ui-monospace,monospace;color:#4a6570;margin-top:8px"></p>
+</section>
+
 <div class="controls">
   <button id="run">Load storage data</button>
   <button id="csv" class="ghost" disabled>Download CSV</button>
@@ -133,9 +163,9 @@
 <p id="dupeNote" style="display:none;font:13px ui-monospace,monospace;color:#4a6570"></p>
 
 <table id="tbl" hidden>
-  <caption>Storages, largest first</caption>
+  <caption>Storages, grouped by state, largest first within each</caption>
   <thead>
-    <tr><th>Station</th><th>Station no.</th><th>Reading date</th><th style="text-align:right">Volume (ML)</th><th>Map</th></tr>
+    <tr><th>State</th><th>Station</th><th>Station no.</th><th>Reading date</th><th style="text-align:right">Volume (ML)</th><th>Map</th></tr>
   </thead>
   <tbody></tbody>
 </table>
@@ -146,6 +176,20 @@
   what those agencies publish through this service, not the volume of every dam in Australia.
 </footer>
 
+</div>
+
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal">
+    <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+    <h2 id="modalTitle">—</h2>
+    <p class="sub" id="modalSub">—</p>
+    <dl class="param-grid" id="modalParams"></dl>
+    <div class="modal-chart-wrap"><canvas id="modalChart"></canvas></div>
+    <p style="font:11px ui-monospace,monospace;color:#4a6570;margin-top:6px" id="modalChartNote"></p>
+    <div class="modal-actions">
+      <button class="ghost" id="modalMapBtn">Open in Google Maps</button>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -190,29 +234,180 @@
 
     const body = document.querySelector("#tbl tbody");
     body.innerHTML = "";
-    rows.slice().sort((a, b) => b.volume_ML - a.volume_ML).forEach(r => {
+    const sorted = rows.slice().sort((a, b) => {
+      const sa = a.state || "ZZ", sb = b.state || "ZZ";
+      if (sa !== sb) return sa < sb ? -1 : 1;
+      return b.volume_ML - a.volume_ML;
+    });
+
+    let lastState = null;
+    sorted.forEach(r => {
+      if (r.state !== lastState) {
+        lastState = r.state;
+        const hdr = document.createElement("tr");
+        hdr.innerHTML = `<td colspan="6" style="background:#e2dcc9;font:11px ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--deep);padding:6px 10px">${r.state || "Unclassified"}</td>`;
+        body.appendChild(hdr);
+      }
+
       const lat = parseFloat(r.lat), lon = parseFloat(r.lon);
       const hasLoc = isFinite(lat) && isFinite(lon) && !(lat === 0 && lon === 0);
 
       const tr = document.createElement("tr");
-      if (hasLoc) tr.classList.add("has-map");
-      tr.innerHTML = `<td></td><td></td><td></td><td class="num"></td><td class="mapcell${hasLoc ? "" : " disabled"}"></td>`;
-      tr.children[0].textContent = r.name;
-      tr.children[1].textContent = r.no;
-      tr.children[2].textContent = (r.time || "").slice(0, 10);
-      tr.children[3].textContent = fmt(r.volume_ML, 1);
-      tr.children[4].textContent = hasLoc ? "Open ↗" : "no location";
+      tr.classList.add("has-map");
+      tr.innerHTML = `<td></td><td></td><td></td><td></td><td class="num"></td><td class="mapcell${hasLoc ? "" : " disabled"}"></td>`;
+      tr.children[0].textContent = r.state || "—";
+      tr.children[1].textContent = r.name;
+      tr.children[2].textContent = r.no;
+      tr.children[3].textContent = (r.time || "").slice(0, 10);
+      tr.children[4].textContent = fmt(r.volume_ML, 1);
+      tr.children[5].textContent = hasLoc ? "Open ↗" : "no location";
 
-      if (hasLoc) {
-        const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${lat},${lon}`;
-        tr.addEventListener("click", () => window.open(mapsUrl, "_blank", "noopener"));
-        tr.title = `Open ${r.name} in Google Maps`;
-      }
+      tr.addEventListener("click", (e) => {
+        if (e.target.closest("td.mapcell") && hasLoc) {
+          const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${lat},${lon}`;
+          window.open(mapsUrl, "_blank", "noopener");
+          return;
+        }
+        openStationModal(r, hasLoc ? { lat, lon } : null);
+      });
+      tr.title = `View details for ${r.name}`;
       body.appendChild(tr);
     });
     $("tbl").hidden = false;
     $("csv").disabled = false;
     $("copy").disabled = false;
+  }
+
+  let chartInstance = null;
+  let modalChartInstance = null;
+  let stationHistoryCache = null;
+
+  async function getStationHistory() {
+    if (stationHistoryCache) return stationHistoryCache;
+    try {
+      const res = await fetch("station_history.json?_=" + Date.now());
+      stationHistoryCache = res.ok ? await res.json() : {};
+    } catch {
+      stationHistoryCache = {};
+    }
+    return stationHistoryCache;
+  }
+
+  function closeModal() {
+    $("modalBackdrop").classList.remove("open");
+    if (modalChartInstance) { modalChartInstance.destroy(); modalChartInstance = null; }
+  }
+
+  async function openStationModal(r, loc) {
+    $("modalTitle").textContent = r.name || "Unknown station";
+    $("modalSub").textContent = `Station ${r.no}${r.state ? " · " + r.state : ""}`;
+
+    const grid = $("modalParams");
+    grid.innerHTML = "";
+    const addParam = (label, value, unit, time) => {
+      const dt = document.createElement("dt"); dt.textContent = label;
+      const dd = document.createElement("dd");
+      dd.textContent = value === undefined || value === null ? "—" : `${fmt(value, 2)}${unit ? " " + unit : ""}`;
+      grid.appendChild(dt); grid.appendChild(dd);
+      if (time) {
+        const small = document.createElement("div");
+        small.style.cssText = "grid-column:span 1;font:10px ui-monospace,monospace;color:#8a8270;margin-top:-8px";
+        small.textContent = time.slice(0, 10);
+      }
+    };
+    addParam("Storage volume", r.volume_ML, "ML", r.time);
+    (r.parameters || []).forEach(p => addParam(p.parameter, p.value, p.unit, p.time));
+    if (!(r.parameters || []).length) {
+      const note = document.createElement("p");
+      note.style.cssText = "grid-column:1/-1;font:12px ui-monospace,monospace;color:#8a8270";
+      note.textContent = "No additional parameters reported at this station.";
+      grid.appendChild(note);
+    }
+
+    $("modalMapBtn").style.display = loc ? "inline-block" : "none";
+    $("modalMapBtn").onclick = loc
+      ? () => window.open(`https://www.google.com/maps/search/?api=1&query=${loc.lat},${loc.lon}`, "_blank", "noopener")
+      : null;
+
+    $("modalBackdrop").classList.add("open");
+
+    $("modalChartNote").textContent = "Loading history…";
+    const history = await getStationHistory();
+    const series = (history[r.no] || []).slice().sort((a, b) => a.date < b.date ? -1 : 1);
+
+    if (modalChartInstance) { modalChartInstance.destroy(); modalChartInstance = null; }
+    if (series.length < 2) {
+      $("modalChartNote").textContent = series.length
+        ? "Only one data point so far for this station."
+        : "No history recorded yet for this station.";
+      return;
+    }
+    $("modalChartNote").textContent = `${series.length} readings, ${series[0].date} to ${series[series.length - 1].date}.`;
+    const ctx = document.getElementById("modalChart").getContext("2d");
+    modalChartInstance = new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: series.map(p => p.date),
+        datasets: [{
+          label: "Volume (ML)",
+          data: series.map(p => p.volume_ML),
+          borderColor: "#2f9fb5",
+          backgroundColor: "rgba(47,159,181,0.15)",
+          borderWidth: 2, pointRadius: 0, tension: 0.25, fill: true,
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { ticks: { maxTicksLimit: 6, font: { family: "ui-monospace", size: 10 } }, grid: { display: false } },
+          y: { ticks: { font: { family: "ui-monospace", size: 10 } }, grid: { color: "#d8d1c1" } }
+        }
+      }
+    });
+  }
+
+  $("modalClose").addEventListener("click", closeModal);
+  $("modalBackdrop").addEventListener("click", (e) => { if (e.target === $("modalBackdrop")) closeModal(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
+
+  function renderChart(history) {
+    const note = $("trendNote");
+    if (!history || history.length < 2) {
+      note.textContent = history && history.length === 1
+        ? "Only one data point so far — the trend line will appear after tomorrow's run."
+        : "No history yet.";
+      return;
+    }
+    note.textContent = `${history.length} daily readings, ${history[0].date} to ${history[history.length - 1].date}.`;
+
+    const ctx = document.getElementById("trendChart").getContext("2d");
+    if (chartInstance) chartInstance.destroy();
+    chartInstance = new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: history.map(h => h.date),
+        datasets: [{
+          label: "Total storage (GL)",
+          data: history.map(h => h.total_GL),
+          borderColor: "#2f9fb5",
+          backgroundColor: "rgba(47,159,181,0.15)",
+          borderWidth: 2,
+          pointRadius: 0,
+          tension: 0.25,
+          fill: true,
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { ticks: { maxTicksLimit: 8, font: { family: "ui-monospace", size: 10 } }, grid: { display: false } },
+          y: { ticks: { font: { family: "ui-monospace", size: 10 } }, grid: { color: "#d8d1c1" } }
+        }
+      }
+    });
   }
 
   async function run() {
@@ -227,6 +422,13 @@
       render(payload);
       const generated = payload.generated_at ? new Date(payload.generated_at).toLocaleString("en-AU") : "unknown time";
       say(`Loaded ${rows.length} storages, total ${fmt(payload.total_ML / 1000, 1)} GL. Data was last refreshed ${generated}.`);
+
+      try {
+        const histRes = await fetch("history.json?_=" + Date.now());
+        renderChart(histRes.ok ? await histRes.json() : []);
+      } catch {
+        renderChart([]);
+      }
     } catch (err) {
       say(
         "Could not load data.json: " + err.message +
@@ -239,8 +441,8 @@
 
   function downloadCSV() {
     const esc = s => '"' + String(s).replace(/"/g, '""') + '"';
-    const lines = ["station_name,station_no,timestamp,volume_ML,lat,lon"]
-      .concat(rows.map(r => [esc(r.name), esc(r.no), esc(r.time), r.volume_ML, r.lat ?? "", r.lon ?? ""].join(",")));
+    const lines = ["state,station_name,station_no,timestamp,volume_ML,lat,lon"]
+      .concat(rows.map(r => [esc(r.state || ""), esc(r.name), esc(r.no), esc(r.time), r.volume_ML, r.lat ?? "", r.lon ?? ""].join(",")));
     const url = URL.createObjectURL(new Blob([lines.join("\n")], { type: "text/csv" }));
     const a = document.createElement("a");
     a.href = url; a.download = "bom-storage-volumes.csv"; a.click();
