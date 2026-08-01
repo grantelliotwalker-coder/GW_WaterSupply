@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GW Automation — Industrial data tools for OPC systems</title>
+<meta name="description" content="GW Automation builds Windows-native OPC tooling: HistorianLink for OPC UA history extraction, reporting and dashboards, and OpcDaLink for bridging legacy OPC DA servers to OPC UA.">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<style>
+:root{
+  --bg:#080c10;--panel:#0d1318;--panel2:#0a1015;--border:#1a2a35;
+  --accent:#00c8ff;--accent2:#00ff9d;--warn:#ffd700;--danger:#ff3b5c;
+  --text:#c8dde8;--muted:#4a6272;
+  --ff:'Segoe UI',Arial,sans-serif;--fm:Consolas,'Courier New',monospace;
+  --max:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--ff);font-size:15px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* scanlines + grid, straight from the product UI */
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
+  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.04) 2px,rgba(0,0,0,.04) 4px)}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(rgba(0,200,255,.025) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(0,200,255,.025) 1px,transparent 1px);background-size:40px 40px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px;position:relative;z-index:1}
+
+/* ── Header ── */
+header{position:sticky;top:0;z-index:100;border-bottom:1px solid var(--border);height:56px;
+  background:linear-gradient(90deg,rgba(0,200,255,.07),rgba(8,12,16,.92));backdrop-filter:blur(10px)}
+.hdr{max-width:var(--max);margin:0 auto;padding:0 24px;height:100%;display:flex;align-items:center;gap:14px}
+.logo{width:34px;height:34px;border:1.5px solid var(--accent);border-radius:6px;display:grid;place-items:center;flex-shrink:0}
+.logo svg{width:18px;height:18px}
+.brand{font-size:17px;font-weight:700;letter-spacing:2.5px;color:#fff;text-transform:uppercase;white-space:nowrap}
+.brand em{color:var(--accent);font-style:normal}
+nav{margin-left:auto;display:flex;align-items:center;gap:4px}
+nav a{color:var(--muted);text-decoration:none;font-size:11px;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;padding:8px 12px;border-bottom:2px solid transparent;transition:.15s}
+nav a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+.menu-btn{display:none;margin-left:auto;background:transparent;border:1px solid var(--border);color:var(--accent);
+  border-radius:4px;padding:6px 11px;font-family:var(--fm);font-size:15px;cursor:pointer}
+
+/* ── Status strip ── */
+.strip{border-bottom:1px solid var(--border);background:rgba(0,0,0,.25);font-family:var(--fm);font-size:10.5px;
+  letter-spacing:1px;color:var(--muted);position:relative;z-index:1}
+.strip .wrap{display:flex;gap:22px;padding-top:7px;padding-bottom:7px;flex-wrap:wrap;align-items:center}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--accent2);box-shadow:0 0 6px var(--accent2);
+  animation:pulse 2s infinite;display:inline-block;margin-right:6px}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+/* ── Hero ── */
+.hero{padding:80px 0 60px;border-bottom:1px solid var(--border);position:relative}
+.eyebrow{font-family:var(--fm);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);
+  margin-bottom:18px;display:flex;align-items:center;gap:9px}
+.eyebrow::before{content:'';width:3px;height:13px;background:var(--accent);border-radius:2px}
+h1{font-size:clamp(30px,5.2vw,52px);line-height:1.12;font-weight:700;color:#fff;letter-spacing:-.5px;max-width:16ch}
+h1 em{color:var(--accent);font-style:normal}
+.lede{margin-top:22px;max-width:62ch;font-size:16.5px;color:var(--text);opacity:.9}
+.cta-row{margin-top:32px;display:flex;gap:10px;flex-wrap:wrap}
+.btn{font-family:var(--ff);font-weight:700;font-size:11.5px;letter-spacing:1.5px;text-transform:uppercase;
+  border:none;cursor:pointer;border-radius:4px;padding:11px 20px;text-decoration:none;display:inline-block;transition:.2s}
+.btn-a{background:var(--accent);color:#000}.btn-a:hover{background:#33d4ff}
+.btn-g{background:transparent;color:var(--accent);border:1px solid var(--border)}
+.btn-g:hover{border-color:var(--accent);background:rgba(0,200,255,.06)}
+
+/* hero terminal */
+.term{margin-top:52px;background:var(--panel);border:1px solid var(--border);border-radius:8px;overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,.55)}
+.term-bar{padding:9px 14px;border-bottom:1px solid var(--border);background:rgba(0,0,0,.3);
+  display:flex;align-items:center;gap:9px;font-family:var(--fm);font-size:10px;color:var(--muted);letter-spacing:1px}
+.term-body{padding:18px 20px;font-family:var(--fm);font-size:12.5px;line-height:1.85;overflow-x:auto;white-space:pre;color:var(--muted)}
+.term-body .c{color:var(--accent)}.term-body .g{color:var(--accent2)}.term-body .w{color:var(--warn)}.term-body .t{color:var(--text)}
+.caret{display:inline-block;width:8px;height:14px;background:var(--accent2);vertical-align:-2px;animation:blink 1.1s steps(1) infinite}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+
+/* ── Sections ── */
+section{padding:72px 0;border-bottom:1px solid var(--border);position:relative;z-index:1}
+.st{font-size:10.5px;font-weight:700;letter-spacing:2.5px;color:var(--accent);text-transform:uppercase;
+  margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.st::before{content:'';width:3px;height:12px;background:var(--accent);border-radius:2px}
+h2{font-size:clamp(23px,3.4vw,33px);color:#fff;font-weight:700;letter-spacing:-.3px;line-height:1.2}
+.sub{margin-top:14px;max-width:65ch;color:var(--text);opacity:.85}
+
+/* ── Product ── */
+.prod{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start;margin-top:40px}
+.prod.flip .prod-media{order:-1}
+.badge{display:inline-flex;align-items:center;gap:7px;font-family:var(--fm);font-size:10px;letter-spacing:1.5px;
+  text-transform:uppercase;border:1px solid var(--border);border-radius:3px;padding:3px 9px;color:var(--muted);margin-bottom:14px}
+.badge.live{color:var(--accent2);border-color:rgba(0,255,157,.3);background:rgba(0,255,157,.05)}
+.badge.beta{color:var(--warn);border-color:rgba(255,215,0,.3);background:rgba(255,215,0,.05)}
+h3{font-size:26px;color:#fff;font-weight:700;letter-spacing:.5px}
+h3 em{color:var(--accent);font-style:normal}
+.tagline{font-family:var(--fm);font-size:12px;color:var(--muted);letter-spacing:1px;margin-top:6px;text-transform:uppercase}
+.prod p.body{margin-top:16px;opacity:.9}
+ul.feat{list-style:none;margin-top:20px;display:flex;flex-direction:column;gap:9px}
+ul.feat li{font-size:14px;padding-left:22px;position:relative;color:var(--text);opacity:.9}
+ul.feat li::before{content:'▸';position:absolute;left:0;color:var(--accent);font-size:12px}
+ul.feat li b{color:#fff;font-weight:600}
+
+/* screenshot placeholders */
+.shot{position:relative;background:var(--panel2);border:1px solid var(--border);border-radius:6px;overflow:hidden;
+  aspect-ratio:16/10;transition:border-color .2s}
+.shot:hover{border-color:var(--accent)}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block;position:relative;z-index:2}
+.shot .ph{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:10px;text-align:center;padding:20px;
+  background-image:linear-gradient(rgba(0,200,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,200,255,.04) 1px,transparent 1px);
+  background-size:22px 22px}
+.ph .ico{font-family:var(--fm);font-size:24px;color:var(--border)}
+.ph .lbl{font-family:var(--fm);font-size:10.5px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase}
+.ph .path{font-family:var(--fm);font-size:10px;color:var(--accent);opacity:.6;word-break:break-all}
+.shot-cap{font-family:var(--fm);font-size:10px;color:var(--muted);letter-spacing:1px;
+  text-transform:uppercase;margin-top:8px;text-align:center}
+.shot-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+
+/* ── Capability cards ── */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:38px}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:22px;transition:border-color .18s}
+.card:hover{border-color:var(--accent)}
+.card .num{font-family:var(--fm);font-size:10px;color:var(--muted);letter-spacing:2px;margin-bottom:12px}
+.card h4{font-size:15px;color:#fff;font-weight:700;letter-spacing:.5px;margin-bottom:8px}
+.card p{font-size:13.5px;color:var(--text);opacity:.8;line-height:1.65}
+
+/* ── Architecture ── */
+.arch{margin-top:34px;background:#040810;border:1px solid var(--border);border-radius:6px;padding:24px;overflow-x:auto}
+.arch pre{font-family:var(--fm);font-size:12px;line-height:1.55;color:var(--muted);white-space:pre}
+.arch pre b{color:var(--accent);font-weight:400}
+.arch pre i{color:var(--accent2);font-style:normal}
+
+/* ── Spec table ── */
+.spec{margin-top:34px;width:100%;border-collapse:collapse;font-size:13.5px}
+.spec th{text-align:left;padding:9px 12px;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--accent);border-bottom:1px solid var(--border);font-weight:700;background:rgba(0,0,0,.2)}
+.spec td{padding:10px 12px;border-bottom:1px solid rgba(26,42,53,.55);vertical-align:top}
+.spec tr:hover td{background:rgba(0,200,255,.03)}
+.spec td:first-child{color:#fff;font-weight:600;width:30%}
+.spec td .mono{font-family:var(--fm);font-size:12px;color:var(--accent2)}
+
+/* ── Contact ── */
+.contact-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:34px;margin-top:36px;align-items:start}
+.cbox{background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:26px}
+.cbox .row{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid rgba(26,42,53,.55);
+  font-size:13.5px;flex-wrap:wrap}
+.cbox .row:last-child{border-bottom:none}
+.cbox .k{font-family:var(--fm);font-size:10.5px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase}
+.cbox .v{color:var(--text)}
+.cbox a{color:var(--accent);text-decoration:none}
+.cbox a:hover{text-decoration:underline}
+
+/* ── Footer ── */
+footer{padding:36px 0;font-family:var(--fm);font-size:11px;color:var(--muted);letter-spacing:1px;position:relative;z-index:1}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+footer a{color:var(--muted);text-decoration:none}footer a:hover{color:var(--accent)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+
+@media (max-width:900px){
+  .prod{grid-template-columns:1fr;gap:28px}
+  .prod.flip .prod-media{order:0}
+  .cards{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  nav{display:none}
+  nav.open{display:flex;position:absolute;top:56px;left:0;right:0;flex-direction:column;align-items:stretch;
+    background:var(--panel);border-bottom:1px solid var(--border);padding:6px 12px;gap:0}
+  nav.open a{padding:11px 8px;border-bottom:1px solid rgba(26,42,53,.5)}
+  .menu-btn{display:block}
+  section{padding:52px 0}
+  .hero{padding:56px 0 44px}
+}
+@media (max-width:520px){.shot-grid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hdr">
+    <div class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#00c8ff" stroke-width="2" stroke-linecap="round">
+        <path d="M2 17l5-6 4 4 4-8 5 5"/><circle cx="7" cy="11" r="1.4" fill="#00c8ff" stroke="none"/>
+        <circle cx="11" cy="15" r="1.4" fill="#00c8ff" stroke="none"/><circle cx="15" cy="7" r="1.4" fill="#00ff9d" stroke="none"/>
+      </svg>
+    </div>
+    <span class="brand">GW <em>Automation</em></span>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">≡</button>
+    <nav id="nav">
+      <a href="#products">Products</a>
+      <a href="#historianlink">HistorianLink</a>
+      <a href="#opcdalink">OpcDaLink</a>
+      <a href="#platform">Platform</a>
+      <a href="#specs">Specs</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="strip">
+  <div class="wrap">
+    <span><span class="dot"></span>PRODUCTS OPERATIONAL</span>
+    <span>OPC UA · OPC DA · WinCC</span>
+    <span>WINDOWS SERVICE + TRAY</span>
+    <span>OFFLINE LICENSING</span>
+    <span>NO CLOUD DEPENDENCY</span>
+  </div>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Industrial data tooling</div>
+    <h1>Get the data <em>out</em> of your plant historian.</h1>
+    <p class="lede">
+      GW Automation builds small, self-contained Windows software for control systems engineers.
+      No cloud account, no per-tag pricing, no agent phoning home — install an MSI on the box that
+      already talks to your plant, and get history, reports and dashboards out of it.
+    </p>
+    <div class="cta-row">
+      <a href="#products" class="btn btn-a">View products</a>
+      <a href="#contact" class="btn btn-g">Request a trial</a>
+    </div>
+
+    <div class="term rv">
+      <div class="term-bar"><span class="dot"></span>HistorianLink — export job</div>
+      <div class="term-body"><span class="c">[JOB   ]</span> <span class="t">connect  opc.tcp://ph-server:4897  Basic256Sha256/SignAndEncrypt</span>
+<span class="c">[PROBE ]</span> <span class="t">certificate</span> <span class="g">TRUSTED</span>  <span class="t">· endpoints 2 · server ready</span>
+<span class="c">[BROWSE]</span> <span class="t">Plant/Line1 · Plant/Line2 · Plant/Utilities   </span><span class="g">1,284 tags cached</span>
+<span class="c">[HIST  ]</span> <span class="t">read 2026-07-24 06:00 → 2026-07-31 06:00  ·  resample 1m  ·  42 tags</span>
+<span class="c">[HIST  ]</span> <span class="t">████████████████████████████</span> <span class="g">100%   423,360 rows</span>
+<span class="c">[QUAL  ]</span> <span class="t">Good 421,902 · Uncertain 1,203 · </span><span class="w">Bad 255</span>
+<span class="c">[EXPORT]</span> <span class="t">historian_2026-07-24_to_2026-07-31_1m.xlsx  </span><span class="g">18.4 MB</span>
+<span class="g">[DONE  ]</span> <span class="t">elapsed 00:01:47  ·  written to \\reports\weekly\  </span><span class="caret"></span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PRODUCTS ═══ -->
+<section id="products">
+  <div class="wrap">
+    <div class="st">Product line</div>
+    <h2>Two products, one problem.</h2>
+    <p class="sub">
+      Plant data is usually stuck — locked behind a proprietary historian, or behind a twenty-year-old
+      DCOM interface nobody wants to touch. One product gets history out. The other gets legacy servers
+      onto a modern protocol.
+    </p>
+  </div>
+</section>
+
+<!-- ── HistorianLink ── -->
+<section id="historianlink">
+  <div class="wrap">
+    <div class="prod">
+      <div class="prod-copy rv">
+        <span class="badge live"><span class="dot"></span>Shipping</span>
+        <h3>Historian<em>Link</em></h3>
+        <div class="tagline">OPC UA history · reports · dashboards · alarms</div>
+        <p class="body">
+          Connects as an OPC UA client to a plant historian — Siemens Process Historian, WinCC, or any
+          compliant UA server — and turns its archive into something you can actually use. Browse the tag
+          tree, pull raw history, resample it, and export to Excel or CSV with real quality codes attached.
+        </p>
+        <ul class="feat">
+          <li><b>History export jobs</b> — raw reads resampled to any interval, millisecond timestamps, plain-English quality column, UTC or local toggle, metadata header block.</li>
+          <li><b>Scheduled reports</b> — repeatable report definitions written to .xlsx, last five runs kept per report.</li>
+          <li><b>Live dashboards</b> — tiles with current value and sparkline, polled only while someone is watching.</li>
+          <li><b>Alarm history</b> — a satellite agent reads the WinCC message archive over OLE DB, the supported route when UA returns <span style="font-family:var(--fm);color:var(--accent2)">BadNotImplemented</span> for event history.</li>
+          <li><b>Trend analyser</b> — multi-tag chart with severity colouring, presets and a scrubbing ruler.</li>
+          <li><b>Three access levels</b> — admin on loopback, engineer over TLS, read-only viewer.</li>
+          <li><b>Device trust</b> — allow-list connections by IP, or IP + MAC with ARP verification.</li>
+          <li><b>Audit trail</b> — logins, exports, config changes; no credentials, no stack traces.</li>
+        </ul>
+        <div class="cta-row">
+          <a href="#contact" class="btn btn-a">Request a trial</a>
+          <a href="#specs" class="btn btn-g">Technical specs</a>
+        </div>
+      </div>
+
+      <div class="prod-media rv">
+        <!-- SCREENSHOT: main analyser / trend view -->
+        <div class="shot">
+          <div class="ph">
+            <div class="ico">▤</div>
+            <div class="lbl">Screenshot</div>
+            <div class="path">assets/hl-analyser.png</div>
+          </div>
+          <img src="assets/hl-analyser.png" alt="HistorianLink trend analyser showing multiple tags over a seven day window"
+               loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="shot-cap">Trend analyser — 1,200×750 recommended</div>
+
+        <div class="shot-grid">
+          <div>
+            <div class="shot">
+              <div class="ph"><div class="ico">▦</div><div class="lbl">Screenshot</div><div class="path">assets/hl-dashboard.png</div></div>
+              <img src="assets/hl-dashboard.png" alt="HistorianLink live dashboard tiles" loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <div class="shot-cap">Live dashboard</div>
+          </div>
+          <div>
+            <div class="shot">
+              <div class="ph"><div class="ico">▤</div><div class="lbl">Screenshot</div><div class="path">assets/hl-export.png</div></div>
+              <img src="assets/hl-export.png" alt="HistorianLink export job queue with progress bars" loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <div class="shot-cap">Export job queue</div>
+          </div>
+          <div>
+            <div class="shot">
+              <div class="ph"><div class="ico">◫</div><div class="lbl">Screenshot</div><div class="path">assets/hl-alarms.png</div></div>
+              <img src="assets/hl-alarms.png" alt="HistorianLink alarm history table with severity colouring" loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <div class="shot-cap">Alarm history</div>
+          </div>
+          <div>
+            <div class="shot">
+              <div class="ph"><div class="ico">▥</div><div class="lbl">Screenshot</div><div class="path">assets/hl-reports.png</div></div>
+              <img src="assets/hl-reports.png" alt="HistorianLink scheduled reports configuration" loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <div class="shot-cap">Scheduled reports</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── OpcDaLink ── -->
+<section id="opcdalink">
+  <div class="wrap">
+    <div class="prod flip">
+      <div class="prod-copy rv">
+        <span class="badge beta"><span class="dot" style="background:var(--warn);box-shadow:0 0 6px var(--warn)"></span>Field trial</span>
+        <h3>OpcDa<em>Link</em></h3>
+        <div class="tagline">OPC DA → OPC UA bridge</div>
+        <p class="body">
+          Sits in front of a legacy OPC DA server, connects to it as a DA client over DCOM, and re-publishes
+          the whole address space as a modern OPC UA server. Point UaExpert, a new SCADA package, or
+          HistorianLink at the UA endpoint and leave the old server exactly as it is.
+        </p>
+        <ul class="feat">
+          <li><b>Full address-space mirror</b> — branches become folders, leaves become variables, item IDs carry through as string NodeIds.</li>
+          <li><b>Faithful type mapping</b> — canonical VARIANT types to UA variant types, DA quality words to UA status codes, item timestamps as source timestamps.</li>
+          <li><b>Read and write</b> — access rights map to node writability, with writes passed back through to DA.</li>
+          <li><b>Correct COM threading</b> — a dedicated message-pumped STA thread, because that is the only way DA data-change callbacks ever arrive.</li>
+          <li><b>Big-server mode</b> — feed it a tag list file and skip browsing entirely on servers with tens of thousands of items.</li>
+          <li><b>Built-in diagnostics</b> — connection state and item count exposed as UA nodes, plus a web admin page.</li>
+        </ul>
+        <div class="cta-row">
+          <a href="#contact" class="btn btn-a">Join the field trial</a>
+          <a href="#specs" class="btn btn-g">Technical specs</a>
+        </div>
+      </div>
+
+      <div class="prod-media rv">
+        <div class="shot">
+          <div class="ph"><div class="ico">▤</div><div class="lbl">Screenshot</div><div class="path">assets/da-overview.png</div></div>
+          <img src="assets/da-overview.png" alt="OpcDaLink admin overview showing DA connection status and mirrored tag count"
+               loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="shot-cap">Admin overview — 1,200×750 recommended</div>
+
+        <div class="shot-grid">
+          <div>
+            <div class="shot">
+              <div class="ph"><div class="ico">◫</div><div class="lbl">Screenshot</div><div class="path">assets/da-browse.png</div></div>
+              <img src="assets/da-browse.png" alt="OpcDaLink browsing the DA address space" loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <div class="shot-cap">Address space</div>
+          </div>
+          <div>
+            <div class="shot">
+              <div class="ph"><div class="ico">▦</div><div class="lbl">Screenshot</div><div class="path">assets/da-uaexpert.png</div></div>
+              <img src="assets/da-uaexpert.png" alt="UaExpert connected to the OpcDaLink UA endpoint" loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <div class="shot-cap">UaExpert connected</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="arch rv" aria-label="OpcDaLink architecture diagram">
+<pre>  ┌──────────────┐    DCOM    ┌────────────────────────────────────┐   opc.tcp   ┌────────────┐
+  │  <b>OPC DA</b>      │◄──────────►│  <b>OpcDaLink</b> service                │◄───────────►│ UA client  │
+  │  server      │            │   ┌──────────┐   ┌──────────────┐  │             │ UaExpert,  │
+  │  (COM/Win32) │            │   │ DA client│──►│  UA server   │  │             │ SCADA,     │
+  └──────────────┘            │   │ STA pump │◄──│ address space│  │             │ Historian- │
+                              │   └──────────┘   └──────────────┘  │             │ Link       │
+                              │            │                       │             └────────────┘
+                              │       ┌────▼─────┐   http          ┌──────────┐
+                              │       │ admin UI │◄───────────────►│ browser  │
+                              │       └──────────┘                 └──────────┘
+                              └────────────────────────────────────┘</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PLATFORM ═══ -->
+<section id="platform">
+  <div class="wrap">
+    <div class="st">Shared platform</div>
+    <h2>Both products are built the same way.</h2>
+    <p class="sub">
+      Same installer, same service model, same licensing, same security posture. Learn one, you know both.
+    </p>
+
+    <div class="cards">
+      <div class="card rv">
+        <div class="num">01 / SERVICE</div>
+        <h4>Windows service + tray</h4>
+        <p>Runs headless as a service and survives reboots. A tray icon gives operators start, stop and status without opening the admin UI or needing a login.</p>
+      </div>
+      <div class="card rv">
+        <div class="num">02 / INTERFACE</div>
+        <h4>Browser-based admin</h4>
+        <p>No client to roll out. The service hosts its own UI on a local port — the same dark, dense, keyboard-friendly interface shown in the screenshots above.</p>
+      </div>
+      <div class="card rv">
+        <div class="num">03 / SECURITY</div>
+        <h4>Encrypted config at rest</h4>
+        <p>Credentials and connection settings are encrypted with Windows DPAPI, tied to the machine. Nothing sensitive sits in plain text on disk.</p>
+      </div>
+      <div class="card rv">
+        <div class="num">04 / NETWORK</div>
+        <h4>TLS where it matters</h4>
+        <p>Network-facing endpoints run HTTPS with a minimum of TLS 1.2. Admin stays on loopback, where encrypting the traffic would buy nothing.</p>
+      </div>
+      <div class="card rv">
+        <div class="num">05 / LICENSING</div>
+        <h4>Fully offline activation</h4>
+        <p>A key tied to your customer ID, validated on the machine. No activation server, no internet, no phone-home — designed for air-gapped plant networks.</p>
+      </div>
+      <div class="card rv">
+        <div class="num">06 / DEPLOYMENT</div>
+        <h4>Signed MSI install</h4>
+        <p>A standard MSI your IT team can review, deploy and uninstall cleanly. Silent install supported for managed rollouts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SPECS ═══ -->
+<section id="specs">
+  <div class="wrap">
+    <div class="st">At a glance</div>
+    <h2>Technical specifications</h2>
+
+    <table class="spec">
+      <thead>
+        <tr><th>&nbsp;</th><th>HistorianLink</th><th>OpcDaLink</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Role</td>
+          <td>OPC UA client</td>
+          <td>OPC DA client + OPC UA server</td>
+        </tr>
+        <tr>
+          <td>Talks to</td>
+          <td>Process Historian, WinCC, any compliant UA server</td>
+          <td>Any OPC DA 2.0 / 3.0 server</td>
+        </tr>
+        <tr>
+          <td>UA security</td>
+          <td>Basic256Sha256, Sign or SignAndEncrypt</td>
+          <td>Configurable; opens with security disabled for first run</td>
+        </tr>
+        <tr>
+          <td>Data out</td>
+          <td>.xlsx, .csv, live dashboard tiles, scheduled reports</td>
+          <td>Live UA address space, read and write</td>
+        </tr>
+        <tr>
+          <td>Alarms</td>
+          <td>WinCC message archive via OLE DB satellite agent</td>
+          <td>Not supported — DA carries no alarm interface</td>
+        </tr>
+        <tr>
+          <td>User roles</td>
+          <td>Admin, engineer, viewer</td>
+          <td>Single admin account</td>
+        </tr>
+        <tr>
+          <td>Licence prefix</td>
+          <td><span class="mono">HLNK-XXXX-XXXX-XXXX-XXXX</span></td>
+          <td><span class="mono">DALK-XXXX-XXXX-XXXX-XXXX</span></td>
+        </tr>
+        <tr>
+          <td>Platform</td>
+          <td>Windows Server 2016+ / Windows 10+</td>
+          <td>Windows Server 2016+ / Windows 10+</td>
+        </tr>
+        <tr>
+          <td>Footprint</td>
+          <td>Self-contained; no database server required</td>
+          <td>Self-contained; no database server required</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact">
+  <div class="wrap">
+    <div class="st">Get in touch</div>
+    <h2>Trials, quotes and pilot installs.</h2>
+    <p class="sub">
+      Both products install in minutes on a spare VM. Tell me what historian or DA server you are running
+      and I will send a time-limited key and a short setup note for your specific stack.
+    </p>
+
+    <div class="contact-grid">
+      <div class="cbox rv">
+        <div class="row"><span class="k">Email</span><span class="v"><a href="mailto:hello@gwautomation.com">hello@gwautomation.com</a></span></div>
+        <div class="row"><span class="k">Trial licence</span><span class="v">30 days, full feature set, no tag limit</span></div>
+        <div class="row"><span class="k">Pilot install</span><span class="v">Remote session, roughly one hour</span></div>
+        <div class="row"><span class="k">Licensing</span><span class="v">Per machine, perpetual, offline activation</span></div>
+        <div class="row"><span class="k">Support</span><span class="v">Direct to the developer, no ticket queue</span></div>
+        <div class="row"><span class="k">Location</span><span class="v">Australia — remote worldwide</span></div>
+      </div>
+
+      <div class="cbox rv">
+        <div class="k" style="margin-bottom:14px">What to include</div>
+        <ul class="feat" style="margin-top:0">
+          <li>Historian or DA server make and version</li>
+          <li>Rough tag count</li>
+          <li>Whether alarm history is in scope</li>
+          <li>Any network or air-gap constraints</li>
+        </ul>
+        <a href="mailto:hello@gwautomation.com?subject=GW%20Automation%20trial%20request" class="btn btn-a" style="margin-top:22px">Email GW Automation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> GW AUTOMATION · ALL RIGHTS RESERVED</span>
+    <span>HISTORIANLINK · OPCDALINK</span>
+    <span><a href="#products">PRODUCTS</a> · <a href="#contact">CONTACT</a></span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+var btn = document.getElementById('menuBtn'), nav = document.getElementById('nav');
+btn.addEventListener('click', function(){
+  var open = nav.classList.toggle('open');
+  btn.setAttribute('aria-expanded', open);
+});
+nav.addEventListener('click', function(e){ if(e.target.tagName === 'A') nav.classList.remove('open'); });
+
+if ('IntersectionObserver' in window) {
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+} else {
+  document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('in'); });
+}
+</script>
+</body>
+</html>
