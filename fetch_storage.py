@@ -74,6 +74,17 @@ def fetch_values(ids):
     return out
 
 
+def normalise_name(name):
+    """Loose key for grouping likely-duplicate stations reporting the same storage."""
+    if not name:
+        return ""
+    n = name.lower()
+    for junk in ["dam", "storage", "reservoir", "weir", "wsl", "level", "logged",
+                 "water", "top", "full", "supply", "vill", "villiage", "village"]:
+        n = n.replace(junk, "")
+    return "".join(ch for ch in n if ch.isalnum())
+
+
 def main():
     print("Fetching storage series list...", file=sys.stderr)
     series = list_storage_series()
@@ -97,6 +108,7 @@ def main():
             rows.append({
                 "name": s.get("station_name"),
                 "no": s.get("station_no"),
+                "ts_id": s.get("ts_id"),
                 "time": pt[0],
                 "volume_ML": v,
             })
@@ -106,22 +118,51 @@ def main():
     if not rows:
         raise SystemExit("No rows were returned — aborting without overwriting data.json")
 
-    total_ML = sum(r["volume_ML"] for r in rows)
-    latest = max(r["time"] for r in rows)
+    raw_total_ML = sum(r["volume_ML"] for r in rows)
+
+    # --- Dedup: group rows that are almost certainly the same physical storage ---
+    groups = {}
+    for r in rows:
+        key = normalise_name(r["name"])
+        groups.setdefault(key, []).append(r)
+
+    kept = []
+    duplicate_groups = []
+    for key, group in groups.items():
+        if len(group) == 1:
+            kept.append(group[0])
+            continue
+        # Keep the single largest reading as the storage's value; record the rest
+        # so a human can double-check the choice.
+        group_sorted = sorted(group, key=lambda r: -r["volume_ML"])
+        kept.append(group_sorted[0])
+        duplicate_groups.append({
+            "matched_on": key,
+            "kept": group_sorted[0],
+            "excluded": group_sorted[1:],
+        })
+
+    total_ML = sum(r["volume_ML"] for r in kept)
+    latest = max(r["time"] for r in kept)
 
     output = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "latest_reading": latest,
-        "count": len(rows),
+        "count": len(kept),
         "total_ML": total_ML,
         "total_GL": total_ML / 1000,
-        "stations": sorted(rows, key=lambda r: -r["volume_ML"]),
+        "raw_count": len(rows),
+        "raw_total_ML": raw_total_ML,
+        "raw_total_GL": raw_total_ML / 1000,
+        "duplicate_groups": duplicate_groups,
+        "stations": sorted(kept, key=lambda r: -r["volume_ML"]),
     }
 
     with open("data.json", "w") as f:
         json.dump(output, f, indent=2)
 
-    print(f"Wrote data.json: {len(rows)} stations, {total_ML/1000:,.1f} GL total", file=sys.stderr)
+    print(f"Wrote data.json: {len(kept)} stations after dedup (raw {len(rows)}), "
+          f"{total_ML/1000:,.1f} GL total (raw {raw_total_ML/1000:,.1f} GL)", file=sys.stderr)
 
 
 if __name__ == "__main__":

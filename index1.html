@@ -123,9 +123,11 @@
 <div class="controls">
   <button id="run">Load storage data</button>
   <button id="csv" class="ghost" disabled>Download CSV</button>
+  <button id="copy" class="ghost" disabled>Copy data for review</button>
 </div>
 
 <p id="status">Ready. Press “Load storage data”.</p>
+<p id="dupeNote" style="display:none;font:13px ui-monospace,monospace;color:#4a6570"></p>
 
 <table id="tbl" hidden>
   <caption>Storages, largest first</caption>
@@ -151,6 +153,7 @@
   const $ = id => document.getElementById(id);
   const statusEl = $("status");
   let rows = [];
+  let payload = null;
 
   const say = (msg, isError) => {
     statusEl.textContent = msg;
@@ -159,16 +162,28 @@
 
   const fmt = (n, dp = 0) => n.toLocaleString("en-AU", { minimumFractionDigits: dp, maximumFractionDigits: dp });
 
-  function render(payload) {
-    rows = payload.stations || [];
-    const total = payload.total_ML || 0;
+  function render(p) {
+    payload = p;
+    rows = p.stations || [];
+    const total = p.total_ML || 0;
 
     $("total").innerHTML = fmt(total / 1000, 1) + '<span class="unit"> GL</span>';
     $("totalML").textContent = fmt(total) + " ML";
     $("count").textContent = fmt(rows.length);
-    $("asAt").textContent = payload.latest_reading ? payload.latest_reading.slice(0, 10) : "—";
+    $("asAt").textContent = p.latest_reading ? p.latest_reading.slice(0, 10) : "—";
     $("refNote").textContent = fmt(REF_GL) + " GL";
     $("fill").style.height = Math.min(100, (total / 1000) / REF_GL * 100) + "%";
+
+    const dupeCount = (p.duplicate_groups || []).length;
+    const dupeEl = $("dupeNote");
+    if (dupeCount) {
+      dupeEl.style.display = "block";
+      dupeEl.textContent = `${dupeCount} likely-duplicate station group(s) were collapsed to one reading each ` +
+        `(raw total before dedup: ${fmt(p.raw_total_GL, 1)} GL from ${fmt(p.raw_count)} entries). ` +
+        `Use “Copy data for review” to check the choices.`;
+    } else {
+      dupeEl.style.display = "none";
+    }
 
     const body = document.querySelector("#tbl tbody");
     body.innerHTML = "";
@@ -182,6 +197,7 @@
     });
     $("tbl").hidden = false;
     $("csv").disabled = false;
+    $("copy").disabled = false;
   }
 
   async function run() {
@@ -216,8 +232,38 @@
     URL.revokeObjectURL(url);
   }
 
+  function copyForReview() {
+    if (!payload) return;
+    const lines = [];
+    lines.push(`BoM storage data review — generated ${payload.generated_at}`);
+    lines.push(`Deduped total: ${fmt(payload.total_GL, 1)} GL from ${payload.count} stations`);
+    lines.push(`Raw total (before dedup): ${fmt(payload.raw_total_GL, 1)} GL from ${payload.raw_count} entries`);
+    lines.push("");
+    lines.push(`--- DUPLICATE GROUPS (${(payload.duplicate_groups || []).length}) ---`);
+    (payload.duplicate_groups || []).forEach(g => {
+      lines.push(`Matched on "${g.matched_on}":`);
+      lines.push(`  KEPT: ${g.kept.name} (${g.kept.no}) = ${fmt(g.kept.volume_ML, 1)} ML on ${g.kept.time}`);
+      g.excluded.forEach(e => {
+        lines.push(`  excluded: ${e.name} (${e.no}) = ${fmt(e.volume_ML, 1)} ML on ${e.time}`);
+      });
+      lines.push("");
+    });
+    lines.push(`--- TOP 30 STATIONS KEPT ---`);
+    rows.slice().sort((a, b) => b.volume_ML - a.volume_ML).slice(0, 30).forEach(r => {
+      lines.push(`${r.name} (${r.no}): ${fmt(r.volume_ML, 1)} ML on ${(r.time || "").slice(0, 10)}`);
+    });
+
+    const text = lines.join("\n");
+    navigator.clipboard.writeText(text).then(() => {
+      say("Copied summary + duplicate groups to clipboard — paste it back into the chat.");
+    }).catch(() => {
+      say("Couldn't access the clipboard automatically. Select and copy the text below manually:\n\n" + text);
+    });
+  }
+
   $("run").addEventListener("click", run);
   $("csv").addEventListener("click", downloadCSV);
+  $("copy").addEventListener("click", copyForReview);
 
   // Auto-load on page open since there's no live-fetch cost anymore.
   run();
