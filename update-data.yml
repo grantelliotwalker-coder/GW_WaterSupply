@@ -21,10 +21,10 @@ jobs:
       - name: Fetch storage data
         run: python fetch_storage.py
 
-      - name: Commit data.json if it changed
+      - name: Commit data files if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data.json
+          git add data.json history.json station_history.json
           git diff --cached --quiet || git commit -m "Update storage data"
           git push
