@@ -351,8 +351,16 @@ def main():
     print(f"Appended to history.json ({len(history)} points on file)", file=sys.stderr)
 
     # --- Fetch every other parameter each kept station reports (level, discharge,
-    # rainfall, water quality, etc.), and track per-station history over time ---
-    fetch_extra_parameters_and_history(kept)
+    # rainfall, water quality, etc.), and track per-station history over time.
+    # Wrapped so that a failure here (e.g. a network hiccup partway through ~380
+    # extra requests) can't stop data.json / history.json from being committed —
+    # those are already saved above and are the core of the site.
+    try:
+        fetch_extra_parameters_and_history(kept)
+    except Exception as e:
+        print(f"WARNING: fetch_extra_parameters_and_history failed: {e}", file=sys.stderr)
+        print("data.json and history.json are still valid and will be committed; "
+              "station-level parameters/history were not updated this run.", file=sys.stderr)
 
 
 # Parameters worth checking for on top of Storage Volume. Not every station has
