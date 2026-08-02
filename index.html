@@ -3,177 +3,149 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>National Storage Volume — Water Data Online</title>
+<title>National Water Storage Monitor</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0e0f'/%3E%3Cpath d='M16 4C16 4 6 16.5 6 22.5 6 28 10.5 30 16 30s10-2 10-7.5C26 16.5 16 4 16 4z' fill='%2338b6ff'/%3E%3C/svg%3E">
 <style>
   :root{
-    --ink:#07242e;
-    --deep:#0b3a49;
-    --water:#2f9fb5;
-    --shallow:#7fd4d8;
-    --sand:#e8e2d4;
-    --paper:#f2efe6;
-    --alert:#c9542f;
+    --bg:#0a0e0f; --panel:#111817; --panel2:#0d1312; --line:#1f2b29;
+    --ink:#d8e6e0; --dim:#5c7871; --accent:#38b6ff; --accent-dim:#1c5a80;
+    --mono: 'SF Mono', 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
   }
   *{box-sizing:border-box}
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
-    font-size:17px;
-    line-height:1.5;
-  }
-  .wrap{max-width:1040px;margin:0 auto;padding:32px 20px 80px}
-  header{border-bottom:2px solid var(--deep);padding-bottom:18px}
-  .eyebrow{
-    font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
-    font-size:11px;letter-spacing:.22em;text-transform:uppercase;
-    color:var(--deep);opacity:.75;margin:0 0 10px;
-  }
-  h1{font-size:clamp(30px,5vw,50px);line-height:1.02;margin:0;font-weight:600;letter-spacing:-.01em}
-  header p{margin:12px 0 0;max-width:60ch;color:#2b4d57}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--mono);font-size:13px;line-height:1.6}
+  .wrap{max-width:1100px;margin:0 auto;padding:28px 20px 90px}
 
-  /* ---- signature: the water column ---- */
-  .gauge{display:grid;grid-template-columns:120px 1fr;gap:26px;margin:36px 0 8px;align-items:stretch}
-  .column{
-    position:relative;border:2px solid var(--deep);border-radius:2px;
-    background:linear-gradient(var(--sand),#dcd6c6);overflow:hidden;min-height:230px;
-  }
-  .fill{
-    position:absolute;left:0;right:0;bottom:0;height:0%;
-    background:linear-gradient(180deg,var(--shallow),var(--water) 40%,var(--deep));
-    transition:height 1.6s cubic-bezier(.16,.84,.44,1);
-  }
-  .fill::after{
-    content:"";position:absolute;top:-6px;left:0;right:0;height:6px;
-    background:var(--shallow);opacity:.8;
-  }
-  .tick{position:absolute;left:0;right:0;border-top:1px dashed rgba(7,36,46,.35);font:10px ui-monospace,monospace}
-  .tick span{position:absolute;left:6px;top:2px;color:var(--deep)}
-  .readout .total{
-    font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
-    font-size:clamp(34px,7vw,64px);font-weight:600;letter-spacing:-.03em;line-height:1;
-    color:var(--deep);
-  }
-  .readout .unit{font-size:.4em;letter-spacing:.05em;opacity:.7}
-  .readout dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px 24px;margin:22px 0 0}
-  .readout dt{font:11px/1.4 ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;opacity:.65}
-  .readout dd{margin:2px 0 0;font-family:ui-monospace,monospace;font-size:18px}
+  .topline{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:8px;flex-wrap:wrap;gap:8px}
+  .topline h1{font-size:15px;letter-spacing:.18em;text-transform:uppercase;margin:0;font-weight:600;color:var(--accent)}
+  .topline .clock{color:var(--dim);font-size:11px}
+  .status-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);margin-right:8px;box-shadow:0 0 8px var(--accent);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+  .desc{color:var(--dim);font-size:12px;max-width:70ch;margin:14px 0 26px}
 
-  .controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:28px 0 0}
-  button{
-    font:12px/1 ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;
-    padding:12px 18px;border:2px solid var(--deep);background:var(--deep);color:var(--paper);
-    border-radius:2px;cursor:pointer;
-  }
-  button.ghost{background:transparent;color:var(--deep)}
-  button:disabled{opacity:.45;cursor:not-allowed}
-  button:focus-visible{outline:3px solid var(--water);outline-offset:2px}
-  input[type=text]{
-    font:13px ui-monospace,monospace;padding:11px 12px;border:1px solid #b9b0a0;
-    border-radius:2px;background:#fff;min-width:270px;flex:1
-  }
-  label.inline{font:11px ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;opacity:.7;width:100%}
+  .readout-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:2px}
+  .cell{background:var(--panel);padding:20px}
+  .cell .label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:10px}
+  .cell .big{font-size:38px;font-weight:700;color:var(--accent);letter-spacing:-.02em}
+  .cell .unit{font-size:14px;color:var(--dim);margin-left:4px}
+  .cell .sub{font-size:11px;color:var(--dim);margin-top:6px}
 
-  #status{
-    margin:18px 0 0;padding:12px 14px;border-left:3px solid var(--water);background:#e7ece9;
-    font:13px/1.5 ui-monospace,monospace;white-space:pre-wrap;
-  }
-  #status.error{border-color:var(--alert);background:#f6e5df}
+  .chart-panel{background:var(--panel);border:1px solid var(--line);border-top:none;padding:20px;margin-bottom:28px}
+  .chart-panel .label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:12px}
+  .chart-wrap{position:relative;height:200px}
+  .chart-note{font-size:11px;color:var(--dim);margin-top:10px}
 
-  table{width:100%;border-collapse:collapse;margin-top:34px;font-size:14px}
-  caption{text-align:left;font:11px ui-monospace,monospace;letter-spacing:.18em;text-transform:uppercase;padding-bottom:10px;opacity:.7}
-  th,td{padding:8px 10px;border-bottom:1px solid #d8d1c1;text-align:left}
-  th{font:11px ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;border-bottom:2px solid var(--deep)}
-  td.num{text-align:right;font-family:ui-monospace,monospace;font-variant-numeric:tabular-nums}
-  tbody tr:hover{background:#e9e4d6}
-  tbody tr.has-map{cursor:pointer}
-  td.mapcell{white-space:nowrap;color:var(--water);font-family:ui-monospace,monospace;font-size:12px}
-  td.mapcell.disabled{color:#a39d8c}
-  footer{margin-top:48px;font-size:13px;color:#4a6570;border-top:1px solid #d8d1c1;padding-top:16px}
-  a{color:var(--deep)}
-  @media (prefers-reduced-motion:reduce){.fill{transition:none}}
-  @media (max-width:620px){.gauge{grid-template-columns:70px 1fr;gap:16px}}
+  #dupeNote{
+    font-size:11px;color:var(--dim);border-left:2px solid var(--accent-dim);
+    padding:8px 12px;margin:0 0 28px;background:var(--panel2);display:none;
+  }
+
+  #status{font-size:11px;color:var(--dim);margin:0 0 20px}
+  #status.error{color:#ff6b5c}
+
+  h2.region{
+    font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);
+    border-bottom:1px solid var(--line);padding:18px 0 8px;margin:0;
+  }
+  table{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:4px}
+  thead th{text-align:left;padding:8px 10px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);border-bottom:1px solid var(--line)}
+  tbody td{padding:9px 10px;border-bottom:1px solid var(--line)}
+  tbody tr{cursor:pointer}
+  tbody tr:hover{background:var(--panel)}
+  .num{text-align:right;color:var(--accent);font-variant-numeric:tabular-nums}
+  .name{color:var(--ink)}
+  .maplink{color:var(--accent-dim);font-size:11px;white-space:nowrap}
+  .maplink.disabled{color:var(--dim)}
+
+  /* discrete export controls: unobtrusive text row, low-contrast until hovered */
+  .quiet-actions{margin-top:32px;padding-top:14px;border-top:1px solid var(--line);display:flex;gap:18px;font-size:11px}
+  .quiet-actions button{
+    background:none;border:none;color:var(--dim);font-family:var(--mono);font-size:11px;
+    letter-spacing:.06em;cursor:pointer;padding:0;text-decoration:underline;text-underline-offset:3px;
+    text-decoration-color:transparent;transition:color .15s,text-decoration-color .15s;
+  }
+  .quiet-actions button:hover{color:var(--accent);text-decoration-color:var(--accent-dim)}
+  .quiet-actions button:disabled{opacity:.35;cursor:default;text-decoration:none}
+
+  footer{margin-top:40px;font-size:11px;color:var(--dim);border-top:1px solid var(--line);padding-top:16px}
+  a{color:var(--accent)}
+  @media (max-width:640px){.readout-grid{grid-template-columns:1fr}}
 
   .modal-backdrop{
-    position:fixed;inset:0;background:rgba(7,36,46,.55);display:none;
+    position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;
     align-items:flex-start;justify-content:center;padding:6vh 16px;z-index:50;overflow-y:auto;
   }
   .modal-backdrop.open{display:flex}
   .modal{
-    background:var(--paper);border:2px solid var(--deep);border-radius:2px;
+    background:var(--panel);border:1px solid var(--accent-dim);
     max-width:640px;width:100%;padding:24px;position:relative;
   }
-  .modal h2{margin:0 0 4px;font-size:24px}
-  .modal .sub{font:12px ui-monospace,monospace;color:#4a6570;margin:0 0 18px}
+  .modal h2{margin:0 0 4px;font-size:20px;color:var(--ink);font-weight:600}
+  .modal .sub{font-size:11px;color:var(--dim);margin:0 0 18px;letter-spacing:.04em}
   .modal-close{
     position:absolute;top:14px;right:14px;background:none;border:none;font-size:22px;
-    line-height:1;cursor:pointer;color:var(--deep);padding:4px 8px;
+    line-height:1;cursor:pointer;color:var(--dim);padding:4px 8px;
   }
-  .param-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px 18px;margin:16px 0}
-  .param-grid dt{font:10px ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;opacity:.65}
-  .param-grid dd{margin:2px 0 0;font-family:ui-monospace,monospace;font-size:16px}
+  .modal-close:hover{color:var(--accent)}
+  .param-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px 18px;margin:16px 0}
+  .param-grid dt{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+  .param-grid dd{margin:2px 0 0;font-size:15px;color:var(--ink)}
   .modal-chart-wrap{position:relative;height:180px;margin-top:18px}
   .modal-actions{margin-top:18px;display:flex;gap:10px}
+  .modal-actions button{
+    font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:10px 16px;
+    border:1px solid var(--accent-dim);background:transparent;color:var(--accent);cursor:pointer;
+  }
+  .modal-actions button:hover{background:var(--accent-dim)}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
 </head>
 <body>
 <div class="wrap">
 
-<header>
-  <p class="eyebrow">Bureau of Meteorology · Water Data Online · KiWIS</p>
-  <h1>How much water is<br>in the country right now?</h1>
-  <p>A scheduled job asks Water Data Online for every monitoring point that reports a Storage Volume, takes the most recent daily reading from each, and adds them together. This page just displays the result.</p>
-</header>
+<div class="topline">
+  <h1><span class="status-dot"></span>National Water Storage Monitor</h1>
+  <div class="clock" id="clock">—</div>
+</div>
+<p class="desc">Pulled from the Bureau of Meteorology's Water Data Online (KiWIS). Every monitoring point reporting a Storage Volume, latest daily reading, summed. Refreshes automatically on load.</p>
 
-<section class="gauge">
-  <div class="column" id="column" aria-hidden="true">
-    <div class="fill" id="fill"></div>
-    <div class="tick" style="bottom:75%"><span>75%</span></div>
-    <div class="tick" style="bottom:50%"><span>50%</span></div>
-    <div class="tick" style="bottom:25%"><span>25%</span></div>
+<div class="readout-grid">
+  <div class="cell">
+    <div class="label">Total Stored Volume</div>
+    <div class="big" id="total">—<span class="unit"> GL</span></div>
+    <div class="sub"><span id="totalML">—</span> ML</div>
   </div>
-  <div class="readout">
-    <div class="total" id="total">—<span class="unit"> GL</span></div>
-    <dl>
-      <div><dt>Megalitres</dt><dd id="totalML">—</dd></div>
-      <div><dt>Storages counted</dt><dd id="count">—</dd></div>
-      <div><dt>Latest reading</dt><dd id="asAt">—</dd></div>
-      <div><dt>Fill shown against</dt><dd id="refNote">first result</dd></div>
-    </dl>
+  <div class="cell">
+    <div class="label">Storages Tracked</div>
+    <div class="big" id="count" style="font-size:30px">—</div>
+    <div class="sub" id="dupeSummary">—</div>
   </div>
-</section>
-
-<section style="margin-top:34px">
-  <p class="eyebrow" style="margin-bottom:8px">Trend</p>
-  <div style="position:relative;height:220px">
-    <canvas id="trendChart"></canvas>
+  <div class="cell">
+    <div class="label">Latest Reading</div>
+    <div class="big" id="asAt" style="font-size:22px">—</div>
+    <div class="sub" id="refreshedAt">—</div>
   </div>
-  <p id="trendNote" style="font:12px ui-monospace,monospace;color:#4a6570;margin-top:8px"></p>
-</section>
-
-<div class="controls">
-  <button id="run">Load storage data</button>
-  <button id="csv" class="ghost" disabled>Download CSV</button>
-  <button id="copy" class="ghost" disabled>Copy data for review</button>
 </div>
 
-<p id="status">Ready. Press “Load storage data”.</p>
-<p id="dupeNote" style="display:none;font:13px ui-monospace,monospace;color:#4a6570"></p>
+<div class="chart-panel">
+  <div class="label">Trend</div>
+  <div class="chart-wrap"><canvas id="trendChart"></canvas></div>
+  <p class="chart-note" id="trendNote"></p>
+</div>
 
-<table id="tbl" hidden>
-  <caption>Storages, grouped by state, largest first within each</caption>
-  <thead>
-    <tr><th>State</th><th>Station</th><th>Station no.</th><th>Reading date</th><th style="text-align:right">Volume (ML)</th><th>Map</th></tr>
-  </thead>
-  <tbody></tbody>
-</table>
+<p id="status">Loading…</p>
+<p id="dupeNote"></p>
+
+<div id="stateGroups"></div>
+
+<div class="quiet-actions">
+  <button id="csv" disabled>export csv</button>
+  <button id="copy" disabled>copy for review</button>
+</div>
 
 <footer>
   Source: <a href="http://www.bom.gov.au/waterdata/" target="_blank" rel="noopener">Bureau of Meteorology, Water Data Online</a>.
   Data is supplied to the Bureau by state and territory water agencies. Coverage is not complete — this total is the sum of
-  what those agencies publish through this service, not the volume of every dam in Australia.
+  what those agencies publish through this service, not the volume of every dam in Australia. Showing the top 4 storages per state.
 </footer>
 
 </div>
@@ -185,9 +157,9 @@
     <p class="sub" id="modalSub">—</p>
     <dl class="param-grid" id="modalParams"></dl>
     <div class="modal-chart-wrap"><canvas id="modalChart"></canvas></div>
-    <p style="font:11px ui-monospace,monospace;color:#4a6570;margin-top:6px" id="modalChartNote"></p>
+    <p style="font-size:11px;color:var(--dim);margin-top:6px" id="modalChartNote"></p>
     <div class="modal-actions">
-      <button class="ghost" id="modalMapBtn">Open in Google Maps</button>
+      <button id="modalMapBtn">Open in Google Maps</button>
     </div>
   </div>
 </div>
@@ -196,7 +168,6 @@
 (() => {
   "use strict";
 
-  const REF_GL = 80000;  // reference full-column volume, gigalitres
   const $ = id => document.getElementById(id);
   const statusEl = $("status");
   let rows = [];
@@ -215,67 +186,82 @@
     const total = p.total_ML || 0;
 
     $("total").innerHTML = fmt(total / 1000, 1) + '<span class="unit"> GL</span>';
-    $("totalML").textContent = fmt(total) + " ML";
+    $("totalML").textContent = fmt(total);
     $("count").textContent = fmt(rows.length);
     $("asAt").textContent = p.latest_reading ? p.latest_reading.slice(0, 10) : "—";
-    $("refNote").textContent = fmt(REF_GL) + " GL";
-    $("fill").style.height = Math.min(100, (total / 1000) / REF_GL * 100) + "%";
+    $("refreshedAt").textContent = p.generated_at ? "refreshed " + new Date(p.generated_at).toLocaleString("en-AU") : "";
 
     const dupeCount = (p.duplicate_groups || []).length;
+    $("dupeSummary").textContent = dupeCount
+      ? `${dupeCount} duplicate group(s) merged`
+      : "no duplicates found";
     const dupeEl = $("dupeNote");
     if (dupeCount) {
       dupeEl.style.display = "block";
-      dupeEl.textContent = `${dupeCount} likely-duplicate station group(s) were collapsed to one reading each ` +
-        `(raw total before dedup: ${fmt(p.raw_total_GL, 1)} GL from ${fmt(p.raw_count)} entries). ` +
-        `Use “Copy data for review” to check the choices.`;
+      dupeEl.textContent = `${dupeCount} likely-duplicate station group(s) collapsed to one reading each ` +
+        `(raw total before dedup: ${fmt(p.raw_total_GL, 1)} GL from ${fmt(p.raw_count)} entries).`;
     } else {
       dupeEl.style.display = "none";
     }
 
-    const body = document.querySelector("#tbl tbody");
-    body.innerHTML = "";
-    const sorted = rows.slice().sort((a, b) => {
-      const sa = a.state || "ZZ", sb = b.state || "ZZ";
-      if (sa !== sb) return sa < sb ? -1 : 1;
-      return b.volume_ML - a.volume_ML;
+    // Group by state, take top 4 by volume within each
+    const byState = {};
+    rows.forEach(r => {
+      const key = r.state || "UNCLASSIFIED";
+      (byState[key] = byState[key] || []).push(r);
     });
+    const stateOrder = Object.keys(byState).sort((a, b) => a === "UNCLASSIFIED" ? 1 : b === "UNCLASSIFIED" ? -1 : a < b ? -1 : 1);
 
-    let lastState = null;
-    sorted.forEach(r => {
-      if (r.state !== lastState) {
-        lastState = r.state;
-        const hdr = document.createElement("tr");
-        hdr.innerHTML = `<td colspan="6" style="background:#e2dcc9;font:11px ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--deep);padding:6px 10px">${r.state || "Unclassified"}</td>`;
-        body.appendChild(hdr);
-      }
+    const container = $("stateGroups");
+    container.innerHTML = "";
+    stateOrder.forEach(state => {
+      const top4 = byState[state].slice().sort((a, b) => b.volume_ML - a.volume_ML).slice(0, 4);
 
-      const lat = parseFloat(r.lat), lon = parseFloat(r.lon);
-      const hasLoc = isFinite(lat) && isFinite(lon) && !(lat === 0 && lon === 0);
+      const h = document.createElement("h2");
+      h.className = "region";
+      h.textContent = state;
+      container.appendChild(h);
 
-      const tr = document.createElement("tr");
-      tr.classList.add("has-map");
-      tr.innerHTML = `<td></td><td></td><td></td><td></td><td class="num"></td><td class="mapcell${hasLoc ? "" : " disabled"}"></td>`;
-      tr.children[0].textContent = r.state || "—";
-      tr.children[1].textContent = r.name;
-      tr.children[2].textContent = r.no;
-      tr.children[3].textContent = (r.time || "").slice(0, 10);
-      tr.children[4].textContent = fmt(r.volume_ML, 1);
-      tr.children[5].textContent = hasLoc ? "Open ↗" : "no location";
+      const table = document.createElement("table");
+      const thead = document.createElement("thead");
+      thead.innerHTML = "<tr><th>Storage</th><th>Reading</th><th style=\"text-align:right\">Volume (ML)</th><th>Map</th></tr>";
+      table.appendChild(thead);
+      const tbody = document.createElement("tbody");
 
-      tr.addEventListener("click", (e) => {
-        if (e.target.closest("td.mapcell") && hasLoc) {
-          window.location.href = `https://www.google.com/maps/search/?api=1&query=${lat},${lon}`;
-          return;
-        }
-        openStationModal(r, hasLoc ? { lat, lon } : null);
+      top4.forEach(r => {
+        const lat = parseFloat(r.lat), lon = parseFloat(r.lon);
+        const hasLoc = isFinite(lat) && isFinite(lon) && !(lat === 0 && lon === 0);
+
+        const tr = document.createElement("tr");
+        tr.innerHTML = `<td class="name"></td><td></td><td class="num"></td><td class="maplink${hasLoc ? "" : " disabled"}"></td>`;
+        tr.children[0].textContent = r.name;
+        tr.children[1].textContent = (r.time || "").slice(0, 10);
+        tr.children[2].textContent = fmt(r.volume_ML, 1);
+        tr.children[3].textContent = hasLoc ? "open ↗" : "no location";
+
+        tr.addEventListener("click", (e) => {
+          if (e.target.closest("td.maplink") && hasLoc) {
+            window.location.href = `https://www.google.com/maps/search/?api=1&query=${lat},${lon}`;
+            return;
+          }
+          openStationModal(r, hasLoc ? { lat, lon } : null);
+        });
+        tbody.appendChild(tr);
       });
-      tr.title = `View details for ${r.name}`;
-      body.appendChild(tr);
+
+      table.appendChild(tbody);
+      container.appendChild(table);
     });
-    $("tbl").hidden = false;
+
     $("csv").disabled = false;
     $("copy").disabled = false;
   }
+
+  function tickClock() {
+    $("clock").textContent = new Date().toLocaleString("en-AU", { hour12: false });
+  }
+  tickClock();
+  setInterval(tickClock, 1000);
 
   let chartInstance = null;
   let modalChartInstance = null;
@@ -313,7 +299,7 @@
       wrap.appendChild(dd);
       if (time) {
         const small = document.createElement("div");
-        small.style.cssText = "font:10px ui-monospace,monospace;color:#8a8270;margin-top:2px";
+        small.style.cssText = "font:10px ui-monospace,monospace;color:#5c7871;margin-top:2px";
         small.textContent = time.slice(0, 10);
         wrap.appendChild(small);
       }
@@ -323,7 +309,7 @@
     (r.parameters || []).forEach(p => addParam(p.parameter, p.value, p.unit, p.time));
     if (!(r.parameters || []).length) {
       const note = document.createElement("p");
-      note.style.cssText = "grid-column:1/-1;font:12px ui-monospace,monospace;color:#8a8270";
+      note.style.cssText = "grid-column:1/-1;font:12px ui-monospace,monospace;color:#5c7871";
       note.textContent = "No additional parameters reported at this station.";
       grid.appendChild(note);
     }
@@ -355,8 +341,8 @@
         datasets: [{
           label: "Volume (ML)",
           data: series.map(p => p.volume_ML),
-          borderColor: "#2f9fb5",
-          backgroundColor: "rgba(47,159,181,0.15)",
+          borderColor: "#38b6ff",
+          backgroundColor: "rgba(56,182,255,0.15)",
           borderWidth: 2, pointRadius: 0, tension: 0.25, fill: true,
         }]
       },
@@ -364,8 +350,8 @@
         responsive: true, maintainAspectRatio: false,
         plugins: { legend: { display: false } },
         scales: {
-          x: { ticks: { maxTicksLimit: 6, font: { family: "ui-monospace", size: 10 } }, grid: { display: false } },
-          y: { ticks: { font: { family: "ui-monospace", size: 10 } }, grid: { color: "#d8d1c1" } }
+          x: { ticks: { color: "#5c7871", maxTicksLimit: 6, font: { family: "ui-monospace", size: 10 } }, grid: { display: false } },
+          y: { ticks: { color: "#5c7871", font: { family: "ui-monospace", size: 10 } }, grid: { color: "#1f2b29" } }
         }
       }
     });
@@ -394,8 +380,8 @@
         datasets: [{
           label: "Total storage (GL)",
           data: history.map(h => h.total_GL),
-          borderColor: "#2f9fb5",
-          backgroundColor: "rgba(47,159,181,0.15)",
+          borderColor: "#38b6ff",
+          backgroundColor: "rgba(56,182,255,0.15)",
           borderWidth: 2,
           pointRadius: 0,
           tension: 0.25,
@@ -407,25 +393,23 @@
         maintainAspectRatio: false,
         plugins: { legend: { display: false } },
         scales: {
-          x: { ticks: { maxTicksLimit: 8, font: { family: "ui-monospace", size: 10 } }, grid: { display: false } },
-          y: { ticks: { font: { family: "ui-monospace", size: 10 } }, grid: { color: "#d8d1c1" } }
+          x: { ticks: { color: "#5c7871", maxTicksLimit: 8, font: { family: "ui-monospace", size: 10 } }, grid: { display: false } },
+          y: { ticks: { color: "#5c7871", font: { family: "ui-monospace", size: 10 } }, grid: { color: "#1f2b29" } }
         }
       }
     });
   }
 
   async function run() {
-    $("run").disabled = true;
     $("csv").disabled = true;
-    $("tbl").hidden = true;
+    $("copy").disabled = true;
     try {
       say("Loading data.json…");
       const res = await fetch("data.json?_=" + Date.now());
       if (!res.ok) throw new Error("data.json returned HTTP " + res.status);
       const payload = await res.json();
       render(payload);
-      const generated = payload.generated_at ? new Date(payload.generated_at).toLocaleString("en-AU") : "unknown time";
-      say(`Loaded ${rows.length} storages, total ${fmt(payload.total_ML / 1000, 1)} GL. Data was last refreshed ${generated}.`);
+      say(`${rows.length} storages loaded, total ${fmt(payload.total_ML / 1000, 1)} GL.`);
 
       try {
         const histRes = await fetch("history.json?_=" + Date.now());
@@ -438,8 +422,6 @@
         "Could not load data.json: " + err.message +
         "\n\nThis file is written by the GitHub Action, not fetched live. Make sure fetch_storage.py has run at least " +
         "once (check the Actions tab in your repo) and that data.json sits next to this HTML file.", true);
-    } finally {
-      $("run").disabled = false;
     }
   }
 
@@ -482,7 +464,6 @@
     });
   }
 
-  $("run").addEventListener("click", run);
   $("csv").addEventListener("click", downloadCSV);
   $("copy").addEventListener("click", copyForReview);
 
