@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-02T00:56:37.894911+00:00",
+  "generated_at": "2026-08-02T03:55:44.772800+00:00",
   "latest_reading": "2026-08-01T00:00:00.000+10:00",
   "count": 380,
   "total_ML": 54769179.669,
@@ -1042,7 +1042,7 @@
       "volume_ML": 22532.6,
       "lat": -36.76265,
       "lon": 142.37978,
-      "state": "NSW",
+      "state": "VIC",
       "parameters": [
         {
           "parameter": "Storage Level",
@@ -1060,7 +1060,7 @@
       "volume_ML": 11167.81,
       "lat": -36.993069,
       "lon": 141.940589,
-      "state": "NSW",
+      "state": "VIC",
       "parameters": [
         {
           "parameter": "Storage Level",
@@ -1150,7 +1150,7 @@
       "volume_ML": 1554.79,
       "lat": -36.787389,
       "lon": 142.290361,
-      "state": "NSW",
+      "state": "VIC",
       "parameters": [
         {
           "parameter": "Storage Level",
@@ -1626,7 +1626,7 @@
       "volume_ML": 1440.0,
       "lat": -36.966404,
       "lon": 144.277525,
-      "state": "NSW",
+      "state": "VIC",
       "parameters": [
         {
           "parameter": "Storage Level",
@@ -1752,7 +1752,7 @@
       "volume_ML": 867.0,
       "lat": -36.804869,
       "lon": 144.279156,
-      "state": "NSW",
+      "state": "VIC",
       "parameters": [
         {
           "parameter": "Storage Level",
@@ -1788,7 +1788,7 @@
       "volume_ML": 1918.848,
       "lat": -36.84562,
       "lon": 144.244158,
-      "state": "NSW",
+      "state": "VIC",
       "parameters": [
         {
           "parameter": "Storage Level",
@@ -1942,7 +1942,7 @@
       "volume_ML": 611.0,
       "lat": -36.7208,
       "lon": 146.219074,
-      "state": "NSW",
+      "state": "VIC",
       "parameters": [
         {
           "parameter": "Storage Level",
@@ -1996,7 +1996,7 @@
       "volume_ML": 5.0,
       "lat": -36.561487,
       "lon": 146.741251,
-      "state": "NSW",
+      "state": "VIC",
       "parameters": [
         {
           "parameter": "Storage Level",
@@ -2248,7 +2248,7 @@
       "volume_ML": 600.0,
       "lat": -36.36945,
       "lon": 146.73854,
-      "state": "NSW",
+      "state": "VIC",
       "parameters": [
         {
           "parameter": "Storage Level",
@@ -2374,7 +2374,7 @@
       "volume_ML": 1136.0,
       "lat": -36.788587,
       "lon": 146.210809,
-      "state": "NSW",
+      "state": "VIC",
       "parameters": [
         {
           "parameter": "Storage Level",
@@ -4368,7 +4368,7 @@
       "volume_ML": 2738549.43,
       "lat": -36.624355,
       "lon": 147.6152085,
-      "state": "NSW",
+      "state": "VIC",
       "parameters": [
         {
           "parameter": "Storage Level",
@@ -4422,7 +4422,7 @@
       "volume_ML": 400483.578,
       "lat": -36.556052,
       "lon": 145.096115,
-      "state": "NSW",
+      "state": "VIC",
       "parameters": [
         {
           "parameter": "Storage Level",
@@ -4440,7 +4440,7 @@
       "volume_ML": 13778.222,
       "lat": -36.91340337,
       "lon": 146.3863558,
-      "state": "NSW",
+      "state": "VIC",
       "parameters": [
         {
           "parameter": "Water Course Discharge",
@@ -4624,9 +4624,9 @@
       "ts_id": "368310010",
       "time": "2026-07-31T00:00:00.000+10:00",
       "volume_ML": 16097.653,
-      "lat": -16.692976687645,
-      "lon": 159.429265987471,
-      "state": null,
+      "lat": -26.7719,
+      "lon": 152.9603,
+      "state": "QLD",
       "parameters": [
         {
           "parameter": "Storage Level",
@@ -4662,7 +4662,7 @@
       "volume_ML": 25247.937,
       "lat": -36.71753229,
       "lon": 145.1711321,
-      "state": "NSW",
+      "state": "VIC",
       "parameters": [
         {
           "parameter": "Storage Level",
@@ -4984,9 +4984,9 @@
       "ts_id": "368882010",
       "time": "2026-07-31T00:00:00.000+10:00",
       "volume_ML": 100548.706,
-      "lat": -17.6318908145268,
-      "lon": 159.847589862383,
-      "state": null,
+      "lat": -27.9421,
+      "lon": 152.8394,
+      "state": "QLD",
       "parameters": [
         {
           "parameter": "Storage Level",
