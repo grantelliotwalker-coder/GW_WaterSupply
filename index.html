@@ -34,6 +34,8 @@
   #map{height:680px;width:100%;background:var(--panel);border:1px solid var(--line)}
   @media (max-width:900px){#map{height:420px}}
   .leaflet-popup-content-wrapper{background:var(--panel);color:var(--ink);border:1px solid var(--accent-dim);border-radius:0}
+  .leaflet-tooltip{background:var(--panel);color:var(--ink);border:1px solid var(--accent-dim);border-radius:0;font-family:var(--mono);font-size:11px;box-shadow:none}
+  .leaflet-tooltip-top:before{border-top-color:var(--accent-dim)}
   .leaflet-popup-tip{background:var(--panel)}
   .leaflet-popup-content{font-family:var(--mono);font-size:12px;margin:10px 12px}
   .leaflet-popup-content b{color:var(--accent)}
@@ -110,7 +112,7 @@
 
   .modal-backdrop{
     position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;
-    align-items:flex-start;justify-content:center;padding:6vh 16px;z-index:50;overflow-y:auto;
+    align-items:flex-start;justify-content:center;padding:6vh 16px;z-index:9999;overflow-y:auto;
   }
   .modal-backdrop.open{display:flex}
   .modal{
@@ -271,9 +273,7 @@
     $("refreshedAt").textContent = p.generated_at ? "refreshed " + new Date(p.generated_at).toLocaleString("en-AU") : "";
 
     const dupeCount = (p.duplicate_groups || []).length;
-    $("dupeSummary").textContent = dupeCount
-      ? `${dupeCount} duplicate group(s) merged`
-      : "no duplicates found";
+    $("dupeSummary").textContent = "across every reporting state";
     $("dupeNote").textContent = dupeCount
       ? `${dupeCount} likely-duplicate station group(s) collapsed to one reading each ` +
         `(raw total before dedup: ${fmt(p.raw_total_GL, 1)} GL from ${fmt(p.raw_count)} entries).`
@@ -419,7 +419,7 @@
         fillOpacity: 0.45,
       }).addTo(mapInstance);
 
-      marker.bindPopup(`<b>${r.name}</b><br>${r.state || ""} · ${fmt(r.volume_ML, 1)} ML`);
+      marker.bindTooltip(`${r.name} · ${r.state || ""} · ${fmt(r.volume_ML, 1)} ML`, { direction: "top", offset: [0, -4] });
       marker.on("click", () => openStationModal(r, { lat, lon }));
     });
 
