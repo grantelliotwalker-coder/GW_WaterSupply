@@ -75,15 +75,30 @@ def fetch_values(ids):
     return out
 
 
+def normalise_coord(lat, lon):
+    """Fix the occasional sign error in BoM's coordinates (all of Australia is at
+    negative latitude, positive longitude). Returns (lat, lon) or (None, None)."""
+    try:
+        lat = float(lat)
+        lon = float(lon)
+    except (TypeError, ValueError):
+        return None, None
+    return -abs(lat), abs(lon)
+
+
 def classify_state(lat, lon):
     """Rough state/territory classification from coordinates. BoM doesn't return
     state directly, so this uses approximate boundaries — good enough for grouping,
-    not survey-accurate near borders."""
+    not survey-accurate near borders. Some BoM records carry a stray sign on
+    longitude (e.g. -153.9 instead of 153.9); since all of Australia sits at
+    positive longitude and negative latitude, we normalise both before classifying."""
     try:
         lat = float(lat)
         lon = float(lon)
     except (TypeError, ValueError):
         return None
+    lat = -abs(lat)   # Australia is entirely in the southern hemisphere
+    lon = abs(lon)    # Australia is entirely in the eastern hemisphere
     if lat < -39.5:
         return "TAS"
     if -36.0 <= lat <= -34.5 and 148.7 <= lon <= 149.4:
@@ -164,14 +179,15 @@ def main():
                 continue
             if v < 0:
                 continue
+            lat, lon = normalise_coord(s.get("station_latitude"), s.get("station_longitude"))
             rows.append({
                 "name": s.get("station_name"),
                 "no": s.get("station_no"),
                 "ts_id": s.get("ts_id"),
                 "time": pt[0],
                 "volume_ML": v,
-                "lat": s.get("station_latitude"),
-                "lon": s.get("station_longitude"),
+                "lat": lat,
+                "lon": lon,
             })
         print(f"  {min(i + CHUNK, len(series))}/{len(series)} series processed", file=sys.stderr)
         time.sleep(0.3)  # be polite to BoM's server
