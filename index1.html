@@ -264,8 +264,7 @@
 
       tr.addEventListener("click", (e) => {
         if (e.target.closest("td.mapcell") && hasLoc) {
-          const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${lat},${lon}`;
-          window.open(mapsUrl, "_blank", "noopener");
+          window.location.href = `https://www.google.com/maps/search/?api=1&query=${lat},${lon}`;
           return;
         }
         openStationModal(r, hasLoc ? { lat, lon } : null);
@@ -305,15 +304,20 @@
     const grid = $("modalParams");
     grid.innerHTML = "";
     const addParam = (label, value, unit, time) => {
+      const wrap = document.createElement("div");
       const dt = document.createElement("dt"); dt.textContent = label;
       const dd = document.createElement("dd");
-      dd.textContent = value === undefined || value === null ? "—" : `${fmt(value, 2)}${unit ? " " + unit : ""}`;
-      grid.appendChild(dt); grid.appendChild(dd);
+      dd.textContent = value === undefined || value === null || value === "" || isNaN(value)
+        ? "—" : `${fmt(value, 2)}${unit ? " " + unit : ""}`;
+      wrap.appendChild(dt);
+      wrap.appendChild(dd);
       if (time) {
         const small = document.createElement("div");
-        small.style.cssText = "grid-column:span 1;font:10px ui-monospace,monospace;color:#8a8270;margin-top:-8px";
+        small.style.cssText = "font:10px ui-monospace,monospace;color:#8a8270;margin-top:2px";
         small.textContent = time.slice(0, 10);
+        wrap.appendChild(small);
       }
+      grid.appendChild(wrap);
     };
     addParam("Storage volume", r.volume_ML, "ML", r.time);
     (r.parameters || []).forEach(p => addParam(p.parameter, p.value, p.unit, p.time));
@@ -326,7 +330,7 @@
 
     $("modalMapBtn").style.display = loc ? "inline-block" : "none";
     $("modalMapBtn").onclick = loc
-      ? () => window.open(`https://www.google.com/maps/search/?api=1&query=${loc.lat},${loc.lon}`, "_blank", "noopener")
+      ? () => { window.location.href = `https://www.google.com/maps/search/?api=1&query=${loc.lat},${loc.lon}`; }
       : null;
 
     $("modalBackdrop").classList.add("open");
