@@ -225,6 +225,9 @@
   <h2>Location data</h2>
   <p>Coordinates come from the Bureau's station metadata. A small number of known errors (sign flips, and a couple of genuinely incorrect source coordinates) are corrected before display; state/territory is inferred from coordinates using an approximation of real borders, which may occasionally misclassify a station sitting very close to a border.</p>
 
+  <h2>Licensing</h2>
+  <p>Water Data Online is open for anyone to use — government agencies, researchers, industry, and the general public. Most supplying agencies make their data available under a Creative Commons Attribution Licence, meaning it can be used freely with acknowledgement, which is provided here. A small number of agencies apply different terms; see the Bureau's <a href="http://www.bom.gov.au/waterdata/index.shtml?selected=Copyright" target="_blank" rel="noopener">copyright and licensing page</a> for the specific conditions of each supplying organisation.</p>
+
   <h2>Source</h2>
   <p>Bureau of Meteorology, <a href="http://www.bom.gov.au/waterdata/" target="_blank" rel="noopener">Water Data Online</a>.</p>
 </div>
@@ -528,6 +531,7 @@
     $("modalBackdrop").classList.add("open");
 
     $("modalChartNote").textContent = "Loading history…";
+    $("modalChartNote").style.color = "var(--dim)";
     const history = await getStationHistory();
     const series = (history[r.no] || []).slice().sort((a, b) => a.date < b.date ? -1 : 1);
 
@@ -539,6 +543,13 @@
       return;
     }
     $("modalChartNote").textContent = `${series.length} readings, ${series[0].date} to ${series[series.length - 1].date}.`;
+    const lastPt = series[series.length - 1];
+    const prevPt = series[series.length - 2];
+    const stationRoc = rateOfChange(lastPt.volume_ML, prevPt.volume_ML);
+    const stationRocText = `${stationRoc.sign}${fmt(stationRoc.delta, 1)} ML` +
+      (stationRoc.pct !== null ? ` (${stationRoc.sign}${fmt(stationRoc.pct, 2)}%)` : "") + ` since ${prevPt.date}`;
+    $("modalChartNote").textContent += ` ${stationRocText}.`;
+    $("modalChartNote").style.color = stationRoc.up ? "#5fd68a" : "#ff8a70";
     const ctx = document.getElementById("modalChart").getContext("2d");
     modalChartInstance = new Chart(ctx, {
       type: "line",
@@ -549,14 +560,16 @@
           data: series.map(p => p.volume_ML),
           borderColor: "#38b6ff",
           backgroundColor: "rgba(56,182,255,0.15)",
-          borderWidth: 2, pointRadius: 0, tension: 0.25, fill: true,
+          borderWidth: 2, pointRadius: 4, pointHoverRadius: 6,
+          pointBackgroundColor: "#38b6ff", pointBorderColor: "#111817", pointBorderWidth: 1.5,
+          tension: 0.25, fill: true,
         }]
       },
       options: {
         responsive: true, maintainAspectRatio: false,
         plugins: { legend: { display: false } },
         scales: {
-          x: { ticks: { color: "#5c7871", maxTicksLimit: 6, font: { family: "ui-monospace", size: 10 } }, grid: { display: false } },
+          x: { offset: true, ticks: { color: "#5c7871", maxTicksLimit: 6, font: { family: "ui-monospace", size: 10 } }, grid: { display: false } },
           y: { ticks: { color: "#5c7871", font: { family: "ui-monospace", size: 10 } }, grid: { color: "#1f2b29" } }
         }
       }
@@ -567,15 +580,28 @@
   $("modalBackdrop").addEventListener("click", (e) => { if (e.target === $("modalBackdrop")) closeModal(); });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
 
+  function rateOfChange(latest, previous) {
+    const delta = latest - previous;
+    const pct = previous !== 0 ? (delta / previous) * 100 : null;
+    const sign = delta >= 0 ? "+" : "";
+    return { delta, pct, sign, up: delta >= 0 };
+  }
+
   function renderChart(history) {
     const note = $("trendNote");
     if (!history || history.length < 2) {
+      note.style.color = "var(--dim)";
       note.textContent = history && history.length === 1
         ? "Only one data point so far — the trend line will appear after tomorrow's run."
         : "No history yet.";
       return;
     }
-    note.textContent = `${history.length} daily readings, ${history[0].date} to ${history[history.length - 1].date}.`;
+    const last = history[history.length - 1];
+    const prev = history[history.length - 2];
+    const roc = rateOfChange(last.total_GL, prev.total_GL);
+    const rocText = `${roc.sign}${fmt(roc.delta, 1)} GL` + (roc.pct !== null ? ` (${roc.sign}${fmt(roc.pct, 2)}%)` : "") + ` since ${prev.date}`;
+    note.textContent = `${history.length} daily readings, ${history[0].date} to ${last.date}. ${rocText}.`;
+    note.style.color = roc.up ? "#5fd68a" : "#ff8a70";
 
     const ctx = document.getElementById("trendChart").getContext("2d");
     if (chartInstance) chartInstance.destroy();
@@ -589,7 +615,11 @@
           borderColor: "#38b6ff",
           backgroundColor: "rgba(56,182,255,0.15)",
           borderWidth: 2,
-          pointRadius: 0,
+          pointRadius: 4,
+          pointHoverRadius: 6,
+          pointBackgroundColor: "#38b6ff",
+          pointBorderColor: "#0a0e0f",
+          pointBorderWidth: 1.5,
           tension: 0.25,
           fill: true,
         }]
@@ -599,7 +629,7 @@
         maintainAspectRatio: false,
         plugins: { legend: { display: false } },
         scales: {
-          x: { ticks: { color: "#5c7871", maxTicksLimit: 8, font: { family: "ui-monospace", size: 10 } }, grid: { display: false } },
+          x: { offset: true, ticks: { color: "#5c7871", maxTicksLimit: 8, font: { family: "ui-monospace", size: 10 } }, grid: { display: false } },
           y: { ticks: { color: "#5c7871", font: { family: "ui-monospace", size: 10 } }, grid: { color: "#1f2b29" } }
         }
       }
