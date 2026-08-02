@@ -146,7 +146,7 @@
 <footer>
   Source: <a href="http://www.bom.gov.au/waterdata/" target="_blank" rel="noopener">Bureau of Meteorology, Water Data Online</a>.
   Data is supplied to the Bureau by state and territory water agencies. Coverage is not complete — this total is the sum of
-  what those agencies publish through this service, not the volume of every dam in Australia. Showing the top 4 storages per state.
+  what those agencies publish through this service, not the volume of every dam in Australia. Top 4 shown per state by default — click "see all" to expand.
 </footer>
 
 </div>
@@ -212,11 +212,25 @@
     const container = $("stateGroups");
     container.innerHTML = "";
     stateOrder.forEach(state => {
-      const top4 = byState[state].slice().sort((a, b) => b.volume_ML - a.volume_ML).slice(0, 4);
+      const all = byState[state].slice().sort((a, b) => b.volume_ML - a.volume_ML);
+      const top4 = all.slice(0, 4);
 
       const h = document.createElement("h2");
       h.className = "region";
-      h.textContent = state;
+      h.style.display = "flex";
+      h.style.justifyContent = "space-between";
+      h.style.alignItems = "baseline";
+      const label = document.createElement("span");
+      label.textContent = state;
+      h.appendChild(label);
+      if (all.length > 4) {
+        const seeAll = document.createElement("button");
+        seeAll.textContent = `see all ${all.length} ↓`;
+        seeAll.style.cssText = "background:none;border:none;color:var(--accent-dim);font-family:var(--mono);font-size:10px;letter-spacing:.06em;cursor:pointer;padding:0;text-transform:none";
+        seeAll.addEventListener("mouseover", () => seeAll.style.color = "var(--accent)");
+        seeAll.addEventListener("mouseout", () => seeAll.style.color = "var(--accent-dim)");
+        h.appendChild(seeAll);
+      }
       container.appendChild(h);
 
       const table = document.createElement("table");
@@ -224,30 +238,43 @@
       thead.innerHTML = "<tr><th>Storage</th><th>Reading</th><th style=\"text-align:right\">Volume (ML)</th><th>Map</th></tr>";
       table.appendChild(thead);
       const tbody = document.createElement("tbody");
-
-      top4.forEach(r => {
-        const lat = parseFloat(r.lat), lon = parseFloat(r.lon);
-        const hasLoc = isFinite(lat) && isFinite(lon) && !(lat === 0 && lon === 0);
-
-        const tr = document.createElement("tr");
-        tr.innerHTML = `<td class="name"></td><td></td><td class="num"></td><td class="maplink${hasLoc ? "" : " disabled"}"></td>`;
-        tr.children[0].textContent = r.name;
-        tr.children[1].textContent = (r.time || "").slice(0, 10);
-        tr.children[2].textContent = fmt(r.volume_ML, 1);
-        tr.children[3].textContent = hasLoc ? "open ↗" : "no location";
-
-        tr.addEventListener("click", (e) => {
-          if (e.target.closest("td.maplink") && hasLoc) {
-            window.location.href = `https://www.google.com/maps/search/?api=1&query=${lat},${lon}`;
-            return;
-          }
-          openStationModal(r, hasLoc ? { lat, lon } : null);
-        });
-        tbody.appendChild(tr);
-      });
-
       table.appendChild(tbody);
       container.appendChild(table);
+
+      let expanded = false;
+      const buildRows = (list) => {
+        tbody.innerHTML = "";
+        list.forEach(r => {
+          const lat = parseFloat(r.lat), lon = parseFloat(r.lon);
+          const hasLoc = isFinite(lat) && isFinite(lon) && !(lat === 0 && lon === 0);
+
+          const tr = document.createElement("tr");
+          tr.innerHTML = `<td class="name"></td><td></td><td class="num"></td><td class="maplink${hasLoc ? "" : " disabled"}"></td>`;
+          tr.children[0].textContent = r.name;
+          tr.children[1].textContent = (r.time || "").slice(0, 10);
+          tr.children[2].textContent = fmt(r.volume_ML, 1);
+          tr.children[3].textContent = hasLoc ? "open ↗" : "no location";
+
+          tr.addEventListener("click", (e) => {
+            if (e.target.closest("td.maplink") && hasLoc) {
+              window.location.href = `https://www.google.com/maps/search/?api=1&query=${lat},${lon}`;
+              return;
+            }
+            openStationModal(r, hasLoc ? { lat, lon } : null);
+          });
+          tbody.appendChild(tr);
+        });
+      };
+      buildRows(top4);
+
+      const seeAllBtn = h.querySelector("button");
+      if (seeAllBtn) {
+        seeAllBtn.addEventListener("click", () => {
+          expanded = !expanded;
+          buildRows(expanded ? all : top4);
+          seeAllBtn.textContent = expanded ? "show top 4 ↑" : `see all ${all.length} ↓`;
+        });
+      }
     });
 
     $("csv").disabled = false;
