@@ -133,7 +133,8 @@
 </div>
 
 <p id="status">Loading…</p>
-<p id="dupeNote"></p>
+<button id="infoToggle" style="background:none;border:none;color:var(--dim);font-family:var(--mono);font-size:11px;letter-spacing:.06em;cursor:pointer;padding:0;text-decoration:underline;text-underline-offset:3px;text-decoration-color:transparent;margin-bottom:20px" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--dim)'">ⓘ dedup details</button>
+<div id="dupeNote" style="display:none;font-size:11px;color:var(--dim);border-left:2px solid var(--accent-dim);padding:8px 12px;margin:8px 0 20px;background:var(--panel2)"></div>
 
 <div id="stateGroups"></div>
 
@@ -195,14 +196,10 @@
     $("dupeSummary").textContent = dupeCount
       ? `${dupeCount} duplicate group(s) merged`
       : "no duplicates found";
-    const dupeEl = $("dupeNote");
-    if (dupeCount) {
-      dupeEl.style.display = "block";
-      dupeEl.textContent = `${dupeCount} likely-duplicate station group(s) collapsed to one reading each ` +
-        `(raw total before dedup: ${fmt(p.raw_total_GL, 1)} GL from ${fmt(p.raw_count)} entries).`;
-    } else {
-      dupeEl.style.display = "none";
-    }
+    $("dupeNote").textContent = dupeCount
+      ? `${dupeCount} likely-duplicate station group(s) collapsed to one reading each ` +
+        `(raw total before dedup: ${fmt(p.raw_total_GL, 1)} GL from ${fmt(p.raw_count)} entries).`
+      : "No duplicate stations detected this run.";
 
     // Group by state, take top 4 by volume within each
     const byState = {};
@@ -306,6 +303,9 @@
       grid.appendChild(wrap);
     };
     addParam("Storage volume", r.volume_ML, "ML", r.time);
+    if (payload && payload.total_ML) {
+      addParam("Share of national total", (r.volume_ML / payload.total_ML) * 100, "%", null);
+    }
     (r.parameters || []).forEach(p => addParam(p.parameter, p.value, p.unit, p.time));
     if (!(r.parameters || []).length) {
       const note = document.createElement("p");
@@ -466,6 +466,10 @@
 
   $("csv").addEventListener("click", downloadCSV);
   $("copy").addEventListener("click", copyForReview);
+  $("infoToggle").addEventListener("click", () => {
+    const el = $("dupeNote");
+    el.style.display = el.style.display === "none" ? "block" : "none";
+  });
 
   // Auto-load on page open since there's no live-fetch cost anymore.
   run();
