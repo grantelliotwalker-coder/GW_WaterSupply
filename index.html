@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>National Water Storage Monitor</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0e0f'/%3E%3Cpath d='M16 4C16 4 6 16.5 6 22.5 6 28 10.5 30 16 30s10-2 10-7.5C26 16.5 16 4 16 4z' fill='%2338b6ff'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <style>
   :root{
     --bg:#0a0e0f; --panel:#111817; --panel2:#0d1312; --line:#1f2b29;
@@ -13,7 +14,44 @@
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--mono);font-size:13px;line-height:1.6}
-  .wrap{max-width:1100px;margin:0 auto;padding:28px 20px 90px}
+  .wrap{max-width:1800px;margin:0 auto;padding:28px 40px 90px}
+  @media (max-width:900px){.wrap{padding:20px 16px 90px}}
+
+  #stateGroups{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:0 36px;align-items:start}
+  #stateGroups .state-block{margin-bottom:8px}
+
+  nav.tabs{display:flex;gap:2px;margin-bottom:24px;border-bottom:1px solid var(--line)}
+  nav.tabs button{
+    background:none;border:none;color:var(--dim);font-family:var(--mono);font-size:11px;
+    letter-spacing:.12em;text-transform:uppercase;padding:10px 16px;cursor:pointer;
+    border-bottom:2px solid transparent;margin-bottom:-1px;
+  }
+  nav.tabs button:hover{color:var(--ink)}
+  nav.tabs button.active{color:var(--accent);border-bottom-color:var(--accent)}
+  .view{display:none}
+  .view.active{display:block}
+
+  #map{height:680px;width:100%;background:var(--panel);border:1px solid var(--line)}
+  @media (max-width:900px){#map{height:420px}}
+  .leaflet-popup-content-wrapper{background:var(--panel);color:var(--ink);border:1px solid var(--accent-dim);border-radius:0}
+  .leaflet-popup-tip{background:var(--panel)}
+  .leaflet-popup-content{font-family:var(--mono);font-size:12px;margin:10px 12px}
+  .leaflet-popup-content b{color:var(--accent)}
+  .map-note{font-size:11px;color:var(--dim);margin-top:10px}
+
+  .list-controls{display:flex;gap:10px;margin-bottom:16px}
+  .list-controls input{
+    flex:1;background:var(--panel);border:1px solid var(--line);color:var(--ink);
+    font-family:var(--mono);font-size:12px;padding:10px 12px;
+  }
+  .list-controls input::placeholder{color:var(--dim)}
+  .list-controls input:focus{outline:1px solid var(--accent)}
+
+  .about h2{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);border-bottom:1px solid var(--line);padding-bottom:8px;margin:26px 0 12px}
+  .about h2:first-child{margin-top:0}
+  .about p{color:var(--dim);font-size:12.5px;max-width:70ch;margin:0 0 14px}
+  .about a{color:var(--accent)}
+  .about code{background:var(--panel);padding:2px 5px;color:var(--ink)}
 
   .topline{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:8px;flex-wrap:wrap;gap:8px}
   .topline h1{font-size:15px;letter-spacing:.18em;text-transform:uppercase;margin:0;font-weight:600;color:var(--accent)}
@@ -98,6 +136,7 @@
   .modal-actions button:hover{background:var(--accent-dim)}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 </head>
 <body>
 <div class="wrap">
@@ -108,46 +147,85 @@
 </div>
 <p class="desc">Pulled from the Bureau of Meteorology's Water Data Online (KiWIS). Every monitoring point reporting a Storage Volume, latest daily reading, summed. Refreshes automatically on load.</p>
 
-<div class="readout-grid">
-  <div class="cell">
-    <div class="label">Total Stored Volume</div>
-    <div class="big" id="total">—<span class="unit"> GL</span></div>
-    <div class="sub"><span id="totalML">—</span> ML</div>
-  </div>
-  <div class="cell">
-    <div class="label">Storages Tracked</div>
-    <div class="big" id="count" style="font-size:30px">—</div>
-    <div class="sub" id="dupeSummary">—</div>
-  </div>
-  <div class="cell">
-    <div class="label">Latest Reading</div>
-    <div class="big" id="asAt" style="font-size:22px">—</div>
-    <div class="sub" id="refreshedAt">—</div>
-  </div>
-</div>
-
-<div class="chart-panel">
-  <div class="label">Trend</div>
-  <div class="chart-wrap"><canvas id="trendChart"></canvas></div>
-  <p class="chart-note" id="trendNote"></p>
-</div>
+<nav class="tabs">
+  <button data-view="overview" class="active">Overview</button>
+  <button data-view="map">Map</button>
+  <button data-view="list">Full List</button>
+  <button data-view="about">About</button>
+</nav>
 
 <p id="status">Loading…</p>
-<button id="infoToggle" style="background:none;border:none;color:var(--dim);font-family:var(--mono);font-size:11px;letter-spacing:.06em;cursor:pointer;padding:0;text-decoration:underline;text-underline-offset:3px;text-decoration-color:transparent;margin-bottom:20px" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--dim)'">ⓘ dedup details</button>
-<div id="dupeNote" style="display:none;font-size:11px;color:var(--dim);border-left:2px solid var(--accent-dim);padding:8px 12px;margin:8px 0 20px;background:var(--panel2)"></div>
 
-<div id="stateGroups"></div>
+<div class="view active" id="view-overview">
 
-<div class="quiet-actions">
-  <button id="csv" disabled>export csv</button>
-  <button id="copy" disabled>copy for review</button>
+  <div class="readout-grid">
+    <div class="cell">
+      <div class="label">Total Stored Volume</div>
+      <div class="big" id="total">—<span class="unit"> GL</span></div>
+      <div class="sub"><span id="totalML">—</span> ML</div>
+    </div>
+    <div class="cell">
+      <div class="label">Storages Tracked</div>
+      <div class="big" id="count" style="font-size:30px">—</div>
+      <div class="sub" id="dupeSummary">—</div>
+    </div>
+    <div class="cell">
+      <div class="label">Latest Reading</div>
+      <div class="big" id="asAt" style="font-size:22px">—</div>
+      <div class="sub" id="refreshedAt">—</div>
+    </div>
+  </div>
+
+  <div class="chart-panel">
+    <div class="label">Trend</div>
+    <div class="chart-wrap"><canvas id="trendChart"></canvas></div>
+    <p class="chart-note" id="trendNote"></p>
+  </div>
+
+  <button id="infoToggle" style="background:none;border:none;color:var(--dim);font-family:var(--mono);font-size:11px;letter-spacing:.06em;cursor:pointer;padding:0;text-decoration:underline;text-underline-offset:3px;text-decoration-color:transparent;margin-bottom:20px" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--dim)'">ⓘ dedup details</button>
+  <div id="dupeNote" style="display:none;font-size:11px;color:var(--dim);border-left:2px solid var(--accent-dim);padding:8px 12px;margin:8px 0 20px;background:var(--panel2)"></div>
+
+  <div id="stateGroups"></div>
+
+  <div class="quiet-actions">
+    <button id="csv" disabled>export csv</button>
+    <button id="copy" disabled>copy for review</button>
+  </div>
+
 </div>
 
-<footer>
-  Source: <a href="http://www.bom.gov.au/waterdata/" target="_blank" rel="noopener">Bureau of Meteorology, Water Data Online</a>.
-  Data is supplied to the Bureau by state and territory water agencies. Coverage is not complete — this total is the sum of
-  what those agencies publish through this service, not the volume of every dam in Australia. Top 4 shown per state by default — click "see all" to expand.
-</footer>
+<div class="view" id="view-map">
+  <div id="map"></div>
+  <p class="map-note" id="mapNote">Loading map…</p>
+</div>
+
+<div class="view" id="view-list">
+  <div class="list-controls">
+    <input type="text" id="listSearch" placeholder="Search by station name, number, or state…">
+  </div>
+  <table id="fullListTable">
+    <thead><tr><th>State</th><th>Storage</th><th>Station no.</th><th>Reading</th><th style="text-align:right">Volume (ML)</th><th>Map</th></tr></thead>
+    <tbody id="fullListBody"></tbody>
+  </table>
+  <p class="map-note" id="listCount"></p>
+</div>
+
+<div class="view about" id="view-about">
+  <h2>What this is</h2>
+  <p>This page asks the Bureau of Meteorology's Water Data Online service for every monitoring point that reports a Storage Volume, takes the most recent daily reading from each, and adds them together. A scheduled job refreshes the underlying data automatically; this page just displays the latest result.</p>
+
+  <h2>Deduplication</h2>
+  <p>Some storages are monitored by more than one gauge or logger and would otherwise be counted twice. Stations are merged first by matching their base station number (stripping variant suffixes like <code>.1</code>/<code>.3</code>), then by a short list of manually verified cases where the same storage carries genuinely different station numbers. See the "ⓘ dedup details" toggle on the Overview tab for the current run's specifics.</p>
+
+  <h2>Coverage</h2>
+  <p>Data is supplied to the Bureau by state and territory water agencies under the Water Regulations 2008. Coverage is not complete — this total reflects what those agencies publish through this service, not the volume of every dam in Australia.</p>
+
+  <h2>Location data</h2>
+  <p>Coordinates come from the Bureau's station metadata. A small number of known errors (sign flips, and a couple of genuinely incorrect source coordinates) are corrected before display; state/territory is inferred from coordinates using an approximation of real borders, which may occasionally misclassify a station sitting very close to a border.</p>
+
+  <h2>Source</h2>
+  <p>Bureau of Meteorology, <a href="http://www.bom.gov.au/waterdata/" target="_blank" rel="noopener">Water Data Online</a>.</p>
+</div>
 
 </div>
 
@@ -215,6 +293,9 @@
       const all = byState[state].slice().sort((a, b) => b.volume_ML - a.volume_ML);
       const top4 = all.slice(0, 4);
 
+      const block = document.createElement("div");
+      block.className = "state-block";
+
       const h = document.createElement("h2");
       h.className = "region";
       h.style.display = "flex";
@@ -231,7 +312,7 @@
         seeAll.addEventListener("mouseout", () => seeAll.style.color = "var(--accent-dim)");
         h.appendChild(seeAll);
       }
-      container.appendChild(h);
+      block.appendChild(h);
 
       const table = document.createElement("table");
       const thead = document.createElement("thead");
@@ -239,7 +320,8 @@
       table.appendChild(thead);
       const tbody = document.createElement("tbody");
       table.appendChild(tbody);
-      container.appendChild(table);
+      block.appendChild(table);
+      container.appendChild(block);
 
       let expanded = false;
       const buildRows = (list) => {
@@ -286,6 +368,103 @@
   }
   tickClock();
   setInterval(tickClock, 1000);
+
+  // --- Tab navigation ---
+  let mapInstance = null;
+  let mapInitialised = false;
+
+  document.querySelectorAll("nav.tabs button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll("nav.tabs button").forEach(b => b.classList.remove("active"));
+      document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
+      btn.classList.add("active");
+      $("view-" + btn.dataset.view).classList.add("active");
+
+      if (btn.dataset.view === "map") {
+        if (!mapInitialised) {
+          initMap();
+          mapInitialised = true;
+        }
+        setTimeout(() => { if (mapInstance) mapInstance.invalidateSize(); }, 50);
+      }
+      if (btn.dataset.view === "list") {
+        renderFullList($("listSearch").value);
+      }
+    });
+  });
+
+  function initMap() {
+    if (typeof L === "undefined") {
+      $("mapNote").textContent = "Map library failed to load.";
+      return;
+    }
+    mapInstance = L.map("map", { scrollWheelZoom: true }).setView([-25.5, 134], 4);
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+      attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+      maxZoom: 18,
+    }).addTo(mapInstance);
+
+    let plotted = 0;
+    rows.forEach(r => {
+      const lat = parseFloat(r.lat), lon = parseFloat(r.lon);
+      const hasLoc = isFinite(lat) && isFinite(lon) && !(lat === 0 && lon === 0);
+      if (!hasLoc) return;
+      plotted++;
+
+      const marker = L.circleMarker([lat, lon], {
+        radius: Math.max(3, Math.min(14, Math.log10(r.volume_ML + 1) * 2)),
+        color: "#38b6ff",
+        weight: 1,
+        fillColor: "#38b6ff",
+        fillOpacity: 0.45,
+      }).addTo(mapInstance);
+
+      marker.bindPopup(`<b>${r.name}</b><br>${r.state || ""} · ${fmt(r.volume_ML, 1)} ML`);
+      marker.on("click", () => openStationModal(r, { lat, lon }));
+    });
+
+    $("mapNote").textContent = `${plotted} of ${rows.length} storages plotted (stations without coordinates are omitted). Click a marker for details.`;
+  }
+
+  function renderFullList(filter) {
+    const q = (filter || "").trim().toLowerCase();
+    const body = $("fullListBody");
+    body.innerHTML = "";
+
+    const filtered = rows.filter(r => {
+      if (!q) return true;
+      return (r.name || "").toLowerCase().includes(q) ||
+             (r.no || "").toLowerCase().includes(q) ||
+             (r.state || "").toLowerCase().includes(q);
+    }).sort((a, b) => b.volume_ML - a.volume_ML);
+
+    filtered.forEach(r => {
+      const lat = parseFloat(r.lat), lon = parseFloat(r.lon);
+      const hasLoc = isFinite(lat) && isFinite(lon) && !(lat === 0 && lon === 0);
+
+      const tr = document.createElement("tr");
+      tr.innerHTML = `<td></td><td class="name"></td><td></td><td></td><td class="num"></td><td class="maplink${hasLoc ? "" : " disabled"}"></td>`;
+      tr.children[0].textContent = r.state || "—";
+      tr.children[1].textContent = r.name;
+      tr.children[2].textContent = r.no;
+      tr.children[3].textContent = (r.time || "").slice(0, 10);
+      tr.children[4].textContent = fmt(r.volume_ML, 1);
+      tr.children[5].textContent = hasLoc ? "open ↗" : "no location";
+
+      tr.addEventListener("click", (e) => {
+        if (e.target.closest("td.maplink") && hasLoc) {
+          window.location.href = `https://www.google.com/maps/search/?api=1&query=${lat},${lon}`;
+          return;
+        }
+        openStationModal(r, hasLoc ? { lat, lon } : null);
+      });
+      body.appendChild(tr);
+    });
+
+    $("listCount").textContent = `${filtered.length} of ${rows.length} storages shown.`;
+  }
+
+  $("listSearch").addEventListener("input", (e) => renderFullList(e.target.value));
 
   let chartInstance = null;
   let modalChartInstance = null;
