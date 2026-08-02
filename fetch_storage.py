@@ -75,9 +75,21 @@ def fetch_values(ids):
     return out
 
 
-def normalise_coord(lat, lon):
-    """Fix the occasional sign error in BoM's coordinates (all of Australia is at
-    negative latitude, positive longitude). Returns (lat, lon) or (None, None)."""
+# A handful of stations carry genuinely wrong coordinates in BoM's own source
+# data (not just a sign error — the value itself is off by several degrees).
+# Verified against each dam's known real-world location.
+COORD_OVERRIDES = {
+    "141012A": (-26.7719, 152.9603),   # Ewen Maddock Dam, QLD
+    "145033A": (-27.9421, 152.8394),   # Wyaralong Dam, QLD
+}
+
+
+def normalise_coord(lat, lon, station_no=None):
+    """Fix coordinate errors in BoM's data: sign flips (all of Australia is at
+    negative latitude, positive longitude) and a small list of known bad values.
+    Returns (lat, lon) or (None, None)."""
+    if station_no in COORD_OVERRIDES:
+        return COORD_OVERRIDES[station_no]
     try:
         lat = float(lat)
         lon = float(lon)
@@ -86,12 +98,45 @@ def normalise_coord(lat, lon):
     return -abs(lat), abs(lon)
 
 
-def classify_state(lat, lon):
+# The NSW/VIC border roughly follows the Murray River, which curves — it is NOT
+# a straight line of latitude. A flat threshold wrongly tags much of central and
+# western Victoria (Bendigo, Horsham, Goulburn Weir, Waranga Basin, Dartmouth...)
+# as NSW, since large parts of Victoria sit further north than the Snowy Mountains
+# section of the border. This is a rough piecewise-linear trace of the border's
+# latitude at a handful of longitudes, interpolated between them.
+NSW_VIC_BORDER = [
+    (141.0, -34.0), (142.0, -34.5), (143.0, -35.7), (144.0, -36.0),
+    (145.0, -36.05), (146.0, -36.1), (147.0, -36.2), (148.0, -36.6),
+    (149.0, -37.0), (150.0, -37.5), (151.0, -37.5),
+]
+
+
+def nsw_vic_border_lat(lon):
+    pts = NSW_VIC_BORDER
+    if lon <= pts[0][0]:
+        return pts[0][1]
+    if lon >= pts[-1][0]:
+        return pts[-1][1]
+    for (lon1, lat1), (lon2, lat2) in zip(pts, pts[1:]):
+        if lon1 <= lon <= lon2:
+            frac = (lon - lon1) / (lon2 - lon1)
+            return lat1 + frac * (lat2 - lat1)
+    return pts[-1][1]
+
+
+# A few stations that still need a manual state fix even after the curved-border
+# approximation above (e.g. genuinely wrong source coordinates).
+STATE_OVERRIDES = {}
+
+
+def classify_state(lat, lon, station_no=None):
     """Rough state/territory classification from coordinates. BoM doesn't return
     state directly, so this uses approximate boundaries — good enough for grouping,
     not survey-accurate near borders. Some BoM records carry a stray sign on
     longitude (e.g. -153.9 instead of 153.9); since all of Australia sits at
     positive longitude and negative latitude, we normalise both before classifying."""
+    if station_no in STATE_OVERRIDES:
+        return STATE_OVERRIDES[station_no]
     try:
         lat = float(lat)
         lon = float(lon)
@@ -110,7 +155,7 @@ def classify_state(lat, lon):
     if lon <= 154:
         if lat > -29:
             return "QLD"
-        return "NSW" if lat > -37 else "VIC"
+        return "NSW" if lat > nsw_vic_border_lat(lon) else "VIC"
     return None
 
 
@@ -179,7 +224,7 @@ def main():
                 continue
             if v < 0:
                 continue
-            lat, lon = normalise_coord(s.get("station_latitude"), s.get("station_longitude"))
+            lat, lon = normalise_coord(s.get("station_latitude"), s.get("station_longitude"), s.get("station_no"))
             rows.append({
                 "name": s.get("station_name"),
                 "no": s.get("station_no"),
@@ -249,7 +294,11 @@ def main():
     latest = max(r["time"] for r in kept)
 
     for r in kept:
-        r["state"] = classify_state(r.get("lat"), r.get("lon"))
+        r["state"] = classify_state(r.get("lat"), r.get("lon"), r.get("no"))
+        lat, lon = r.get("lat"), r.get("lon")
+        if lat is not None and lon is not None and not (-44 <= lat <= -9 and 112 <= lon <= 154):
+            print(f"  WARNING: {r['name']} ({r['no']}) has out-of-Australia coordinates "
+                  f"lat={lat}, lon={lon} — check COORD_OVERRIDES", file=sys.stderr)
 
     stations_sorted = sorted(
         kept,
