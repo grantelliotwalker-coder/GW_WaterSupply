@@ -5,18 +5,22 @@ takes the latest reading for each, and writes data.json for the website to read.
 
 Run this from GitHub Actions (or locally) — never from a browser.
 """
+import http.client
 import json
 import re
+import socket
 import sys
 import time
+
 from datetime import datetime, timezone
-import urllib.request
+import urllib.error
 import urllib.parse
+import urllib.request
 
 BASE = "https://www.bom.gov.au/waterdata/services"
 TS_NAME = "DMQaQc.Merged.DailyMean.24HR"
 PARAM = "Storage Volume"
-CHUNK = 40
+CHUNK = 20  # Reduced batch size to prevent server-side query timeouts
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (compatible; storage-data-fetch/1.0)",
@@ -24,7 +28,8 @@ HEADERS = {
 }
 
 
-def get_json(params):
+def get_json(params, retries=3, backoff_factor=2):
+    """Fetches JSON from BoM KiWIS API with automatic retries on timeout/network failures."""
     qs = urllib.parse.urlencode({
         "service": "kisters",
         "type": "queryServices",
@@ -33,12 +38,22 @@ def get_json(params):
         **params,
     })
     req = urllib.request.Request(f"{BASE}?{qs}", headers=HEADERS)
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        body = resp.read().decode("utf-8")
-    data = json.loads(body)
-    if isinstance(data, dict) and data.get("type") == "error":
-        raise RuntimeError(data.get("message", "Water Data Online returned an error"))
-    return data
+
+    for attempt in range(retries):
+        try:
+            with urllib.request.urlopen(req, timeout=45) as resp:
+                body = resp.read().decode("utf-8")
+            data = json.loads(body)
+            if isinstance(data, dict) and data.get("type") == "error":
+                raise RuntimeError(data.get("message", "Water Data Online returned an error"))
+            return data
+        except (TimeoutError, urllib.error.URLError, http.client.RemoteDisconnected, socket.timeout) as e:
+            if attempt == retries - 1:
+                print(f"Request failed after {retries} attempts: {e}", file=sys.stderr)
+                raise
+            sleep_time = backoff_factor ** (attempt + 1)
+            print(f"  [Attempt {attempt + 1}/{retries}] Request timed out/failed ({e}). Retrying in {sleep_time}s...", file=sys.stderr)
+            time.sleep(sleep_time)
 
 
 def to_objects(table):
@@ -130,11 +145,7 @@ STATE_OVERRIDES = {}
 
 
 def classify_state(lat, lon, station_no=None):
-    """Rough state/territory classification from coordinates. BoM doesn't return
-    state directly, so this uses approximate boundaries — good enough for grouping,
-    not survey-accurate near borders. Some BoM records carry a stray sign on
-    longitude (e.g. -153.9 instead of 153.9); since all of Australia sits at
-    positive longitude and negative latitude, we normalise both before classifying."""
+    """Rough state/territory classification from coordinates."""
     if station_no in STATE_OVERRIDES:
         return STATE_OVERRIDES[station_no]
     try:
@@ -159,9 +170,6 @@ def classify_state(lat, lon, station_no=None):
     return None
 
 
-# Preferred display name when a dedup group's largest-volume entry has a less
-# recognisable name than a sibling in the same group (e.g. "Hideaway Bay" vs
-# the dam's common name, "Warragamba"). Keyed by the group's matched_on value.
 DISPLAY_NAME_OVERRIDES = {
     "station_no:212243": "Warragamba Dam",
 }
@@ -186,9 +194,6 @@ def normalise_name(name):
     return "".join(ch for ch in n if ch.isalnum())
 
 
-# Known same-storage groups that neither number-prefix matching nor loose name
-# matching can safely catch automatically (genuinely different station numbers,
-# genuinely different names, but the same physical reservoir). Verified by hand.
 KNOWN_DUPLICATE_GROUPS = [
     ["lake argyle", "argyle vill", "argyle water level"],
 ]
@@ -213,7 +218,12 @@ def main():
     rows = []
     for i in range(0, len(series), CHUNK):
         batch = series[i:i + CHUNK]
-        values = fetch_values([str(s["ts_id"]) for s in batch])
+        try:
+            values = fetch_values([str(s["ts_id"]) for s in batch])
+        except Exception as e:
+            print(f"  WARNING: Failed to fetch batch starting at index {i}: {e}", file=sys.stderr)
+            continue
+
         for s in batch:
             pt = values.get(str(s["ts_id"]))
             if not pt:
@@ -242,8 +252,6 @@ def main():
 
     raw_total_ML = sum(r["volume_ML"] for r in rows)
 
-    # --- Pass 1: group by base station number (handles the vast majority of dupes:
-    # 212243 vs 212243.3, 215212 vs 215212.1 vs 215212.3, etc.) ---
     by_number = {}
     for r in rows:
         by_number.setdefault(base_station_no(r["no"]), []).append(r)
@@ -264,9 +272,6 @@ def main():
                 "excluded": group_sorted[1:],
             })
 
-    # --- Pass 2: catch remaining dupes that share a manually-verified name pattern
-    # but have genuinely different station numbers (e.g. Lake Argyle monitored from
-    # three separate gauge sites) ---
     by_known = {}
     unmatched = []
     for r in pass1_kept:
@@ -321,7 +326,6 @@ def main():
     with open("data.json", "w") as f:
         json.dump(output, f, indent=2)
 
-    # --- Append this run to history.json so the site can chart the national trend ---
     history_path = "history.json"
     try:
         with open(history_path) as f:
@@ -332,7 +336,7 @@ def main():
         history = []
 
     today = output["generated_at"][:10]
-    history = [h for h in history if h.get("date") != today]  # avoid same-day dupes on re-run
+    history = [h for h in history if h.get("date") != today]
     history.append({
         "date": today,
         "generated_at": output["generated_at"],
@@ -341,7 +345,7 @@ def main():
         "count": len(kept),
     })
     history.sort(key=lambda h: h["date"])
-    history = history[-730:]  # cap at ~2 years of daily points
+    history = history[-730:]
 
     with open(history_path, "w") as f:
         json.dump(history, f, indent=2)
@@ -350,11 +354,6 @@ def main():
           f"{total_ML/1000:,.1f} GL total (raw {raw_total_ML/1000:,.1f} GL)", file=sys.stderr)
     print(f"Appended to history.json ({len(history)} points on file)", file=sys.stderr)
 
-    # --- Fetch every other parameter each kept station reports (level, discharge,
-    # rainfall, water quality, etc.), and track per-station history over time.
-    # Wrapped so that a failure here (e.g. a network hiccup partway through ~380
-    # extra requests) can't stop data.json / history.json from being committed —
-    # those are already saved above and are the core of the site.
     try:
         fetch_extra_parameters_and_history(kept)
     except Exception as e:
@@ -363,8 +362,6 @@ def main():
               "station-level parameters/history were not updated this run.", file=sys.stderr)
 
 
-# Parameters worth checking for on top of Storage Volume. Not every station has
-# every one of these — we just ask and keep whatever comes back.
 OTHER_PARAMS = [
     "Water Course Level", "Water Course Discharge", "Storage Level",
     "Rainfall", "Electrical Conductivity", "Water Temperature",
@@ -385,9 +382,8 @@ def list_all_series_for_station(station_no):
 def fetch_extra_parameters_and_history(kept_stations):
     print("Fetching additional parameters for each station...", file=sys.stderr)
 
-    # Discover every relevant series per station (one list call per station).
-    station_series = {}   # station_no -> [{parametertype_name, ts_id, ts_unitname}, ...]
-    all_extra_ids = []     # (station_no, ts_id, param_name, unit)
+    station_series = {}
+    all_extra_ids = []
     for idx, st in enumerate(kept_stations):
         no = st["no"]
         try:
@@ -405,7 +401,6 @@ def fetch_extra_parameters_and_history(kept_stations):
 
     print(f"Found {len(all_extra_ids)} extra parameter series across {len(station_series)} stations. Fetching values...", file=sys.stderr)
 
-    # Fetch the latest value for every extra series, in chunks.
     values_by_ts = {}
     all_ts_ids = [t[1] for t in all_extra_ids]
     for i in range(0, len(all_ts_ids), CHUNK):
@@ -416,7 +411,6 @@ def fetch_extra_parameters_and_history(kept_stations):
             print(f"  values batch failed: {e}", file=sys.stderr)
         time.sleep(0.2)
 
-    # Attach results to each station.
     by_station_no = {st["no"]: st for st in kept_stations}
     for no, ts_id, param, unit in all_extra_ids:
         pt = values_by_ts.get(ts_id)
@@ -436,14 +430,12 @@ def fetch_extra_parameters_and_history(kept_stations):
             "time": pt[0],
         })
 
-    # Re-save data.json now that stations carry their extra parameters.
     with open("data.json") as f:
         output = json.load(f)
     output["stations"] = kept_stations
     with open("data.json", "w") as f:
         json.dump(output, f, indent=2)
 
-    # --- Per-station history: one file, keyed by station number ---
     hist_path = "station_history.json"
     try:
         with open(hist_path) as f:
