@@ -283,8 +283,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 3293.403,
-      "Storage Level": 5.655
+      "volume_ML": 3677.988,
+      "Storage Level": 5.72
     }
   ],
   "41010904": [
@@ -315,8 +315,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 2167.298,
-      "Storage Level": 4.007
+      "volume_ML": 2176.864,
+      "Storage Level": 4.001
     }
   ],
   "41010971": [
@@ -347,8 +347,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 1000.349,
-      "Storage Level": 0.243
+      "volume_ML": 871.578,
+      "Storage Level": 0.163
     }
   ],
   "425022": [
@@ -379,8 +379,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 40178.486,
-      "Storage Level": 55.768
+      "volume_ML": 39578.397,
+      "Storage Level": 55.761
     }
   ],
   "419060": [
@@ -411,8 +411,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 1601.775,
-      "Storage Level": 189.736
+      "volume_ML": 1605.844,
+      "Storage Level": 189.743
     }
   ],
   "421148": [
@@ -443,8 +443,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 305123.282,
-      "Storage Level": 548.84
+      "volume_ML": 305067.532,
+      "Storage Level": 548.837
     }
   ],
   "425047": [
@@ -475,8 +475,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 54920.81,
-      "Storage Level": 60.53
+      "volume_ML": 54199.19,
+      "Storage Level": 60.5
     }
   ],
   "425046": [
@@ -507,8 +507,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 51257.9,
-      "Storage Level": 60.53
+      "volume_ML": 49875.33,
+      "Storage Level": 60.5
     }
   ],
   "419069": [
@@ -1077,8 +1077,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 60966.78,
-      "Storage Level": 272.58
+      "volume_ML": 61027.44,
+      "Storage Level": 272.59
     }
   ],
   "MTCOLE-RES-HG": [
@@ -1141,7 +1141,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 5208.2,
+      "volume_ML": 5229.81,
       "Storage Level": 219.69
     }
   ],
@@ -1173,7 +1173,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 15963.83,
+      "volume_ML": 15998.33,
       "Storage Level": 185.1
     }
   ],
@@ -1205,8 +1205,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 101541.91,
-      "Storage Level": 190.36
+      "volume_ML": 101745.21,
+      "Storage Level": 190.37
     }
   ],
   "TAYLORS-LAKE-HG": [
@@ -1237,8 +1237,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 22868.73,
-      "Storage Level": 143.76
+      "volume_ML": 22926.61,
+      "Storage Level": 143.77
     }
   ],
   "TOOLO-RES-HG": [
@@ -1269,7 +1269,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 11240.83,
+      "volume_ML": 11250.19,
       "Storage Level": 156.71
     }
   ],
@@ -1301,8 +1301,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 29125.91,
-      "Storage Level": 402.294
+      "volume_ML": 29196.11,
+      "Storage Level": 402.323
     }
   ],
   "130012A": [
@@ -1333,8 +1333,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 69077.43,
-      "Storage Level": 45.79
+      "volume_ML": 68971.3,
+      "Storage Level": 45.78
     }
   ],
   "418043B": [
@@ -1365,8 +1365,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 906.22,
-      "Storage Level": 217.19
+      "volume_ML": 1042.39,
+      "Storage Level": 217.41
     }
   ],
   "232220A": [
@@ -1397,8 +1397,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 618.84,
-      "Storage Level": 5.33
+      "volume_ML": 624.4,
+      "Storage Level": 5.35
     }
   ],
   "GREEN-LAKE-HORSH-HG": [
@@ -1429,7 +1429,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 1548.06,
+      "volume_ML": 1545.93,
       "Storage Level": 133.36
     }
   ],
@@ -1456,7 +1456,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 454.18
+      "volume_ML": 453.49
     }
   ],
   "407313A": [
@@ -1508,7 +1508,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 375.863
+      "volume_ML": 375.816
     }
   ],
   "407326A": [
@@ -1560,7 +1560,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 95.23
+      "volume_ML": 91.88
     }
   ],
   "A4260512": [
@@ -1596,9 +1596,9 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 23198.85,
-      "Storage Level": 16.319,
-      "Water Temperature": 11.31
+      "volume_ML": 23220.74,
+      "Storage Level": 16.322,
+      "Water Temperature": 11.56
     }
   ],
   "A4261093": [
@@ -1634,9 +1634,9 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 650110.961,
-      "Storage Level": 26.781,
-      "Water Temperature": 11.1
+      "volume_ML": 652735.392,
+      "Storage Level": 26.803,
+      "Water Temperature": 11.19
     }
   ],
   "425021": [
@@ -1667,8 +1667,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 200469.218,
-      "Storage Level": 59.33
+      "volume_ML": 201381.41,
+      "Storage Level": 59.344
     }
   ],
   "419041": [
@@ -1699,8 +1699,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 246561.459,
-      "Storage Level": 324.735
+      "volume_ML": 246598.798,
+      "Storage Level": 324.736
     }
   ],
   "412107": [
@@ -1731,8 +1731,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 31684.667,
-      "Storage Level": 156.799
+      "volume_ML": 31664.381,
+      "Storage Level": 156.797
     }
   ],
   "203042": [
@@ -1763,7 +1763,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 11184.384,
+      "volume_ML": 11184.855,
       "Storage Level": 129.731
     }
   ],
@@ -1795,8 +1795,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 104067.1,
-      "Storage Level": 60.497
+      "volume_ML": 102432.535,
+      "Storage Level": 60.467
     }
   ],
   "233232A": [
@@ -1827,8 +1827,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 6667.836,
-      "Storage Level": 29.259
+      "volume_ML": 6664.042,
+      "Storage Level": 29.254
     }
   ],
   "407333A": [
@@ -1859,7 +1859,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 1356.664,
+      "volume_ML": 1356.725,
       "Storage Level": 13.386
     }
   ],
@@ -1891,8 +1891,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 284901.694,
-      "Storage Level": 0.831
+      "volume_ML": 283206.557,
+      "Storage Level": 0.821
     }
   ],
   "LKALEX": [
@@ -1923,8 +1923,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 1630090.507,
-      "Storage Level": 0.777
+      "volume_ML": 1629393.797,
+      "Storage Level": 0.776
     }
   ],
   "212205": [
@@ -1955,8 +1955,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 55937.58,
-      "Storage Level": 313.13
+      "volume_ML": 55879.33,
+      "Storage Level": 313.1
     }
   ],
   "212243": [
@@ -1987,8 +1987,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 1959632.52,
-      "Storage Level": 115.18
+      "volume_ML": 1958963.5,
+      "Storage Level": 115.17
     }
   ],
   "212283.3": [
@@ -2045,8 +2045,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 21460.1,
-      "Storage Level": 663.2
+      "volume_ML": 21460.19,
+      "Storage Level": 663.19
     }
   ],
   "212212": [
@@ -2077,7 +2077,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 25562.28,
+      "volume_ML": 25560.97,
       "Storage Level": 676.58
     }
   ],
@@ -2109,8 +2109,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 289.4,
-      "Storage Level": 925.76
+      "volume_ML": 291.29,
+      "Storage Level": 925.81
     }
   ],
   "212285.3": [
@@ -2167,8 +2167,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 161.03,
-      "Storage Level": 952.26
+      "volume_ML": 160.97,
+      "Storage Level": 952.27
     }
   ],
   "212284": [
@@ -2199,7 +2199,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 330.87,
+      "volume_ML": 330.86,
       "Storage Level": 930.23
     }
   ],
@@ -2226,7 +2226,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 70.348
+      "volume_ML": 70.342
     }
   ],
   "232217A": [
@@ -2267,10 +2267,10 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 3223.745,
+      "volume_ML": 3229.879,
       "Water Course Level": 0.003,
       "Water Course Discharge": 0.0,
-      "Storage Level": 8.609
+      "Storage Level": 8.614
     }
   ],
   "225256A": [
@@ -2301,8 +2301,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 700180.722,
-      "Storage Level": 74.675
+      "volume_ML": 700748.556,
+      "Storage Level": 74.709
     }
   ],
   "418.1": [
@@ -2333,8 +2333,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 270177.252,
-      "Storage Level": 949.945
+      "volume_ML": 270319.685,
+      "Storage Level": 949.947
     }
   ],
   "RES_MYRWNGR": [
@@ -2429,8 +2429,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 2742.879,
-      "Storage Level": 1148.428
+      "volume_ML": 2189.357,
+      "Storage Level": 1148.146
     }
   ],
   "236.1": [
@@ -2461,8 +2461,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 2342.272,
-      "Storage Level": 1007.109
+      "volume_ML": 2253.841,
+      "Storage Level": 1007.067
     }
   ],
   "508.1": [
@@ -2493,7 +2493,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 691.415,
+      "volume_ML": 690.615,
       "Storage Level": 919.799
     }
   ],
@@ -2525,8 +2525,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 34690.944,
-      "Storage Level": 24.908
+      "volume_ML": 34693.333,
+      "Storage Level": 24.909
     }
   ],
   "71": [
@@ -2589,8 +2589,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 7675.839,
-      "Storage Level": 756.815
+      "volume_ML": 7750.315,
+      "Storage Level": 756.843
     }
   ],
   "295.1": [
@@ -2621,8 +2621,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 89.255,
-      "Storage Level": 522.625
+      "volume_ML": 67.032,
+      "Storage Level": 522.355
     }
   ],
   "629.1": [
@@ -2653,8 +2653,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 18000.83,
-      "Storage Level": 1120.419
+      "volume_ML": 17744.06,
+      "Storage Level": 1120.331
     }
   ],
   "158.1": [
@@ -2685,8 +2685,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 7193.445,
-      "Storage Level": 125.556
+      "volume_ML": 7262.172,
+      "Storage Level": 125.605
     }
   ],
   "294.1": [
@@ -2717,8 +2717,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 16261.89,
-      "Storage Level": 511.33
+      "volume_ML": 13375.67,
+      "Storage Level": 510.401
     }
   ],
   "520.1": [
@@ -2749,8 +2749,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 865.482,
-      "Storage Level": 1017.448
+      "volume_ML": 879.259,
+      "Storage Level": 1017.454
     }
   ],
   "579.1": [
@@ -2781,8 +2781,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 335.201,
-      "Storage Level": 340.263
+      "volume_ML": 355.154,
+      "Storage Level": 340.364
     }
   ],
   "RES_BEEWKFS": [
@@ -2845,8 +2845,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 21375.747,
-      "Storage Level": 735.355
+      "volume_ML": 20401.532,
+      "Storage Level": 735.32
     }
   ],
   "171.1": [
@@ -2877,8 +2877,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 1160.461,
-      "Storage Level": 669.646
+      "volume_ML": 1122.462,
+      "Storage Level": 669.594
     }
   ],
   "70": [
@@ -2941,8 +2941,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 997452.9,
-      "Storage Level": 1026.176
+      "volume_ML": 999600.6,
+      "Storage Level": 1026.192
     }
   ],
   "167.1": [
@@ -2973,8 +2973,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 11578.812,
-      "Storage Level": 665.2
+      "volume_ML": 11104.394,
+      "Storage Level": 665.11
     }
   ],
   "370.1": [
@@ -3069,8 +3069,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 22537.389,
-      "Storage Level": 25.641
+      "volume_ML": 22393.5,
+      "Storage Level": 25.552
     }
   ],
   "229412B": [
@@ -3122,7 +3122,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 97.5
+      "volume_ML": 101.667
     }
   ],
   "229607A": [
@@ -3153,8 +3153,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 71016.833,
-      "Storage Level": 41.718
+      "volume_ML": 71347.833,
+      "Storage Level": 41.81
     }
   ],
   "594.1": [
@@ -3185,8 +3185,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 2973.208,
-      "Storage Level": 381.324
+      "volume_ML": 3005.702,
+      "Storage Level": 381.352
     }
   ],
   "462.1": [
@@ -3217,8 +3217,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 26860.849,
-      "Storage Level": 736.414
+      "volume_ML": 26890.81,
+      "Storage Level": 736.416
     }
   ],
   "229406A": [
@@ -3249,8 +3249,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 20983.0,
-      "Storage Level": 6.142
+      "volume_ML": 21208.167,
+      "Storage Level": 6.189
     }
   ],
   "229411A": [
@@ -3276,7 +3276,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 112.944
+      "volume_ML": 110.611
     }
   ],
   "553.1": [
@@ -3307,8 +3307,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 285.648,
-      "Storage Level": 645.863
+      "volume_ML": 314.209,
+      "Storage Level": 645.977
     }
   ],
   "580.1": [
@@ -3339,8 +3339,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 3160.715,
-      "Storage Level": 124.269
+      "volume_ML": 3921.737,
+      "Storage Level": 124.779
     }
   ],
   "408217A": [
@@ -3366,7 +3366,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 277.12
+      "volume_ML": 276.928
     }
   ],
   "128.1": [
@@ -3397,8 +3397,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 472554.6,
-      "Storage Level": 718.414
+      "volume_ML": 473120.3,
+      "Storage Level": 718.429
     }
   ],
   "190.1": [
@@ -3429,8 +3429,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 4746.159,
-      "Storage Level": 230.651
+      "volume_ML": 4930.302,
+      "Storage Level": 230.734
     }
   ],
   "592.1": [
@@ -3461,8 +3461,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 2126.888,
-      "Storage Level": 168.69
+      "volume_ML": 2096.748,
+      "Storage Level": 168.678
     }
   ],
   "613.1": [
@@ -3493,8 +3493,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 5096.338,
-      "Storage Level": 469.863
+      "volume_ML": 4275.443,
+      "Storage Level": 468.811
     }
   ],
   "573.1": [
@@ -3525,8 +3525,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 2710.507,
-      "Storage Level": 97.5
+      "volume_ML": 2853.519,
+      "Storage Level": 97.683
     }
   ],
   "742.1": [
@@ -3557,8 +3557,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 92434.06,
-      "Storage Level": 97.149
+      "volume_ML": 98306.8,
+      "Storage Level": 97.415
     }
   ],
   "229413A": [
@@ -3584,7 +3584,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 50.667
+      "volume_ML": 56.833
     }
   ],
   "656.1": [
@@ -3615,8 +3615,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 176075.7,
-      "Storage Level": 225.888
+      "volume_ML": 173949.0,
+      "Storage Level": 225.807
     }
   ],
   "648.1": [
@@ -3647,8 +3647,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 131461.4,
-      "Storage Level": 307.506
+      "volume_ML": 129308.7,
+      "Storage Level": 307.497
     }
   ],
   "229408A": [
@@ -3674,7 +3674,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 76.611
+      "volume_ML": 78.389
     }
   ],
   "229409A": [
@@ -3700,7 +3700,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 180.444
+      "volume_ML": 174.944
     }
   ],
   "562.1": [
@@ -3731,8 +3731,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 77303.26,
-      "Storage Level": 482.535
+      "volume_ML": 76890.1,
+      "Storage Level": 482.483
     }
   ],
   "658.1": [
@@ -3763,8 +3763,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 46434.55,
-      "Storage Level": 158.752
+      "volume_ML": 46904.54,
+      "Storage Level": 158.817
     }
   ],
   "627.1": [
@@ -3795,8 +3795,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 3921.456,
-      "Storage Level": 51.669
+      "volume_ML": 5377.332,
+      "Storage Level": 52.544
     }
   ],
   "298.1": [
@@ -3827,8 +3827,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 346406.1,
-      "Storage Level": 232.013
+      "volume_ML": 340573.9,
+      "Storage Level": 231.888
     }
   ],
   "229405A": [
@@ -3859,8 +3859,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 36376.611,
-      "Storage Level": 29.631
+      "volume_ML": 36380.0,
+      "Storage Level": 29.632
     }
   ],
   "604.1": [
@@ -3891,8 +3891,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 23368.64,
-      "Storage Level": 120.313
+      "volume_ML": 23423.57,
+      "Storage Level": 120.322
     }
   ],
   "646.1": [
@@ -3923,8 +3923,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 6486519.0,
-      "Storage Level": 291.612
+      "volume_ML": 6485678.0,
+      "Storage Level": 291.608
     }
   ],
   "228264A": [
@@ -3955,8 +3955,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 7556.222,
-      "Storage Level": 10.574
+      "volume_ML": 7582.056,
+      "Storage Level": 10.591
     }
   ],
   "228268A": [
@@ -3982,7 +3982,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 155.0
+      "volume_ML": 155.889
     }
   ],
   "63": [
@@ -4045,8 +4045,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 4454.362,
-      "Storage Level": 9.485
+      "volume_ML": 4451.732,
+      "Storage Level": 9.481
     }
   ],
   "BARKERSCREEK": [
@@ -4141,8 +4141,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 10879.5,
-      "Storage Level": 447.416
+      "volume_ML": 11068.5,
+      "Storage Level": 447.496
     }
   ],
   "LAURISTON": [
@@ -4173,8 +4173,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 18620.0,
-      "Storage Level": 478.925
+      "volume_ML": 18630.0,
+      "Storage Level": 478.929
     }
   ],
   "SANDHURST": [
@@ -4205,8 +4205,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 1764.721,
-      "Storage Level": 332.916
+      "volume_ML": 1736.16,
+      "Storage Level": 332.797
     }
   ],
   "RBD1.RBD1DS01": [
@@ -4269,8 +4269,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 77270.35,
-      "Storage Level": 287.29
+      "volume_ML": 77251.74,
+      "Storage Level": 287.28
     }
   ],
   "213210": [
@@ -4301,8 +4301,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 67232.1,
-      "Storage Level": 167.43
+      "volume_ML": 67194.35,
+      "Storage Level": 167.42
     }
   ],
   "SPRINGGULLY": [
@@ -4366,7 +4366,7 @@
     {
       "date": "2026-08-07",
       "volume_ML": 37868.8,
-      "Storage Level": 505.582
+      "Storage Level": 505.584
     }
   ],
   "407327A": [
@@ -4392,7 +4392,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 220.874
+      "volume_ML": 220.773
     }
   ],
   "170.1": [
@@ -4423,8 +4423,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 26533.967,
-      "Storage Level": 649.603
+      "volume_ML": 27944.59,
+      "Storage Level": 649.733
     }
   ],
   "176.1": [
@@ -4455,8 +4455,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 272194.3,
-      "Storage Level": 840.398
+      "volume_ML": 271942.4,
+      "Storage Level": 840.392
     }
   ],
   "179.1": [
@@ -4487,8 +4487,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 1207.543,
-      "Storage Level": 655.515
+      "volume_ML": 1305.689,
+      "Storage Level": 655.53
     }
   ],
   "286.1": [
@@ -4519,8 +4519,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 36.684,
-      "Storage Level": 519.523
+      "volume_ML": 28.064,
+      "Storage Level": 519.307
     }
   ],
   "296.1": [
@@ -4551,8 +4551,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 165.526,
-      "Storage Level": 475.422
+      "volume_ML": 214.499,
+      "Storage Level": 475.546
     }
   ],
   "625.1": [
@@ -4583,8 +4583,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 13573.8,
-      "Storage Level": 219.592
+      "volume_ML": 9430.753,
+      "Storage Level": 218.659
     }
   ],
   "657.1": [
@@ -4615,8 +4615,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 42698.33,
-      "Storage Level": 235.623
+      "volume_ML": 39763.46,
+      "Storage Level": 234.744
     }
   ],
   "RES_BENWLOR": [
@@ -4700,7 +4700,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 252.778
+      "volume_ML": 255.778
     }
   ],
   "228267A": [
@@ -4726,7 +4726,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 45.333
+      "volume_ML": 46.222
     }
   ],
   "229102A": [
@@ -4757,8 +4757,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 124192.222,
-      "Storage Level": 46.744
+      "volume_ML": 124409.556,
+      "Storage Level": 46.784
     }
   ],
   "229111A": [
@@ -4789,8 +4789,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 3187.556,
-      "Storage Level": 25.523
+      "volume_ML": 3212.389,
+      "Storage Level": 25.616
     }
   ],
   "233272A": [
@@ -4821,8 +4821,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 1595.083,
-      "Storage Level": 20.752
+      "volume_ML": 1601.115,
+      "Storage Level": 20.777
     }
   ],
   "ODSS_57568_WSLAHD.1": [
@@ -4853,8 +4853,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 1467.346,
-      "Storage Level": 164.273
+      "volume_ML": 1432.526,
+      "Storage Level": 164.199
     }
   ],
   "ODSS_18335_WSLAHD.1": [
@@ -4917,8 +4917,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 10411.764,
-      "Storage Level": 240.645
+      "volume_ML": 10418.02,
+      "Storage Level": 240.646
     }
   ],
   "ODSS_12030_STAMN.1": [
@@ -4944,7 +4944,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 25554.26
+      "volume_ML": 25587.69
     }
   ],
   "ODSS_21139_WSLAHD.1": [
@@ -5034,7 +5034,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 56361.03
+      "volume_ML": 56532.345
     }
   ],
   "ODSS_53437_WSLAHD.1": [
@@ -5065,8 +5065,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 4980.008,
-      "Storage Level": 129.616
+      "volume_ML": 5025.114,
+      "Storage Level": 129.63
     }
   ],
   "ODSS_57614_WSLAHD.1": [
@@ -5097,8 +5097,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 71681.784,
-      "Storage Level": 157.233
+      "volume_ML": 71724.996,
+      "Storage Level": 157.238
     }
   ],
   "ODSS_57389_WSLAHD.1": [
@@ -5129,8 +5129,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 54657.141,
-      "Storage Level": 59.336
+      "volume_ML": 54601.256,
+      "Storage Level": 59.331
     }
   ],
   "ODSS_21168_WSLAHD.1": [
@@ -5188,7 +5188,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 3834.51
+      "volume_ML": 3856.765
     }
   ],
   "ODSS_53443_WSLAHD.1": [
@@ -5219,8 +5219,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 846.746,
-      "Storage Level": 196.627
+      "volume_ML": 848.813,
+      "Storage Level": 196.641
     }
   ],
   "ODSS_18327_WSLAHD.1": [
@@ -5283,8 +5283,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 10010.04,
-      "Storage Level": 212.41
+      "volume_ML": 9992.708,
+      "Storage Level": 212.403
     }
   ],
   "ODSS_45321_STAMN.1": [
@@ -5310,7 +5310,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 28971.043
+      "volume_ML": 29054.045
     }
   ],
   "ODSS_45529_WSLAHD.1": [
@@ -5341,8 +5341,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 56300.718,
-      "Storage Level": 196.266
+      "volume_ML": 56485.748,
+      "Storage Level": 196.32
     }
   ],
   "ODSS_57570_WSLAHD.1": [
@@ -5373,8 +5373,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 26315.729,
-      "Storage Level": 188.613
+      "volume_ML": 26249.642,
+      "Storage Level": 188.581
     }
   ],
   "ODSS_18332_WSLAHD.1": [
@@ -5405,8 +5405,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 1066.917,
-      "Storage Level": 198.467
+      "volume_ML": 1070.45,
+      "Storage Level": 198.48
     }
   ],
   "ODSS_21137_WSLAHD.1": [
@@ -5437,8 +5437,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 10443.433,
-      "Storage Level": 240.653
+      "volume_ML": 10474.32,
+      "Storage Level": 240.66
     }
   ],
   "ODSS_58804_WSLAHD.1": [
@@ -5469,8 +5469,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 1590.841,
-      "Storage Level": 69.348
+      "volume_ML": 1593.811,
+      "Storage Level": 69.357
     }
   ],
   "ODSS_11962_STAMN.1": [
@@ -5496,7 +5496,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 4821.22
+      "volume_ML": 4823.54
     }
   ],
   "ODSS_21140_WSLAHD.1": [
@@ -5591,8 +5591,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 4776.215,
-      "Storage Level": 194.413
+      "volume_ML": 4781.065,
+      "Storage Level": 194.424
     }
   ],
   "ODSS_11463_STAMN.1": [
@@ -5618,7 +5618,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 1944.96
+      "volume_ML": 1892.59
     }
   ],
   "ODSS_18332_STAMN.1": [
@@ -5644,7 +5644,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 1067.597
+      "volume_ML": 1071.13
     }
   ],
   "ODSS_21138_WSLAHD.1": [
@@ -5675,8 +5675,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 39707.338,
-      "Storage Level": 210.712
+      "volume_ML": 39732.894,
+      "Storage Level": 210.719
     }
   ],
   "ODSS_22257_STAMN.1": [
@@ -5733,8 +5733,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 3847.347,
-      "Storage Level": 239.697
+      "volume_ML": 3857.67,
+      "Storage Level": 239.715
     }
   ],
   "ODSS_45531_WSLAHD.1": [
@@ -5765,8 +5765,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 39680.537,
-      "Storage Level": 210.704
+      "volume_ML": 39706.796,
+      "Storage Level": 210.712
     }
   ],
   "ODSS_47359_WSLAHD.1": [
@@ -5797,8 +5797,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 3826.471,
-      "Storage Level": 199.655
+      "volume_ML": 3839.78,
+      "Storage Level": 199.679
     }
   ],
   "ODSS_11418_STAMN.1": [
@@ -5876,7 +5876,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 29678.25
+      "volume_ML": 29625.875
     }
   ],
   "ODSS_55089_WSLAHD.1": [
@@ -5907,8 +5907,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 1609.404,
-      "Storage Level": 24.603
+      "volume_ML": 1607.626,
+      "Storage Level": 24.596
     }
   ],
   "ODSS_39563_WSLAHD.1": [
@@ -5971,8 +5971,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 3834.51,
-      "Storage Level": 199.67
+      "volume_ML": 3856.765,
+      "Storage Level": 199.71
     }
   ],
   "225225A": [
@@ -6003,8 +6003,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 155305.618,
-      "Storage Level": 75.787
+      "volume_ML": 155663.345,
+      "Storage Level": 75.809
     }
   ],
   "228263A": [
@@ -6040,8 +6040,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 177664.111,
-      "Storage Level": 45.478,
+      "volume_ML": 178100.889,
+      "Storage Level": 45.526,
       "Water Course Level": 44.908
     }
   ],
@@ -6068,7 +6068,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 48.833
+      "volume_ML": 48.5
     }
   ],
   "230216A": [
@@ -6099,8 +6099,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 14004.594,
-      "Storage Level": 444.087
+      "volume_ML": 14002.695,
+      "Storage Level": 444.085
     }
   ],
   "226230A": [
@@ -6131,8 +6131,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 165201.871,
-      "Storage Level": 136.029
+      "volume_ML": 165415.612,
+      "Storage Level": 136.057
     }
   ],
   "226236A": [
@@ -6163,8 +6163,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 5057.925,
-      "Storage Level": 46.918
+      "volume_ML": 5097.785,
+      "Storage Level": 46.933
     }
   ],
   "231222A": [
@@ -6195,8 +6195,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 17174.726,
-      "Storage Level": 393.928
+      "volume_ML": 17211.868,
+      "Storage Level": 393.95
     }
   ],
   "ODSS_47866_WSLAHD.1": [
@@ -6227,8 +6227,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 28293.786,
-      "Storage Level": 71.964
+      "volume_ML": 28365.101,
+      "Storage Level": 71.984
     }
   ],
   "231223A": [
@@ -6259,7 +6259,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 23269.602,
+      "volume_ML": 23269.986,
       "Storage Level": 170.689
     }
   ],
@@ -6291,7 +6291,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 1162.255,
+      "volume_ML": 1162.392,
       "Storage Level": 198.818
     }
   ],
@@ -6323,8 +6323,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 5028.395,
-      "Storage Level": 77.304
+      "volume_ML": 5053.194,
+      "Storage Level": 77.325
     }
   ],
   "ODSS_18315_WSLAHD.1": [
@@ -6355,8 +6355,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 25684.28,
-      "Storage Level": 149.4
+      "volume_ML": 25733.885,
+      "Storage Level": 149.42
     }
   ],
   "ODSS_56581_WSLAHD.1": [
@@ -6387,8 +6387,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 1096.568,
-      "Storage Level": 219.037
+      "volume_ML": 1096.207,
+      "Storage Level": 219.036
     }
   ],
   "136121A": [
@@ -6419,8 +6419,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 8772.035,
-      "Storage Level": 152.621
+      "volume_ML": 8746.866,
+      "Storage Level": 152.609
     }
   ],
   "ODSS_18319_WSLAHD.1": [
@@ -6451,8 +6451,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 1590.4,
-      "Storage Level": 69.347
+      "volume_ML": 1591.5,
+      "Storage Level": 69.35
     }
   ],
   "ODSS_18325_WSLAHD.1": [
@@ -6483,8 +6483,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 1145.258,
-      "Storage Level": 85.08
+      "volume_ML": 1147.546,
+      "Storage Level": 85.09
     }
   ],
   "ODSS_18320_STAMN.1": [
@@ -6510,7 +6510,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 72554.457
+      "volume_ML": 72712.94
     }
   ],
   "ODSS_55912_WSLAHD.1": [
@@ -6541,8 +6541,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 28196.523,
-      "Storage Level": 71.937
+      "volume_ML": 28279.525,
+      "Storage Level": 71.96
     }
   ],
   "ODSS_18317_STAMN.1": [
@@ -6568,7 +6568,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 11780.28
+      "volume_ML": 11794.53
     }
   ],
   "ODSS_18325_STAMN.1": [
@@ -6594,7 +6594,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 1200.758
+      "volume_ML": 1203.051
     }
   ],
   "ODSS_18326_STAMN.1": [
@@ -6620,7 +6620,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 3938.427
+      "volume_ML": 3948.75
     }
   ],
   "ODSS_56221_WSLAHD.1": [
@@ -6651,8 +6651,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 10017.758,
-      "Storage Level": 212.413
+      "volume_ML": 10020.395,
+      "Storage Level": 212.414
     }
   ],
   "222538": [
@@ -6683,8 +6683,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 1757915.729,
-      "Storage Level": 1138.268
+      "volume_ML": 1752686.042,
+      "Storage Level": 1138.205
     }
   ],
   "ODSS_18317_WSLAHD.1": [
@@ -6715,8 +6715,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 11400.42,
-      "Storage Level": 227.523
+      "volume_ML": 11414.67,
+      "Storage Level": 227.535
     }
   ],
   "ODSS_18320_WSLAHD.1": [
@@ -6747,8 +6747,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 71540.643,
-      "Storage Level": 157.217
+      "volume_ML": 71699.126,
+      "Storage Level": 157.235
     }
   ],
   "222540": [
@@ -6779,8 +6779,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 510470.108,
-      "Storage Level": 905.025
+      "volume_ML": 510839.122,
+      "Storage Level": 905.039
     }
   ],
   "ODSS_18106_STAMN.1": [
@@ -6806,7 +6806,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 11048.2
+      "volume_ML": 11032.138
     }
   ],
   "ODSS_18207_STAMN.1": [
@@ -6858,7 +6858,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 1610.667
+      "volume_ML": 1612.0
     }
   ],
   "ODSS_51192_WSLAHD.1": [
@@ -6889,8 +6889,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 687.342,
-      "Storage Level": 44.092
+      "volume_ML": 691.617,
+      "Storage Level": 44.105
     }
   ],
   "410543": [
@@ -6921,8 +6921,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 23597.122,
-      "Storage Level": 1209.28
+      "volume_ML": 23300.778,
+      "Storage Level": 1209.207
     }
   ],
   "229410A": [
@@ -6948,7 +6948,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 161.611
+      "volume_ML": 164.5
     }
   ],
   "ODSS_45534_WSLAHD.1": [
@@ -6979,8 +6979,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 44897.662,
-      "Storage Level": 200.039
+      "volume_ML": 44893.097,
+      "Storage Level": 200.038
     }
   ],
   "ODSS_11709_STAMN.1": [
@@ -7006,7 +7006,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 881.37
+      "volume_ML": 882.84
     }
   ],
   "130351A": [
@@ -7037,8 +7037,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 2698.258,
-      "Storage Level": 125.129
+      "volume_ML": 2695.888,
+      "Storage Level": 125.126
     }
   ],
   "ODSS_18315_STAMN.1": [
@@ -7064,7 +7064,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 27976.13
+      "volume_ML": 28027.22
     }
   ],
   "sp-o10334": [
@@ -7095,8 +7095,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 1728918.288,
-      "Storage Level": 274.224
+      "volume_ML": 1730771.895,
+      "Storage Level": 274.246
     }
   ],
   "143049A": [
@@ -7127,8 +7127,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 23443.513,
-      "Storage Level": 49.811
+      "volume_ML": 23438.812,
+      "Storage Level": 49.809
     }
   ],
   "41200212": [
@@ -7159,8 +7159,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 18880.54,
-      "Storage Level": 136.96
+      "volume_ML": 17309.55,
+      "Storage Level": 136.9
     }
   ],
   "913015B": [
@@ -7191,8 +7191,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 100636.906,
-      "Storage Level": 222.977
+      "volume_ML": 100565.595,
+      "Storage Level": 222.971
     }
   ],
   "sp-o10298": [
@@ -7223,8 +7223,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 2744899.623,
-      "Storage Level": 467.274
+      "volume_ML": 2745263.235,
+      "Storage Level": 467.28
     }
   ],
   "141014A": [
@@ -7255,7 +7255,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 4710.406,
+      "volume_ML": 4710.749,
       "Storage Level": 44.841
     }
   ],
@@ -7287,8 +7287,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 736.4,
-      "Storage Level": 136.8
+      "volume_ML": 763.2,
+      "Storage Level": 136.81
     }
   ],
   "sp-o11534": [
@@ -7319,8 +7319,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 401539.222,
-      "Storage Level": 120.821
+      "volume_ML": 401182.739,
+      "Storage Level": 120.815
     }
   ],
   "sp-o11590": [
@@ -7356,9 +7356,9 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 13774.013,
-      "Water Course Discharge": 6.687,
-      "Storage Level": 408.195
+      "volume_ML": 13788.2,
+      "Water Course Discharge": 7.148,
+      "Storage Level": 408.207
     }
   ],
   "138121A": [
@@ -7389,8 +7389,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 59885.705,
-      "Storage Level": 216.715
+      "volume_ML": 59799.965,
+      "Storage Level": 216.692
     }
   ],
   "142108A": [
@@ -7421,8 +7421,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 14166.718,
-      "Storage Level": 20.363
+      "volume_ML": 14160.189,
+      "Storage Level": 20.361
     }
   ],
   "sp-o10814": [
@@ -7453,8 +7453,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 113735.85,
-      "Storage Level": 124.814
+      "volume_ML": 112611.263,
+      "Storage Level": 124.789
     }
   ],
   "138112A": [
@@ -7485,8 +7485,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 45672.176,
-      "Storage Level": 134.941
+      "volume_ML": 45660.201,
+      "Storage Level": 134.939
     }
   ],
   "141013A": [
@@ -7517,8 +7517,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 548.527,
-      "Storage Level": 152.047
+      "volume_ML": 543.152,
+      "Storage Level": 152.013
     }
   ],
   "143036A": [
@@ -7549,8 +7549,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 984720.094,
-      "Storage Level": 65.204
+      "volume_ML": 987897.702,
+      "Storage Level": 65.238
     }
   ],
   "41200216": [
@@ -7581,8 +7581,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 1103.27,
-      "Storage Level": 136.97
+      "volume_ML": 1123.44,
+      "Storage Level": 136.98
     }
   ],
   "ODSS_18313_WSLAHD.1": [
@@ -7645,7 +7645,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 3208.801,
+      "volume_ML": 3208.306,
       "Storage Level": 92.859
     }
   ],
@@ -7677,8 +7677,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 16019.303,
-      "Storage Level": 25.221
+      "volume_ML": 16001.227,
+      "Storage Level": 25.216
     }
   ],
   "143047A": [
@@ -7709,8 +7709,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 4258.437,
-      "Storage Level": 74.395
+      "volume_ML": 4257.201,
+      "Storage Level": 74.393
     }
   ],
   "sp-o10438": [
@@ -7741,8 +7741,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 24969.042,
-      "Storage Level": 124.193
+      "volume_ML": 25276.467,
+      "Storage Level": 124.22
     }
   ],
   "143111A": [
@@ -7773,8 +7773,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 68808.359,
-      "Storage Level": 152.904
+      "volume_ML": 68753.966,
+      "Storage Level": 152.896
     }
   ],
   "41200211": [
@@ -7805,8 +7805,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 14.74,
-      "Storage Level": 137.25
+      "volume_ML": 48.82,
+      "Storage Level": 137.68
     }
   ],
   "41200213": [
@@ -7837,8 +7837,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 292.97,
-      "Storage Level": 136.5
+      "volume_ML": 298.35,
+      "Storage Level": 136.53
     }
   ],
   "sp-o11454": [
@@ -7869,8 +7869,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 33668.113,
-      "Water Course Discharge": 1.43
+      "volume_ML": 33772.832,
+      "Water Course Discharge": 1.295
     }
   ],
   "138012A": [
@@ -7901,8 +7901,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 705.735,
-      "Storage Level": 100.935
+      "volume_ML": 703.93,
+      "Storage Level": 100.926
     }
   ],
   "141011A": [
@@ -7933,8 +7933,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 7686.351,
-      "Storage Level": 292.702
+      "volume_ML": 7677.395,
+      "Storage Level": 292.696
     }
   ],
   "142801A": [
@@ -7997,8 +7997,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 659.037,
-      "Storage Level": 91.922
+      "volume_ML": 657.705,
+      "Storage Level": 91.913
     }
   ],
   "145021A": [
@@ -8029,7 +8029,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 44347.587,
+      "volume_ML": 44347.88,
       "Storage Level": 207.149
     }
   ],
@@ -8061,8 +8061,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 6350.707,
-      "Storage Level": 167.321
+      "volume_ML": 6318.326,
+      "Storage Level": 167.257
     }
   ],
   "RE851": [
@@ -8094,7 +8094,7 @@
     {
       "date": "2026-08-07",
       "volume_ML": 1860.0,
-      "Storage Level": 342.16
+      "Storage Level": 342.15
     }
   ],
   "SB898": [
@@ -8125,8 +8125,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 273.17,
-      "Storage Level": 16.95
+      "volume_ML": 274.37,
+      "Storage Level": 16.98
     }
   ],
   "143234A": [
@@ -8157,8 +8157,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 21061.759,
-      "Storage Level": 63.862
+      "volume_ML": 21030.299,
+      "Storage Level": 63.855
     }
   ],
   "RE852": [
@@ -8221,8 +8221,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 2034.2,
-      "Storage Level": 353.64
+      "volume_ML": 2027.91,
+      "Storage Level": 353.62
     }
   ],
   "RE604A": [
@@ -8253,8 +8253,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 936.22,
-      "Storage Level": 360.72
+      "volume_ML": 957.24,
+      "Storage Level": 360.77
     }
   ],
   "143228A": [
@@ -8285,7 +8285,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 5430.643,
+      "volume_ML": 5418.415,
       "Storage Level": 108.41
     }
   ],
@@ -8317,8 +8317,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 100522.803,
-      "Storage Level": 63.398
+      "volume_ML": 100429.864,
+      "Storage Level": 63.395
     }
   ],
   "ODSS_21167_WSLAHD.1": [
@@ -8433,8 +8433,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 29919.436,
-      "Storage Level": 203.026
+      "volume_ML": 29855.891,
+      "Storage Level": 203.013
     }
   ],
   "ODSS_61742_WSLAHD.1": [
@@ -8465,8 +8465,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 3861.61,
-      "Storage Level": 239.722
+      "volume_ML": 3867.533,
+      "Storage Level": 239.732
     }
   ],
   "ODSS_21165_WSLAHD.1": [
@@ -8497,8 +8497,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 847.686,
-      "Storage Level": 196.633
+      "volume_ML": 852.73,
+      "Storage Level": 196.668
     }
   ],
   "ODSS_45532_WSLAHD.1": [
@@ -8529,8 +8529,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 25694.549,
-      "Storage Level": 149.404
+      "volume_ML": 25706.46,
+      "Storage Level": 149.409
     }
   ],
   "ODSS_22257_SLEVELM.1": [
@@ -8593,8 +8593,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 25998.687,
-      "Storage Level": 72.755
+      "volume_ML": 25187.401,
+      "Storage Level": 72.618
     }
   ],
   "229130A": [
@@ -8625,8 +8625,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 18079.389,
-      "Storage Level": 14.11
+      "volume_ML": 18304.0,
+      "Storage Level": 14.233
     }
   ],
   "425049": [
@@ -8652,7 +8652,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 554419.95
+      "volume_ML": 553063.47
     }
   ],
   "210102": [
@@ -8683,7 +8683,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 20257.69,
+      "volume_ML": 20247.898,
       "Storage Level": 155.593
     }
   ],
@@ -8715,8 +8715,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 264313.857,
-      "Storage Level": 184.738
+      "volume_ML": 264312.406,
+      "Storage Level": 184.728
     }
   ],
   "143235A": [
@@ -8747,8 +8747,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 18928.979,
-      "Storage Level": 94.318
+      "volume_ML": 18889.098,
+      "Storage Level": 94.305
     }
   ],
   "RE690": [
@@ -8784,8 +8784,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 1397.78,
-      "Storage Level": 582.42,
+      "volume_ML": 1408.69,
+      "Storage Level": 582.44,
       "Water Course Level": 0.117
     }
   ],
@@ -8817,8 +8817,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 125.31,
-      "Storage Level": 5.44
+      "volume_ML": 125.15,
+      "Storage Level": 5.43
     }
   ],
   "SB855": [
@@ -8849,8 +8849,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 189.79,
-      "Storage Level": 6.45
+      "volume_ML": 188.78,
+      "Storage Level": 6.43
     }
   ],
   "145108A": [
@@ -8881,8 +8881,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 203.566,
-      "Storage Level": 119.421
+      "volume_ML": 203.493,
+      "Storage Level": 119.418
     }
   ],
   "146033A": [
@@ -8913,8 +8913,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 307535.586,
-      "Storage Level": 94.284
+      "volume_ML": 307360.516,
+      "Storage Level": 94.272
     }
   ],
   "RE704": [
@@ -8945,8 +8945,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 27992.14,
-      "Storage Level": 137.41
+      "volume_ML": 28189.38,
+      "Storage Level": 137.45
     }
   ],
   "RE931": [
@@ -9009,8 +9009,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 11298.843,
-      "Storage Level": 14.603
+      "volume_ML": 11251.758,
+      "Storage Level": 14.601
     }
   ],
   "RE604B": [
@@ -9073,8 +9073,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 1449.72,
-      "Storage Level": 484.93
+      "volume_ML": 1443.95,
+      "Storage Level": 484.91
     }
   ],
   "RE750": [
@@ -9105,8 +9105,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 16096.96,
-      "Storage Level": 189.65
+      "volume_ML": 16289.74,
+      "Storage Level": 189.77
     }
   ],
   "SB855B": [
@@ -9137,8 +9137,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 438.64,
-      "Storage Level": 6.4
+      "volume_ML": 439.62,
+      "Storage Level": 6.41
     }
   ],
   "143305A": [
@@ -9169,7 +9169,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 302218.043,
+      "volume_ML": 302208.908,
       "Storage Level": 96.985
     }
   ],
@@ -9202,7 +9202,7 @@
     {
       "date": "2026-08-07",
       "volume_ML": 532.6,
-      "Storage Level": 29.94
+      "Storage Level": 29.93
     }
   ],
   "41200215": [
@@ -9233,8 +9233,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 855.26,
-      "Storage Level": 136.98
+      "volume_ML": 842.32,
+      "Storage Level": 136.97
     }
   ],
   "ODSS_45321_SLEVELM.1": [
@@ -9265,8 +9265,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 28196.523,
-      "Storage Level": 71.937
+      "volume_ML": 28279.525,
+      "Storage Level": 71.96
     }
   ],
   "ODSS_57330_WSLAHD.1": [
@@ -9297,8 +9297,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 11429.36,
-      "Storage Level": 227.547
+      "volume_ML": 11426.293,
+      "Storage Level": 227.545
     }
   ],
   "SAWMBOSS.1": [
@@ -9387,8 +9387,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 4530.112,
-      "Storage Level": 62.856
+      "volume_ML": 4610.104,
+      "Storage Level": 62.915
     }
   ],
   "SAWBARS.1": [
@@ -9861,8 +9861,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 41357.491,
-      "Storage Level": 1067.249
+      "volume_ML": 41318.541,
+      "Storage Level": 1067.239
     }
   ],
   "212211": [
@@ -9893,8 +9893,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 198528.11,
-      "Storage Level": 318.55
+      "volume_ML": 198422.94,
+      "Storage Level": 318.54
     }
   ],
   "215212.3": [
@@ -9943,8 +9943,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 76203.57,
-      "Storage Level": 301.12
+      "volume_ML": 76140.12,
+      "Storage Level": 301.11
     }
   ],
   "136025A": [
@@ -9975,8 +9975,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 694.29,
-      "Storage Level": 34.2
+      "volume_ML": 725.38,
+      "Storage Level": 33.55
     }
   ],
   "130205B": [
@@ -10007,8 +10007,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 1172.38,
-      "Storage Level": 170.45
+      "volume_ML": 1171.95,
+      "Storage Level": 170.44
     }
   ],
   "213240": [
@@ -10039,8 +10039,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 43874.37,
-      "Storage Level": 59.56
+      "volume_ML": 43760.04,
+      "Storage Level": 59.53
     }
   ],
   "A4260514": [
@@ -10071,8 +10071,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 21037.58,
-      "Storage Level": 13.267
+      "volume_ML": 21229.534,
+      "Storage Level": 13.295
     }
   ],
   "A4260518": [
@@ -10108,9 +10108,9 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 27359.423,
-      "Storage Level": 6.14,
-      "Water Temperature": 11.53
+      "volume_ML": 27382.324,
+      "Storage Level": 6.142,
+      "Water Temperature": 11.67
     }
   ],
   "A4260902": [
@@ -10146,9 +10146,9 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 28604.063,
+      "volume_ML": 28678.734,
       "Storage Level": 3.255,
-      "Water Temperature": 11.86
+      "Water Temperature": 12.01
     }
   ],
   "A4260516": [
@@ -10179,8 +10179,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 37515.766,
-      "Storage Level": 9.849
+      "volume_ML": 37522.327,
+      "Storage Level": 9.85
     }
   ],
   "125015A": [
@@ -10211,8 +10211,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 147406.705,
-      "Storage Level": 289.986
+      "volume_ML": 147375.954,
+      "Storage Level": 289.983
     }
   ],
   "130104A": [
@@ -10243,8 +10243,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 18077.857,
-      "Storage Level": 122.828
+      "volume_ML": 18064.462,
+      "Storage Level": 122.824
     }
   ],
   "136020A": [
@@ -10275,8 +10275,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 17137.859,
-      "Storage Level": 2.077
+      "volume_ML": 16894.899,
+      "Storage Level": 2.036
     }
   ],
   "110014A": [
@@ -10307,8 +10307,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 441579.875,
-      "Storage Level": 670.497
+      "volume_ML": 441503.208,
+      "Storage Level": 670.495
     }
   ],
   "119008A": [
@@ -10339,7 +10339,7 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 629.542,
+      "volume_ML": 629.883,
       "Storage Level": 6.729
     }
   ],
@@ -10371,8 +10371,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 29957.743,
-      "Storage Level": 203.035
+      "volume_ML": 29894.795,
+      "Storage Level": 203.021
     }
   ],
   "130338A": [
@@ -10403,8 +10403,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 11616.33,
-      "Storage Level": 169.208
+      "volume_ML": 11262.217,
+      "Storage Level": 169.114
     }
   ],
   "130350B": [
@@ -10435,8 +10435,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 6612.52,
-      "Storage Level": 104.182
+      "volume_ML": 6737.184,
+      "Storage Level": 104.249
     }
   ],
   "135010B": [
@@ -10467,8 +10467,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 3565.674,
-      "Storage Level": 2.097
+      "volume_ML": 3525.343,
+      "Storage Level": 2.077
     }
   ],
   "119007A": [
@@ -10499,8 +10499,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 839.655,
-      "Storage Level": 3.579
+      "volume_ML": 836.984,
+      "Storage Level": 3.575
     }
   ],
   "120211A": [
@@ -10531,8 +10531,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 112005.727,
-      "Storage Level": 562.655
+      "volume_ML": 111982.095,
+      "Storage Level": 562.652
     }
   ],
   "126004A": [
@@ -10563,8 +10563,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 62313.364,
-      "Storage Level": 57.158
+      "volume_ML": 62294.727,
+      "Storage Level": 57.156
     }
   ],
   "122010A": [
@@ -10595,8 +10595,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 476045.073,
-      "Storage Level": 85.24
+      "volume_ML": 475848.841,
+      "Storage Level": 85.235
     }
   ],
   "120016A": [
@@ -10627,8 +10627,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 1756014.609,
-      "Storage Level": 153.511
+      "volume_ML": 1754036.811,
+      "Storage Level": 153.501
     }
   ],
   "130305A": [
@@ -10659,8 +10659,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 4582.102,
-      "Storage Level": 133.447
+      "volume_ML": 4566.615,
+      "Storage Level": 133.431
     }
   ],
   "130360A": [
@@ -10691,8 +10691,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 146.106,
-      "Storage Level": 253.068
+      "volume_ML": 147.785,
+      "Storage Level": 253.085
     }
   ],
   "136024A": [
@@ -10723,8 +10723,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 165707.816,
-      "Storage Level": 61.508
+      "volume_ML": 165604.187,
+      "Storage Level": 61.502
     }
   ],
   "120299A": [
@@ -10755,8 +10755,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 983.21,
-      "Storage Level": 125.789
+      "volume_ML": 983.532,
+      "Storage Level": 125.79
     }
   ],
   "125008A": [
@@ -10787,8 +10787,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 2849.811,
-      "Storage Level": 45.373
+      "volume_ML": 2846.208,
+      "Storage Level": 45.368
     }
   ],
   "130109A": [
@@ -10819,8 +10819,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 12037.072,
-      "Storage Level": 81.763
+      "volume_ML": 12032.969,
+      "Storage Level": 81.762
     }
   ],
   "130216A": [
@@ -10851,8 +10851,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 408292.317,
-      "Storage Level": 196.359
+      "volume_ML": 407731.918,
+      "Storage Level": 196.352
     }
   ],
   "135008A": [
@@ -10883,8 +10883,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 8281.959,
-      "Storage Level": 14.764
+      "volume_ML": 8257.812,
+      "Storage Level": 14.752
     }
   ],
   "135009A": [
@@ -10915,8 +10915,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 538010.298,
-      "Storage Level": 75.104
+      "volume_ML": 537620.265,
+      "Storage Level": 75.096
     }
   ],
   "136023A": [
@@ -10947,8 +10947,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 27540.752,
-      "Storage Level": 18.687
+      "volume_ML": 27275.352,
+      "Storage Level": 18.644
     }
   ],
   "125003A": [
@@ -10979,8 +10979,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 4032.622,
-      "Storage Level": 31.946
+      "volume_ML": 4027.784,
+      "Storage Level": 31.943
     }
   ],
   "136003C": [
@@ -11011,8 +11011,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 3672.738,
-      "Storage Level": 90.878
+      "volume_ML": 3677.004,
+      "Storage Level": 90.88
     }
   ],
   "136113A": [
@@ -11043,8 +11043,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 159938.19,
-      "Storage Level": 227.954
+      "volume_ML": 159880.083,
+      "Storage Level": 227.95
     }
   ],
   "136115A": [
@@ -11075,8 +11075,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 24159.688,
-      "Storage Level": 318.381
+      "volume_ML": 24118.672,
+      "Storage Level": 318.368
     }
   ],
   "136024B": [
@@ -11107,8 +11107,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 165724.126,
-      "Storage Level": 61.51
+      "volume_ML": 165633.409,
+      "Storage Level": 61.504
     }
   ],
   "120012A": [
@@ -11139,8 +11139,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 12382.682,
-      "Storage Level": 19.81
+      "volume_ML": 12204.032,
+      "Storage Level": 19.768
     }
   ],
   "130106A": [
@@ -11186,11 +11186,11 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 6699.949,
-      "Water Temperature": 18.5,
+      "volume_ML": 6764.023,
+      "Water Temperature": 17.3,
       "Water Course Discharge": 0.0,
       "Water Course Level": 6.909,
-      "Storage Level": 102.303
+      "Storage Level": 102.334
     }
   ],
   "130304B": [
@@ -11221,8 +11221,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 10010.011,
-      "Storage Level": 80.036
+      "volume_ML": 9981.603,
+      "Storage Level": 80.024
     }
   ],
   "130354A": [
@@ -11253,8 +11253,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 13808.628,
-      "Storage Level": 156.506
+      "volume_ML": 13820.639,
+      "Storage Level": 156.51
     }
   ],
   "416409A": [
@@ -11285,8 +11285,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 38916.016,
-      "Storage Level": 312.105
+      "volume_ML": 38848.507,
+      "Storage Level": 312.1
     }
   ],
   "422349A": [
@@ -11317,8 +11317,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 321.17,
-      "Storage Level": 370.091
+      "volume_ML": 320.784,
+      "Storage Level": 370.089
     }
   ],
   "136205A": [
@@ -11349,8 +11349,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 575.966,
-      "Storage Level": 264.23
+      "volume_ML": 560.229,
+      "Storage Level": 264.164
     }
   ],
   "138008A": [
@@ -11381,8 +11381,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 4875.596,
-      "Storage Level": 2.582
+      "volume_ML": 4859.666,
+      "Storage Level": 2.569
     }
   ],
   "4222008A": [
@@ -11413,8 +11413,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 5290.876,
-      "Storage Level": 198.521
+      "volume_ML": 5303.302,
+      "Storage Level": 198.527
     }
   ],
   "416401A": [
@@ -11445,8 +11445,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 516.079,
-      "Storage Level": 262.486
+      "volume_ML": 513.501,
+      "Storage Level": 262.477
     }
   ],
   "416406A": [
@@ -11477,8 +11477,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 538.305,
-      "Storage Level": 249.354
+      "volume_ML": 537.043,
+      "Storage Level": 249.35
     }
   ],
   "136120A": [
@@ -11509,8 +11509,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 1416.544,
-      "Storage Level": 167.309
+      "volume_ML": 1412.154,
+      "Storage Level": 167.301
     }
   ],
   "136215A": [
@@ -11541,8 +11541,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 717.647,
-      "Storage Level": 295.02
+      "volume_ML": 716.997,
+      "Storage Level": 295.018
     }
   ],
   "136316A": [
@@ -11573,8 +11573,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 190513.484,
-      "Storage Level": 279.604
+      "volume_ML": 190378.468,
+      "Storage Level": 279.596
     }
   ],
   "422315B": [
@@ -11605,8 +11605,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 61299.988,
-      "Storage Level": 468.254
+      "volume_ML": 61269.167,
+      "Storage Level": 468.251
     }
   ],
   "422358B": [
@@ -11637,8 +11637,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 6430.138,
-      "Storage Level": 294.651
+      "volume_ML": 6510.769,
+      "Storage Level": 294.677
     }
   ],
   "136210A": [
@@ -11669,8 +11669,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 130773.516,
-      "Storage Level": 307.112
+      "volume_ML": 130716.012,
+      "Storage Level": 307.11
     }
   ],
   "4222007A": [
@@ -11701,8 +11701,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 2418.525,
-      "Storage Level": 201.162
+      "volume_ML": 2378.914,
+      "Storage Level": 201.124
     }
   ],
   "138013B": [
@@ -11733,8 +11733,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 12580.681,
-      "Storage Level": 3.085
+      "volume_ML": 12577.594,
+      "Storage Level": 3.084
     }
   ],
   "422214A": [
@@ -11765,8 +11765,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 7609.102,
-      "Storage Level": 193.067
+      "volume_ML": 7585.682,
+      "Storage Level": 193.058
     }
   ],
   "422212B": [
@@ -11797,8 +11797,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 61981.418,
-      "Storage Level": 206.3
+      "volume_ML": 61761.218,
+      "Storage Level": 206.289
     }
   ],
   "422340A": [
@@ -11829,8 +11829,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 671.66,
-      "Storage Level": 412.182
+      "volume_ML": 669.834,
+      "Storage Level": 412.176
     }
   ],
   "416315A": [
@@ -11871,10 +11871,10 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 118885.19,
-      "Water Course Level": 402.313,
+      "volume_ML": 118827.86,
+      "Water Course Level": 402.306,
       "Water Course Discharge": 0.0,
-      "Storage Level": 402.32
+      "Storage Level": 402.31
     }
   ],
   "A4260553": [
@@ -11905,8 +11905,8 @@
     },
     {
       "date": "2026-08-07",
-      "volume_ML": 649124.61,
-      "Storage Level": 26.773
+      "volume_ML": 651598.61,
+      "Storage Level": 26.793
     }
   ],
   "ODSS_22241_STAMN.1": [
