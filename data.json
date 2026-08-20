@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T20:15:09.009644+00:00",
+  "generated_at": "2026-08-20T20:17:27.891816+00:00",
   "latest_reading": "2026-08-18T00:00:00.000+10:00",
   "count": 375,
   "total_ML": 55345926.1,
@@ -3540,15 +3540,7 @@
       "volume_ML": 1623.533,
       "lat": -15.6183465,
       "lon": 128.102765,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 24.807,
-          "time": "2026-07-22T02:00:00.000+10:00"
-        }
-      ]
+      "state": "WA"
     },
     {
       "name": "Waroona Dam Water Level",
