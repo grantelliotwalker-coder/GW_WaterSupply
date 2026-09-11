@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-10T22:03:36.898176+00:00",
-  "latest_reading": "2026-09-10T00:00:00.000+10:00",
-  "count": 378,
-  "total_ML": 56792708.094000004,
-  "total_GL": 56792.708094,
-  "raw_count": 395,
-  "raw_total_ML": 91082444.09,
-  "raw_total_GL": 91082.44409,
+  "generated_at": "2026-09-11T22:07:09.055577+00:00",
+  "latest_reading": "2026-09-11T00:00:00.000+10:00",
+  "count": 193,
+  "total_ML": 29687477.786,
+  "total_GL": 29687.477786,
+  "raw_count": 199,
+  "raw_total_ML": 33709666.703999996,
+  "raw_total_GL": 33709.666703999996,
   "duplicate_groups": [
     {
       "matched_on": "station_no:212205",
@@ -14,8 +14,8 @@
         "name": "NEPEAN DAM",
         "no": "212205",
         "ts_id": "580042010",
-        "time": "2026-09-09T00:00:00.000+10:00",
-        "volume_ML": 52795.03,
+        "time": "2026-09-10T00:00:00.000+10:00",
+        "volume_ML": 52706.82,
         "lat": -34.33504622,
         "lon": 150.61766618,
         "state": "NSW"
@@ -25,8 +25,8 @@
           "name": "Nepean",
           "no": "212205.3",
           "ts_id": "369456010",
-          "time": "2026-09-08T00:00:00.000+10:00",
-          "volume_ML": 52591.346,
+          "time": "2026-09-09T00:00:00.000+10:00",
+          "volume_ML": 52533.619,
           "lat": -34.360153,
           "lon": 150.593278
         }
@@ -38,8 +38,8 @@
         "name": "Warragamba Dam",
         "no": "212243",
         "ts_id": "580136010",
-        "time": "2026-09-09T00:00:00.000+10:00",
-        "volume_ML": 1941452.86,
+        "time": "2026-09-10T00:00:00.000+10:00",
+        "volume_ML": 1934714.2,
         "lat": -33.89111111,
         "lon": 150.59111111,
         "state": "NSW"
@@ -49,8 +49,8 @@
           "name": "Warragamba",
           "no": "212243.3",
           "ts_id": "369684010",
-          "time": "2026-09-08T00:00:00.000+10:00",
-          "volume_ML": 1901470.037,
+          "time": "2026-09-09T00:00:00.000+10:00",
+          "volume_ML": 1900412.9,
           "lat": -33.9925245,
           "lon": 150.421642
         },
@@ -58,8 +58,8 @@
           "name": "Warragamba",
           "no": "212243.1",
           "ts_id": "369665010",
-          "time": "2026-09-09T00:00:00.000+10:00",
-          "volume_ML": 1900439.994,
+          "time": "2026-09-10T00:00:00.000+10:00",
+          "volume_ML": 1888276.933,
           "lat": -33.9925245,
           "lon": 150.421642
         }
@@ -71,8 +71,8 @@
         "name": "CASCADE CK DAM NO.3",
         "no": "212283",
         "ts_id": "580193010",
-        "time": "2026-09-09T00:00:00.000+10:00",
-        "volume_ML": 1756.64,
+        "time": "2026-09-10T00:00:00.000+10:00",
+        "volume_ML": 1762.8,
         "lat": -33.69138931,
         "lon": 150.30027843,
         "state": "NSW"
@@ -90,205 +90,13 @@
       ]
     },
     {
-      "matched_on": "station_no:212212",
-      "kept": {
-        "name": "GLENQUARRY CUT",
-        "no": "212212",
-        "ts_id": "580079010",
-        "time": "2026-09-09T00:00:00.000+10:00",
-        "volume_ML": 25533.75,
-        "lat": -34.540464,
-        "lon": 150.499086,
-        "state": "NSW"
-      },
-      "excluded": [
-        {
-          "name": "Wingecarribee",
-          "no": "212212.3",
-          "ts_id": "369570010",
-          "time": "2026-09-08T00:00:00.000+10:00",
-          "volume_ML": 20092.6,
-          "lat": -34.5559095,
-          "lon": 150.4975415
-        }
-      ]
-    },
-    {
-      "matched_on": "station_no:212282",
-      "kept": {
-        "name": "Lower Cascade",
-        "no": "212282.3",
-        "ts_id": "369760010",
-        "time": "2026-08-18T00:00:00.000+10:00",
-        "volume_ML": 302.663,
-        "lat": -33.685222,
-        "lon": 150.3044255,
-        "state": "NSW"
-      },
-      "excluded": [
-        {
-          "name": "CASCADE CK DAM NO.2",
-          "no": "212282",
-          "ts_id": "580174010",
-          "time": "2026-09-09T00:00:00.000+10:00",
-          "volume_ML": 292.51,
-          "lat": -33.68388894,
-          "lon": 150.30583401
-        }
-      ]
-    },
-    {
-      "matched_on": "station_no:212285",
-      "kept": {
-        "name": "Greaves Creek",
-        "no": "212285.3",
-        "ts_id": "369874010",
-        "time": "2026-08-18T00:00:00.000+10:00",
-        "volume_ML": 326.289,
-        "lat": -33.6560655,
-        "lon": 150.307351,
-        "state": "NSW"
-      },
-      "excluded": [
-        {
-          "name": "GREAVES CREEK DAM",
-          "no": "212285",
-          "ts_id": "580231010",
-          "time": "2026-09-09T00:00:00.000+10:00",
-          "volume_ML": 303.23,
-          "lat": -33.65472266,
-          "lon": 150.30888921
-        }
-      ]
-    },
-    {
-      "matched_on": "station_no:212281",
-      "kept": {
-        "name": "CASCADE CK DAM NO.1",
-        "no": "212281",
-        "ts_id": "580158010",
-        "time": "2026-09-09T00:00:00.000+10:00",
-        "volume_ML": 153.99,
-        "lat": -33.68888912,
-        "lon": 150.30361152,
-        "state": "NSW"
-      },
-      "excluded": [
-        {
-          "name": "Middle Cascade",
-          "no": "212281.3",
-          "ts_id": "369722010",
-          "time": "2026-08-18T00:00:00.000+10:00",
-          "volume_ML": 152.963,
-          "lat": -33.690155,
-          "lon": 150.3026625
-        }
-      ]
-    },
-    {
-      "matched_on": "station_no:212284",
-      "kept": {
-        "name": "MEDLOW DAM",
-        "no": "212284",
-        "ts_id": "580212010",
-        "time": "2026-09-09T00:00:00.000+10:00",
-        "volume_ML": 329.95,
-        "lat": -33.65861165,
-        "lon": 150.29916647,
-        "state": "NSW"
-      },
-      "excluded": [
-        {
-          "name": "Lake Medlow",
-          "no": "212284.3",
-          "ts_id": "369836010",
-          "time": "2026-08-18T00:00:00.000+10:00",
-          "volume_ML": 300.074,
-          "lat": -33.658383,
-          "lon": 150.2969155
-        }
-      ]
-    },
-    {
-      "matched_on": "station_no:212232",
-      "kept": {
-        "name": "CATARACT DAM",
-        "no": "212232",
-        "ts_id": "580117010",
-        "time": "2026-09-09T00:00:00.000+10:00",
-        "volume_ML": 76134.46,
-        "lat": -34.26558369,
-        "lon": 150.80355254,
-        "state": "NSW"
-      },
-      "excluded": [
-        {
-          "name": "Cataract",
-          "no": "212232.3",
-          "ts_id": "369646010",
-          "time": "2026-09-08T00:00:00.000+10:00",
-          "volume_ML": 76048.342,
-          "lat": -34.296234,
-          "lon": 150.820079
-        }
-      ]
-    },
-    {
-      "matched_on": "station_no:213210",
-      "kept": {
-        "name": "WORONORA DAM",
-        "no": "213210",
-        "ts_id": "580250010",
-        "time": "2026-09-09T00:00:00.000+10:00",
-        "volume_ML": 66469.84,
-        "lat": -34.10929569,
-        "lon": 150.93651886,
-        "state": "NSW"
-      },
-      "excluded": [
-        {
-          "name": "Woronora",
-          "no": "213210.3",
-          "ts_id": "369912010",
-          "time": "2026-09-08T00:00:00.000+10:00",
-          "volume_ML": 65878.219,
-          "lat": -34.139494,
-          "lon": 150.9468655
-        }
-      ]
-    },
-    {
-      "matched_on": "station_no:215235",
-      "kept": {
-        "name": "FITZROY FALLS DAM",
-        "no": "215235",
-        "ts_id": "580307010",
-        "time": "2026-09-09T00:00:00.000+10:00",
-        "volume_ML": 21508.0,
-        "lat": -34.64510627,
-        "lon": 150.48718997,
-        "state": "NSW"
-      },
-      "excluded": [
-        {
-          "name": "Fitzroy Falls",
-          "no": "215235.3",
-          "ts_id": "370026010",
-          "time": "2026-09-08T00:00:00.000+10:00",
-          "volume_ML": 8538.009,
-          "lat": -34.6424245,
-          "lon": 150.4984335
-        }
-      ]
-    },
-    {
       "matched_on": "station_no:215212",
       "kept": {
         "name": "Tallowa",
-        "no": "215212.3",
-        "ts_id": "369988010",
-        "time": "2026-09-08T00:00:00.000+10:00",
-        "volume_ML": 89864.375,
+        "no": "215212.1",
+        "ts_id": "369969010",
+        "time": "2026-09-10T00:00:00.000+10:00",
+        "volume_ML": 89759.594,
         "lat": -34.749206,
         "lon": 150.3447575,
         "state": "NSW"
@@ -298,61 +106,19 @@
           "name": "TALLOWA DAM",
           "no": "215212",
           "ts_id": "580288010",
-          "time": "2026-09-09T00:00:00.000+10:00",
-          "volume_ML": 89442.04,
+          "time": "2026-09-10T00:00:00.000+10:00",
+          "volume_ML": 89732.18,
           "lat": -34.77156257,
           "lon": 150.315266
         },
         {
           "name": "Tallowa",
-          "no": "215212.1",
-          "ts_id": "369969010",
+          "no": "215212.3",
+          "ts_id": "369988010",
           "time": "2026-09-09T00:00:00.000+10:00",
-          "volume_ML": 89434.01,
+          "volume_ML": 89523.125,
           "lat": -34.749206,
           "lon": 150.3447575
-        }
-      ]
-    },
-    {
-      "matched_on": "known:0",
-      "kept": {
-        "name": "Lake Argyle Dam",
-        "no": "ODSS_22241_STAMN.1",
-        "ts_id": "361226010",
-        "time": "2026-09-02T02:00:00.000+10:00",
-        "volume_ML": 10445853.538,
-        "lat": -16.1135755,
-        "lon": 128.732855,
-        "state": "WA"
-      },
-      "excluded": [
-        {
-          "name": "Argyle Vill Top Dam Wsl",
-          "no": "ODSS_18337_WSLAHD.1",
-          "ts_id": "370653010",
-          "time": "2026-09-02T02:00:00.000+10:00",
-          "volume_ML": 10121853.538,
-          "lat": -16.1135755,
-          "lon": 128.732855
-        },
-        {
-          "name": "Lake Argyle Dam",
-          "no": "ODSS_22241_GLEVN.1",
-          "ts_id": "370843010",
-          "time": "2026-09-02T02:00:00.000+10:00",
-          "volume_ML": 10121853.538,
-          "lat": -16.1135755,
-          "lon": 128.732855
-        },
-        {
-          "name": "Lake Argyle Water level Logged on SCADA",
-          "no": "ODSS_58794_WSLAHD.1",
-          "ts_id": "370425010",
-          "time": "2026-09-07T02:00:00.000+10:00",
-          "volume_ML": 9839335.385,
-          "lat": -16.1135755,
-          "lon": 128.732855
         }
       ]
     }
@@ -362,307 +128,171 @@
       "name": "Cotter Res. at Dam",
       "no": "410704",
       "ts_id": "52860010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 79374.227,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 79374.266,
       "lat": -35.320476,
       "lon": 148.939676,
-      "state": "ACT",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 550.866,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
+      "state": "ACT"
     },
     {
       "name": "Corin Res. at Dam",
       "no": "410742",
       "ts_id": "52936010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 54961.52,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 55081.575,
       "lat": -35.53644444,
       "lon": 148.8374444,
-      "state": "ACT",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 949.381,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
+      "state": "ACT"
     },
     {
       "name": "Googong Res at Dam",
       "no": "410748",
       "ts_id": "52977010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 119652.304,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 119655.151,
       "lat": -35.42125,
       "lon": 149.2634167,
-      "state": "ACT",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 662.791,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
+      "state": "ACT"
     },
     {
       "name": "Bendora Res. at Dam",
       "no": "410717",
       "ts_id": "52898010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 9828.962,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 9868.538,
       "lat": -35.44672222,
       "lon": 148.8284167,
-      "state": "ACT",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 775.934,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
+      "state": "ACT"
     },
     {
       "name": "Darwin River Dam - Intake Tower",
       "no": "G8150011",
       "ts_id": "62270010",
-      "time": "2026-09-09T00:30:00.000+10:00",
-      "volume_ML": 261185.424,
+      "time": "2026-09-10T00:30:00.000+10:00",
+      "volume_ML": 260812.509,
       "lat": -12.8303,
       "lon": 130.972846,
-      "state": "NT",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 44.867,
-          "time": "2026-09-09T00:30:00.000+10:00"
-        }
-      ]
+      "state": "NT"
     },
     {
       "name": "HUME DAM STORAGE",
       "no": "401027",
       "ts_id": "145365010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 2485932.512,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 2505510.306,
       "lat": -36.0885,
       "lon": 147.0539,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 189.283,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
+      "state": "NSW"
     },
     {
       "name": "BROGO DAM",
       "no": "219027",
       "ts_id": "143490010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 8927.466,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 8902.116,
       "lat": -36.4911,
       "lon": 149.742,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 102.549,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
+      "state": "NSW"
     },
     {
       "name": "COCHRANE DAM STORAGE",
       "no": "219033",
       "ts_id": "143607010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 1769.035,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 1760.749,
       "lat": -36.5703,
       "lon": 149.4554,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 906.649,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
+      "state": "NSW"
     },
     {
       "name": "GOGELDRIE STORAGE",
       "no": "41010922",
       "ts_id": "151994010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 2734.999,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 3209.974,
       "lat": -34.6165,
       "lon": 146.2579,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 5.125,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
+      "state": "NSW"
     },
     {
       "name": "BEREMBED STORAGE",
       "no": "41010904",
       "ts_id": "151956010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 2497.217,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 2788.849,
       "lat": -34.8775,
       "lon": 146.8376,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 4.337,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
+      "state": "NSW"
     },
     {
       "name": "TOMBULLEN STORAGE",
       "no": "41010971",
       "ts_id": "152151010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 2561.639,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 2425.657,
       "lat": -34.6455,
       "lon": 146.1365,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 1.061,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
+      "state": "NSW"
     },
     {
       "name": "LAKE MENINDEE",
       "no": "425022",
       "ts_id": "170389010",
-      "time": "2026-09-08T00:00:00.000+10:00",
+      "time": "2026-09-09T00:00:00.000+10:00",
       "volume_ML": 31893.385,
       "lat": -32.39708,
       "lon": 142.37436,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 55.66,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
+      "state": "NSW"
     },
     {
       "name": "NAMOI@GUNIDGERA STOR",
       "no": "419060",
       "ts_id": "162963010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 1270.992,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 1235.767,
       "lat": -30.20115,
       "lon": 149.437166666,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 189.179,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
+      "state": "NSW"
     },
     {
       "name": "WINDAMERE DAM",
       "no": "421148",
       "ts_id": "167107010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 305601.633,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 305539.686,
       "lat": -32.7259,
       "lon": 149.7675,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 548.865,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
+      "state": "NSW"
     },
     {
       "name": "L TANDURE@STORAGE",
       "no": "425047",
       "ts_id": "721049010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 38743.2,
+      "time": "2026-09-09T00:00:00.000+10:00",
+      "volume_ML": 38590.35,
       "lat": null,
       "lon": null,
-      "state": null,
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 59.71,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
+      "state": null
     },
     {
       "name": "L WETHERELL@STORAGE",
       "no": "425046",
       "ts_id": "721030010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 32381.84,
+      "time": "2026-09-09T00:00:00.000+10:00",
+      "volume_ML": 32278.07,
       "lat": -32.30756717,
       "lon": 142.50431654,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 59.71,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
+      "state": "NSW"
     },
     {
       "name": "CHAFFEY DAM",
       "no": "419069",
       "ts_id": "163199010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 98041.538,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 98056.213,
       "lat": -31.348147,
       "lon": 151.13947,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 524.421,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
+      "state": "NSW"
     },
     {
       "name": "BREWSTER STORAGE",
@@ -678,91 +308,51 @@
       "name": "BURRINJUCK DAM",
       "no": "410131",
       "ts_id": "185036010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 659942.904,
+      "time": "2026-09-09T00:00:00.000+10:00",
+      "volume_ML": 660462.606,
       "lat": -35.0,
       "lon": 148.5989,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 353.741,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
+      "state": "NSW"
     },
     {
       "name": "BURRENDONG DAM",
       "no": "421078",
       "ts_id": "187581010",
       "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 528985.234,
+      "volume_ML": 521868.751,
       "lat": -32.6673,
       "lon": 149.1115,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 332.871,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
+      "state": "NSW"
     },
     {
       "name": "WYANGALA STORAGE",
       "no": "412010",
       "ts_id": "185359010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 832761.362,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 833169.892,
       "lat": -33.9688,
       "lon": 148.9517,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 370.767,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
+      "state": "NSW"
     },
     {
       "name": "GLENBAWN DAM",
       "no": "210097",
       "ts_id": "183043010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 715140.826,
+      "time": "2026-09-09T00:00:00.000+10:00",
+      "volume_ML": 715167.016,
       "lat": -32.1026,
       "lon": 150.9926,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 274.906,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
+      "state": "NSW"
     },
     {
       "name": "COPETON DAM",
       "no": "418035",
       "ts_id": "160022010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 817476.64,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 816964.193,
       "lat": -29.90438056,
       "lon": 150.92438333,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 559.226,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
+      "state": "NSW"
     },
     {
       "name": "CARCOAR DAM",
@@ -772,130 +362,74 @@
       "volume_ML": 34657.359,
       "lat": -33.6179,
       "lon": 149.1776,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 846.8,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
+      "state": "NSW"
     },
     {
       "name": "PINDARI DAM",
       "no": "416030",
       "ts_id": "158156010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 131469.769,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 131420.072,
       "lat": -29.3854,
       "lon": 151.243,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 493.786,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
+      "state": "NSW"
     },
     {
       "name": "SPLIT ROCK DAM",
       "no": "419080",
       "ts_id": "163419010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 347970.033,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 347786.891,
       "lat": -30.57411389,
       "lon": 150.69679722,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 446.599,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
+      "state": "NSW"
     },
     {
       "name": "MAUDE STORAGE",
       "no": "41010941",
       "ts_id": "152070010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 8244.937,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 8223.47,
       "lat": -34.4763,
       "lon": 144.3047,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 5.983,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
+      "state": "NSW"
     },
     {
       "name": "LAKE CAWNDILLA",
       "no": "425023",
       "ts_id": "170422010",
-      "time": "2026-09-08T00:00:00.000+10:00",
+      "time": "2026-09-09T00:00:00.000+10:00",
       "volume_ML": 181697.295,
       "lat": -32.5258,
       "lon": 142.21983,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 55.66,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
+      "state": "NSW"
     },
     {
       "name": "NAMOI@MOLLEE WR STOR",
       "no": "419062",
       "ts_id": "163026010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 1101.386,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 905.268,
       "lat": -30.26515,
       "lon": 149.70085,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 203.303,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
+      "state": "NSW"
     },
     {
       "name": "HAY STORAGE",
       "no": "41010928",
       "ts_id": "152032010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 11261.116,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 10722.065,
       "lat": -34.5252,
       "lon": 144.7116,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 8.539,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
+      "state": "NSW"
     },
     {
       "name": "BLOWERING DAM",
       "no": "410102",
       "ts_id": "184818010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 1063753.515,
+      "time": "2026-09-09T00:00:00.000+10:00",
+      "volume_ML": 1068159.327,
       "lat": -35.4012,
       "lon": 148.2429,
       "state": "NSW",
@@ -903,8 +437,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 364.599,
-          "time": "2026-09-08T00:00:00.000+10:00"
+          "value": 364.723,
+          "time": "2026-09-09T00:00:00.000+10:00"
         }
       ]
     },
@@ -912,8 +446,8 @@
       "name": "Lake_Fyans",
       "no": "LAKE-FYANS-HG",
       "ts_id": "771879010",
-      "time": "2026-09-10T00:00:00.000+10:00",
-      "volume_ML": 17986.54,
+      "time": "2026-09-11T00:00:00.000+10:00",
+      "volume_ML": 17984.68,
       "lat": -37.134806,
       "lon": 142.610556,
       "state": "VIC",
@@ -922,7 +456,7 @@
           "parameter": "Storage Level",
           "unit": "meter",
           "value": 203.7,
-          "time": "2026-09-10T00:00:00.000+10:00"
+          "time": "2026-09-11T00:00:00.000+10:00"
         }
       ]
     },
@@ -930,8 +464,8 @@
       "name": "Wartook",
       "no": "LAKE-WARTK-HG",
       "ts_id": "771963010",
-      "time": "2026-09-10T00:00:00.000+10:00",
-      "volume_ML": 23765.56,
+      "time": "2026-09-11T00:00:00.000+10:00",
+      "volume_ML": 23812.21,
       "lat": -37.093463,
       "lon": 142.434546,
       "state": "VIC",
@@ -940,7 +474,7 @@
           "parameter": "Storage Level",
           "unit": "meter",
           "value": 441.08,
-          "time": "2026-09-10T00:00:00.000+10:00"
+          "time": "2026-09-11T00:00:00.000+10:00"
         }
       ]
     },
@@ -948,8 +482,8 @@
       "name": "Lake_Bellfield",
       "no": "LAKE-BELLFD-HG",
       "ts_id": "771837010",
-      "time": "2026-09-10T00:00:00.000+10:00",
-      "volume_ML": 69744.93,
+      "time": "2026-09-11T00:00:00.000+10:00",
+      "volume_ML": 69826.38,
       "lat": -37.17375,
       "lon": 142.547361,
       "state": "VIC",
@@ -957,8 +491,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 274.6,
-          "time": "2026-09-10T00:00:00.000+10:00"
+          "value": 274.62,
+          "time": "2026-09-11T00:00:00.000+10:00"
         }
       ]
     },
@@ -966,8 +500,8 @@
       "name": "Mt_Cole",
       "no": "MTCOLE-RES-HG",
       "ts_id": "772043010",
-      "time": "2026-09-10T00:00:00.000+10:00",
-      "volume_ML": 800.7,
+      "time": "2026-09-11T00:00:00.000+10:00",
+      "volume_ML": 801.43,
       "lat": -37.283333,
       "lon": 143.2,
       "state": "VIC",
@@ -975,8 +509,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 27.35,
-          "time": "2026-09-10T00:00:00.000+10:00"
+          "value": 27.37,
+          "time": "2026-09-11T00:00:00.000+10:00"
         }
       ]
     },
@@ -984,8 +518,8 @@
       "name": "Moora",
       "no": "MOORA-RES-HG",
       "ts_id": "772005010",
-      "time": "2026-09-10T00:00:00.000+10:00",
-      "volume_ML": 6192.09,
+      "time": "2026-09-11T00:00:00.000+10:00",
+      "volume_ML": 6158.73,
       "lat": -37.220722,
       "lon": 142.410528,
       "state": "VIC",
@@ -994,7 +528,7 @@
           "parameter": "Storage Level",
           "unit": "meter",
           "value": 219.92,
-          "time": "2026-09-10T00:00:00.000+10:00"
+          "time": "2026-09-11T00:00:00.000+10:00"
         }
       ]
     },
@@ -1002,8 +536,8 @@
       "name": "Lake_Lonsdale",
       "no": "LAKE-LONSD-HG",
       "ts_id": "771921010",
-      "time": "2026-09-10T00:00:00.000+10:00",
-      "volume_ML": 30651.84,
+      "time": "2026-09-11T00:00:00.000+10:00",
+      "volume_ML": 30716.29,
       "lat": -37.030222,
       "lon": 142.586333,
       "state": "VIC",
@@ -1012,7 +546,7 @@
           "parameter": "Storage Level",
           "unit": "meter",
           "value": 186.03,
-          "time": "2026-09-10T00:00:00.000+10:00"
+          "time": "2026-09-11T00:00:00.000+10:00"
         }
       ]
     },
@@ -1020,8 +554,8 @@
       "name": "Rocklands",
       "no": "ROCKL-RES-HG",
       "ts_id": "772094010",
-      "time": "2026-09-10T00:00:00.000+10:00",
-      "volume_ML": 120726.48,
+      "time": "2026-09-11T00:00:00.000+10:00",
+      "volume_ML": 121076.93,
       "lat": -37.233848,
       "lon": 141.959558,
       "state": "VIC",
@@ -1029,8 +563,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 190.99,
-          "time": "2026-09-10T00:00:00.000+10:00"
+          "value": 191.0,
+          "time": "2026-09-11T00:00:00.000+10:00"
         }
       ]
     },
@@ -1038,8 +572,8 @@
       "name": "Taylors",
       "no": "TAYLORS-LAKE-HG",
       "ts_id": "772127010",
-      "time": "2026-09-10T00:00:00.000+10:00",
-      "volume_ML": 26472.19,
+      "time": "2026-09-11T00:00:00.000+10:00",
+      "volume_ML": 26456.79,
       "lat": -36.76265,
       "lon": 142.37978,
       "state": "VIC",
@@ -1048,7 +582,7 @@
           "parameter": "Storage Level",
           "unit": "meter",
           "value": 144.54,
-          "time": "2026-09-10T00:00:00.000+10:00"
+          "time": "2026-09-11T00:00:00.000+10:00"
         }
       ]
     },
@@ -1056,8 +590,8 @@
       "name": "Toolondo",
       "no": "TOOLO-RES-HG",
       "ts_id": "772169010",
-      "time": "2026-09-10T00:00:00.000+10:00",
-      "volume_ML": 11447.6,
+      "time": "2026-09-11T00:00:00.000+10:00",
+      "volume_ML": 11407.46,
       "lat": -36.993069,
       "lon": 141.940589,
       "state": "VIC",
@@ -1065,8 +599,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 156.74,
-          "time": "2026-09-10T00:00:00.000+10:00"
+          "value": 156.73,
+          "time": "2026-09-11T00:00:00.000+10:00"
         }
       ]
     },
@@ -1074,8 +608,8 @@
       "name": "LAL LAL RES. H.G.",
       "no": "232222A",
       "ts_id": "768793010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 38403.32,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 38516.6,
       "lat": -37.67679004,
       "lon": 144.0743393,
       "state": "VIC",
@@ -1083,8 +617,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 405.837,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 405.877,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -1092,8 +626,8 @@
       "name": "Rookwood Weir HW",
       "no": "130012A",
       "ts_id": "769293010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 57478.49,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 56988.71,
       "lat": -23.54107,
       "lon": 150.01727,
       "state": "QLD",
@@ -1101,8 +635,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 44.78,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 44.74,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -1110,8 +644,8 @@
       "name": "TAREELAROI STORAGE",
       "no": "418043B",
       "ts_id": "773892010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 1494.94,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 1391.18,
       "lat": -29.445675,
       "lon": 150.030307,
       "state": "NSW",
@@ -1119,8 +653,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 218.1,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 217.96,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -1128,8 +662,8 @@
       "name": "LAL LAL C WILSON RES",
       "no": "232220A",
       "ts_id": "768831010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 1033.09,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 1031.97,
       "lat": -37.51437,
       "lon": 144.01766,
       "state": "VIC",
@@ -1138,7 +672,7 @@
           "parameter": "Storage Level",
           "unit": "meter",
           "value": 6.63,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -1146,8 +680,8 @@
       "name": "Green",
       "no": "GREEN-LAKE-HORSH-HG",
       "ts_id": "771452010",
-      "time": "2026-09-10T00:00:00.000+10:00",
-      "volume_ML": 4039.66,
+      "time": "2026-09-11T00:00:00.000+10:00",
+      "volume_ML": 4107.9,
       "lat": -36.787389,
       "lon": 142.290361,
       "state": "VIC",
@@ -1155,8 +689,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 134.95,
-          "time": "2026-09-10T00:00:00.000+10:00"
+          "value": 134.99,
+          "time": "2026-09-11T00:00:00.000+10:00"
         }
       ]
     },
@@ -1164,8 +698,8 @@
       "name": "L PAMARAROO   COPI H",
       "no": "425021",
       "ts_id": "170346010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 221261.891,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 221160.631,
       "lat": -32.30336,
       "lon": 142.49785,
       "state": "NSW",
@@ -1173,8 +707,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 59.637,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 59.635,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -1182,8 +716,8 @@
       "name": "KEEPIT DAM",
       "no": "419041",
       "ts_id": "162528010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 265705.985,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 265082.768,
       "lat": -30.8792,
       "lon": 150.4928,
       "state": "NSW",
@@ -1191,8 +725,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 325.35,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 325.331,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -1200,8 +734,8 @@
       "name": "CARGELLIGO STORAGE",
       "no": "412107",
       "ts_id": "185625010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 36697.015,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 36470.006,
       "lat": -33.30076944,
       "lon": 146.37918611,
       "state": "NSW",
@@ -1209,395 +743,17 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 157.157,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "TOONUMBAR DAM",
-      "no": "203042",
-      "ts_id": "132604010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 11135.929,
-      "lat": -28.618520942,
-      "lon": 152.793580946,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 129.693,
+          "value": 157.142,
           "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
-    },
-    {
-      "name": "L WETHERELL TANDURE",
-      "no": "425020",
-      "ts_id": "170308010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 70961.284,
-      "lat": -32.304787233,
-      "lon": 142.501226791,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 59.704,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Lake Albert",
-      "no": "LKALBERT",
-      "ts_id": "270983010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 282581.249,
-      "lat": -35.63,
-      "lon": 139.3,
-      "state": "SA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 0.818,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "NEPEAN DAM",
-      "no": "212205",
-      "ts_id": "580042010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 52795.03,
-      "lat": -34.33504622,
-      "lon": 150.61766618,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 311.96,
-          "time": "2026-09-10T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Warragamba Dam",
-      "no": "212243",
-      "ts_id": "580136010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 1941452.86,
-      "lat": -33.89111111,
-      "lon": 150.59111111,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 114.84,
-          "time": "2026-09-10T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "CASCADE CK DAM NO.3",
-      "no": "212283",
-      "ts_id": "580193010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 1756.64,
-      "lat": -33.69138931,
-      "lon": 150.30027843,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 975.73,
-          "time": "2026-09-10T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "GLENQUARRY CUT",
-      "no": "212212",
-      "ts_id": "580079010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 25533.75,
-      "lat": -34.540464,
-      "lon": 150.499086,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 676.58,
-          "time": "2026-09-10T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Lower Cascade",
-      "no": "212282.3",
-      "ts_id": "369760010",
-      "time": "2026-08-18T00:00:00.000+10:00",
-      "volume_ML": 302.663,
-      "lat": -33.685222,
-      "lon": 150.3044255,
-      "state": "NSW"
-    },
-    {
-      "name": "Greaves Creek",
-      "no": "212285.3",
-      "ts_id": "369874010",
-      "time": "2026-08-18T00:00:00.000+10:00",
-      "volume_ML": 326.289,
-      "lat": -33.6560655,
-      "lon": 150.307351,
-      "state": "NSW"
-    },
-    {
-      "name": "Lake Alexandrina",
-      "no": "LKALEX",
-      "ts_id": "271024010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 1641739.799,
-      "lat": -35.44,
-      "lon": 139.16,
-      "state": "SA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 0.795,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "CASCADE CK DAM NO.1",
-      "no": "212281",
-      "ts_id": "580158010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 153.99,
-      "lat": -33.68888912,
-      "lon": 150.30361152,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 951.99,
-          "time": "2026-09-10T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "MEDLOW DAM",
-      "no": "212284",
-      "ts_id": "580212010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 329.95,
-      "lat": -33.65861165,
-      "lon": 150.29916647,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 930.22,
-          "time": "2026-09-10T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "AMPHITHEATRE RES. HG",
-      "no": "408216A",
-      "ts_id": "233309010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 70.798,
-      "lat": -37.17323546,
-      "lon": 143.3774979,
-      "state": "VIC"
-    },
-    {
-      "name": "FELLMONGERS C @ RES",
-      "no": "233272A",
-      "ts_id": "232370010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 1921.315,
-      "lat": -37.54817112,
-      "lon": 143.9331475,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 22.022,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "WHITE SWAN RES. HG.",
-      "no": "233232A",
-      "ts_id": "232352010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 6871.798,
-      "lat": -37.52005,
-      "lon": 143.92148,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 29.515,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "MOORABOOL WB RES HG",
-      "no": "232217A",
-      "ts_id": "232109010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 4310.481,
-      "lat": -37.51551006,
-      "lon": 144.0847696,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Water Course Level",
-          "unit": "meter",
-          "value": 0.004,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        },
-        {
-          "parameter": "Water Course Discharge",
-          "unit": "cubic meter per second",
-          "value": 0.0,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        },
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 9.536,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "MCCALLUMS C EVAN RES",
-      "no": "407333A",
-      "ts_id": "232761010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 1376.036,
-      "lat": -37.27562072,
-      "lon": 143.6541953,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 13.472,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "PRESTON MR WR21",
-      "no": "229412A",
-      "ts_id": "294753010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 103.444,
-      "lat": -37.722791,
-      "lon": 145.008009,
-      "state": "VIC"
-    },
-    {
-      "name": "SUGARLOAF RES DAM",
-      "no": "229607A",
-      "ts_id": "294912010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 78337.833,
-      "lat": -37.6724,
-      "lon": 145.279,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 43.673,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "TARAGO R-TARAGO RES",
-      "no": "228224A",
-      "ts_id": "290084010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 35521.333,
-      "lat": -38.021106,
-      "lon": 145.934672,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 25.144,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "YAN YEAN RES HG",
-      "no": "229406A",
-      "ts_id": "294525010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 22166.0,
-      "lat": -37.552748,
-      "lon": 145.129054,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 6.385,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "NOTTING HILL WR17",
-      "no": "229411A",
-      "ts_id": "294716010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 114.056,
-      "lat": -37.902431,
-      "lon": 145.126615,
-      "state": "VIC"
-    },
-    {
-      "name": "MORANG MR WR33",
-      "no": "229413A",
-      "ts_id": "294832010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 58.167,
-      "lat": -37.645413,
-      "lon": 145.087531,
-      "state": "VIC"
     },
     {
       "name": "NORTH ESSENDON WR6",
       "no": "229408A",
       "ts_id": "294604010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 76.5,
+      "time": "2026-09-09T00:00:00.000+10:00",
+      "volume_ML": 73.722,
       "lat": -37.723443,
       "lon": 144.904097,
       "state": "VIC"
@@ -1606,8 +762,8 @@
       "name": "MITCHAM MR WR10",
       "no": "229409A",
       "ts_id": "294639010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 180.222,
+      "time": "2026-09-09T00:00:00.000+10:00",
+      "volume_ML": 177.111,
       "lat": -37.822121,
       "lon": 145.191501,
       "state": "VIC"
@@ -1616,19 +772,11 @@
       "name": "SILVAN RESERVOIR",
       "no": "229405A",
       "ts_id": "294488010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 35844.0,
+      "time": "2026-09-09T00:00:00.000+10:00",
+      "volume_ML": 35897.944,
       "lat": -37.8367,
       "lon": 145.4167,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 29.462,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
+      "state": "VIC"
     },
     {
       "name": "PARANGANA LAKE - AT DAM",
@@ -1638,15 +786,7 @@
       "volume_ML": 2748.411,
       "lat": -41.63352778,
       "lon": 146.2216111,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 381.129,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
+      "state": "TAS"
     },
     {
       "name": "WOODS LAKE - AT DAM",
@@ -1656,15 +796,7 @@
       "volume_ML": 26383.218,
       "lat": -42.07641667,
       "lon": 147.0270278,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 736.374,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
+      "state": "TAS"
     },
     {
       "name": "TARRALEAH No.2 POND - AT TARRALEAH No.2 POND",
@@ -1674,15 +806,7 @@
       "volume_ML": 521.42,
       "lat": -42.30563889,
       "lon": 146.4174444,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 646.706,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
+      "state": "TAS"
     },
     {
       "name": "REPULSE LAKE - AT DAM",
@@ -1692,15 +816,7 @@
       "volume_ML": 3919.855,
       "lat": -42.50722222,
       "lon": 146.6463333,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 124.777,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
+      "state": "TAS"
     },
     {
       "name": "KING WILLIAM LAKE - AT DAM",
@@ -1710,15 +826,7 @@
       "volume_ML": 484853.8,
       "lat": -42.26672222,
       "lon": 146.2614444,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 718.727,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
+      "state": "TAS"
     },
     {
       "name": "CATAGUNYA LAKE - AT DAM",
@@ -1728,15 +836,7 @@
       "volume_ML": 2279.272,
       "lat": -42.44777778,
       "lon": 146.5938889,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 168.764,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
+      "state": "TAS"
     },
     {
       "name": "GAIRDNER LAKE - AT DAM",
@@ -1746,15 +846,7 @@
       "volume_ML": 6705.744,
       "lat": -41.47230556,
       "lon": 146.0731111,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 471.716,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
+      "state": "TAS"
     },
     {
       "name": "CLUNY LAGOON - AT DAM",
@@ -1764,15 +856,7 @@
       "volume_ML": 2846.278,
       "lat": -42.50658333,
       "lon": 146.6809722,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 97.674,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
+      "state": "TAS"
     },
     {
       "name": "PIEMAN LAKE - AT DAM",
@@ -1782,15 +866,7 @@
       "volume_ML": 67452.38,
       "lat": -41.72583333,
       "lon": 145.1366667,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 95.994,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
+      "state": "TAS"
     },
     {
       "name": "MACKINTOSH LAKE - AT DAM",
@@ -1800,15 +876,7 @@
       "volume_ML": 201444.1,
       "lat": -41.69722222,
       "lon": 145.6463889,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 226.851,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
+      "state": "TAS"
     },
     {
       "name": "PEDDER LAKE - AT SERPENTINE",
@@ -1818,15 +886,7 @@
       "volume_ML": 142000.3,
       "lat": -42.7775,
       "lon": 145.9827778,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 307.552,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
+      "state": "TAS"
     },
     {
       "name": "ROWALLAN LAKE - AT DAM",
@@ -1836,15 +896,7 @@
       "volume_ML": 83387.43,
       "lat": -41.73141667,
       "lon": 146.2163611,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 483.292,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
+      "state": "TAS"
     },
     {
       "name": "ROSEBERY LAKE - AT DAM",
@@ -1854,15 +906,7 @@
       "volume_ML": 49269.65,
       "lat": -41.73555556,
       "lon": 145.5322222,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 159.141,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
+      "state": "TAS"
     },
     {
       "name": "PALOONA LAKE - AT DAM",
@@ -1872,15 +916,7 @@
       "volume_ML": 2255.456,
       "lat": -41.28327778,
       "lon": 146.2491667,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 50.614,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
+      "state": "TAS"
     },
     {
       "name": "BURBURY LAKE - AT CROTTY DAM",
@@ -1890,15 +926,7 @@
       "volume_ML": 371386.5,
       "lat": -42.16,
       "lon": 145.617,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 232.541,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
+      "state": "TAS"
     },
     {
       "name": "BARRINGTON LAKE - AT DAM",
@@ -1908,15 +936,7 @@
       "volume_ML": 23254.66,
       "lat": -41.34971111,
       "lon": 146.2652528,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 120.295,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
+      "state": "TAS"
     },
     {
       "name": "GORDON LAKE - AT INTAKE",
@@ -1926,1039 +946,51 @@
       "volume_ML": 6719356.0,
       "lat": -42.73972222,
       "lon": 145.9816667,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 292.601,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
+      "state": "TAS"
     },
     {
-      "name": "Lake Awoonga",
-      "no": "63",
-      "ts_id": "233836010",
-      "time": "2026-09-06T00:00:00.000+10:00",
-      "volume_ML": 457072.531,
-      "lat": -24.069617954376,
-      "lon": 151.310746027875,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 35.17,
-          "time": "2026-09-06T00:00:00.000+10:00"
-        }
-      ]
+      "name": "NEPEAN DAM",
+      "no": "212205",
+      "ts_id": "580042010",
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 52706.82,
+      "lat": -34.33504622,
+      "lon": 150.61766618,
+      "state": "NSW"
     },
     {
-      "name": "Aroona Creek at Aroona Dam",
-      "no": "A5100500",
-      "ts_id": "226253010",
-      "time": "2026-09-09T00:30:00.000+10:00",
-      "volume_ML": 4818.632,
-      "lat": -30.5849,
-      "lon": 138.3585,
-      "state": "SA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 9.947,
-          "time": "2026-09-09T00:30:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "SCADA Probes",
-      "no": "RBD1.RBD1DS01",
-      "ts_id": "363516010",
-      "time": "2026-09-06T00:00:00.000+10:00",
-      "volume_ML": 3559.763,
-      "lat": -42.808621498,
-      "lon": 147.334047212,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": -0.117,
-          "time": "2026-09-06T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "CATARACT DAM",
-      "no": "212232",
-      "ts_id": "580117010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 76134.46,
-      "lat": -34.26558369,
-      "lon": 150.80355254,
+      "name": "Warragamba Dam",
+      "no": "212243",
+      "ts_id": "580136010",
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 1934714.2,
+      "lat": -33.89111111,
+      "lon": 150.59111111,
       "state": "NSW",
       "parameters": [
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 287.12,
-          "time": "2026-09-10T00:00:00.000+10:00"
+          "value": 114.83,
+          "time": "2026-09-11T00:00:00.000+10:00"
         }
       ]
     },
     {
-      "name": "WORONORA DAM",
-      "no": "213210",
-      "ts_id": "580250010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 66469.84,
-      "lat": -34.10929569,
-      "lon": 150.93651886,
+      "name": "CASCADE CK DAM NO.3",
+      "no": "212283",
+      "ts_id": "580193010",
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 1762.8,
+      "lat": -33.69138931,
+      "lon": 150.30027843,
       "state": "NSW",
       "parameters": [
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 167.21,
-          "time": "2026-09-10T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "SpringGully Storage",
-      "no": "SPRINGGULLY",
-      "ts_id": "283219010",
-      "time": "2026-09-06T00:00:00.000+10:00",
-      "volume_ML": 1072.0,
-      "lat": -36.804869,
-      "lon": 144.279156,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 269.31,
-          "time": "2026-09-06T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Barkers Creek Storage",
-      "no": "BARKERSCREEK",
-      "ts_id": "280948010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 1720.0,
-      "lat": -36.966404,
-      "lon": 144.277525,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 364.55,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "McCay Storage",
-      "no": "MCCAY",
-      "ts_id": "283145010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 1302.25,
-      "lat": -37.091096,
-      "lon": 144.300013,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 407.953,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Malmsbury Reservoir",
-      "no": "MALMSBURY",
-      "ts_id": "283085010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 12804.0,
-      "lat": -37.210576,
-      "lon": 144.370136,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 448.205,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Lauriston Reservoir",
-      "no": "LAURISTON",
-      "ts_id": "283007010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 18790.0,
-      "lat": -37.267355,
-      "lon": 144.392061,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 479.009,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Upper Coliban Reservoir",
-      "no": "UPPERCOLIBAN",
-      "ts_id": "283257010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 37950.0,
-      "lat": -37.288668,
-      "lon": 144.393997,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 505.602,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Sandhurst Storage",
-      "no": "SANDHURST",
-      "ts_id": "283181010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 2481.436,
-      "lat": -36.84562,
-      "lon": 144.244158,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 335.598,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "HENTY LAKE - AT DAM",
-      "no": "286.1",
-      "ts_id": "288373010",
-      "time": "2026-09-07T00:00:00.000+10:00",
-      "volume_ML": 59.431,
-      "lat": -41.88027778,
-      "lon": 145.5494444,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 520.039,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "NEWTON LAKE - AT DAM",
-      "no": "296.1",
-      "ts_id": "288487010",
-      "time": "2026-09-07T00:00:00.000+10:00",
-      "volume_ML": 965.104,
-      "lat": -41.91461111,
-      "lon": 145.5537639,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 477.404,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "CETHANA LAKE - AT DAM",
-      "no": "625.1",
-      "ts_id": "288715010",
-      "time": "2026-09-07T00:00:00.000+10:00",
-      "volume_ML": 14276.75,
-      "lat": -41.48225,
-      "lon": 146.1346944,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 219.748,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "MURCHISON LAKE - AT DAM",
-      "no": "657.1",
-      "ts_id": "288791010",
-      "time": "2026-09-07T00:00:00.000+10:00",
-      "volume_ML": 45945.97,
-      "lat": -41.78277778,
-      "lon": 145.6463889,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 236.567,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "ARTHURS LAKE - AT PUMP STATION",
-      "no": "418.1",
-      "ts_id": "288563010",
-      "time": "2026-09-07T00:00:00.000+10:00",
-      "volume_ML": 280164.214,
-      "lat": -41.98830556,
-      "lon": 146.8624722,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 950.116,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Nil Gully Reservoir",
-      "no": "RES_MYRWNGR",
-      "ts_id": "288943010",
-      "time": "2026-08-13T00:00:00.000+10:00",
-      "volume_ML": 8.0,
-      "lat": -36.561487,
-      "lon": 146.741251,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 38.0,
-          "time": "2026-08-13T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Cooby Dam",
-      "no": "69",
-      "ts_id": "284426010",
-      "time": "2026-09-06T00:00:00.000+10:00",
-      "volume_ML": 17146.002,
-      "lat": -27.3641536506634,
-      "lon": 151.968206336062,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 481.28,
-          "time": "2026-09-06T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "PENSTOCK LAGOON - AT CANAL OUTLET",
-      "no": "508.1",
-      "ts_id": "288601010",
-      "time": "2026-09-07T00:00:00.000+10:00",
-      "volume_ML": 632.219,
-      "lat": -42.0825,
-      "lon": 146.7722222,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 919.759,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Perseverance Dam",
-      "no": "71",
-      "ts_id": "284499010",
-      "time": "2026-09-06T00:00:00.000+10:00",
-      "volume_ML": 16698.654,
-      "lat": -27.3003395105247,
-      "lon": 152.122932723437,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 440.748,
-          "time": "2026-09-06T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "BULLARTO RES. H.G.",
-      "no": "407327A",
-      "ts_id": "232739010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 220.329,
-      "lat": -37.378142,
-      "lon": 144.239983,
-      "state": "VIC"
-    },
-    {
-      "name": "WHITE SPUR POND - AT DAM",
-      "no": "295.1",
-      "ts_id": "288449010",
-      "time": "2026-09-07T00:00:00.000+10:00",
-      "volume_ML": 183.189,
-      "lat": -41.89417222,
-      "lon": 145.5305806,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 523.707,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "MACKENZIE LAKE - AT DAM",
-      "no": "629.1",
-      "ts_id": "288756010",
-      "time": "2026-09-07T00:00:00.000+10:00",
-      "volume_ML": 15416.39,
-      "lat": -41.68027778,
-      "lon": 146.3831944,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 1119.516,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "PLIMSOLL LAKE - AT INTAKE",
-      "no": "294.1",
-      "ts_id": "288412010",
-      "time": "2026-09-07T00:00:00.000+10:00",
-      "volume_ML": 16754.51,
-      "lat": -41.86805556,
-      "lon": 145.6161111,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 511.485,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "SHANNON LAGOON - AT DAM",
-      "no": "520.1",
-      "ts_id": "288640010",
-      "time": "2026-09-07T00:00:00.000+10:00",
-      "volume_ML": 979.806,
-      "lat": -42.00916667,
-      "lon": 146.7388889,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 1017.5,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "LIAPOOTAH POND - AT DAM",
-      "no": "579.1",
-      "ts_id": "288677010",
-      "time": "2026-09-07T00:00:00.000+10:00",
-      "volume_ML": 400.52,
-      "lat": -42.31836111,
-      "lon": 146.4724167,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 340.604,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "St.CLAIR LAKE - AT PUMP HOUSE POINT",
-      "no": "131.1",
-      "ts_id": "287936010",
-      "time": "2026-09-07T00:00:00.000+10:00",
-      "volume_ML": 21557.693,
-      "lat": -42.10502778,
-      "lon": 146.2020833,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 735.361,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Cressbrook Dam",
-      "no": "70",
-      "ts_id": "284461010",
-      "time": "2026-09-06T00:00:00.000+10:00",
-      "volume_ML": 56554.271,
-      "lat": -27.2614009206905,
-      "lon": 152.199336328129,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 275.297,
-          "time": "2026-09-06T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "GREAT LAKE - AT POATINA INLET",
-      "no": "139.2",
-      "ts_id": "287974010",
-      "time": "2026-09-07T00:00:00.000+10:00",
-      "volume_ML": 1077318.0,
-      "lat": -41.83861111,
-      "lon": 146.8277222,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 1026.743,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "MARGARET LAKE - AT DAM",
-      "no": "370.1",
-      "ts_id": "288528010",
-      "time": "2026-09-07T00:00:00.000+10:00",
-      "volume_ML": 15443.835,
-      "lat": -41.99158333,
-      "lon": 145.5715,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 662.5,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "GREENVALE RESERVOIR",
-      "no": "229407A",
-      "ts_id": "294563010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 23888.667,
-      "lat": -37.6293,
-      "lon": 144.902,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 26.464,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "THOMSON RESERVOIR HG",
-      "no": "225256A",
-      "ts_id": "289300010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 723746.167,
-      "lat": -37.843581,
-      "lon": 146.398254,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 76.046,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "LAL LAL C BEALES RES",
-      "no": "232219A",
-      "ts_id": "288962010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 462.989,
-      "lat": -37.54143987,
-      "lon": 144.0265923,
-      "state": "VIC"
-    },
-    {
-      "name": "WOMBAT CK @ RES H.G.",
-      "no": "407313A",
-      "ts_id": "302833010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 548.3,
-      "lat": -37.39072,
-      "lon": 144.17505,
-      "state": "VIC"
-    },
-    {
-      "name": "STONY C TABLOT RES.",
-      "no": "407334A",
-      "ts_id": "302899010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 879.022,
-      "lat": -37.24958,
-      "lon": 143.64047,
-      "state": "VIC"
-    },
-    {
-      "name": "FITZROY FALLS DAM",
-      "no": "215235",
-      "ts_id": "580307010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 21508.0,
-      "lat": -34.64510627,
-      "lon": 150.48718997,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 663.21,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "LEXTON RES. H.G.",
-      "no": "407326A",
-      "ts_id": "302852010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 121.402,
-      "lat": -37.2794,
-      "lon": 143.54474,
-      "state": "VIC"
-    },
-    {
-      "name": "CENTENARY RES HG",
-      "no": "407335A",
-      "ts_id": "570917010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 149.2,
-      "lat": -37.074531,
-      "lon": 143.734516,
-      "state": "VIC"
-    },
-    {
-      "name": "River Murray at Lock 5 Upstream (AMTD 562.4km)",
-      "no": "A4260512",
-      "ts_id": "485204010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 23303.1,
-      "lat": -34.188728,
-      "lon": 140.766599,
-      "state": "SA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 16.333,
-          "time": "2026-09-09T00:30:00.000+10:00"
-        },
-        {
-          "parameter": "Water Temperature",
-          "unit": "degree Celsius",
-          "value": 15.81,
-          "time": "2026-09-09T00:30:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "TUNGATINAH LAGOONS - AT DAM",
-      "no": "170.1",
-      "ts_id": "288126010",
-      "time": "2026-09-07T00:00:00.000+10:00",
-      "volume_ML": 15746.463,
-      "lat": -42.28194444,
-      "lon": 146.4652778,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 648.59,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "ECHO LAKE - AT DAM",
-      "no": "176.1",
-      "ts_id": "288202010",
-      "time": "2026-09-07T00:00:00.000+10:00",
-      "volume_ML": 293021.3,
-      "lat": -42.21657222,
-      "lon": 146.6395694,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 840.943,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "DEE LAGOON - AT TUNNEL INLET",
-      "no": "179.1",
-      "ts_id": "288240010",
-      "time": "2026-09-07T00:00:00.000+10:00",
-      "volume_ML": 274.152,
-      "lat": -42.24777778,
-      "lon": 146.5658333,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 655.364,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "DEVILBEND RESERVOIR",
-      "no": "228264A",
-      "ts_id": "290634010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 7751.722,
-      "lat": -38.2885,
-      "lon": 145.1059,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 10.701,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "BEACONSFIELD RES",
-      "no": "228268A",
-      "ts_id": "290748010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 149.0,
-      "lat": -38.029295,
-      "lon": 145.408869,
-      "state": "VIC"
-    },
-    {
-      "name": "AUGUSTA LAKE - AT INTAKE",
-      "no": "155.1",
-      "ts_id": "288012010",
-      "time": "2026-09-07T00:00:00.000+10:00",
-      "volume_ML": 1125.497,
-      "lat": -41.84444444,
-      "lon": 146.5722222,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 1147.385,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "LITTLE PINE LAGOON - AT DAM",
-      "no": "236.1",
-      "ts_id": "288316010",
-      "time": "2026-09-07T00:00:00.000+10:00",
-      "volume_ML": 1608.486,
-      "lat": -42.01083333,
-      "lon": 146.59,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 1006.748,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "YARRA RIV-UY RES HG",
-      "no": "229102A",
-      "ts_id": "292196010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 133199.278,
-      "lat": -37.673003,
-      "lon": 145.901117,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 48.374,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "LAUGHING JACK LAGOON - AT DAM",
-      "no": "211.1",
-      "ts_id": "288278010",
-      "time": "2026-09-07T00:00:00.000+10:00",
-      "volume_ML": 9694.479,
-      "lat": -42.17583333,
-      "lon": 146.3306389,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 757.563,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "BITTERN RES WH100",
-      "no": "228265A",
-      "ts_id": "290672010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 138.0,
-      "lat": -38.3048,
-      "lon": 145.117,
-      "state": "VIC"
-    },
-    {
-      "name": "TYABB MR WR144",
-      "no": "228266A",
-      "ts_id": "290692010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 247.222,
-      "lat": -37.267031,
-      "lon": 145.15291,
-      "state": "VIC"
-    },
-    {
-      "name": "TREVALLYN LAKE - AT DAM",
-      "no": "158.1",
-      "ts_id": "288050010",
-      "time": "2026-09-07T00:00:00.000+10:00",
-      "volume_ML": 7681.615,
-      "lat": -41.44755556,
-      "lon": 147.0868333,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 125.906,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "FRANKSTON MR WH142",
-      "no": "228267A",
-      "ts_id": "290710010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 42.278,
-      "lat": -38.1739,
-      "lon": 145.129,
-      "state": "VIC"
-    },
-    {
-      "name": "PINE TIER LAGOON - AT DAM",
-      "no": "171.1",
-      "ts_id": "288164010",
-      "time": "2026-09-07T00:00:00.000+10:00",
-      "volume_ML": 2271.281,
-      "lat": -42.09944445,
-      "lon": 146.4880556,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 671.034,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "BRONTE LAGOON - AT DAM",
-      "no": "167.1",
-      "ts_id": "288088010",
-      "time": "2026-09-07T00:00:00.000+10:00",
-      "volume_ML": 10293.326,
-      "lat": -42.18647222,
-      "lon": 146.4787222,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 664.955,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "OSHANNASSY RES HG",
-      "no": "229111A",
-      "ts_id": "292457010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 3129.167,
-      "lat": -37.675022,
-      "lon": 145.806037,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 25.305,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "SUGARLOAF RES. H.G.",
-      "no": "408217A",
-      "ts_id": "302871010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 309.178,
-      "lat": -37.103981,
-      "lon": 143.402094,
-      "state": "VIC"
-    },
-    {
-      "name": "WAYATINAH LAGOON - AT INTAKE",
-      "no": "190.1",
-      "ts_id": "369429010",
-      "time": "2026-09-07T00:00:00.000+10:00",
-      "volume_ML": 4979.02,
-      "lat": -42.40216667,
-      "lon": 146.5171389,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 230.756,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "New Victoria Water Level-Ranger",
-      "no": "ODSS_21167_WSLAHD.1",
-      "ts_id": "370786010",
-      "time": "2026-09-08T02:00:00.000+10:00",
-      "volume_ML": 7097.285,
-      "lat": -32.043836,
-      "lon": 116.075355,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 198.678,
-          "time": "2026-09-08T02:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Samson Brook Dam Water levels Logger",
-      "no": "ODSS_61742_WSLAHD.1",
-      "ts_id": "371036010",
-      "time": "2026-09-08T02:00:00.000+10:00",
-      "volume_ML": 4038.858,
-      "lat": -32.884366,
-      "lon": 116.0295775,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 240.031,
-          "time": "2026-09-08T02:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Manjimup Dam Wsl",
-      "no": "ODSS_18335_STAMN.1",
-      "ts_id": "361017010",
-      "time": "2026-09-06T02:00:00.000+10:00",
-      "volume_ML": 1133.21,
-      "lat": -34.2788675,
-      "lon": 116.04553,
-      "state": "WA"
-    },
-    {
-      "name": "Churchman Bk Wsl-Ranger",
-      "no": "ODSS_21165_WSLAHD.1",
-      "ts_id": "370748010",
-      "time": "2026-09-08T02:00:00.000+10:00",
-      "volume_ML": 992.7,
-      "lat": -32.152885,
-      "lon": 116.081425,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 197.57,
-          "time": "2026-09-08T02:00:00.000+10:00"
+          "value": 975.73,
+          "time": "2026-09-11T00:00:00.000+10:00"
         }
       ]
     },
@@ -2966,8 +998,8 @@
       "name": "South Dandalup Dam Storage Volume",
       "no": "ODSS_11327_STAMN.1",
       "ts_id": "360505010",
-      "time": "2026-09-07T02:00:00.000+10:00",
-      "volume_ML": 24719.205,
+      "time": "2026-09-08T02:00:00.000+10:00",
+      "volume_ML": 24697.19,
       "lat": -32.6760495,
       "lon": 116.100205,
       "state": "WA"
@@ -2976,8 +1008,8 @@
       "name": "Callide Dam Wall",
       "no": "130314C",
       "ts_id": "380471010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 27972.265,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 27908.499,
       "lat": -24.366719,
       "lon": 150.615713,
       "state": "QLD",
@@ -2985,8 +1017,54 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 202.594,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 202.58,
+          "time": "2026-09-10T00:00:00.000+10:00"
+        }
+      ]
+    },
+    {
+      "name": "MENINDEE TOTAL",
+      "no": "425049",
+      "ts_id": "720973010",
+      "time": "2026-09-09T00:00:00.000+10:00",
+      "volume_ML": 505889.09,
+      "lat": -32.3999999999995,
+      "lon": 142.395,
+      "state": "NSW"
+    },
+    {
+      "name": "LOSTOCK DAM",
+      "no": "210102",
+      "ts_id": "183087010",
+      "time": "2026-09-09T00:00:00.000+10:00",
+      "volume_ML": 20165.469,
+      "lat": -32.3292,
+      "lon": 151.4569,
+      "state": "NSW",
+      "parameters": [
+        {
+          "parameter": "Storage Level",
+          "unit": "meter",
+          "value": 155.519,
+          "time": "2026-09-10T00:00:00.000+10:00"
+        }
+      ]
+    },
+    {
+      "name": "GLENNIES CREEK DAM",
+      "no": "210117",
+      "ts_id": "183155010",
+      "time": "2026-09-09T00:00:00.000+10:00",
+      "volume_ML": 262783.66,
+      "lat": -32.36342393,
+      "lon": 151.248624324,
+      "state": "NSW",
+      "parameters": [
+        {
+          "parameter": "Storage Level",
+          "unit": "meter",
+          "value": 184.624,
+          "time": "2026-09-11T00:00:00.000+10:00"
         }
       ]
     },
@@ -2994,8 +1072,8 @@
       "name": "Moura OSS",
       "no": "130351A",
       "ts_id": "369114010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 879.651,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 768.467,
       "lat": -24.608948,
       "lon": 149.971783,
       "state": "QLD",
@@ -3003,8 +1081,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 121.777,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 121.463,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -3012,233 +1090,11 @@
       "name": "Stirling Wsl",
       "no": "ODSS_18315_STAMN.1",
       "ts_id": "363350010",
-      "time": "2026-09-06T02:00:00.000+10:00",
-      "volume_ML": 29444.753,
+      "time": "2026-09-08T02:00:00.000+10:00",
+      "volume_ML": 29657.801,
       "lat": -33.107073,
       "lon": 116.0456435,
       "state": "WA"
-    },
-    {
-      "name": "Lake Eildon",
-      "no": "sp-o10334",
-      "ts_id": "368065010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 2007706.276,
-      "lat": -37.2315745,
-      "lon": 145.99274,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 277.312,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Lake Manchester",
-      "no": "143049A",
-      "ts_id": "368613010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 23279.804,
-      "lat": -27.4900941126462,
-      "lon": 152.750025730208,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 49.744,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "SOUTH@LAKE BREWSTER",
-      "no": "41200212",
-      "ts_id": "577033010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 51044.76,
-      "lat": -33.47574363,
-      "lon": 145.96613791,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 138.01,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Julius Dam",
-      "no": "913015B",
-      "ts_id": "380214010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 98121.878,
-      "lat": -20.129421,
-      "lon": 139.71463,
-      "state": "NT",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 222.764,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Dartmouth",
-      "no": "sp-o10298",
-      "ts_id": "367084010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 2930719.898,
-      "lat": -36.624355,
-      "lon": 147.6152085,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 470.692,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "South Maroochy R at Wappa Dam HW",
-      "no": "141014A",
-      "ts_id": "368385010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 4705.562,
-      "lat": -16.5165979716478,
-      "lon": 153.349086281707,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 44.831,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "OUTWESTERN@LAKEBREWS",
-      "no": "41200214",
-      "ts_id": "577071010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 5860.79,
-      "lat": -33.47553943,
-      "lon": 145.96609406,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 138.05,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Waranga Basin",
-      "no": "sp-o11534",
-      "ts_id": "367341010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 407396.926,
-      "lat": -36.556052,
-      "lon": 145.096115,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 120.925,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Lake William Hovell",
-      "no": "sp-o11590",
-      "ts_id": "367899010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 13906.044,
-      "lat": -36.91340337,
-      "lon": 146.3863558,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Water Course Discharge",
-          "unit": "cubic meter per second",
-          "value": 12.389,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        },
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 408.315,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Obi Obi Ck at Baroon Pocket Dam HW",
-      "no": "138121A",
-      "ts_id": "368195010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 58213.847,
-      "lat": -16.6347445001589,
-      "lon": 153.402740042718,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 216.23,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Sideling Ck at Lake Kurwongbah Dam HW",
-      "no": "142108A",
-      "ts_id": "368426010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 13908.774,
-      "lat": -17.0812410860537,
-      "lon": 153.603639707429,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 20.288,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Yarrawonga Weir",
-      "no": "sp-o10814",
-      "ts_id": "367252010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 110305.384,
-      "lat": -36.0103075,
-      "lon": 146.091535,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 124.737,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
     },
     {
       "name": "Yabba Ck at Borumba Dam HW",
@@ -3262,8 +1118,8 @@
       "name": "Unnamed Ck at Poona Dam HW",
       "no": "141013A",
       "ts_id": "368347010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 499.42,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 500.604,
       "lat": -16.5360268417323,
       "lon": 153.357923865452,
       "state": "QLD",
@@ -3271,8 +1127,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 151.729,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 151.737,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -3298,8 +1154,8 @@
       "name": "Wivenhoe",
       "no": "143036A",
       "ts_id": "368499010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 963277.292,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 963657.226,
       "lat": -27.3915960195471,
       "lon": 152.609000341656,
       "state": "QLD",
@@ -3307,8 +1163,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 64.976,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 64.979,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -3361,8 +1217,8 @@
         {
           "parameter": "Water Course Discharge",
           "unit": "cubic meter per second",
-          "value": 32.295,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 29.357,
+          "time": "2026-09-10T00:00:00.000+10:00"
         },
         {
           "parameter": "Storage Level",
@@ -3376,8 +1232,8 @@
       "name": "Lake MacDonald",
       "no": "138122A",
       "ts_id": "368233010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 3192.724,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 3196.63,
       "lat": -26.3810901973559,
       "lon": 152.93002607138,
       "state": "QLD",
@@ -3385,8 +1241,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 92.846,
-          "time": "2026-09-08T00:00:00.000+10:00"
+          "value": 92.849,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -3394,8 +1250,8 @@
       "name": "Addlington Ck at Ewen Maddock Dam HW",
       "no": "141012A",
       "ts_id": "368310010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 15697.771,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 15683.233,
       "lat": -26.7719,
       "lon": 152.9603,
       "state": "QLD",
@@ -3403,8 +1259,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 25.13,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 25.126,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -3412,8 +1268,8 @@
       "name": "Enoggera Ck at Enoggera Dam HW",
       "no": "143047A",
       "ts_id": "368538010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 4212.51,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 4210.466,
       "lat": -27.45,
       "lon": 152.93,
       "state": "QLD",
@@ -3421,8 +1277,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 74.326,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 74.323,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -3430,8 +1286,8 @@
       "name": "Goulburn Weir",
       "no": "sp-o10438",
       "ts_id": "367808010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 24656.748,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 24609.147,
       "lat": -36.71753229,
       "lon": 145.1711321,
       "state": "VIC",
@@ -3439,8 +1295,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 124.164,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 124.16,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -3448,8 +1304,8 @@
       "name": "Reynolds Ck at Moogerah Dam HW",
       "no": "143111A",
       "ts_id": "368654010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 66592.754,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 66491.546,
       "lat": -17.7236145174024,
       "lon": 153.887622256747,
       "state": "QLD",
@@ -3457,8 +1313,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 152.601,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 152.587,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -3499,581 +1355,11 @@
       ]
     },
     {
-      "name": "Tullaroop Reservoir",
-      "no": "sp-o11454",
-      "ts_id": "367633010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 74080.297,
-      "lat": -37.09296795,
-      "lon": 143.8637307,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Water Course Discharge",
-          "unit": "cubic meter per second",
-          "value": 3.543,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Deep Ck at Cedar Pocket Dam HW",
-      "no": "138012A",
-      "ts_id": "368119010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 687.308,
-      "lat": -26.21,
-      "lon": 152.79,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 100.845,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Rocky Ck at Cooloolabin Dam HW",
-      "no": "141011A",
-      "ts_id": "368271010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 7717.656,
-      "lat": -16.503596735906,
-      "lon": 153.343169259229,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 292.721,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "North Pine River at North Pine Dam HW",
-      "no": "142801A",
-      "ts_id": "368461010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 106919.992,
-      "lat": -27.27,
-      "lon": 152.93,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 33.419,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Gold Ck at Gold Creek Dam HW",
-      "no": "143048A",
-      "ts_id": "368575010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 615.338,
-      "lat": -17.2602230042103,
-      "lon": 153.683355738351,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 91.589,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Burnett Ck at Maroon Dam HW",
-      "no": "145021A",
-      "ts_id": "368841010",
-      "time": "2026-09-07T00:00:00.000+10:00",
-      "volume_ML": 44219.957,
-      "lat": -17.8563599873886,
-      "lon": 153.945582490953,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 207.111,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Little Nerang",
-      "no": "146034A",
-      "ts_id": "369069010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 5888.68,
-      "lat": -28.1451972993013,
-      "lon": 153.284781821483,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 166.3,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "MENINDEE TOTAL",
-      "no": "425049",
-      "ts_id": "720973010",
-      "time": "2026-09-07T00:00:00.000+10:00",
-      "volume_ML": 507352.45,
-      "lat": -32.3999999999995,
-      "lon": 142.395,
-      "state": "NSW"
-    },
-    {
-      "name": "LOSTOCK DAM",
-      "no": "210102",
-      "ts_id": "183087010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 20199.724,
-      "lat": -32.3292,
-      "lon": 151.4569,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 155.556,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "GLENNIES CREEK DAM",
-      "no": "210117",
-      "ts_id": "183155010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 262789.612,
-      "lat": -32.36342393,
-      "lon": 151.248624324,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 184.634,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Harris Dam",
-      "no": "ODSS_18106_STAMN.1",
-      "ts_id": "360675010",
-      "time": "2026-09-06T02:00:00.000+10:00",
-      "volume_ML": 11455.2,
-      "lat": -33.215313,
-      "lon": 116.139168,
-      "state": "WA"
-    },
-    {
-      "name": "Quickup Wsl - Logger",
-      "no": "ODSS_51192_WSLAHD.1",
-      "ts_id": "370197010",
-      "time": "2026-09-08T02:00:00.000+10:00",
-      "volume_ML": 966.373,
-      "lat": -34.8991375,
-      "lon": 117.3856875,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 44.771,
-          "time": "2026-09-08T02:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Chinchilla Weir",
-      "no": "422358B",
-      "ts_id": "302595010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 5451.433,
-      "lat": -26.799304,
-      "lon": 150.578926,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 294.206,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "MOUNT WAVERLEY WR15",
-      "no": "229410A",
-      "ts_id": "294677010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 166.0,
-      "lat": -37.872252,
-      "lon": 145.137518,
-      "state": "VIC"
-    },
-    {
-      "name": "Churchmans Brook Dam Storage Volume",
-      "no": "ODSS_11709_STAMN.1",
-      "ts_id": "360599010",
-      "time": "2026-09-07T02:00:00.000+10:00",
-      "volume_ML": 1026.58,
-      "lat": -32.152885,
-      "lon": 116.081425,
-      "state": "WA"
-    },
-    {
-      "name": "Mundaring Dam Storage Volume",
-      "no": "ODSS_12030_STAMN.1",
-      "ts_id": "360656010",
-      "time": "2026-09-07T02:00:00.000+10:00",
-      "volume_ML": 26883.415,
-      "lat": -31.9913885,
-      "lon": 116.215395,
-      "state": "WA"
-    },
-    {
-      "name": "Wellington Wsl",
-      "no": "ODSS_18320_STAMN.1",
-      "ts_id": "360827010",
-      "time": "2026-09-06T02:00:00.000+10:00",
-      "volume_ML": 78550.301,
-      "lat": -33.385948,
-      "lon": 116.0100675,
-      "state": "WA"
-    },
-    {
-      "name": "West Gellibrand Reservoir",
-      "no": "RE851",
-      "ts_id": "435415010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 1860.0,
-      "lat": -38.598996544,
-      "lon": 143.653714293,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 342.12,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Apollo Bay Basin",
-      "no": "SB898",
-      "ts_id": "437868010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 273.71,
-      "lat": -38.76519,
-      "lon": 143.65217,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 16.96,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Buaraba Ck at Atkinson Dam HW",
-      "no": "143234A",
-      "ts_id": "368727010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 19627.399,
-      "lat": -17.2166090200591,
-      "lon": 153.663973207505,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 63.539,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Olangolah Reservoir level",
-      "no": "RE852",
-      "ts_id": "437968010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 129.0,
-      "lat": -38.612207262,
-      "lon": 143.681448174,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 344.37,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Upper Stony Creek Reservoirs",
-      "no": "RE604",
-      "ts_id": "435529010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 1937.56,
-      "lat": -37.8233,
-      "lon": 144.2062,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 353.36,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Upper Stony Creek No.2",
-      "no": "RE604A",
-      "ts_id": "435548010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 1736.83,
-      "lat": -37.8233,
-      "lon": 144.2062,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 362.33,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Laidley Ck at Bill Gunn Dam HW",
-      "no": "143228A",
-      "ts_id": "368689010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 4964.963,
-      "lat": -17.381366974762,
-      "lon": 153.737050578289,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 107.884,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Teviot Brook at Wyaralong Dam HW",
-      "no": "145033A",
-      "ts_id": "368882010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 99545.614,
-      "lat": -27.9421,
-      "lon": 152.8394,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 63.321,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Lockyer Ck at Lake Clarendon Dam HW",
-      "no": "143235A",
-      "ts_id": "368766010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 17534.129,
-      "lat": -17.2832819106427,
-      "lon": 153.693592341364,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 93.853,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Korweinguboora Reservoir",
-      "no": "RE690",
-      "ts_id": "435378010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 2230.75,
-      "lat": -37.5103,
-      "lon": 144.1489,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 583.87,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        },
-        {
-          "parameter": "Water Course Level",
-          "unit": "meter",
-          "value": 0.355,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Marengo Basin",
-      "no": "SB903",
-      "ts_id": "437983010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 104.5,
-      "lat": -38.779776066,
-      "lon": 143.655517939,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 4.7,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Colac Service Basin No.4",
-      "no": "SB855",
-      "ts_id": "578669010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 189.9,
-      "lat": -38.3928,
-      "lon": 143.5935,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 6.45,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Albert R at Nindooinbah Dam HW",
-      "no": "145108A",
-      "ts_id": "368994010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 201.698,
-      "lat": -17.7107514969056,
-      "lon": 153.881992903895,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 119.348,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Nerang R at Hinze Dam HW",
-      "no": "146033A",
-      "ts_id": "369031010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 301337.72,
-      "lat": -17.7677387590108,
-      "lon": 153.906915220849,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 93.859,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Wurdee Boluc Reservoir",
-      "no": "RE704",
-      "ts_id": "435396010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 32512.86,
-      "lat": -38.2822277,
-      "lon": 144.05039601,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 138.27,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Allen Reservoir",
-      "no": "RE931",
-      "ts_id": "435434010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 215.23,
-      "lat": -38.537667413,
-      "lon": 143.944875843,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 120.31,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Tingalpa Ck at Leslie Harrison Dam HW",
-      "no": "145035A",
-      "ts_id": "368955010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 10332.768,
-      "lat": -17.3230140126891,
-      "lon": 153.71121286743,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 14.559,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
       "name": "Upper Stony Creek No.3",
       "no": "RE604B",
       "ts_id": "435567010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 1777.4,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 1778.49,
       "lat": -37.8233,
       "lon": 144.2062,
       "state": "VIC",
@@ -4082,7 +1368,7 @@
           "parameter": "Storage Level",
           "unit": "meter",
           "value": 359.05,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -4090,8 +1376,8 @@
       "name": "Bostock Reservoir",
       "no": "RE670",
       "ts_id": "435099010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 4918.16,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 4943.88,
       "lat": -37.608,
       "lon": 144.1848,
       "state": "VIC",
@@ -4099,8 +1385,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 491.1,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 491.13,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -4108,8 +1394,8 @@
       "name": "West Barwon Reservoir",
       "no": "RE750",
       "ts_id": "437048010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 16791.43,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 16705.78,
       "lat": -38.531827315,
       "lon": 143.720997286,
       "state": "VIC",
@@ -4117,8 +1403,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 190.08,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 190.03,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -4126,8 +1412,8 @@
       "name": "Colac Service Basin No.5",
       "no": "SB855B",
       "ts_id": "435472010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 436.16,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 435.93,
       "lat": -38.394978,
       "lon": 143.594356,
       "state": "VIC",
@@ -4136,7 +1422,7 @@
           "parameter": "Storage Level",
           "unit": "meter",
           "value": 6.37,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -4144,8 +1430,8 @@
       "name": "Somerset",
       "no": "143305A",
       "ts_id": "368803010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 301823.192,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 301615.293,
       "lat": -27.1149826177792,
       "lon": 152.557359117941,
       "state": "QLD",
@@ -4153,8 +1439,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 96.974,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 96.968,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -4162,7 +1448,7 @@
       "name": "Painkalac Creek Dam",
       "no": "RE961",
       "ts_id": "435453010",
-      "time": "2026-09-09T00:00:00.000+10:00",
+      "time": "2026-09-10T00:00:00.000+10:00",
       "volume_ML": 532.6,
       "lat": -38.44253754,
       "lon": 144.0671554,
@@ -4172,7 +1458,7 @@
           "parameter": "Storage Level",
           "unit": "meter",
           "value": 29.85,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -4182,8 +1468,8 @@
       "ts_id": "577109010",
       "time": "2026-09-08T00:00:00.000+10:00",
       "volume_ML": 3039.44,
-      "lat": -33.4755889,
-      "lon": 145.96596971,
+      "lat": -33.4757639,
+      "lon": 145.96578889,
       "state": "NSW",
       "parameters": [
         {
@@ -4198,8 +1484,8 @@
       "name": "Harvey Dam Water Level",
       "no": "ODSS_45321_SLEVELM.1",
       "ts_id": "370920010",
-      "time": "2026-09-06T02:00:00.000+10:00",
-      "volume_ML": 33226.213,
+      "time": "2026-09-08T02:00:00.000+10:00",
+      "volume_ML": 33554.394,
       "lat": -33.078503,
       "lon": 115.95149,
       "state": "WA",
@@ -4207,8 +1493,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 73.273,
-          "time": "2026-09-06T02:00:00.000+10:00"
+          "value": 73.355,
+          "time": "2026-09-08T02:00:00.000+10:00"
         }
       ]
     },
@@ -4216,7 +1502,7 @@
       "name": "Logue Brook Wsl - Logger",
       "no": "ODSS_57330_WSLAHD.1",
       "ts_id": "370311010",
-      "time": "2026-09-08T02:00:00.000+10:00",
+      "time": "2026-09-09T02:00:00.000+10:00",
       "volume_ML": 11994.328,
       "lat": -32.9983065,
       "lon": 115.97324,
@@ -4226,7 +1512,7 @@
           "parameter": "Storage Level",
           "unit": "meter",
           "value": 228.001,
-          "time": "2026-09-08T02:00:00.000+10:00"
+          "time": "2026-09-09T02:00:00.000+10:00"
         }
       ]
     },
@@ -4262,8 +1548,8 @@
       "name": "Isis OS",
       "no": "136026A",
       "ts_id": "386256010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 5218.988,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 5258.596,
       "lat": -25.02488333,
       "lon": 152.23570556,
       "state": "QLD",
@@ -4271,8 +1557,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 63.366,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 63.394,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -4366,15 +1652,7 @@
       "volume_ML": 118.18,
       "lat": -34.6871210808606,
       "lon": 138.853330396178,
-      "state": "SA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 9.31,
-          "time": "2026-09-05T00:30:00.000+10:00"
-        }
-      ]
+      "state": "SA"
     },
     {
       "name": "Gumeracha Weir (SA Water)",
@@ -4384,15 +1662,7 @@
       "volume_ML": 57.36,
       "lat": -34.8214604321941,
       "lon": 138.852110319996,
-      "state": "SA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 8.79,
-          "time": "2026-09-05T00:30:00.000+10:00"
-        }
-      ]
+      "state": "SA"
     },
     {
       "name": "Kangaroo Creek Reservoir (SA Water)",
@@ -4402,15 +1672,7 @@
       "volume_ML": 18796.58,
       "lat": -34.862939157617,
       "lon": 138.786555224696,
-      "state": "SA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 44.26,
-          "time": "2026-09-05T00:30:00.000+10:00"
-        }
-      ]
+      "state": "SA"
     },
     {
       "name": "Little Para Reservoir (SA Water)",
@@ -4420,15 +1682,7 @@
       "volume_ML": 14252.84,
       "lat": -34.7451221004706,
       "lon": 138.725294986145,
-      "state": "SA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 35.48,
-          "time": "2026-09-05T00:30:00.000+10:00"
-        }
-      ]
+      "state": "SA"
     },
     {
       "name": "Happy Valley Reservoir (SA Water)",
@@ -4438,15 +1692,7 @@
       "volume_ML": 12100.72,
       "lat": -35.0725162317209,
       "lon": 138.571518270105,
-      "state": "SA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 10.25,
-          "time": "2026-09-05T00:30:00.000+10:00"
-        }
-      ]
+      "state": "SA"
     },
     {
       "name": "Clarendon Weir (SA Water)",
@@ -4456,15 +1702,7 @@
       "volume_ML": 242.03,
       "lat": -35.1114420363618,
       "lon": 138.635002668327,
-      "state": "SA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 9.33,
-          "time": "2026-09-05T00:30:00.000+10:00"
-        }
-      ]
+      "state": "SA"
     },
     {
       "name": "Hope Valley Reservoir (SA Water)",
@@ -4474,15 +1712,7 @@
       "volume_ML": 2102.77,
       "lat": -34.8518550525343,
       "lon": 138.685684029154,
-      "state": "SA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 12.38,
-          "time": "2026-09-05T00:30:00.000+10:00"
-        }
-      ]
+      "state": "SA"
     },
     {
       "name": "South Para Reservoir (SA Water)",
@@ -4492,15 +1722,7 @@
       "volume_ML": 35929.3,
       "lat": -34.7000287384471,
       "lon": 138.865537598702,
-      "state": "SA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 26.62,
-          "time": "2026-09-05T00:30:00.000+10:00"
-        }
-      ]
+      "state": "SA"
     },
     {
       "name": "Millbrook Reservoir (SA Water)",
@@ -4510,15 +1732,7 @@
       "volume_ML": 14580.86,
       "lat": -34.8277324796031,
       "lon": 138.814313510881,
-      "state": "SA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 24.68,
-          "time": "2026-09-05T00:30:00.000+10:00"
-        }
-      ]
+      "state": "SA"
     },
     {
       "name": "Harding Dam",
@@ -4528,15 +1742,7 @@
       "volume_ML": 51929.676,
       "lat": -21.0118435,
       "lon": 117.1161005,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 59.111,
-          "time": "2026-09-08T02:00:00.000+10:00"
-        }
-      ]
+      "state": "WA"
     },
     {
       "name": "MEADOWBANK LAKE - AT DAM",
@@ -4546,169 +1752,177 @@
       "volume_ML": 25280.575,
       "lat": -42.61080556,
       "lon": 146.8457778,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 72.634,
-          "time": "2026-09-07T00:00:00.000+10:00"
-        }
-      ]
+      "state": "TAS"
     },
     {
       "name": "WATTS RIV-MAROONDAH",
       "no": "229130A",
       "ts_id": "292665010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 22230.111,
+      "time": "2026-09-09T00:00:00.000+10:00",
+      "volume_ML": 22201.222,
       "lat": -37.642771,
       "lon": 145.55495,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 16.286,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
+      "state": "VIC"
     },
     {
       "name": "OBERON DAM",
       "no": "421189",
       "ts_id": "187709010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 42887.277,
+      "time": "2026-09-09T00:00:00.000+10:00",
+      "volume_ML": 42893.922,
       "lat": -33.72500784,
       "lon": 149.86464643,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 1067.628,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
+      "state": "NSW"
+    },
+    {
+      "name": "GLENQUARRY CUT",
+      "no": "212212",
+      "ts_id": "580079010",
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 25529.61,
+      "lat": -34.540464,
+      "lon": 150.499086,
+      "state": "NSW"
+    },
+    {
+      "name": "CATARACT DAM",
+      "no": "212232",
+      "ts_id": "580117010",
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 76063.8,
+      "lat": -34.26558369,
+      "lon": 150.80355254,
+      "state": "NSW"
     },
     {
       "name": "Tallowa",
-      "no": "215212.3",
-      "ts_id": "369988010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 89864.375,
+      "no": "215212.1",
+      "ts_id": "369969010",
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 89759.594,
       "lat": -34.749206,
       "lon": 150.3447575,
+      "state": "NSW"
+    },
+    {
+      "name": "GREAVES CREEK DAM",
+      "no": "212285",
+      "ts_id": "580231010",
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 303.23,
+      "lat": -33.65472266,
+      "lon": 150.30888921,
+      "state": "NSW"
+    },
+    {
+      "name": "CASCADE CK DAM NO.1",
+      "no": "212281",
+      "ts_id": "580158010",
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 153.61,
+      "lat": -33.68888912,
+      "lon": 150.30361152,
+      "state": "NSW"
+    },
+    {
+      "name": "CASCADE CK DAM NO.2",
+      "no": "212282",
+      "ts_id": "580174010",
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 290.6,
+      "lat": -33.68388894,
+      "lon": 150.30583401,
       "state": "NSW"
     },
     {
       "name": "AVON DAM",
       "no": "212211",
       "ts_id": "580060010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 195521.75,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 195321.49,
       "lat": -34.35093233,
       "lon": 150.64050046,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 318.24,
-          "time": "2026-09-10T00:00:00.000+10:00"
-        }
-      ]
+      "state": "NSW"
+    },
+    {
+      "name": "FITZROY FALLS DAM",
+      "no": "215235",
+      "ts_id": "580307010",
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 21493.37,
+      "lat": -34.64510627,
+      "lon": 150.48718997,
+      "state": "NSW"
+    },
+    {
+      "name": "MEDLOW DAM",
+      "no": "212284",
+      "ts_id": "580212010",
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 329.9,
+      "lat": -33.65861165,
+      "lon": 150.29916647,
+      "state": "NSW"
     },
     {
       "name": "CORDEAUX DAM",
       "no": "212220",
       "ts_id": "580098010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 73040.15,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 72950.01,
       "lat": -34.33640266,
       "lon": 150.74591848,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 300.63,
-          "time": "2026-09-10T00:00:00.000+10:00"
-        }
-      ]
+      "state": "NSW"
+    },
+    {
+      "name": "WORONORA DAM",
+      "no": "213210",
+      "ts_id": "580250010",
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 66383.77,
+      "lat": -34.10929569,
+      "lon": 150.93651886,
+      "state": "NSW"
     },
     {
       "name": "PROSPECT RESERVOIR",
       "no": "213240",
       "ts_id": "580270010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 46307.85,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 46211.14,
       "lat": -33.8328508,
       "lon": 150.89015837,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 60.04,
-          "time": "2026-09-10T00:00:00.000+10:00"
-        }
-      ]
+      "state": "NSW"
     },
     {
       "name": "Woongarra OS",
       "no": "136025A",
       "ts_id": "573265010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 1169.2,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 1194.13,
       "lat": -24.92156944,
       "lon": 152.26813611,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 35.39,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
+      "state": "QLD"
     },
     {
       "name": "Selma Weir",
       "no": "130205B",
       "ts_id": "572973010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 1295.22,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 1292.5,
       "lat": -23.540819,
       "lon": 148.145628,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 170.67,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
+      "state": "QLD"
     },
     {
       "name": "Stirling WSL - Logger Data",
       "no": "ODSS_45532_WSLAHD.1",
       "ts_id": "370083010",
-      "time": "2026-09-08T02:00:00.000+10:00",
-      "volume_ML": 27309.735,
+      "time": "2026-09-09T02:00:00.000+10:00",
+      "volume_ML": 27320.009,
       "lat": -33.107073,
       "lon": 116.0456435,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 150.044,
-          "time": "2026-09-08T02:00:00.000+10:00"
-        }
-      ]
+      "state": "WA"
     },
     {
       "name": "Lake Victoria at Lake Centre",
@@ -4718,63 +1932,27 @@
       "volume_ML": 629783.391,
       "lat": -33.9837,
       "lon": 141.2764,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 26.611,
-          "time": "2026-09-09T00:30:00.000+10:00"
-        },
-        {
-          "parameter": "Water Temperature",
-          "unit": "degree Celsius",
-          "value": 14.56,
-          "time": "2026-09-09T00:30:00.000+10:00"
-        }
-      ]
+      "state": "NSW"
     },
     {
       "name": "River Murray at Lock 4 Upstream (AMTD 516.2km)",
       "no": "A4260514",
       "ts_id": "363611010",
-      "time": "2026-09-09T00:30:00.000+10:00",
-      "volume_ML": 22695.603,
+      "time": "2026-09-10T00:30:00.000+10:00",
+      "volume_ML": 22722.006,
       "lat": -34.34218,
       "lon": 140.577166,
-      "state": "SA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 13.511,
-          "time": "2026-09-09T00:30:00.000+10:00"
-        }
-      ]
+      "state": "SA"
     },
     {
       "name": "River Murray at Lock 2 Upstream (AMTD 362.1km)",
       "no": "A4260518",
       "ts_id": "363728010",
-      "time": "2026-09-09T00:30:00.000+10:00",
-      "volume_ML": 26827.155,
+      "time": "2026-09-10T00:30:00.000+10:00",
+      "volume_ML": 26747.117,
       "lat": -34.077205,
       "lon": 139.932137,
-      "state": "SA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 6.088,
-          "time": "2026-09-09T00:30:00.000+10:00"
-        },
-        {
-          "parameter": "Water Temperature",
-          "unit": "degree Celsius",
-          "value": 15.79,
-          "time": "2026-09-09T00:30:00.000+10:00"
-        }
-      ]
+      "state": "SA"
     },
     {
       "name": "River Murray at Lock 1 Upstream (AMTD 274.3km)",
@@ -4784,64 +1962,34 @@
       "volume_ML": 28005.06,
       "lat": -34.349958,
       "lon": 139.615551,
-      "state": "SA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 3.207,
-          "time": "2026-09-09T00:30:00.000+10:00"
-        },
-        {
-          "parameter": "Water Temperature",
-          "unit": "degree Celsius",
-          "value": 15.71,
-          "time": "2026-09-07T00:30:00.000+10:00"
-        }
-      ]
+      "state": "SA"
     },
     {
       "name": "River Murray at Lock 3 Upstream (AMTD 431.4km)",
       "no": "A4260516",
       "ts_id": "363630010",
-      "time": "2026-09-09T00:30:00.000+10:00",
-      "volume_ML": 36748.578,
+      "time": "2026-09-10T00:30:00.000+10:00",
+      "volume_ML": 36971.284,
       "lat": -34.18797,
       "lon": 140.359097,
-      "state": "SA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 9.784,
-          "time": "2026-09-09T00:30:00.000+10:00"
-        }
-      ]
+      "state": "SA"
     },
     {
       "name": "Teemburra Dam",
       "no": "125015A",
       "ts_id": "299089010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 146265.519,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 146161.216,
       "lat": -21.21755,
       "lon": 148.66505,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 289.881,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
+      "state": "QLD"
     },
     {
       "name": "Bedford Weir",
       "no": "130104A",
       "ts_id": "299227010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 18155.804,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 18193.431,
       "lat": -23.3739,
       "lon": 148.84075,
       "state": "QLD",
@@ -4849,8 +1997,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 122.849,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 122.859,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -4858,8 +2006,8 @@
       "name": "Ben Andersen HW",
       "no": "136020A",
       "ts_id": "300886010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 20904.449,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 21290.689,
       "lat": -24.93,
       "lon": 152.25525,
       "state": "QLD",
@@ -4867,8 +2015,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 2.675,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 2.732,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -4876,8 +2024,8 @@
       "name": "Silverleaf Weir HW",
       "no": "136205A",
       "ts_id": "301355010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 461.023,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 459.203,
       "lat": -26.165709,
       "lon": 151.81449,
       "state": "QLD",
@@ -4885,8 +2033,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 263.732,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 263.724,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -4894,8 +2042,8 @@
       "name": "Tinaroo Falls Dam",
       "no": "110014A",
       "ts_id": "298467010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 427383.86,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 426915.767,
       "lat": -17.164313997,
       "lon": 145.546398995,
       "state": "QLD",
@@ -4903,8 +2051,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 670.088,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 670.075,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -4912,8 +2060,8 @@
       "name": "Val Bird Weir",
       "no": "119008A",
       "ts_id": "298543010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 620.303,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 601.664,
       "lat": -19.562898,
       "lon": 147.095823,
       "state": "QLD",
@@ -4921,8 +2069,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 6.711,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 6.677,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -4930,8 +2078,8 @@
       "name": "Callide Dam (Intake)",
       "no": "130314B",
       "ts_id": "299812010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 27972.569,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 27905.927,
       "lat": -24.366451,
       "lon": 150.617484,
       "state": "QLD",
@@ -4939,8 +2087,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 202.594,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 202.578,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -4948,8 +2096,8 @@
       "name": "Glebe Weir HW",
       "no": "130338A",
       "ts_id": "299945010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 2637.882,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 2258.123,
       "lat": -25.4633,
       "lon": 150.0344,
       "state": "QLD",
@@ -4957,8 +2105,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 165.235,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 164.893,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -4966,8 +2114,8 @@
       "name": "Moura Weir",
       "no": "130350B",
       "ts_id": "300088010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 6879.104,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 6550.146,
       "lat": -24.61006,
       "lon": 149.94202,
       "state": "QLD",
@@ -4975,8 +2123,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 104.321,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 104.144,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -4984,8 +2132,8 @@
       "name": "Kolan Barrage HW",
       "no": "135010B",
       "ts_id": "300630010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 3596.397,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 3646.33,
       "lat": -24.7849,
       "lon": 152.18905,
       "state": "QLD",
@@ -4993,8 +2141,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 2.114,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 2.138,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -5002,8 +2150,8 @@
       "name": "Giru Weir",
       "no": "119007A",
       "ts_id": "298505010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 756.494,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 726.934,
       "lat": -19.510482,
       "lon": 147.112145,
       "state": "QLD",
@@ -5011,8 +2159,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 3.447,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 3.397,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -5020,8 +2168,8 @@
       "name": "Eungella Dam HW",
       "no": "120211A",
       "ts_id": "298752010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 109693.606,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 109657.604,
       "lat": -21.13809,
       "lon": 148.387649,
       "state": "QLD",
@@ -5029,8 +2177,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 562.309,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 562.305,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -5038,8 +2186,8 @@
       "name": "Kinchant Dam HW",
       "no": "126004A",
       "ts_id": "299144010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 59965.702,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 59757.69,
       "lat": -21.21272222,
       "lon": 148.8993889,
       "state": "QLD",
@@ -5047,8 +2195,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 56.906,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 56.882,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -5056,8 +2204,8 @@
       "name": "John Goleby Weir HW",
       "no": "136120A",
       "ts_id": "301298010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 1220.903,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 1216.341,
       "lat": -25.254314,
       "lon": 151.145612,
       "state": "QLD",
@@ -5065,8 +2213,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 166.912,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 166.903,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -5074,8 +2222,8 @@
       "name": "Peter Faust Dam HW",
       "no": "122010A",
       "ts_id": "298913010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 466500.34,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 466036.666,
       "lat": -20.36680556,
       "lon": 148.3823056,
       "state": "QLD",
@@ -5083,8 +2231,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 85.014,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 85.002,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -5092,8 +2240,8 @@
       "name": "Burdekin Falls Dam",
       "no": "120016A",
       "ts_id": "298709010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 1669205.119,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 1666654.359,
       "lat": -20.646852,
       "lon": 147.13696,
       "state": "QLD",
@@ -5101,8 +2249,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 153.085,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 153.072,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -5110,8 +2258,8 @@
       "name": "Dawson at Theodore",
       "no": "130305A",
       "ts_id": "299774010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 4507.376,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 4487.188,
       "lat": -24.951,
       "lon": 150.07385,
       "state": "QLD",
@@ -5119,8 +2267,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 133.369,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 133.347,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -5128,8 +2276,8 @@
       "name": "Kroombit Dam",
       "no": "130360A",
       "ts_id": "300330010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 162.888,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 161.752,
       "lat": -24.41608333,
       "lon": 150.7721389,
       "state": "QLD",
@@ -5137,8 +2285,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 253.23,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 253.219,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -5146,8 +2294,8 @@
       "name": "Paradise Dam",
       "no": "136024A",
       "ts_id": "300979010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 157890.037,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 157241.176,
       "lat": -25.35111111,
       "lon": 151.9195,
       "state": "QLD",
@@ -5155,8 +2303,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 61.004,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 60.961,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -5164,8 +2312,8 @@
       "name": "Bowen River Weir",
       "no": "120299A",
       "ts_id": "298830010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 799.738,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 779.469,
       "lat": -20.74125,
       "lon": 147.949,
       "state": "QLD",
@@ -5173,8 +2321,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 125.374,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 125.326,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -5182,8 +2330,8 @@
       "name": "Mirani Weir HW",
       "no": "125008A",
       "ts_id": "298989010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 2876.582,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 2881.177,
       "lat": -21.17788,
       "lon": 148.83,
       "state": "QLD",
@@ -5191,8 +2339,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 45.411,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 45.417,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -5200,8 +2348,8 @@
       "name": "Tartrus Weir",
       "no": "130109A",
       "ts_id": "299303010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 11278.845,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 11261.444,
       "lat": -22.955783,
       "lon": 149.423351,
       "state": "QLD",
@@ -5209,8 +2357,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 81.486,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 81.479,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -5218,8 +2366,8 @@
       "name": "Fairbairn Dam",
       "no": "130216A",
       "ts_id": "299454010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 375377.784,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 373969.531,
       "lat": -23.65246,
       "lon": 148.07425,
       "state": "QLD",
@@ -5227,8 +2375,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 195.948,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 195.929,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -5236,8 +2384,8 @@
       "name": "Bucca Weir",
       "no": "135008A",
       "ts_id": "300520010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 8581.804,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 8576.937,
       "lat": -24.8594,
       "lon": 152.0716,
       "state": "QLD",
@@ -5245,8 +2393,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 14.905,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 14.903,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -5254,8 +2402,8 @@
       "name": "Fred Haigh Dam",
       "no": "135009A",
       "ts_id": "300575010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 526691.988,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 526153.463,
       "lat": -24.87195,
       "lon": 151.84938,
       "state": "QLD",
@@ -5263,8 +2411,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 74.884,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 74.873,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -5272,8 +2420,8 @@
       "name": "Ned Churchward Weir",
       "no": "136023A",
       "ts_id": "300924010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 21590.769,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 21342.475,
       "lat": -25.0515,
       "lon": 152.09945,
       "state": "QLD",
@@ -5281,8 +2429,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 17.66,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 17.615,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -5290,8 +2438,8 @@
       "name": "Marian Weir HW",
       "no": "125003A",
       "ts_id": "298951010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 4022.291,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 4022.786,
       "lat": -21.141222,
       "lon": 148.936264,
       "state": "QLD",
@@ -5299,8 +2447,8 @@
         {
           "parameter": "Storage Level",
           "unit": "meter",
-          "value": 31.938,
-          "time": "2026-09-09T00:00:00.000+10:00"
+          "value": 31.939,
+          "time": "2026-09-10T00:00:00.000+10:00"
         }
       ]
     },
@@ -5308,572 +2456,28 @@
       "name": "Claude Wharton HW",
       "no": "136003C",
       "ts_id": "300713010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 7992.682,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 7969.176,
       "lat": -25.61474,
       "lon": 151.595,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 92.869,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
+      "state": "QLD"
     },
     {
       "name": "Wuruma Dam",
       "no": "136113A",
       "ts_id": "301115010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 158424.131,
+      "time": "2026-09-10T00:00:00.000+10:00",
+      "volume_ML": 158339.721,
       "lat": -25.20059,
       "lon": 150.9898,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 227.858,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Cania Dam",
-      "no": "136115A",
-      "ts_id": "301170010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 23542.64,
-      "lat": -24.64975,
-      "lon": 150.98333,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 318.177,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Paradise Dam (Alert)",
-      "no": "136024B",
-      "ts_id": "379877010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 158148.778,
-      "lat": -25.355121,
-      "lon": 151.919634,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 61.021,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Clare Weir HW",
-      "no": "120012A",
-      "ts_id": "298671010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 14475.026,
-      "lat": -19.861348,
-      "lon": 147.233138,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 20.263,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Bingegang Weir HW",
-      "no": "130106A",
-      "ts_id": "299265010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 6960.247,
-      "lat": -23.07335,
-      "lon": 149.035,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Water Temperature",
-          "unit": "degree Celsius",
-          "value": 24.8,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        },
-        {
-          "parameter": "Water Course Discharge",
-          "unit": "cubic meter per second",
-          "value": 0.0,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        },
-        {
-          "parameter": "Water Course Level",
-          "unit": "meter",
-          "value": 7.052,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        },
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 102.426,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Neville Hewitt Weir",
-      "no": "130304B",
-      "ts_id": "299736010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 6757.797,
-      "lat": -24.172467,
-      "lon": 149.813974,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 78.574,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Gyranda Weir",
-      "no": "130354A",
-      "ts_id": "300185010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 12903.893,
-      "lat": -25.2841,
-      "lon": 150.18245,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 156.238,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Coolmunda Dam",
-      "no": "416409A",
-      "ts_id": "302070010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 36177.542,
-      "lat": -28.437064,
-      "lon": 151.217928,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 311.877,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Lemon Tree Weir HW",
-      "no": "422349A",
-      "ts_id": "302538010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 109.407,
-      "lat": -27.75328,
-      "lon": 151.312,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 368.646,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Tinana Barrage HW",
-      "no": "138008A",
-      "ts_id": "301839010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 4875.63,
-      "lat": -25.57206,
-      "lon": 152.7181,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 2.582,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Buckinbah Weir",
-      "no": "4222008A",
-      "ts_id": "302278010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 5199.136,
-      "lat": -28.073286,
-      "lon": 148.754591,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 198.478,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "MacIntyre at W'stone",
-      "no": "416401A",
-      "ts_id": "301915010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 513.233,
-      "lat": -28.467399,
-      "lon": 150.954623,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 262.476,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "MacIntyre at Ben Dor",
-      "no": "416406A",
-      "ts_id": "302015010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 722.477,
-      "lat": -28.560929,
-      "lon": 150.867563,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 249.966,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Joe Sippel Weir HW",
-      "no": "136215A",
-      "ts_id": "301630010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 719.952,
-      "lat": -26.268485,
-      "lon": 152.006693,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 295.028,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Boondooma Dam",
-      "no": "136316A",
-      "ts_id": "301757010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 185633.076,
-      "lat": -26.09559,
-      "lon": 151.433853,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 279.312,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Leslie Dam",
-      "no": "422315B",
-      "ts_id": "302462010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 60564.942,
-      "lat": -28.216593,
-      "lon": 151.91816,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 468.171,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Bjelke-Petersen Dam",
-      "no": "136210A",
-      "ts_id": "301438010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 127790.451,
-      "lat": -26.304324,
-      "lon": 151.978619,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 306.976,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Moolabah Weir",
-      "no": "4222007A",
-      "ts_id": "302217010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 2523.571,
-      "lat": -27.991932,
-      "lon": 148.735166,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 201.257,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Mary River Barrage",
-      "no": "138013B",
-      "ts_id": "301877010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 12484.899,
-      "lat": -25.5884,
-      "lon": 152.62535,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 3.054,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Jack Taylor Weir",
-      "no": "422214A",
-      "ts_id": "302379010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 7658.184,
-      "lat": -28.040651,
-      "lon": 148.571131,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 193.086,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Lake Eucumbene RL",
-      "no": "222538",
-      "ts_id": "324989010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 1922430.104,
-      "lat": -36.13036389,
-      "lon": 148.61397778,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 1140.18,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Beardmore Dam",
-      "no": "422212B",
-      "ts_id": "302344010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 53924.436,
-      "lat": -27.906882,
-      "lon": 148.646734,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 205.869,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Talgai Weir HW",
-      "no": "422340A",
-      "ts_id": "302500010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 398.897,
-      "lat": -27.99138,
-      "lon": 151.75796,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 411.078,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Lake Jindabyne RL",
-      "no": "222540",
-      "ts_id": "325065010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 575965.389,
-      "lat": -36.34611111,
-      "lon": 148.60624722,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 907.439,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Tantangara Dam RL",
-      "no": "410543",
-      "ts_id": "325743010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 40228.375,
-      "lat": -35.79570833,
-      "lon": 148.66319722,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 1212.674,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Kirar Weir HW",
-      "no": "136121A",
-      "ts_id": "363649010",
-      "time": "2026-09-09T00:00:00.000+10:00",
-      "volume_ML": 7688.34,
-      "lat": -25.34556,
-      "lon": 151.079067,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 152.044,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Canning Dam Storage Volume",
-      "no": "ODSS_11933_STAMN.1",
-      "ts_id": "360621010",
-      "time": "2026-09-07T02:00:00.000+10:00",
-      "volume_ML": 58053.44,
-      "lat": -32.176582,
-      "lon": 116.138765,
-      "state": "WA"
-    },
-    {
-      "name": "Logue Brook Wsl",
-      "no": "ODSS_18317_STAMN.1",
-      "ts_id": "360751010",
-      "time": "2026-09-06T02:00:00.000+10:00",
-      "volume_ML": 12351.813,
-      "lat": -32.9983065,
-      "lon": 115.97324,
-      "state": "WA"
-    },
-    {
-      "name": "Ten Mile Bk Wsl",
-      "no": "ODSS_18325_STAMN.1",
-      "ts_id": "360865010",
-      "time": "2026-09-08T02:00:00.000+10:00",
-      "volume_ML": 1327.241,
-      "lat": -33.963617,
-      "lon": 115.1248985,
-      "state": "WA"
-    },
-    {
-      "name": "Samson Bk Wsl",
-      "no": "ODSS_18326_STAMN.1",
-      "ts_id": "360903010",
-      "time": "2026-09-06T02:00:00.000+10:00",
-      "volume_ML": 4627.96,
-      "lat": -32.884366,
-      "lon": 116.0295775,
-      "state": "WA"
-    },
-    {
-      "name": "Waroona Dam Water Level",
-      "no": "ODSS_46394_STAMN.1",
-      "ts_id": "361435010",
-      "time": "2026-09-06T02:00:00.000+10:00",
-      "volume_ML": 4771.503,
-      "lat": -32.8480895,
-      "lon": 115.996525,
-      "state": "WA"
-    },
-    {
-      "name": "Harvey Dam Water Level",
-      "no": "ODSS_45321_STAMN.1",
-      "ts_id": "361321010",
-      "time": "2026-09-06T02:00:00.000+10:00",
-      "volume_ML": 34000.733,
-      "lat": -33.078503,
-      "lon": 115.95149,
-      "state": "WA"
+      "state": "QLD"
     },
     {
       "name": "Victoria Dam Storage Volume",
       "no": "ODSS_11962_STAMN.1",
       "ts_id": "360637010",
-      "time": "2026-09-07T02:00:00.000+10:00",
-      "volume_ML": 7148.015,
+      "time": "2026-09-08T02:00:00.000+10:00",
+      "volume_ML": 7141.745,
       "lat": -32.043836,
       "lon": 116.075355,
       "state": "WA"
@@ -5882,8 +2486,8 @@
       "name": "Serpentine PH Dam Storage Volume",
       "no": "ODSS_11463_STAMN.1",
       "ts_id": "360561010",
-      "time": "2026-09-07T02:00:00.000+10:00",
-      "volume_ML": 1900.365,
+      "time": "2026-09-08T02:00:00.000+10:00",
+      "volume_ML": 1848.345,
       "lat": -32.385145,
       "lon": 116.07399,
       "state": "WA"
@@ -5902,8 +2506,8 @@
       "name": "Drakes Bk Wsl",
       "no": "ODSS_18319_STAMN.1",
       "ts_id": "360789010",
-      "time": "2026-09-06T02:00:00.000+10:00",
-      "volume_ML": 2051.0,
+      "time": "2026-09-08T02:00:00.000+10:00",
+      "volume_ML": 2066.0,
       "lat": -32.8579655,
       "lon": 115.9525355,
       "state": "WA"
@@ -5912,8 +2516,8 @@
       "name": "Glen Mervyn Wsl",
       "no": "ODSS_18332_STAMN.1",
       "ts_id": "360979010",
-      "time": "2026-09-06T02:00:00.000+10:00",
-      "volume_ML": 1222.352,
+      "time": "2026-09-08T02:00:00.000+10:00",
+      "volume_ML": 1228.65,
       "lat": -33.4982675,
       "lon": 116.100211,
       "state": "WA"
@@ -5932,8 +2536,8 @@
       "name": "North Dandalup Dam Storage Volume",
       "no": "ODSS_11418_STAMN.1",
       "ts_id": "360523010",
-      "time": "2026-09-07T02:00:00.000+10:00",
-      "volume_ML": 43339.04,
+      "time": "2026-09-08T02:00:00.000+10:00",
+      "volume_ML": 43373.33,
       "lat": -32.517006,
       "lon": 116.0284705,
       "state": "WA"
@@ -5942,7 +2546,7 @@
       "name": "Serpentine Main Dam Storage Volume",
       "no": "ODSS_11453_STAMN.1",
       "ts_id": "360542010",
-      "time": "2026-09-07T02:00:00.000+10:00",
+      "time": "2026-09-08T02:00:00.000+10:00",
       "volume_ML": 45728.76,
       "lat": -32.459706,
       "lon": 116.152275,
@@ -5952,8 +2556,8 @@
       "name": "Wungong Dam Storage Volume",
       "no": "ODSS_11633_STAMN.1",
       "ts_id": "360580010",
-      "time": "2026-09-07T02:00:00.000+10:00",
-      "volume_ML": 28322.25,
+      "time": "2026-09-08T02:00:00.000+10:00",
+      "volume_ML": 28352.88,
       "lat": -32.2204575,
       "lon": 116.080426,
       "state": "WA"
@@ -5966,105 +2570,57 @@
       "volume_ML": 173285.791,
       "lat": -37.90833333,
       "lon": 146.8,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 76.854,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
+      "state": "VIC"
     },
     {
       "name": "Serpentine Main Dam WSL - Logger",
       "no": "ODSS_45534_WSLAHD.1",
       "ts_id": "370124010",
-      "time": "2026-09-08T02:00:00.000+10:00",
-      "volume_ML": 44719.742,
+      "time": "2026-09-09T02:00:00.000+10:00",
+      "volume_ML": 44706.082,
       "lat": -32.459706,
       "lon": 116.152275,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 200.0,
-          "time": "2026-09-08T02:00:00.000+10:00"
-        }
-      ]
+      "state": "WA"
     },
     {
       "name": "Stirling Wsl",
       "no": "ODSS_18315_WSLAHD.1",
       "ts_id": "370501010",
-      "time": "2026-09-06T02:00:00.000+10:00",
-      "volume_ML": 27111.45,
+      "time": "2026-09-08T02:00:00.000+10:00",
+      "volume_ML": 27318.643,
       "lat": -33.107073,
       "lon": 116.0456435,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 149.967,
-          "time": "2026-09-06T02:00:00.000+10:00"
-        }
-      ]
+      "state": "WA"
     },
     {
       "name": "Scabby Gully Dam Wsl Logger",
       "no": "ODSS_56581_WSLAHD.1",
       "ts_id": "370292010",
-      "time": "2026-09-08T02:00:00.000+10:00",
-      "volume_ML": 1096.333,
+      "time": "2026-09-09T02:00:00.000+10:00",
+      "volume_ML": 1095.111,
       "lat": -34.2788675,
       "lon": 116.04553,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 219.036,
-          "time": "2026-09-08T02:00:00.000+10:00"
-        }
-      ]
+      "state": "WA"
     },
     {
       "name": "Serp. P/Head Water Level - Logger",
       "no": "ODSS_57568_WSLAHD.1",
       "ts_id": "370352010",
-      "time": "2026-09-08T02:00:00.000+10:00",
-      "volume_ML": 1441.99,
+      "time": "2026-09-09T02:00:00.000+10:00",
+      "volume_ML": 1391.71,
       "lat": -32.385145,
       "lon": 116.07399,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 164.218,
-          "time": "2026-09-08T02:00:00.000+10:00"
-        }
-      ]
+      "state": "WA"
     },
     {
       "name": "Drakes Bk Wsl",
       "no": "ODSS_18319_WSLAHD.1",
       "ts_id": "370539010",
-      "time": "2026-09-06T02:00:00.000+10:00",
-      "volume_ML": 2031.1,
+      "time": "2026-09-08T02:00:00.000+10:00",
+      "volume_ML": 2046.05,
       "lat": -32.8579655,
       "lon": 115.9525355,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 70.557,
-          "time": "2026-09-06T02:00:00.000+10:00"
-        }
-      ]
+      "state": "WA"
     },
     {
       "name": "Manjimup Dam Wsl",
@@ -6074,15 +2630,7 @@
       "volume_ML": 1097.196,
       "lat": -34.2788675,
       "lon": 116.04553,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 219.04,
-          "time": "2026-09-06T02:00:00.000+10:00"
-        }
-      ]
+      "state": "WA"
     },
     {
       "name": "Ten Mile Bk Wsl",
@@ -6092,691 +2640,27 @@
       "volume_ML": 1271.739,
       "lat": -33.963617,
       "lon": 115.1248985,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 85.615,
-          "time": "2026-09-08T02:00:00.000+10:00"
-        }
-      ]
+      "state": "WA"
     },
     {
       "name": "Sth Dandalup Wsl-Logger",
       "no": "ODSS_57569_WSLAHD.1",
       "ts_id": "370368010",
-      "time": "2026-09-08T02:00:00.000+10:00",
-      "volume_ML": 11753.435,
+      "time": "2026-09-09T02:00:00.000+10:00",
+      "volume_ML": 11740.2,
       "lat": -32.6760495,
       "lon": 116.100205,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 240.959,
-          "time": "2026-09-08T02:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Serpentine Main Dam WSL - Ranger",
-      "no": "ODSS_21139_WSLAHD.1",
-      "ts_id": "370710010",
-      "time": "2026-09-03T02:00:00.000+10:00",
-      "volume_ML": 44481.039,
-      "lat": -32.459706,
-      "lon": 116.152275,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 199.948,
-          "time": "2026-09-03T02:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Canning Wsl-Ranger",
-      "no": "ODSS_21166_WSLAHD.1",
-      "ts_id": "370767010",
-      "time": "2026-09-08T02:00:00.000+10:00",
-      "volume_ML": 57991.659,
-      "lat": -32.176582,
-      "lon": 116.138765,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 196.756,
-          "time": "2026-09-08T02:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Harvey Dam Water Level-Manual",
-      "no": "ODSS_55912_WSLAHD.1",
-      "ts_id": "370995010",
-      "time": "2026-09-06T02:00:00.000+10:00",
-      "volume_ML": 33226.213,
-      "lat": -33.078503,
-      "lon": 115.95149,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 73.273,
-          "time": "2026-09-06T02:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Mundaring Wsl-Logger",
-      "no": "ODSS_53437_WSLAHD.1",
-      "ts_id": "370216010",
-      "time": "2026-09-08T02:00:00.000+10:00",
-      "volume_ML": 6308.602,
-      "lat": -31.9913885,
-      "lon": 116.215395,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 130.006,
-          "time": "2026-09-08T02:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Wellington Wsl Logger",
-      "no": "ODSS_57614_WSLAHD.1",
-      "ts_id": "370406010",
-      "time": "2026-09-08T02:00:00.000+10:00",
-      "volume_ML": 77977.538,
-      "lat": -33.385948,
-      "lon": 116.0100675,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 157.943,
-          "time": "2026-09-08T02:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Harding WSL - GIS logger at Damsite",
-      "no": "ODSS_57389_WSLAHD.1",
-      "ts_id": "370330010",
-      "time": "2026-09-08T02:00:00.000+10:00",
-      "volume_ML": 51915.037,
-      "lat": -21.0118435,
-      "lon": 117.1161005,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 59.109,
-          "time": "2026-09-08T02:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Mundaring Wsl-Ranger",
-      "no": "ODSS_21168_WSLAHD.1",
-      "ts_id": "370808010",
-      "time": "2026-09-08T02:00:00.000+10:00",
-      "volume_ML": 6308.023,
-      "lat": -31.9913885,
-      "lon": 116.215395,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 130.006,
-          "time": "2026-09-08T02:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Churchman Bk Wsl-Logger",
-      "no": "ODSS_53443_WSLAHD.1",
-      "ts_id": "370236010",
-      "time": "2026-09-08T02:00:00.000+10:00",
-      "volume_ML": 991.727,
-      "lat": -32.152885,
-      "lon": 116.081425,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 197.564,
-          "time": "2026-09-08T02:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Quickup Wsl",
-      "no": "ODSS_18327_WSLAHD.1",
-      "ts_id": "370580010",
-      "time": "2026-08-25T02:00:00.000+10:00",
-      "volume_ML": 852.301,
-      "lat": -34.8991375,
-      "lon": 117.3856875,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 44.516,
-          "time": "2026-08-25T02:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Harris Wsl",
-      "no": "ODSS_18331_WSLAHD.1",
-      "ts_id": "370596010",
-      "time": "2026-09-06T02:00:00.000+10:00",
-      "volume_ML": 10420.485,
-      "lat": -33.215313,
-      "lon": 116.139168,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 212.568,
-          "time": "2026-09-06T02:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Harris Wsl - Logger",
-      "no": "ODSS_56221_WSLAHD.1",
-      "ts_id": "370273010",
-      "time": "2026-09-08T02:00:00.000+10:00",
-      "volume_ML": 10373.149,
-      "lat": -33.215313,
-      "lon": 116.139168,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 212.55,
-          "time": "2026-09-08T02:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Canning WSL - Logger Data",
-      "no": "ODSS_45529_WSLAHD.1",
-      "ts_id": "370045010",
-      "time": "2026-09-08T02:00:00.000+10:00",
-      "volume_ML": 58008.887,
-      "lat": -32.176582,
-      "lon": 116.138765,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 196.76,
-          "time": "2026-09-08T02:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Wungong Water Level-Logger",
-      "no": "ODSS_57570_WSLAHD.1",
-      "ts_id": "370387010",
-      "time": "2026-09-08T02:00:00.000+10:00",
-      "volume_ML": 24846.632,
-      "lat": -32.2204575,
-      "lon": 116.080426,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 187.903,
-          "time": "2026-09-08T02:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Glen Mervyn Wsl",
-      "no": "ODSS_18332_WSLAHD.1",
-      "ts_id": "370615010",
-      "time": "2026-09-06T02:00:00.000+10:00",
-      "volume_ML": 1221.672,
-      "lat": -33.4982675,
-      "lon": 116.100211,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 199.028,
-          "time": "2026-09-06T02:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Sth Dandalup Wsl-Ranger",
-      "no": "ODSS_21137_WSLAHD.1",
-      "ts_id": "370672010",
-      "time": "2026-09-07T02:00:00.000+10:00",
-      "volume_ML": 11846.428,
-      "lat": -32.6760495,
-      "lon": 116.100205,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 240.98,
-          "time": "2026-09-07T02:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Drakes Bk Water level Logger",
-      "no": "ODSS_58804_WSLAHD.1",
-      "ts_id": "370444010",
-      "time": "2026-09-08T02:00:00.000+10:00",
-      "volume_ML": 2048.426,
-      "lat": -32.8579655,
-      "lon": 115.9525355,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 70.601,
-          "time": "2026-09-08T02:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Logue Brook Wsl",
-      "no": "ODSS_18317_WSLAHD.1",
-      "ts_id": "370520010",
-      "time": "2026-09-06T02:00:00.000+10:00",
-      "volume_ML": 11971.953,
-      "lat": -32.9983065,
-      "lon": 115.97324,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 227.983,
-          "time": "2026-09-06T02:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Wungong Water Level-Ranger",
-      "no": "ODSS_21140_WSLAHD.1",
-      "ts_id": "370729010",
-      "time": "2026-09-08T02:00:00.000+10:00",
-      "volume_ML": 24891.527,
-      "lat": -32.2204575,
-      "lon": 116.080426,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 187.925,
-          "time": "2026-09-08T02:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Wellington Wsl",
-      "no": "ODSS_18320_WSLAHD.1",
-      "ts_id": "370558010",
-      "time": "2026-09-06T02:00:00.000+10:00",
-      "volume_ML": 77536.487,
-      "lat": -33.385948,
-      "lon": 116.0100675,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 157.894,
-          "time": "2026-09-06T02:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Harding Dam Water Levels - Site Readings",
-      "no": "ODSS_46616_WSLAHD.1",
-      "ts_id": "370957010",
-      "time": "2026-09-08T02:00:00.000+10:00",
-      "volume_ML": 51929.676,
-      "lat": -21.0118435,
-      "lon": 117.1161005,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 59.111,
-          "time": "2026-09-08T02:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "New Victoria WSL - Logger Data",
-      "no": "ODSS_45533_WSLAHD.1",
-      "ts_id": "370102010",
-      "time": "2026-09-08T02:00:00.000+10:00",
-      "volume_ML": 7096.043,
-      "lat": -32.043836,
-      "lon": 116.075355,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 198.676,
-          "time": "2026-09-08T02:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Nth Dandalup Water Level-Ranger",
-      "no": "ODSS_21138_WSLAHD.1",
-      "ts_id": "370692010",
-      "time": "2026-09-08T02:00:00.000+10:00",
-      "volume_ML": 42354.499,
-      "lat": -32.517006,
-      "lon": 116.0284705,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 211.5,
-          "time": "2026-09-08T02:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Samson Bk Wsl",
-      "no": "ODSS_18326_WSLAHD.1",
-      "ts_id": "369513010",
-      "time": "2026-09-06T02:00:00.000+10:00",
-      "volume_ML": 4536.88,
-      "lat": -32.884366,
-      "lon": 116.0295775,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 240.847,
-          "time": "2026-09-06T02:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Nth Dandalup WSL - Logger Data",
-      "no": "ODSS_45531_WSLAHD.1",
-      "ts_id": "370064010",
-      "time": "2026-09-08T02:00:00.000+10:00",
-      "volume_ML": 42339.066,
-      "lat": -32.517006,
-      "lon": 116.0284705,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 211.495,
-          "time": "2026-09-08T02:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Waroona Dam Water Level Logger",
-      "no": "ODSS_47359_WSLAHD.1",
-      "ts_id": "370140010",
-      "time": "2026-09-08T02:00:00.000+10:00",
-      "volume_ML": 4755.092,
-      "lat": -32.8480895,
-      "lon": 115.996525,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 201.186,
-          "time": "2026-09-08T02:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Moochalabra WSL Logged DOW",
-      "no": "ODSS_55089_WSLAHD.1",
-      "ts_id": "370254010",
-      "time": "2026-09-08T02:00:00.000+10:00",
-      "volume_ML": 1514.243,
-      "lat": -15.6183465,
-      "lon": 128.102765,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 24.203,
-          "time": "2026-09-08T02:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Moochalabra WSL",
-      "no": "ODSS_39563_WSLAHD.1",
-      "ts_id": "370881010",
-      "time": "2026-08-31T02:00:00.000+10:00",
-      "volume_ML": 1550.989,
-      "lat": -15.6183465,
-      "lon": 128.102765,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 24.359,
-          "time": "2026-08-31T02:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Waroona Dam Water Level",
-      "no": "ODSS_46394_WSLAHD.1",
-      "ts_id": "370938010",
-      "time": "2026-09-06T02:00:00.000+10:00",
-      "volume_ML": 4771.503,
-      "lat": -32.8480895,
-      "lon": 115.996525,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 201.21,
-          "time": "2026-09-06T02:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "CARDINIA RES HG",
-      "no": "228263A",
-      "ts_id": "290596010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 184589.778,
-      "lat": -37.970333,
-      "lon": 145.400285,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 46.219,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "DADENONG MR WR4",
-      "no": "228269A",
-      "ts_id": "290786010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 64.944,
-      "lat": -37.947418,
-      "lon": 145.201713,
-      "state": "VIC"
-    },
-    {
-      "name": "JACKSON @ ROSSLYNNE",
-      "no": "230216A",
-      "ts_id": "357363010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 15453.707,
-      "lat": -37.4748,
-      "lon": 144.56893,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 445.107,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "TANJIL @ BLUE ROCK",
-      "no": "226230A",
-      "ts_id": "356493010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 171139.542,
-      "lat": -38.07768889,
-      "lon": 146.2279389,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 136.779,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "LA TROBE R NARRACAN",
-      "no": "226236A",
-      "ts_id": "356556010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 5463.637,
-      "lat": -38.17110375,
-      "lon": 146.3401354,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 47.071,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "PYKES @ PYKES RESERV",
-      "no": "231222A",
-      "ts_id": "357999010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 22207.391,
-      "lat": -37.61,
-      "lon": 144.295,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 396.614,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Harvey Dam Water Level-Logger",
-      "no": "ODSS_47866_WSLAHD.1",
-      "ts_id": "370178010",
-      "time": "2026-09-08T02:00:00.000+10:00",
-      "volume_ML": 33172.533,
-      "lat": -33.078503,
-      "lon": 115.95149,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 73.26,
-          "time": "2026-09-08T02:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "PYRITES @ MERRIMU",
-      "no": "231223A",
-      "ts_id": "358082010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 27954.882,
-      "lat": -37.63333333,
-      "lon": 144.4916667,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 172.511,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
+      "state": "WA"
     },
     {
       "name": "Glen Mervyn Wsl - Logger",
       "no": "ODSS_47683_WSLAHD.1",
       "ts_id": "370159010",
-      "time": "2026-09-08T02:00:00.000+10:00",
-      "volume_ML": 1243.967,
+      "time": "2026-09-09T02:00:00.000+10:00",
+      "volume_ML": 1246.425,
       "lat": -33.4982675,
       "lon": 116.100211,
-      "state": "WA",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 199.105,
-          "time": "2026-09-08T02:00:00.000+10:00"
-        }
-      ]
+      "state": "WA"
     },
     {
       "name": "WERRIBEE R MELTON RS",
@@ -6786,73 +2670,27 @@
       "volume_ML": 10673.866,
       "lat": -37.74471,
       "lon": 144.56932,
-      "state": "VIC",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 80.805,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
+      "state": "VIC"
     },
     {
       "name": "PIKE CREEK AT GLENLYON DAM - STORAGE GAUGE",
       "no": "416315A",
       "ts_id": "721367010",
-      "time": "2026-09-08T00:00:00.000+10:00",
-      "volume_ML": 116261.3,
+      "time": "2026-09-09T00:00:00.000+10:00",
+      "volume_ML": 116148.11,
       "lat": -28.97,
       "lon": 151.45,
-      "state": "QLD",
-      "parameters": [
-        {
-          "parameter": "Water Course Level",
-          "unit": "meter",
-          "value": 402.052,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        },
-        {
-          "parameter": "Water Course Discharge",
-          "unit": "cubic meter per second",
-          "value": 0.0,
-          "time": "2026-09-09T00:00:00.000+10:00"
-        },
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 402.06,
-          "time": "2026-09-08T00:00:00.000+10:00"
-        }
-      ]
+      "state": "QLD"
     },
     {
       "name": "Lake Victoria at Outlet Regulator",
       "no": "A4260553",
       "ts_id": "743718010",
-      "time": "2026-09-09T00:30:00.000+10:00",
-      "volume_ML": 629640.0,
+      "time": "2026-09-10T00:30:00.000+10:00",
+      "volume_ML": 630169.56,
       "lat": -34.038948,
       "lon": 141.276493,
-      "state": "NSW",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 26.61,
-          "time": "2026-09-09T00:30:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "Lake Argyle Dam",
-      "no": "ODSS_22241_STAMN.1",
-      "ts_id": "361226010",
-      "time": "2026-09-02T02:00:00.000+10:00",
-      "volume_ML": 10445853.538,
-      "lat": -16.1135755,
-      "lon": 128.732855,
-      "state": "WA"
+      "state": "NSW"
     }
   ]
 }
