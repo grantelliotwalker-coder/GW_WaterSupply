@@ -12,7 +12,8 @@ import socket
 import sys
 import time
 
-from datetime import datetime, timezone
+from datetime import date, datetime, timedelta, timezone
+from zoneinfo import ZoneInfo
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -28,8 +29,13 @@ HEADERS = {
 }
 
 
-def get_json(params, retries=3, backoff_factor=2):
-    """Fetches JSON from BoM KiWIS API with automatic retries on timeout/network failures."""
+def get_json(params, retries=6, base_delay=5, max_delay=90):
+    """Fetches JSON from BoM KiWIS API with automatic retries.
+
+    BoM's server has short outages where it returns HTTP 500 or times out for a
+    minute or two. Retries back off 5s, 10s, 20s, 40s, 80s (~2.5 min total)
+    so a brief blip doesn't fail the whole run. 4xx errors (other than 429)
+    mean the request itself is wrong, so those are not retried."""
     qs = urllib.parse.urlencode({
         "service": "kisters",
         "type": "queryServices",
@@ -47,13 +53,23 @@ def get_json(params, retries=3, backoff_factor=2):
             if isinstance(data, dict) and data.get("type") == "error":
                 raise RuntimeError(data.get("message", "Water Data Online returned an error"))
             return data
-        except (TimeoutError, urllib.error.URLError, http.client.RemoteDisconnected, socket.timeout) as e:
+        except (TimeoutError, urllib.error.URLError, http.client.HTTPException,
+                ConnectionError, socket.timeout, json.JSONDecodeError, UnicodeDecodeError) as e:
+            if isinstance(e, urllib.error.HTTPError) and 400 <= e.code < 500 and e.code != 429:
+                raise
             if attempt == retries - 1:
                 print(f"Request failed after {retries} attempts: {e}", file=sys.stderr)
                 raise
-            sleep_time = backoff_factor ** (attempt + 1)
-            print(f"  [Attempt {attempt + 1}/{retries}] Request timed out/failed ({e}). Retrying in {sleep_time}s...", file=sys.stderr)
+            sleep_time = min(base_delay * 2 ** attempt, max_delay)
+            print(f"  [Attempt {attempt + 1}/{retries}] Request failed ({e}). Retrying in {sleep_time}s...", file=sys.stderr)
             time.sleep(sleep_time)
+
+
+def local_today():
+    """History is keyed by the Sydney calendar date, not UTC. GitHub often starts
+    scheduled runs hours late, and with UTC dates a late run could cross midnight
+    UTC, leaving a day with no entry and the next day with two runs."""
+    return datetime.now(ZoneInfo("Australia/Sydney")).date().isoformat()
 
 
 def to_objects(table):
@@ -73,7 +89,7 @@ def list_storage_series():
     return to_objects(raw)
 
 
-def fetch_values(ids):
+def fetch_values(ids, retries=6):
     raw = get_json({
         "request": "getTimeseriesValues",
         "ts_id": ",".join(ids),
@@ -81,7 +97,7 @@ def fetch_values(ids):
         "returnfields": "Timestamp,Value",
         "metadata": "true",
         "md_returnfields": "ts_id",
-    })
+    }, retries=retries)
     out = {}
     for series in raw if isinstance(raw, list) else []:
         pts = [p for p in series.get("data", []) if p[1] is not None]
@@ -216,40 +232,73 @@ def main():
     print(f"Found {len(series)} storage series.", file=sys.stderr)
 
     rows = []
-    for i in range(0, len(series), CHUNK):
-        batch = series[i:i + CHUNK]
+    batches = [series[i:i + CHUNK] for i in range(0, len(series), CHUNK)]
+    failed = []
+    for n, batch in enumerate(batches):
         try:
             values = fetch_values([str(s["ts_id"]) for s in batch])
         except Exception as e:
-            print(f"  WARNING: Failed to fetch batch starting at index {i}: {e}", file=sys.stderr)
+            print(f"  WARNING: batch {n + 1}/{len(batches)} failed: {e} — will retry at the end", file=sys.stderr)
+            failed.append(batch)
             continue
-
-        for s in batch:
-            pt = values.get(str(s["ts_id"]))
-            if not pt:
-                continue
-            try:
-                v = float(pt[1])
-            except (TypeError, ValueError):
-                continue
-            if v < 0:
-                continue
-            lat, lon = normalise_coord(s.get("station_latitude"), s.get("station_longitude"), s.get("station_no"))
-            rows.append({
-                "name": s.get("station_name"),
-                "no": s.get("station_no"),
-                "ts_id": s.get("ts_id"),
-                "time": pt[0],
-                "volume_ML": v,
-                "lat": lat,
-                "lon": lon,
-            })
-        print(f"  {min(i + CHUNK, len(series))}/{len(series)} series processed", file=sys.stderr)
+        rows.extend(rows_from_batch(batch, values))
+        print(f"  {min((n + 1) * CHUNK, len(series))}/{len(series)} series processed", file=sys.stderr)
         time.sleep(0.3)  # be polite to BoM's server
+
+    if failed:
+        print(f"Retrying {len(failed)} failed batch(es) after a 60s pause...", file=sys.stderr)
+        time.sleep(60)
+        for batch in failed:
+            try:
+                rows.extend(rows_from_batch(batch, fetch_values([str(s["ts_id"]) for s in batch])))
+            except Exception as e:
+                print(f"  WARNING: batch still failing ({e}); {len(batch)} series missing this run", file=sys.stderr)
+            time.sleep(1)
 
     if not rows:
         raise SystemExit("No rows were returned — aborting without overwriting data.json")
 
+    # Sanity check: if this run is missing a big chunk of stations compared with
+    # the last good run, BoM was probably having problems. Saving it would log a
+    # fake drop in the national total, so keep yesterday's files instead.
+    try:
+        with open("data.json") as f:
+            prev_raw = json.load(f).get("raw_count") or 0
+    except (FileNotFoundError, json.JSONDecodeError):
+        prev_raw = 0
+    if prev_raw and len(rows) < 0.9 * prev_raw:
+        raise SystemExit(f"Only {len(rows)} readings returned vs {prev_raw} last run — "
+                         "aborting without overwriting data.json")
+
+    finish(rows)
+
+
+def rows_from_batch(batch, values):
+    rows = []
+    for s in batch:
+        pt = values.get(str(s["ts_id"]))
+        if not pt:
+            continue
+        try:
+            v = float(pt[1])
+        except (TypeError, ValueError):
+            continue
+        if v < 0:
+            continue
+        lat, lon = normalise_coord(s.get("station_latitude"), s.get("station_longitude"), s.get("station_no"))
+        rows.append({
+            "name": s.get("station_name"),
+            "no": s.get("station_no"),
+            "ts_id": s.get("ts_id"),
+            "time": pt[0],
+            "volume_ML": v,
+            "lat": lat,
+            "lon": lon,
+        })
+    return rows
+
+
+def finish(rows):
     raw_total_ML = sum(r["volume_ML"] for r in rows)
 
     by_number = {}
@@ -335,7 +384,7 @@ def main():
     except (FileNotFoundError, json.JSONDecodeError):
         history = []
 
-    today = output["generated_at"][:10]
+    today = local_today()
     history = [h for h in history if h.get("date") != today]
     history.append({
         "date": today,
@@ -361,6 +410,11 @@ def main():
         print("data.json and history.json are still valid and will be committed; "
               "station-level parameters/history were not updated this run.", file=sys.stderr)
 
+    try:
+        backfill_gaps(kept)
+    except Exception as e:
+        print(f"WARNING: backfill failed ({e}); today's data is unaffected.", file=sys.stderr)
+
 
 OTHER_PARAMS = [
     "Water Course Level", "Water Course Discharge", "Storage Level",
@@ -375,7 +429,7 @@ def list_all_series_for_station(station_no):
         "station_no": station_no,
         "ts_name": TS_NAME,
         "returnfields": "station_no,parametertype_name,ts_id,ts_unitname",
-    })
+    }, retries=2)
     return to_objects(raw)
 
 
@@ -384,20 +438,37 @@ def fetch_extra_parameters_and_history(kept_stations):
 
     station_series = {}
     all_extra_ids = []
-    for idx, st in enumerate(kept_stations):
-        no = st["no"]
-        try:
-            series = list_all_series_for_station(no)
-        except Exception as e:
-            print(f"  skip {no}: {e}", file=sys.stderr)
-            continue
+
+    def list_station(no):
+        series = list_all_series_for_station(no)
         wanted = [s for s in series if s.get("parametertype_name") in OTHER_PARAMS]
         station_series[no] = wanted
         for s in wanted:
             all_extra_ids.append((no, str(s["ts_id"]), s.get("parametertype_name"), s.get("ts_unitname")))
+
+    skipped = []
+    for idx, st in enumerate(kept_stations):
+        no = st["no"]
+        try:
+            list_station(no)
+        except Exception as e:
+            print(f"  skip {no}: {e}", file=sys.stderr)
+            skipped.append(no)
         if (idx + 1) % 25 == 0:
             print(f"  listed {idx + 1}/{len(kept_stations)} stations", file=sys.stderr)
         time.sleep(0.15)
+
+    if skipped:
+        print(f"Retrying {len(skipped)} skipped station(s) after a 60s pause...", file=sys.stderr)
+        time.sleep(60)
+        still = 0
+        for no in skipped:
+            try:
+                list_station(no)
+            except Exception:
+                still += 1
+            time.sleep(0.5)
+        print(f"  {len(skipped) - still} recovered, {still} still missing", file=sys.stderr)
 
     print(f"Found {len(all_extra_ids)} extra parameter series across {len(station_series)} stations. Fetching values...", file=sys.stderr)
 
@@ -406,7 +477,7 @@ def fetch_extra_parameters_and_history(kept_stations):
     for i in range(0, len(all_ts_ids), CHUNK):
         batch_ids = all_ts_ids[i:i + CHUNK]
         try:
-            values_by_ts.update(fetch_values(batch_ids))
+            values_by_ts.update(fetch_values(batch_ids, retries=3))
         except Exception as e:
             print(f"  values batch failed: {e}", file=sys.stderr)
         time.sleep(0.2)
@@ -445,7 +516,7 @@ def fetch_extra_parameters_and_history(kept_stations):
     except (FileNotFoundError, json.JSONDecodeError):
         station_history = {}
 
-    today = datetime.now(timezone.utc).date().isoformat()
+    today = local_today()
     for st in kept_stations:
         no = st["no"]
         point = {"date": today, "volume_ML": st["volume_ML"]}
@@ -461,6 +532,159 @@ def fetch_extra_parameters_and_history(kept_stations):
         json.dump(station_history, f, indent=2)
 
     print(f"Wrote station_history.json ({len(station_history)} stations tracked)", file=sys.stderr)
+
+
+# ---------------------------------------------------------------------------
+# Backfill: fill in any days missing from history.json / station_history.json
+# using BoM's own past daily readings. Runs at the end of every update, so a
+# failed or skipped day gets repaired automatically on the next good run.
+# ---------------------------------------------------------------------------
+BACKFILL_MAX_DAYS = 400   # don't reach back further than this
+STALE_DAYS = 30           # same rule as the live fetch: latest reading within 30 days
+
+
+def fetch_range(ids, start, end):
+    """Daily readings for each ts_id between two dates: {ts_id: [(date, value), ...]}"""
+    raw = get_json({
+        "request": "getTimeseriesValues",
+        "ts_id": ",".join(ids),
+        "from": start,
+        "to": end,
+        "returnfields": "Timestamp,Value",
+        "metadata": "true",
+        "md_returnfields": "ts_id",
+    }, retries=4)
+    out = {}
+    for series in raw if isinstance(raw, list) else []:
+        pts = []
+        for ts, val in series.get("data", []):
+            try:
+                pts.append((ts[:10], float(val)))
+            except (TypeError, ValueError):
+                continue
+        out[str(series["ts_id"])] = sorted(pts)
+    return out
+
+
+def value_as_of(points, day):
+    """Mimic what a live run on `day` would have seen: the latest reading dated
+    before that day and no more than STALE_DAYS old. points = sorted [(date, v)]."""
+    cutoff = date.fromisoformat(day)
+    best = None
+    for d, v in points:
+        dd = date.fromisoformat(d)
+        if dd >= cutoff:
+            break
+        if (cutoff - dd).days <= STALE_DAYS and v >= 0:
+            best = v
+    return best
+
+
+def missing_dates(existing, first, last):
+    have = set(existing)
+    d = date.fromisoformat(first)
+    end = date.fromisoformat(last)
+    out = []
+    while d <= end:
+        if d.isoformat() not in have:
+            out.append(d.isoformat())
+        d += timedelta(days=1)
+    return out
+
+
+def backfill_gaps(kept_stations):
+    today = local_today()
+    earliest_allowed = (date.fromisoformat(today) - timedelta(days=BACKFILL_MAX_DAYS)).isoformat()
+
+    with open("history.json") as f:
+        history = json.load(f)
+    try:
+        with open("station_history.json") as f:
+            station_history = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        station_history = {}
+
+    hist_dates = [h["date"] for h in history]
+    if not hist_dates:
+        return
+    first = max(min(hist_dates), earliest_allowed)
+    total_gaps = missing_dates(hist_dates, first, today)
+
+    # Each station's own gaps (a station may be missing days the total isn't)
+    station_gaps = {}
+    for st in kept_stations:
+        series = station_history.get(st["no"], [])
+        if series:
+            s_first = max(series[0]["date"], earliest_allowed)
+            g = missing_dates([p["date"] for p in series], s_first, today)
+            if g:
+                station_gaps[st["no"]] = g
+
+    if not total_gaps and not station_gaps:
+        print("Backfill: no missing days.", file=sys.stderr)
+        return
+
+    all_gap_days = set(total_gaps) | {d for g in station_gaps.values() for d in g}
+    start = (date.fromisoformat(min(all_gap_days)) - timedelta(days=STALE_DAYS + 1)).isoformat()
+    print(f"Backfill: {len(total_gaps)} day(s) missing from history.json, "
+          f"{len(station_gaps)} station(s) with gaps; fetching readings from {start}...", file=sys.stderr)
+
+    ids = [str(st["ts_id"]) for st in kept_stations]
+    readings = {}
+    for i in range(0, len(ids), CHUNK):
+        try:
+            readings.update(fetch_range(ids[i:i + CHUNK], start, today))
+        except Exception as e:
+            print(f"  backfill batch failed: {e}", file=sys.stderr)
+        time.sleep(0.3)
+
+    # Only trust the backfill if we got readings for nearly every station, so a
+    # flaky BoM day can't write artificially low totals.
+    if len(readings) < 0.9 * len(ids):
+        print(f"Backfill: only got {len(readings)}/{len(ids)} stations — skipping, will try next run.",
+              file=sys.stderr)
+        return
+
+    now = datetime.now(timezone.utc).isoformat()
+    added = 0
+    for day in total_gaps:
+        vals = [value_as_of(readings.get(str(st["ts_id"]), []), day) for st in kept_stations]
+        vals = [v for v in vals if v is not None]
+        if len(vals) < 0.9 * len(kept_stations):
+            continue
+        total = sum(vals)
+        history.append({
+            "date": day,
+            "generated_at": now,
+            "total_ML": total,
+            "total_GL": total / 1000,
+            "count": len(vals),
+            "backfilled": True,
+        })
+        added += 1
+    history.sort(key=lambda h: h["date"])
+
+    s_added = 0
+    for st in kept_stations:
+        gaps = station_gaps.get(st["no"])
+        pts = readings.get(str(st["ts_id"]))
+        if not gaps or not pts:
+            continue
+        series = station_history[st["no"]]
+        for day in gaps:
+            v = value_as_of(pts, day)
+            if v is not None:
+                series.append({"date": day, "volume_ML": v, "backfilled": True})
+                s_added += 1
+        series.sort(key=lambda p: p["date"])
+        station_history[st["no"]] = series[-730:]
+
+    with open("history.json", "w") as f:
+        json.dump(history[-730:], f, indent=2)
+    with open("station_history.json", "w") as f:
+        json.dump(station_history, f, indent=2)
+    print(f"Backfill: added {added} day(s) to history.json and {s_added} station-day point(s) "
+          f"to station_history.json.", file=sys.stderr)
 
 
 if __name__ == "__main__":

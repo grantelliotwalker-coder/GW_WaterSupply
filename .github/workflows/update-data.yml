@@ -2,29 +2,58 @@ name: Update BoM storage data
 
 on:
   schedule:
-    - cron: "0 20 * * *"   # 6am AEST daily (20:00 UTC) — adjust as you like
-  workflow_dispatch: {}     # lets you trigger it manually from the Actions tab
+    # GitHub delays (and sometimes drops) jobs scheduled on the hour, so these
+    # use odd minutes. Times are UTC; Sydney is UTC+11 in summer, UTC+10 in winter.
+    - cron: "23 18 * * *"   # main run   — ~5:23am AEDT / 4:23am AEST
+    - cron: "47 23 * * *"   # backup run — ~10:47am AEDT; skips itself if the main run already worked
+  workflow_dispatch: {}     # lets you trigger it manually from the Actions tab (always runs)
 
 permissions:
   contents: write
 
+# Never let two runs overlap (e.g. a late main run and the backup).
+concurrency:
+  group: update-data
+  cancel-in-progress: false
+
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - name: Skip backup run if data is already fresh
+        id: fresh
+        if: github.event_name == 'schedule'
+        run: |
+          python3 - <<'EOF' >> "$GITHUB_OUTPUT"
+          import json, datetime as dt
+          try:
+              g = dt.datetime.fromisoformat(json.load(open("data.json"))["generated_at"])
+              age_h = (dt.datetime.now(dt.timezone.utc) - g).total_seconds() / 3600
+          except Exception:
+              age_h = 999
+          print(f"skip={'true' if age_h < 10 else 'false'}")
+          EOF
+          cat "$GITHUB_OUTPUT"
+
+      - uses: actions/setup-python@v6
+        if: steps.fresh.outputs.skip != 'true'
         with:
           python-version: "3.12"
 
       - name: Fetch storage data
+        if: steps.fresh.outputs.skip != 'true'
         run: python fetch_storage.py
 
       - name: Commit data files if changed
+        if: steps.fresh.outputs.skip != 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data.json history.json station_history.json
-          git diff --cached --quiet || git commit -m "Update storage data"
+          git diff --cached --quiet && exit 0
+          git commit -m "Update storage data"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
           git push
