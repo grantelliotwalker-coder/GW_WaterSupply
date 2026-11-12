@@ -21,7 +21,12 @@ import urllib.request
 BASE = "https://www.bom.gov.au/waterdata/services"
 TS_NAME = "DMQaQc.Merged.DailyMean.24HR"
 PARAM = "Storage Volume"
-CHUNK = 20  # Reduced batch size to prevent server-side query timeouts
+CHUNK = 20
+
+# No single Australian storage holds more than ~12.5 million ML (Lake Gordon).
+# BoM occasionally serves absurd readings (e.g. Hinze Dam at 2.8e13 ML), which
+# blew the national total into the billions of GL on some days. Ignore them.
+MAX_PLAUSIBLE_ML = 20_000_000  # Reduced batch size to prevent server-side query timeouts
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (compatible; storage-data-fetch/1.0)",
@@ -283,7 +288,10 @@ def rows_from_batch(batch, values):
             v = float(pt[1])
         except (TypeError, ValueError):
             continue
-        if v < 0:
+        if v < 0 or v > MAX_PLAUSIBLE_ML:
+            if v > MAX_PLAUSIBLE_ML:
+                print(f"  WARNING: ignoring implausible reading {v:,.0f} ML for {s.get('station_name')} "
+                      f"({s.get('station_no')})", file=sys.stderr)
             continue
         lat, lon = normalise_coord(s.get("station_latitude"), s.get("station_longitude"), s.get("station_no"))
         rows.append({
@@ -575,7 +583,7 @@ def value_as_of(points, day):
         dd = date.fromisoformat(d)
         if dd >= cutoff:
             break
-        if (cutoff - dd).days <= STALE_DAYS and v >= 0:
+        if (cutoff - dd).days <= STALE_DAYS and 0 <= v <= MAX_PLAUSIBLE_ML:
             best = v
     return best
 
@@ -592,6 +600,26 @@ def missing_dates(existing, first, last):
     return out
 
 
+def drop_implausible(history, station_history):
+    """Remove history days whose total is wildly above normal, and station points
+    above MAX_PLAUSIBLE_ML. The backfill then refills those days with clean data."""
+    totals = sorted(h["total_ML"] for h in history)
+    if totals:
+        median = totals[len(totals) // 2]
+        bad = [h["date"] for h in history if h["total_ML"] > 1.5 * median]
+        if bad:
+            print(f"Removing {len(bad)} implausible day(s) from history.json: {', '.join(bad)}", file=sys.stderr)
+            history = [h for h in history if h["total_ML"] <= 1.5 * median]
+    removed = 0
+    for no, series in station_history.items():
+        clean = [p for p in series if (p.get("volume_ML") or 0) <= MAX_PLAUSIBLE_ML]
+        removed += len(series) - len(clean)
+        station_history[no] = clean
+    if removed:
+        print(f"Removed {removed} implausible station reading(s) from station_history.json", file=sys.stderr)
+    return history, station_history
+
+
 def backfill_gaps(kept_stations):
     today = local_today()
     earliest_allowed = (date.fromisoformat(today) - timedelta(days=BACKFILL_MAX_DAYS)).isoformat()
@@ -603,6 +631,9 @@ def backfill_gaps(kept_stations):
             station_history = json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
         station_history = {}
+
+    # Drop any days poisoned by an implausible reading so they get rebuilt below.
+    history, station_history = drop_implausible(history, station_history)
 
     hist_dates = [h["date"] for h in history]
     if not hist_dates:

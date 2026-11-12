@@ -88308,16 +88308,6 @@
       "Storage Level": 59.346
     },
     {
-      "date": "2026-08-11",
-      "volume_ML": 184859206.447,
-      "Storage Level": 44941.658
-    },
-    {
-      "date": "2026-08-12",
-      "volume_ML": 184859206.447,
-      "Storage Level": 44941.658
-    },
-    {
       "date": "2026-08-13",
       "volume_ML": 54227.218,
       "Storage Level": 59.301
@@ -88429,21 +88419,6 @@
       "date": "2026-09-04",
       "volume_ML": 52531.003,
       "Storage Level": 59.161
-    },
-    {
-      "date": "2026-09-05",
-      "volume_ML": 38262673.544,
-      "Storage Level": 9338.976
-    },
-    {
-      "date": "2026-09-06",
-      "volume_ML": 38262673.544,
-      "Storage Level": 9338.976
-    },
-    {
-      "date": "2026-09-07",
-      "volume_ML": 38262673.544,
-      "Storage Level": 9338.976
     },
     {
       "date": "2026-09-08",
@@ -137431,16 +137406,6 @@
       "Storage Level": 59.346
     },
     {
-      "date": "2026-08-11",
-      "volume_ML": 184859206.447,
-      "Storage Level": 44941.658
-    },
-    {
-      "date": "2026-08-12",
-      "volume_ML": 184859206.447,
-      "Storage Level": 44941.658
-    },
-    {
       "date": "2026-08-13",
       "volume_ML": 54227.218,
       "Storage Level": 59.301
@@ -137551,21 +137516,6 @@
       "date": "2026-09-04",
       "volume_ML": 52531.003,
       "Storage Level": 59.161
-    },
-    {
-      "date": "2026-09-05",
-      "volume_ML": 38262673.544,
-      "Storage Level": 9338.976
-    },
-    {
-      "date": "2026-09-06",
-      "volume_ML": 38262673.544,
-      "Storage Level": 9338.976
-    },
-    {
-      "date": "2026-09-07",
-      "volume_ML": 38262673.544,
-      "Storage Level": 9338.976
     },
     {
       "date": "2026-09-08",
@@ -143129,11 +143079,6 @@
       "Storage Level": 94.262
     },
     {
-      "date": "2026-08-11",
-      "volume_ML": 90491755351077.12,
-      "Storage Level": -34920.577
-    },
-    {
       "date": "2026-08-12",
       "volume_ML": 306465.616,
       "Storage Level": 94.211
@@ -143189,11 +143134,6 @@
       "Storage Level": 94.085
     },
     {
-      "date": "2026-08-23",
-      "volume_ML": 118206748484449.97,
-      "Storage Level": -49014.639
-    },
-    {
       "date": "2026-08-24",
       "volume_ML": 304219.812,
       "backfilled": true
@@ -143202,11 +143142,6 @@
       "date": "2026-08-25",
       "volume_ML": 304111.055,
       "Storage Level": 94.051
-    },
-    {
-      "date": "2026-08-26",
-      "volume_ML": 3638688913950.855,
-      "Storage Level": -1762.39
     },
     {
       "date": "2026-08-27",
@@ -143221,11 +143156,6 @@
     {
       "date": "2026-08-29",
       "volume_ML": 303545.428,
-      "backfilled": true
-    },
-    {
-      "date": "2026-08-30",
-      "volume_ML": 22747437091322.457,
       "backfilled": true
     },
     {
@@ -143257,11 +143187,6 @@
       "date": "2026-09-05",
       "volume_ML": 302252.867,
       "Storage Level": 93.923
-    },
-    {
-      "date": "2026-09-06",
-      "volume_ML": 44010415772711.62,
-      "Storage Level": -2105.962
     },
     {
       "date": "2026-09-07",
@@ -143308,11 +143233,6 @@
       "backfilled": true
     },
     {
-      "date": "2026-09-16",
-      "volume_ML": 32095498607156.62,
-      "Storage Level": -15562.764
-    },
-    {
       "date": "2026-09-17",
       "volume_ML": 300038.955,
       "backfilled": true
@@ -143320,11 +143240,6 @@
     {
       "date": "2026-09-18",
       "volume_ML": 299741.929,
-      "backfilled": true
-    },
-    {
-      "date": "2026-09-19",
-      "volume_ML": 14806398714961.0,
       "backfilled": true
     },
     {
@@ -143368,11 +143283,6 @@
       "Storage Level": 93.62
     },
     {
-      "date": "2026-09-28",
-      "volume_ML": 12641208379113.604,
-      "backfilled": true
-    },
-    {
       "date": "2026-09-29",
       "volume_ML": 297518.036,
       "Storage Level": 93.62
@@ -143398,31 +143308,6 @@
       "backfilled": true
     },
     {
-      "date": "2026-10-04",
-      "volume_ML": 63869909482500.734,
-      "backfilled": true
-    },
-    {
-      "date": "2026-10-05",
-      "volume_ML": 21041524925880.19,
-      "backfilled": true
-    },
-    {
-      "date": "2026-10-06",
-      "volume_ML": 63412343309540.22,
-      "Storage Level": -32116.007
-    },
-    {
-      "date": "2026-10-07",
-      "volume_ML": 25092467608285.5,
-      "backfilled": true
-    },
-    {
-      "date": "2026-10-08",
-      "volume_ML": 25092467608285.5,
-      "Storage Level": -12554.765
-    },
-    {
       "date": "2026-10-09",
       "volume_ML": 295484.598,
       "Storage Level": 93.449
@@ -143436,11 +143321,6 @@
       "date": "2026-10-11",
       "volume_ML": 295119.927,
       "Storage Level": 93.424
-    },
-    {
-      "date": "2026-10-12",
-      "volume_ML": 5058122414297.427,
-      "backfilled": true
     },
     {
       "date": "2026-10-13",
@@ -143486,39 +143366,14 @@
       "volume_ML": 293833.144
     },
     {
-      "date": "2026-10-22",
-      "volume_ML": 39642178533798.03,
-      "Storage Level": 93.334
-    },
-    {
       "date": "2026-10-23",
       "volume_ML": 295808.031,
       "Storage Level": 93.334
     },
     {
-      "date": "2026-10-24",
-      "volume_ML": 17334990398436.232,
-      "Storage Level": -8618.992
-    },
-    {
-      "date": "2026-10-25",
-      "volume_ML": 26515962506139.785,
-      "Storage Level": -13452.732
-    },
-    {
       "date": "2026-10-26",
       "volume_ML": 302248.606,
       "Storage Level": 93.924
-    },
-    {
-      "date": "2026-10-27",
-      "volume_ML": 27800576654135.973,
-      "Storage Level": -14784.44
-    },
-    {
-      "date": "2026-10-28",
-      "volume_ML": 27800576654135.973,
-      "Storage Level": -14784.44
     },
     {
       "date": "2026-10-29",
