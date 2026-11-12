@@ -601,15 +601,35 @@ def missing_dates(existing, first, last):
 
 
 def drop_implausible(history, station_history):
-    """Remove history days whose total is wildly above normal, and station points
+    """Remove history days whose total or station count is far from normal, and station points
     above MAX_PLAUSIBLE_ML. The backfill then refills those days with clean data."""
     totals = sorted(h["total_ML"] for h in history)
+    counts = sorted(h.get("count", 0) for h in history)
     if totals:
         median = totals[len(totals) // 2]
-        bad = [h["date"] for h in history if h["total_ML"] > 1.5 * median]
+        median_count = counts[len(counts) // 2]
+
+        by_date = {h["date"]: h["total_ML"] for h in history}
+
+        def local_median(day):
+            d0 = date.fromisoformat(day)
+            near = sorted(v for k, v in by_date.items()
+                          if k != day and abs((date.fromisoformat(k) - d0).days) <= 10)
+            return near[len(near) // 2] if len(near) >= 4 else median
+
+        def bad_day(h):
+            # Way too high: a junk reading. Well below the surrounding fortnight,
+            # or too few stations: a partial run where BoM dropped part of the
+            # data. (National totals move well under 1% a day, so a 4% dip
+            # against its neighbours is never real.)
+            return (h["total_ML"] > 1.5 * median
+                    or h["total_ML"] < 0.96 * local_median(h["date"])
+                    or h.get("count", 0) < 0.95 * median_count)
+
+        bad = [h["date"] for h in history if bad_day(h)]
         if bad:
             print(f"Removing {len(bad)} implausible day(s) from history.json: {', '.join(bad)}", file=sys.stderr)
-            history = [h for h in history if h["total_ML"] <= 1.5 * median]
+            history = [h for h in history if not bad_day(h)]
     removed = 0
     for no, series in station_history.items():
         clean = [p for p in series if (p.get("volume_ML") or 0) <= MAX_PLAUSIBLE_ML]

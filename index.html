@@ -71,7 +71,34 @@
 
   .chart-panel{background:var(--panel);border:1px solid var(--line);border-top:none;padding:20px;margin-bottom:28px}
   .chart-panel .label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:12px}
-  .chart-wrap{position:relative;height:200px}
+  .chart-wrap{position:relative;height:240px}
+  .chart-panel.standalone{border-top:1px solid var(--line)}
+  .trend-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+  .trend-head .label{margin:0}
+  .range{display:flex;gap:2px}
+  .range button{background:none;border:1px solid var(--line);color:var(--dim);font-family:var(--mono);font-size:10px;letter-spacing:.1em;padding:5px 10px;cursor:pointer}
+  .range button:hover{color:var(--ink)}
+  .range button.active{color:var(--accent);border-color:var(--accent-dim);background:var(--panel2)}
+  .range button:disabled{opacity:.3;cursor:default}
+  .trend-stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:1px;padding:1px;margin-bottom:16px}
+  .trend-stats .st{background:var(--panel2);padding:10px 12px;outline:1px solid var(--line)}
+  .trend-stats .k{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+  .trend-stats .v{font-size:15px;color:var(--ink);font-variant-numeric:tabular-nums;margin-top:2px}
+  .trend-stats .s{font-size:10.5px;color:var(--dim);font-variant-numeric:tabular-nums}
+  .up{color:#5fd68a}.down{color:#ff8a70}
+  .state-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1px;padding:1px}
+  .state-card{outline:1px solid var(--line)}
+  .state-card{background:var(--panel2);padding:12px 14px}
+  .state-card .top{display:flex;justify-content:space-between;align-items:baseline}
+  .state-card .nm{font-size:11px;letter-spacing:.14em;color:var(--accent)}
+  .state-card .vol{font-size:15px;font-variant-numeric:tabular-nums}
+  .state-card .chg{font-size:10.5px;font-variant-numeric:tabular-nums;color:var(--dim);margin-top:2px}
+  .state-card .spark{position:relative;height:54px;margin-top:6px}
+  .movers{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  @media (max-width:900px){.movers{grid-template-columns:1fr}}
+  .movers h3{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);font-weight:400;margin:0 0 6px}
+  .movers td.chg{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .movers td.st{color:var(--dim);width:40px}
   .chart-note{font-size:11px;color:var(--dim);margin-top:10px}
 
   #dupeNote{
@@ -129,7 +156,10 @@
   .param-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px 18px;margin:16px 0}
   .param-grid dt{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
   .param-grid dd{margin:2px 0 0;font-size:15px;color:var(--ink)}
-  .modal-chart-wrap{position:relative;height:180px;margin-top:18px}
+  .modal-chart-wrap{position:relative;height:200px;margin-top:8px}
+  .modal-trend-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:18px;margin-bottom:10px}
+  .modal-trend-head select{background:var(--panel2);border:1px solid var(--line);color:var(--ink);font-family:var(--mono);font-size:11px;padding:5px 8px}
+  .trend-stats.compact{margin-bottom:6px}
   .modal-actions{margin-top:18px;display:flex;gap:10px}
   .modal-actions button{
     font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:10px 16px;
@@ -179,9 +209,27 @@
   </div>
 
   <div class="chart-panel">
-    <div class="label">Trend</div>
-    <div class="chart-wrap"><canvas id="trendChart"></canvas></div>
+    <div class="trend-head">
+      <div class="label">Trend · national total</div>
+      <div class="range" id="rangeBtns" role="group" aria-label="Time range"></div>
+    </div>
+    <div class="trend-stats" id="trendStats"></div>
+    <div class="chart-wrap"><canvas id="trendChart" aria-label="National total storage over time"></canvas></div>
     <p class="chart-note" id="trendNote"></p>
+  </div>
+
+  <div class="chart-panel standalone">
+    <div class="trend-head"><div class="label">Trend · by state</div><div class="label" id="stateRangeLabel"></div></div>
+    <div class="state-cards" id="stateCards"><p class="chart-note" style="padding:12px;margin:0;background:var(--panel2)">Loading station history…</p></div>
+    <p class="chart-note">Each state is on its own scale so small states' movements stay visible. Built from per-station history.</p>
+  </div>
+
+  <div class="chart-panel standalone">
+    <div class="trend-head"><div class="label">Biggest movers</div><div class="label" id="moversRangeLabel"></div></div>
+    <div class="movers">
+      <div><h3>Largest rises</h3><table><tbody id="risers"></tbody></table></div>
+      <div><h3>Largest falls</h3><table><tbody id="fallers"></tbody></table></div>
+    </div>
   </div>
 
   <button id="infoToggle" style="background:none;border:none;color:var(--dim);font-family:var(--mono);font-size:11px;letter-spacing:.06em;cursor:pointer;padding:0;text-decoration:underline;text-underline-offset:3px;text-decoration-color:transparent;margin-bottom:20px" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--dim)'">ⓘ dedup details</button>
@@ -240,6 +288,11 @@
     <h2 id="modalTitle">—</h2>
     <p class="sub" id="modalSub">—</p>
     <dl class="param-grid" id="modalParams"></dl>
+    <div class="modal-trend-head">
+      <div class="range" id="modalRange" role="group" aria-label="Time range"></div>
+      <select id="modalMetric" aria-label="Measure to chart"></select>
+    </div>
+    <div class="trend-stats compact" id="modalStats"></div>
     <div class="modal-chart-wrap"><canvas id="modalChart"></canvas></div>
     <p style="font-size:11px;color:var(--dim);margin-top:6px" id="modalChartNote"></p>
     <div class="modal-actions">
@@ -532,107 +585,345 @@
 
     $("modalChartNote").textContent = "Loading history…";
     $("modalChartNote").style.color = "var(--dim)";
-    const history = await getStationHistory();
-    const series = (history[r.no] || []).slice().sort((a, b) => a.date < b.date ? -1 : 1);
-
+    $("modalStats").innerHTML = "";
+    $("modalRange").innerHTML = "";
+    $("modalMetric").innerHTML = "";
     if (modalChartInstance) { modalChartInstance.destroy(); modalChartInstance = null; }
-    if (series.length < 2) {
-      $("modalChartNote").textContent = series.length
+    const history = await getStationHistory();
+    const pts = (history[r.no] || []).filter(p => !(p.volume_ML > MAX_PLAUSIBLE_ML))
+      .slice().sort((a, b) => a.date < b.date ? -1 : 1);
+
+    if (pts.length < 2) {
+      $("modalChartNote").textContent = pts.length
         ? "Only one data point so far for this station."
         : "No history recorded yet for this station.";
+      $("modalMetric").style.display = "none";
       return;
     }
-    $("modalChartNote").textContent = `${series.length} readings, ${series[0].date} to ${series[series.length - 1].date}.`;
-    const lastPt = series[series.length - 1];
-    const prevPt = series[series.length - 2];
-    const stationRoc = rateOfChange(lastPt.volume_ML, prevPt.volume_ML);
-    const stationRocText = `${stationRoc.sign}${fmt(stationRoc.delta, 1)} ML` +
-      (stationRoc.pct !== null ? ` (${stationRoc.sign}${fmt(stationRoc.pct, 2)}%)` : "") + ` since ${prevPt.date}`;
-    $("modalChartNote").textContent += ` ${stationRocText}.`;
-    $("modalChartNote").style.color = stationRoc.up ? "#5fd68a" : "#ff8a70";
-    const ctx = document.getElementById("modalChart").getContext("2d");
-    modalChartInstance = new Chart(ctx, {
-      type: "line",
-      data: {
-        labels: series.map(p => p.date),
-        datasets: [{
-          label: "Volume (ML)",
-          data: series.map(p => p.volume_ML),
-          borderColor: "#38b6ff",
-          backgroundColor: "rgba(56,182,255,0.15)",
-          borderWidth: 2, pointRadius: 4, pointHoverRadius: 6,
-          pointBackgroundColor: "#38b6ff", pointBorderColor: "#111817", pointBorderWidth: 1.5,
-          tension: 0.25, fill: true,
-        }]
-      },
-      options: {
-        responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: {
-          x: { offset: true, ticks: { color: "#5c7871", maxTicksLimit: 6, font: { family: "ui-monospace", size: 10 } }, grid: { display: false } },
-          y: { ticks: { color: "#5c7871", font: { family: "ui-monospace", size: 10 } }, grid: { color: "#1f2b29" } }
-        }
-      }
+
+    // Measures available in this station's history (volume first)
+    const units = { volume_ML: "ML" };
+    (r.parameters || []).forEach(p => { units[p.parameter] = p.unit || ""; });
+    const keys = ["volume_ML"].concat(
+      [...new Set(pts.flatMap(p => Object.keys(p)))]
+        .filter(k => !["date", "volume_ML", "backfilled"].includes(k) && pts.filter(p => typeof p[k] === "number").length >= 2)
+        .sort());
+    const sel = $("modalMetric");
+    keys.forEach(k => {
+      const o = document.createElement("option");
+      o.value = k; o.textContent = k === "volume_ML" ? "Storage volume" : k;
+      sel.appendChild(o);
     });
+    sel.style.display = keys.length > 1 ? "" : "none";
+
+    let range = 90;
+    const draw = () => {
+      const key = sel.value;
+      const unit = units[key] || "";
+      const dp = key === "volume_ML" ? 0 : 2;
+      const full = dailySeries(pts, key);
+      const view = sliceRange(full, range);
+      renderStats($("modalStats"), full, view, unit, dp, [[7, "7 days"], [30, "30 days"]]);
+      if (modalChartInstance) modalChartInstance.destroy();
+      modalChartInstance = lineChart($("modalChart"), view, unit, dp);
+      const n = view.filter(p => p.v != null).length;
+      $("modalChartNote").textContent = `${n} readings, ${view[0].date} to ${view[view.length - 1].date}.` +
+        (view.some(p => p.est) ? " Hollow points were filled in from BoM's past readings." : "");
+    };
+    rangeButtons($("modalRange"), range, d => { range = d; draw(); }, dailySeries(pts, "volume_ML"));
+    sel.onchange = draw;
+    draw();
   }
 
   $("modalClose").addEventListener("click", closeModal);
   $("modalBackdrop").addEventListener("click", (e) => { if (e.target === $("modalBackdrop")) closeModal(); });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
 
-  function rateOfChange(latest, previous) {
-    const delta = latest - previous;
-    const pct = previous !== 0 ? (delta / previous) * 100 : null;
-    const sign = delta >= 0 ? "+" : "";
-    return { delta, pct, sign, up: delta >= 0 };
+  // ---------------- trend helpers ----------------
+  const MAX_PLAUSIBLE_ML = 20000000;   // matches fetch_storage.py
+  const MONO = "'SF Mono', 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace";
+  const ACC = "#38b6ff", INK = "#d8e6e0", DIM = "#5c7871", GRID = "#1f2b29", SURF = "#111817";
+  const RANGES = [["7D", 7], ["30D", 30], ["90D", 90], ["1Y", 365], ["All", Infinity]];
+  const DAY = 86400000;
+  const addDays = (iso, n) => new Date(Date.parse(iso + "T00:00:00Z") + n * DAY).toISOString().slice(0, 10);
+  const shortDate = iso => new Date(iso + "T00:00:00Z").toLocaleDateString("en-AU", { day: "numeric", month: "short", timeZone: "UTC" });
+  const longDate = iso => new Date(iso + "T00:00:00Z").toLocaleDateString("en-AU", { weekday: "short", day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
+
+  // One entry per calendar day; days with no reading are null so gaps are honest.
+  function dailySeries(points, key) {
+    if (!points.length) return [];
+    const map = new Map(points.map(p => [p.date, p]));
+    const out = [];
+    const end = points[points.length - 1].date;
+    for (let d = points[0].date; d <= end; d = addDays(d, 1)) {
+      const p = map.get(d);
+      const v = p && typeof p[key] === "number" ? p[key] : null;
+      out.push({ date: d, v, est: !!(p && p.backfilled && v != null) });
+    }
+    return out;
+  }
+  function sliceRange(series, days) {
+    if (!series.length || days === Infinity) return series;
+    const start = addDays(series[series.length - 1].date, -days);
+    return series.filter(p => p.date >= start);
+  }
+  function lastVal(series) {
+    for (let i = series.length - 1; i >= 0; i--) if (series[i].v != null) return series[i];
+    return null;
+  }
+  function valueOnOrBefore(series, date) {
+    let best = null;
+    for (const p of series) { if (p.date > date) break; if (p.v != null) best = p; }
+    return best;
+  }
+  function change(last, base) {
+    if (!last || !base || base.date === last.date) return null;
+    const delta = last.v - base.v;
+    return { delta, pct: base.v ? (delta / base.v) * 100 : null, from: base.date };
+  }
+  const signed = (n, dp) => (n > 0 ? "+" : n < 0 ? "−" : "±") + fmt(Math.abs(n), dp);
+  const arrow = d => d > 0 ? '<span class="up" aria-hidden="true">▲</span> ' : d < 0 ? '<span class="down" aria-hidden="true">▼</span> ' : "";
+
+  function rangeButtons(el, active, onPick, fullSeries) {
+    el.innerHTML = "";
+    const span = fullSeries.length;  // days of data
+    RANGES.forEach(([label, days], i) => {
+      const b = document.createElement("button");
+      b.textContent = label;
+      b.className = days === active ? "active" : "";
+      // Grey out a range when the next-shorter one already shows all the data
+      const shorter = i > 0 ? RANGES[i - 1][1] : 0;
+      if (days !== Infinity && shorter >= span) b.disabled = true;
+      b.onclick = () => {
+        el.querySelectorAll("button").forEach(x => x.classList.remove("active"));
+        b.classList.add("active");
+        onPick(days);
+      };
+      el.appendChild(b);
+    });
   }
 
+  function renderStats(el, full, view, unit, dp, periods) {
+    const last = lastVal(full);
+    const cells = [];
+    const u = unit ? " " + unit : "";
+    periods.forEach(([days, label]) => {
+      const c = change(last, valueOnOrBefore(full, addDays(last.date, -days)));
+      cells.push(c
+        ? [label, arrow(c.delta) + signed(c.delta, dp) + u, (c.pct != null ? signed(c.pct, 2) + "% · " : "") + "since " + shortDate(c.from)]
+        : [label, "—", "not enough history"]);
+    });
+    const first = view.find(p => p.v != null);
+    const cr = change(last, first);
+    cells.push(cr
+      ? ["This range", arrow(cr.delta) + signed(cr.delta, dp) + u, (cr.pct != null ? signed(cr.pct, 2) + "% · " : "") + "since " + shortDate(cr.from)]
+      : ["This range", "—", ""]);
+    const vals = view.filter(p => p.v != null);
+    if (vals.length) {
+      const hi = vals.reduce((a, b) => b.v > a.v ? b : a), lo = vals.reduce((a, b) => b.v < a.v ? b : a);
+      cells.push(["Range high", fmt(hi.v, dp) + u, shortDate(hi.date)]);
+      cells.push(["Range low", fmt(lo.v, dp) + u, shortDate(lo.date)]);
+    }
+    el.innerHTML = cells.map(([k, v, sub]) =>
+      `<div class="st"><div class="k">${k}</div><div class="v">${v}</div><div class="s">${sub}</div></div>`).join("");
+  }
+
+  // Vertical crosshair under the hovered day
+  const crosshair = {
+    id: "crosshair",
+    afterDatasetsDraw(chart) {
+      const a = chart.tooltip && chart.tooltip.getActiveElements();
+      if (!a || !a.length) return;
+      const x = a[0].element.x, { top, bottom } = chart.chartArea, c = chart.ctx;
+      c.save(); c.strokeStyle = DIM; c.lineWidth = 1; c.setLineDash([3, 3]);
+      c.beginPath(); c.moveTo(x, top); c.lineTo(x, bottom); c.stroke(); c.restore();
+    }
+  };
+
+  function lineChart(canvas, series, unit, dp, compact) {
+    const many = series.length > 45;
+    const u = unit ? " " + unit : "";
+    return new Chart(canvas.getContext("2d"), {
+      type: "line",
+      data: {
+        labels: series.map(p => p.date),
+        datasets: [{
+          data: series.map(p => p.v),
+          borderColor: ACC,
+          backgroundColor: compact ? "transparent" : "rgba(56,182,255,0.10)",
+          fill: !compact,
+          borderWidth: 2,
+          tension: 0.2,
+          spanGaps: true,
+          // dashed line across days with no data
+          segment: { borderDash: c => (c.p0.skip || c.p1.skip || c.p1DataIndex - c.p0DataIndex > 1 ? [4, 4] : undefined) },
+          pointRadius: series.map(p => compact ? 0 : p.est ? 3 : many ? 0 : 3),
+          pointHoverRadius: compact ? 3 : 5,
+          pointBackgroundColor: series.map(p => p.est ? SURF : ACC),
+          pointBorderColor: series.map(p => p.est ? ACC : SURF),
+          pointBorderWidth: series.map(p => p.est ? 1.5 : 1),
+          pointHitRadius: 8,
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false, animation: false,
+        interaction: { mode: "index", intersect: false },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: SURF, borderColor: "#1c5a80", borderWidth: 1, titleColor: INK, bodyColor: INK,
+            titleFont: { family: MONO, size: 11 }, bodyFont: { family: MONO, size: 11 },
+            displayColors: false, padding: 10,
+            filter: item => item.raw != null,
+            callbacks: {
+              title: items => longDate(items[0].label),
+              label: item => fmt(item.raw, dp) + u + (series[item.dataIndex].est ? "  (filled in)" : ""),
+              afterLabel: item => {
+                const i = item.dataIndex;
+                for (let j = i - 1; j >= 0; j--) if (series[j].v != null) {
+                  return signed(series[i].v - series[j].v, dp) + u + " vs " + shortDate(series[j].date);
+                }
+                return "";
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            display: !compact,
+            ticks: { color: DIM, maxTicksLimit: 7, maxRotation: 0, autoSkip: true, font: { family: MONO, size: 10 },
+                     callback(v) { return shortDate(this.getLabelForValue(v)); } },
+            grid: { display: false }
+          },
+          y: {
+            display: !compact,
+            ticks: { color: DIM, maxTicksLimit: 5, font: { family: MONO, size: 10 }, callback: v => fmt(v, dp > 0 && Math.abs(v) < 100 ? dp : 0) + u },
+            grid: { color: GRID }, border: { display: false }
+          }
+        }
+      },
+      plugins: compact ? [] : [crosshair]
+    });
+  }
+
+  // ---------------- national trend ----------------
+  let nationalHistory = [];
+  let trendRange = 90;
+  let stateSparkCharts = [];
+
   function renderChart(history) {
+    nationalHistory = (history || []).slice().sort((a, b) => a.date < b.date ? -1 : 1);
     const note = $("trendNote");
-    if (!history || history.length < 2) {
-      note.style.color = "var(--dim)";
-      note.textContent = history && history.length === 1
+    if (nationalHistory.length < 2) {
+      note.textContent = nationalHistory.length === 1
         ? "Only one data point so far — the trend line will appear after tomorrow's run."
         : "No history yet.";
       return;
     }
-    const last = history[history.length - 1];
-    const prev = history[history.length - 2];
-    const roc = rateOfChange(last.total_GL, prev.total_GL);
-    const rocText = `${roc.sign}${fmt(roc.delta, 1)} GL` + (roc.pct !== null ? ` (${roc.sign}${fmt(roc.pct, 2)}%)` : "") + ` since ${prev.date}`;
-    note.textContent = `${history.length} daily readings, ${history[0].date} to ${last.date}. ${rocText}.`;
-    note.style.color = roc.up ? "#5fd68a" : "#ff8a70";
+    const full = dailySeries(nationalHistory, "total_GL");
+    rangeButtons($("rangeBtns"), trendRange, d => { trendRange = d; drawNational(); drawStates(); drawMovers(); }, full);
+    drawNational();
+  }
 
-    const ctx = document.getElementById("trendChart").getContext("2d");
+  function drawNational() {
+    const full = dailySeries(nationalHistory, "total_GL");
+    const view = sliceRange(full, trendRange);
+    renderStats($("trendStats"), full, view, "GL", 1, [[1, "1 day"], [7, "7 days"], [30, "30 days"]]);
     if (chartInstance) chartInstance.destroy();
-    chartInstance = new Chart(ctx, {
-      type: "line",
-      data: {
-        labels: history.map(h => h.date),
-        datasets: [{
-          label: "Total storage (GL)",
-          data: history.map(h => h.total_GL),
-          borderColor: "#38b6ff",
-          backgroundColor: "rgba(56,182,255,0.15)",
-          borderWidth: 2,
-          pointRadius: 4,
-          pointHoverRadius: 6,
-          pointBackgroundColor: "#38b6ff",
-          pointBorderColor: "#0a0e0f",
-          pointBorderWidth: 1.5,
-          tension: 0.25,
-          fill: true,
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: {
-          x: { offset: true, ticks: { color: "#5c7871", maxTicksLimit: 8, font: { family: "ui-monospace", size: 10 } }, grid: { display: false } },
-          y: { ticks: { color: "#5c7871", font: { family: "ui-monospace", size: 10 } }, grid: { color: "#1f2b29" } }
-        }
-      }
+    chartInstance = lineChart($("trendChart"), view, "GL", 1);
+    const gaps = view.filter(p => p.v == null).length;
+    const est = view.filter(p => p.est).length;
+    $("trendNote").textContent =
+      `${view.length - gaps} daily readings, ${shortDate(view[0].date)} to ${shortDate(view[view.length - 1].date)}.` +
+      (gaps ? ` Dashed line = ${gaps} day${gaps > 1 ? "s" : ""} with no data.` : "") +
+      (est ? ` Hollow points (${est}) were filled in from BoM's past readings.` : "");
+    const lbl = RANGES.find(r => r[1] === trendRange)[0];
+    $("stateRangeLabel").textContent = "change over " + lbl;
+    $("moversRangeLabel").textContent = "over " + lbl;
+  }
+
+  // ---------------- by state + movers (need per-station history) ----------------
+  let stationSeriesCache = null;   // { no: dailySeries of volume_ML }
+  async function loadStationSeries() {
+    if (stationSeriesCache) return stationSeriesCache;
+    const h = await getStationHistory();
+    stationSeriesCache = {};
+    rows.forEach(r => {
+      const pts = (h[r.no] || []).filter(p => typeof p.volume_ML === "number" && p.volume_ML <= MAX_PLAUSIBLE_ML)
+        .sort((a, b) => a.date < b.date ? -1 : 1);
+      if (pts.length) stationSeriesCache[r.no] = dailySeries(pts, "volume_ML");
+    });
+    return stationSeriesCache;
+  }
+
+  // State total per day: each station contributes its latest reading within 30 days
+  // (same rule as the national total). Days with no national entry stay null.
+  function stateTotals(state, ss, dates, haveDay) {
+    const members = rows.filter(r => (r.state || "UNCLASSIFIED") === state && ss[r.no]);
+    const totals = dates.map(() => 0);
+    members.forEach(r => {
+      const s = ss[r.no];
+      let j = 0, last = null;
+      dates.forEach((d, i) => {
+        while (j < s.length && s[j].date <= d) { if (s[j].v != null) last = s[j]; j++; }
+        if (last && (Date.parse(d) - Date.parse(last.date)) / DAY <= 30) totals[i] += last.v / 1000;
+      });
+    });
+    return dates.map((d, i) => ({ date: d, v: haveDay.has(d) ? totals[i] : null, est: false }));
+  }
+
+  async function drawStates() {
+    if (nationalHistory.length < 2) return;
+    let ss;
+    try { ss = await loadStationSeries(); } catch { $("stateCards").innerHTML = ""; return; }
+    const full = dailySeries(nationalHistory, "total_GL");
+    const view = sliceRange(full, trendRange);
+    const dates = view.map(p => p.date);
+    const haveDay = new Set(view.filter(p => p.v != null).map(p => p.date));
+    const states = [...new Set(rows.map(r => r.state || "UNCLASSIFIED"))];
+    const cards = states.map(st => {
+      const series = stateTotals(st, ss, dates, haveDay);
+      const last = lastVal(series), first = series.find(p => p.v != null);
+      return { st, series, last, c: change(last, first) };
+    }).filter(x => x.last).sort((a, b) => b.last.v - a.last.v);
+
+    stateSparkCharts.forEach(c => c.destroy()); stateSparkCharts = [];
+    const el = $("stateCards");
+    el.innerHTML = cards.map((x, i) => `
+      <div class="state-card">
+        <div class="top"><span class="nm">${x.st}</span><span class="vol">${fmt(x.last.v, x.last.v < 100 ? 1 : 0)} GL</span></div>
+        <div class="chg">${x.c ? arrow(x.c.delta) + signed(x.c.delta, 1) + " GL" + (x.c.pct != null ? " · " + signed(x.c.pct, 2) + "%" : "") : "—"}</div>
+        <div class="spark"><canvas id="spark${i}" aria-label="${x.st} storage trend"></canvas></div>
+      </div>`).join("");
+    cards.forEach((x, i) => stateSparkCharts.push(lineChart($("spark" + i), x.series, "GL", 1, true)));
+  }
+
+  async function drawMovers() {
+    let ss;
+    try { ss = await loadStationSeries(); } catch { return; }
+    const days = trendRange;
+    const list = [];
+    rows.forEach(r => {
+      const s = ss[r.no]; if (!s) return;
+      const last = lastVal(s); if (!last) return;
+      const startDate = days === Infinity ? s[0].date : addDays(last.date, -days);
+      const base = valueOnOrBefore(s, startDate) || s.find(p => p.v != null && p.date >= startDate);
+      const c = change(last, base);
+      if (c && c.delta !== 0) list.push({ r, c });
+    });
+    const row = ({ r, c }) => `<tr data-no="${r.no}"><td class="st">${r.state || ""}</td><td class="name">${r.name}</td>` +
+      `<td class="chg">${arrow(c.delta)}${signed(c.delta / 1000, 1)} GL<br><span style="color:var(--dim);font-size:10.5px">${c.pct != null ? signed(c.pct, 1) + "%" : ""}</span></td></tr>`;
+    const empty = '<tr><td style="color:var(--dim)">No change recorded.</td></tr>';
+    const up = list.filter(x => x.c.delta > 0).sort((a, b) => b.c.delta - a.c.delta).slice(0, 6);
+    const dn = list.filter(x => x.c.delta < 0).sort((a, b) => a.c.delta - b.c.delta).slice(0, 6);
+    $("risers").innerHTML = up.length ? up.map(row).join("") : empty;
+    $("fallers").innerHTML = dn.length ? dn.map(row).join("") : empty;
+    document.querySelectorAll("#risers tr[data-no], #fallers tr[data-no]").forEach(tr => {
+      tr.onclick = () => {
+        const r = rows.find(x => x.no === tr.dataset.no);
+        const ok = r && r.lat != null && r.lon != null;
+        openStationModal(r, ok ? { lat: r.lat, lon: r.lon } : null);
+      };
     });
   }
 
@@ -650,6 +941,7 @@
       try {
         const histRes = await fetch("history.json?_=" + Date.now());
         renderChart(histRes.ok ? await histRes.json() : []);
+        drawStates(); drawMovers();
       } catch {
         renderChart([]);
       }
