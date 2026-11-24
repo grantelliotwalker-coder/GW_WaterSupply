@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-22T23:40:09.477233+00:00",
+  "generated_at": "2026-11-24T03:59:30.428813+00:00",
   "latest_reading": "2026-11-19T00:00:00.000+10:00",
-  "count": 378,
-  "total_ML": 55417649.241,
-  "total_GL": 55417.649241,
-  "raw_count": 390,
-  "raw_total_ML": 87844071.816,
-  "raw_total_GL": 87844.071816,
+  "count": 376,
+  "total_ML": 55277854.961,
+  "total_GL": 55277.854961000005,
+  "raw_count": 388,
+  "raw_total_ML": 87704277.536,
+  "raw_total_GL": 87704.277536,
   "duplicate_groups": [
     {
       "matched_on": "station_no:212232",
@@ -1683,42 +1683,6 @@
       "lat": -37.2794,
       "lon": 143.54474,
       "state": "VIC"
-    },
-    {
-      "name": "LAKE CRESCENT AT TEA TREE POINT LAKE LEVEL",
-      "no": "4205.1",
-      "ts_id": "796137010",
-      "time": "2026-10-25T00:00:00.000+10:00",
-      "volume_ML": 25124.0,
-      "lat": -42.160924,
-      "lon": 147.15573,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 802.53,
-          "time": "2026-10-25T00:00:00.000+10:00"
-        }
-      ]
-    },
-    {
-      "name": "LAKE SORELL AT CHILLON POINT LAKE LEVEL",
-      "no": "4206.1",
-      "ts_id": "796156010",
-      "time": "2026-10-25T00:00:00.000+10:00",
-      "volume_ML": 114670.28,
-      "lat": -42.144384,
-      "lon": 147.174721,
-      "state": "TAS",
-      "parameters": [
-        {
-          "parameter": "Storage Level",
-          "unit": "meter",
-          "value": 803.57,
-          "time": "2026-10-25T00:00:00.000+10:00"
-        }
-      ]
     },
     {
       "name": "CENTENARY RES HG",
